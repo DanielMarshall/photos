@@ -19,7 +19,7 @@
   const items = await res.json();
 
   const SECTION_ORDER = [
-    ['Gladesville', 'Insects'],
+    ['Gladesville', 'Garden'],
     ['Gladesville', 'Planes'],
     ['Gladesville', 'People'],
     ['Gladesville', 'Uncategorized'],
@@ -33,7 +33,7 @@
   ];
 
   const SECTION_LABELS = {
-    'Gladesville|Insects': 'Gladesville — Insects',
+    'Gladesville|Garden': 'Gladesville — Garden',
     'Gladesville|Planes': 'Gladesville — Planes',
     'Gladesville|People': 'Gladesville — People',
     'Gladesville|Uncategorized': 'Gladesville — Other',
@@ -119,6 +119,7 @@
     zoomScale = 'fit';
     currentFocus = { x: 0.5, y: 0.5 };
     zoomBar.hidden = !zoomed;
+    lightbox.classList.toggle('full-view', zoomed);
     setViewportMode('fit');
     hideSpotlight();
     lbSelect.hidden = true;
@@ -393,5 +394,115 @@
     }
     if (e.key === 'ArrowLeft') step(-1);
     if (e.key === 'ArrowRight') step(1);
+  });
+
+  // ---- Slideshow ----
+  const ssStartBtn = document.getElementById('slideshow-start');
+  const ssEl = document.getElementById('slideshow');
+  const ssClose = document.getElementById('ss-close');
+  const ssStage = document.getElementById('ss-stage');
+  const ssImgA = document.getElementById('ss-img-a');
+  const ssImgB = document.getElementById('ss-img-b');
+  const ssTitle = document.getElementById('ss-title');
+  const ssLocation = document.getElementById('ss-location');
+  const ssDesc = document.getElementById('ss-desc');
+
+  const SLIDE_DURATION = 10000;
+  let ssOrder = [];
+  let ssPos = 0;
+  let ssTimer = null;
+  let ssShowingA = false;
+  let ssPaused = false;
+
+  function ssPreloadAll() {
+    ssOrder.forEach((idx) => {
+      const preload = new Image();
+      preload.src = items[idx].medium;
+    });
+  }
+
+  function ssRenderInfo(item) {
+    ssTitle.textContent = item.title || item.caption || '';
+    const loc = [item.category, item.subcategory].filter(Boolean).join(' – ');
+    ssLocation.textContent = item.location ? `${loc} · ${item.location}` : loc;
+    ssDesc.textContent = item.description || '';
+  }
+
+  function ssShow(pos) {
+    ssPos = pos;
+    const item = items[ssOrder[pos]];
+    const incoming = ssShowingA ? ssImgB : ssImgA;
+    const outgoing = ssShowingA ? ssImgA : ssImgB;
+    ssShowingA = !ssShowingA;
+
+    const reveal = () => {
+      incoming.classList.add('visible');
+      outgoing.classList.remove('visible');
+      ssRenderInfo(item);
+    };
+    incoming.onload = reveal;
+    incoming.src = item.medium;
+    incoming.alt = item.title || item.caption || 'Photo';
+    if (incoming.complete) reveal();
+  }
+
+  function ssScheduleNext() {
+    clearTimeout(ssTimer);
+    if (ssPaused) return;
+    ssTimer = setTimeout(() => ssStep(1), SLIDE_DURATION);
+  }
+
+  function ssStep(delta) {
+    const next = (ssPos + delta + ssOrder.length) % ssOrder.length;
+    ssShow(next);
+    ssScheduleNext();
+  }
+
+  function ssTogglePause() {
+    ssPaused = !ssPaused;
+    if (ssPaused) clearTimeout(ssTimer);
+    else ssScheduleNext();
+  }
+
+  function ssOpen() {
+    if (!flatOrder.length) return;
+    ssOrder = flatOrder.slice();
+    ssPaused = false;
+    ssShowingA = false;
+    ssImgA.classList.remove('visible');
+    ssImgB.classList.remove('visible');
+    ssEl.hidden = false;
+    document.body.style.overflow = 'hidden';
+    ssShow(0);
+    ssScheduleNext();
+    ssPreloadAll();
+    if (ssEl.requestFullscreen) {
+      ssEl.requestFullscreen().catch(() => {});
+    }
+  }
+
+  function ssCloseFn() {
+    clearTimeout(ssTimer);
+    ssEl.hidden = true;
+    document.body.style.overflow = '';
+    if (document.fullscreenElement) {
+      document.exitFullscreen().catch(() => {});
+    }
+  }
+
+  ssStartBtn.addEventListener('click', ssOpen);
+  ssClose.addEventListener('click', ssCloseFn);
+  ssStage.addEventListener('click', ssTogglePause);
+
+  document.addEventListener('fullscreenchange', () => {
+    if (!document.fullscreenElement && !ssEl.hidden) ssCloseFn();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (ssEl.hidden) return;
+    if (e.key === 'Escape') return ssCloseFn();
+    if (e.key === 'ArrowRight') return ssStep(1);
+    if (e.key === 'ArrowLeft') return ssStep(-1);
+    if (e.key === ' ') { e.preventDefault(); ssTogglePause(); }
   });
 })();

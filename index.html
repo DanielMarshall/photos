@@ -11,6 +11,7 @@
   <h1>Macro &amp; Travel</h1>
   <p class="subtitle">Macro photography and travel snapshots</p>
   <p class="gear-note">All photos on this site were taken with the same camera and lens — an Olympus OM-1 Mark II with a 90mm F3.5 macro lens. Some add the MC-20 2x teleconverter for extra reach (plane shots, distant subjects); some macro shots use flash with a diffuser.</p>
+  <button class="slideshow-btn" id="slideshow-start">&#9654; Slideshow</button>
 </header>
 
 <main>
@@ -53,6 +54,19 @@
       <div class="lb-meta" id="lb-meta"></div>
       <button class="lb-zoom" id="lb-zoom">View full resolution</button>
     </div>
+  </div>
+</div>
+
+<div class="slideshow" id="slideshow" hidden>
+  <button class="ss-close" id="ss-close" aria-label="Close slideshow">&times;</button>
+  <div class="ss-stage" id="ss-stage">
+    <img class="ss-img" id="ss-img-a" alt="">
+    <img class="ss-img" id="ss-img-b" alt="">
+  </div>
+  <div class="ss-bar">
+    <h3 id="ss-title"></h3>
+    <p id="ss-location"></p>
+    <p id="ss-desc"></p>
   </div>
 </div>
 

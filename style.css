@@ -54,6 +54,22 @@ body {
   line-height: 1.5;
 }
 
+.slideshow-btn {
+  margin-top: 1.1rem;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--fg);
+  padding: 0.5rem 1.2rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.slideshow-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
 main {
   max-width: 1400px;
   margin: 0 auto;
@@ -306,6 +322,29 @@ main {
   text-align: left;
 }
 
+/* Full-resolution view: collapse the metadata panel down to just the
+   title + return button, and let the image fill more of the screen. */
+.lightbox.full-view .lb-viewport {
+  height: 82vh;
+}
+
+.lightbox.full-view .lb-meta {
+  display: none;
+}
+
+.lightbox.full-view .lb-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0.6rem 1.1rem;
+}
+
+.lightbox.full-view .lb-info h3 {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
 .lb-info h3 {
   margin: 0 0 0.5rem;
   font-size: 1rem;
@@ -374,4 +413,86 @@ main {
 @media (max-width: 640px) {
   .lb-nav { font-size: 1.4rem; padding: 0.4rem 0.6rem; }
   .site-header h1 { font-size: 1.5rem; }
+}
+
+/* Slideshow */
+.slideshow {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  z-index: 200;
+}
+
+.slideshow[hidden] {
+  display: none;
+}
+
+.ss-stage {
+  position: absolute;
+  inset: 0;
+}
+
+.ss-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 1.1s ease;
+}
+
+.ss-img.visible {
+  opacity: 1;
+  z-index: 1;
+}
+
+.ss-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 3;
+  background: rgba(0,0,0,0.45);
+  border: none;
+  color: #fff;
+  font-size: 1.8rem;
+  line-height: 1;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.ss-close:hover {
+  background: rgba(0,0,0,0.7);
+}
+
+.ss-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  padding: 1.5rem 2rem 1.8rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0));
+  color: #fff;
+  text-align: center;
+  pointer-events: none;
+}
+
+.ss-bar h3 {
+  margin: 0 0 0.3rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.ss-bar p {
+  margin: 0.2rem 0;
+  font-size: 0.9rem;
+  color: #ddd;
+}
+
+#ss-location {
+  color: #aaa;
+  font-size: 0.78rem;
 }

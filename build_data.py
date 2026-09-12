@@ -5,6 +5,7 @@ import re
 
 EXPORTS = "C:/Users/dashi/Pictures/Camera Roll/exports"
 CAMROLL = "C:/Users/dashi/Pictures/Camera Roll"
+SAVED = "C:/Users/dashi/Pictures/Saved Pictures"
 PHOTOS = "C:/Users/dashi/photos"
 
 # stack-composite -> resolved source file (for camera settings only)
@@ -19,6 +20,9 @@ SOURCE_MAP = {
     # STACK-2-Spider is a single (unstacked) shot from the same session as
     # STACK-P9040321 -- same source frame, no separate original exists.
     "STACK-2-Spider.jpg": os.path.join(CAMROLL, "2026_09_04", "P9040321.ORF"),
+    # Zerene PMax stack outputs carry zero EXIF -- map to the source RAW.
+    "STACK-DANDELION-ZS-PMax.jpg": os.path.join(CAMROLL, "2026_09_04", "P9040361_01.ORF"),
+    "Grub Stack PMax.jpg": os.path.join(SAVED, "Grub Single RAW.ORF"),
 }
 UNRESOLVED = set()
 
@@ -144,6 +148,10 @@ TITLES = {
     "12092026_081712P9120052wasp stack.jpg": ("Wasp nest just starting", "4-photo stack"),
     "12092026_081712P9120052wasp.jpg": ("Wasp nest just starting", "Sample slice photo"),
     "12092026_185356P9120006UV Spider 2stack.jpg": ("Garden Orb Weaver Five", "2-photo stack taken under UV light. Pretty terrible due to wind, but I will try again."),
+    "STACK-DANDELION-ZS-PMax.jpg": ("Dandelion", "36-frame stack"),
+    "STACK-DANDELIONP9040361_01.jpg": ("Dandelion", "Sample stack slice"),
+    "Grub Stack PMax.jpg": ("Grub", "Stacked photo"),
+    "Grub Single Sample.jpg": ("Grub", "Sample stack slice"),
     "Plane - Virgin.jpg": ("Virgin", "I'm not a plane guy so haven't identified any of these -- feel free to let me know what they are."),
     "Plane - Quatari.jpg": ("Qatar 1", ""),
     "11092026_172707P9110001.jpg": ("Qantas 1", ""),
@@ -197,7 +205,7 @@ def classify(original, dt):
         return "Gladesville", "Planes", "Home"
     if original in UNCATEGORIZED_GLADESVILLE:
         return "Gladesville", "Uncategorized", "Home"
-    return "Gladesville", "Insects", "Home"
+    return "Gladesville", "Garden", "Home"
 
 def main():
     with open(os.path.join(PHOTOS, "manifest.tsv"), encoding="utf-8") as f:
