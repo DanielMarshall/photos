@@ -204,6 +204,7 @@ main {
   display: block;
   border-radius: 6px;
   pointer-events: none;
+  transition: width 0.25s ease, height 0.25s ease;
 }
 
 .lb-select {
@@ -211,6 +212,17 @@ main {
   border: 1.5px dashed #fff;
   background: rgba(255,255,255,0.15);
   pointer-events: none;
+  z-index: 3;
+}
+
+.lb-dim {
+  position: fixed;
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: grayscale(0.5);
+  -webkit-backdrop-filter: grayscale(0.5);
+  pointer-events: none;
+  z-index: 2;
+  transition: opacity 0.2s ease;
 }
 
 .zoom-bar {

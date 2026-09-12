@@ -12,6 +12,8 @@
   const zoomBar = document.getElementById('zoom-bar');
   const zoomButtons = Array.from(zoomBar.querySelectorAll('.zoom-btn'));
   const lbSelect = document.getElementById('lb-select');
+  const lbDimA = document.getElementById('lb-dim-a');
+  const lbDimB = document.getElementById('lb-dim-b');
 
   const res = await fetch('images.json');
   const items = await res.json();
@@ -93,7 +95,7 @@
   let current = -1;
   let zoomed = false; // viewing the full-resolution source (vs medium)
   let fullLoaded = false;
-  let zoomScale = 'fit'; // 'fit' | 1 | 2 | 4 | custom number
+  let zoomScale = 'fit'; // 'fit' | 1 | 0.5 | 0.25 | custom number (<=1)
 
   function open(i) {
     current = i;
@@ -109,6 +111,8 @@
     zoomScale = 'fit';
     zoomBar.hidden = !zoomed;
     setViewportMode('fit');
+    hideSpotlight();
+    lbSelect.hidden = true;
     lbImg.style.width = '';
     lbImg.style.height = '';
     lbImg.src = zoomed ? item.full : item.medium;
@@ -167,7 +171,37 @@
     lbViewport.classList.toggle('selectable', mode === 'fit' && zoomed);
   }
 
-  // scale: 'fit' | number. focus: fraction (0-1) of the natural image to center on.
+  function hideSpotlight() {
+    lbDimA.hidden = true;
+    lbDimB.hidden = true;
+  }
+
+  // Dims the image area revealed outside the originally-selected region
+  // once that selection has been scaled to fill the viewport's width or height.
+  // Uses position:fixed screen coordinates since the viewport itself scrolls.
+  function showSpotlight(scale, selWNatural, selHNatural) {
+    const rect = lbViewport.getBoundingClientRect();
+    const vw = rect.width;
+    const vh = rect.height;
+    const onScreenW = selWNatural * scale;
+    const onScreenH = selHNatural * scale;
+
+    if (onScreenW >= vw - 1) {
+      const barH = Math.max(0, (vh - onScreenH) / 2);
+      if (barH < 1) return hideSpotlight();
+      lbDimA.style.cssText = `left:${rect.left}px; top:${rect.top}px; width:${vw}px; height:${barH}px;`;
+      lbDimB.style.cssText = `left:${rect.left}px; top:${rect.bottom - barH}px; width:${vw}px; height:${barH}px;`;
+    } else {
+      const barW = Math.max(0, (vw - onScreenW) / 2);
+      if (barW < 1) return hideSpotlight();
+      lbDimA.style.cssText = `top:${rect.top}px; left:${rect.left}px; height:${vh}px; width:${barW}px;`;
+      lbDimB.style.cssText = `top:${rect.top}px; left:${rect.right - barW}px; height:${vh}px; width:${barW}px;`;
+    }
+    lbDimA.hidden = false;
+    lbDimB.hidden = false;
+  }
+
+  // scale: 'fit' | number (<=1). focus: fraction (0-1) of the natural image to center on.
   function setZoom(scale, focus) {
     zoomScale = scale;
     zoomButtons.forEach((b) => {
@@ -190,8 +224,11 @@
     lbImg.style.height = `${h}px`;
     const fx = focus ? focus.x : 0.5;
     const fy = focus ? focus.y : 0.5;
-    lbViewport.scrollLeft = fx * w - lbViewport.clientWidth / 2;
-    lbViewport.scrollTop = fy * h - lbViewport.clientHeight / 2;
+    lbViewport.scrollTo({
+      left: fx * w - lbViewport.clientWidth / 2,
+      top: fy * h - lbViewport.clientHeight / 2,
+      behavior: 'smooth',
+    });
   }
 
   lbImg.addEventListener('load', () => {
@@ -203,6 +240,7 @@
 
   zoomButtons.forEach((btn) => {
     btn.addEventListener('click', () => {
+      hideSpotlight();
       const z = btn.dataset.zoom;
       setZoom(z === 'fit' ? 'fit' : Number(z));
     });
@@ -216,6 +254,7 @@
 
   lbViewport.addEventListener('mousedown', (e) => {
     if (lbViewport.classList.contains('zoomed')) {
+      hideSpotlight();
       isPanning = true;
       panStart = {
         x: e.clientX,
@@ -264,22 +303,21 @@
     }
     if (isSelecting) {
       isSelecting = false;
-      lbSelect.hidden = true;
       const selW = parseFloat(lbSelect.style.width);
       const selH = parseFloat(lbSelect.style.height);
       if (selW > 12 && selH > 12 && fullLoaded) {
-        zoomToSelection();
+        zoomToSelection(selW, selH);
+      } else {
+        lbSelect.hidden = true;
       }
     }
   });
 
-  function zoomToSelection() {
+  function zoomToSelection(selW, selH) {
     const imgRect = lbImg.getBoundingClientRect();
     const viewportRect = lbViewport.getBoundingClientRect();
     const selLeft = parseFloat(lbSelect.style.left) + viewportRect.left;
     const selTop = parseFloat(lbSelect.style.top) + viewportRect.top;
-    const selW = parseFloat(lbSelect.style.width);
-    const selH = parseFloat(lbSelect.style.height);
 
     // Selection in fractions of the (letterboxed) displayed image.
     const fx1 = (selLeft - imgRect.left) / imgRect.width;
@@ -288,12 +326,22 @@
     const fracH = selH / imgRect.height;
     const fx = Math.min(Math.max(fx1 + fracW / 2, 0), 1);
     const fy = Math.min(Math.max(fy1 + fracH / 2, 0), 1);
+    const selWNatural = fracW * lbImg.naturalWidth;
+    const selHNatural = fracH * lbImg.naturalHeight;
 
-    const scaleX = lbViewport.clientWidth / (fracW * lbImg.naturalWidth);
-    const scaleY = lbViewport.clientHeight / (fracH * lbImg.naturalHeight);
-    const scale = Math.min(Math.max(Math.min(scaleX, scaleY), 1), 8);
+    // Never zoom in past native resolution (1:1).
+    const scaleX = lbViewport.clientWidth / selWNatural;
+    const scaleY = lbViewport.clientHeight / selHNatural;
+    const scale = Math.min(scaleX, scaleY, 1);
 
     setZoom(scale, { x: fx, y: fy });
+
+    // Keep the drawn box on screen through the zoom transition, then swap it
+    // for the spotlight dimming over whatever extra image got revealed.
+    setTimeout(() => {
+      lbSelect.hidden = true;
+      showSpotlight(scale, selWNatural, selHNatural);
+    }, 260);
   }
 
   const PAN_STEP = 100;
