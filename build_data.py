@@ -110,6 +110,59 @@ ARTARMON_TITLES = {
     "Slava.JPG": "Slava",
 }
 
+# (title, description) supplied by the photographer, keyed by original filename.
+TITLES = {
+    "STACK-2-Spider.jpg": ("Garden Orb Weaver One", "Stacked photo"),
+    "STACK-P9040321.jpg": ("Garden Orb Weaver One", "Sample stack slice"),
+    "Orb Weaver1.jpg": ("Golden Orb Weaver One", "Too busy making a web to pose for a good photo this time, but I know where you live now."),
+    "Orb Weaver2.jpg": ("Golden Orb Weaver One", ""),
+    "Orb Weaver3.jpg": ("Golden Orb Weaver One", ""),
+    "Spider back.jpg": ("Garden Orb Weaver Two", "Had a chance to get a shot of the back of one of these."),
+    "Grub and Slug.jpg": ("Grub and Slug", ""),
+    "Spider underside.jpg": ("Garden Orb Weaver Two", "Having a snack (despite the filename, this isn't actually an underside shot)."),
+    "11092026_200012P9111035 under spider stack.jpg": ("Garden Orb Weaver Three", "Stack of 5 — couldn't get a good stack, as I brushed its web with the diffuser and it proceeded to do repairs, so I tried to get the following array of action shots instead."),
+    "11092026_200012P9111035.jpg": ("Garden Orb Weaver Three", "Stack sample slice"),
+    "11092026_200200P9111040.jpg": ("Garden Orb Weaver Three", "Spinnerets"),
+    "11092026_200213P9111041.jpg": ("Garden Orb Weaver Three", "Leg on line"),
+    "11092026_200240P9111043.jpg": ("Garden Orb Weaver Three", "Pedipalp on line"),
+    "11092026_200243P9111044.jpg": ("Garden Orb Weaver Three", "Baby got abdomen!"),
+    "11092026_200244P9111045.jpg": ("Garden Orb Weaver Three", "Claw on line"),
+    "11092026_200254P9111048.jpg": ("Garden Orb Weaver Three", "Transferring line between legs"),
+    "11092026_200303P9111050.jpg": ("Garden Orb Weaver Three", "I guess it has an \"outie\"?"),
+    "11092026_200310P9111051.jpg": ("Garden Orb Weaver Three", "I've currently run out of descriptions"),
+    "11092026_200341P9111055.jpg": ("Garden Orb Weaver Three", ""),
+    "11092026_200351P9111056.jpg": ("Garden Orb Weaver Three", "The spider's knees?"),
+    "11092026_200357P9111057.jpg": ("Garden Orb Weaver Three", "Working the line"),
+    "11092026_200402P9111059.jpg": ("Garden Orb Weaver Three", "Dew and remains of previous victims?"),
+    "11092026_200404P9111060.jpg": ("Garden Orb Weaver Three", ""),
+    "11092026_200407P9111061.jpg": ("Garden Orb Weaver Three", "Both palps on deck"),
+    "11092026_200828P9111073.jpg": ("Garden Orb Weaver Four", "Just a couple of quick snaps"),
+    "11092026_200832P9111074.jpg": ("Garden Orb Weaver Four", "Just a couple of quick snaps"),
+    "11092026_201904P9111337 stack.jpg": ("Garden Orb Weaver Five", "Quick 4-photo stack"),
+    "11092026_201904P9111337.jpg": ("Garden Orb Weaver Five", "Sample slice"),
+    "12092026_081712P9120050wasp.jpg": ("Wasp nest just starting", "Eggs just laid"),
+    "12092026_081712P9120052wasp stack.jpg": ("Wasp nest just starting", "4-photo stack"),
+    "12092026_081712P9120052wasp.jpg": ("Wasp nest just starting", "Sample slice photo"),
+    "12092026_185356P9120006UV Spider 2stack.jpg": ("Garden Orb Weaver Five", "2-photo stack taken under UV light. Pretty terrible due to wind, but I will try again."),
+    "Plane - Virgin.jpg": ("Virgin", "I'm not a plane guy so haven't identified any of these -- feel free to let me know what they are."),
+    "Plane - Quatari.jpg": ("Qatar 1", ""),
+    "11092026_172707P9110001.jpg": ("Qantas 1", ""),
+    "11092026_172854P9110003.jpg": ("Qantas 2", ""),
+    "11092026_173133P9110005.jpg": ("Qatar 2", ""),
+    "11092026_173147P9110006.jpg": ("Qatar 2", ""),
+    "11092026_173500P9110010.jpg": ("Silhouette", "Just liked this silhouette below the planes"),
+    "11092026_173648P9110013.jpg": ("Silhouette #2", ""),
+    "11092026_174001P9110019.jpg": ("Qantas 3", ""),
+    "11092026_185659P9110024.jpg": ("Timelapse of a plane", ""),
+    "11092026_190153P9110025.jpg": ("Timelapse #2", ""),
+}
+
+# Display-order override: sort as if taken right after P9111337 (same subject,
+# Garden Orb Weaver Five) even though it was actually shot the next evening.
+SORT_OVERRIDE = {
+    "12092026_185356P9120006UV Spider 2stack.jpg": "2026:09:11 20:19:05",
+}
+
 GARDEN_START = "131127"
 GARDEN_END = "134238"
 TOWNHALL_START = "142257"
@@ -165,23 +218,26 @@ def main():
         dt = settings["datetime"] if settings else None
         category, subcategory, location = classify(original, dt)
 
+        title, description = TITLES.get(original, (ARTARMON_TITLES.get(original, ""), ""))
+
         items.append({
             "thumb": f"images/thumbs/{slug}.jpg",
             "medium": f"images/medium/{slug}.jpg",
             "full": f"images/full/{slug}.jpg",
             "original_filename": original,
             "caption": caption(original),
-            "title": ARTARMON_TITLES.get(original, ""),
-            "description": "",
+            "title": title,
+            "description": description,
             "category": category,
             "subcategory": subcategory,
             "location": location,
             "settings": settings,
         })
 
-    # sort by datetime when available, falling back to filename
+    # sort by datetime when available (with manual overrides), falling back to filename
     def sort_key(item):
-        dt = item["settings"]["datetime"] if item["settings"] else None
+        original = item["original_filename"]
+        dt = SORT_OVERRIDE.get(original) or (item["settings"]["datetime"] if item["settings"] else None)
         return (dt is None, dt or item["thumb"])
     items.sort(key=sort_key)
 
