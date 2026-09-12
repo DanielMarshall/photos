@@ -16,8 +16,11 @@ SOURCE_MAP = {
     "12092026_132044P9120399_01Sydney CBD 8stack.jpg": os.path.join(CAMROLL, "12092026_132044P9120399_01Sydney CBD.jpg"),
     "12092026_185356P9120006UV Spider 2stack.jpg": os.path.join(CAMROLL, "12092026_185356P9120006UV Spider.jpg"),
     "STACK-P9040321.jpg": os.path.join(CAMROLL, "2026_09_04", "P9040321.ORF"),
+    # STACK-2-Spider is a single (unstacked) shot from the same session as
+    # STACK-P9040321 -- same source frame, no separate original exists.
+    "STACK-2-Spider.jpg": os.path.join(CAMROLL, "2026_09_04", "P9040321.ORF"),
 }
-UNRESOLVED = {"STACK-2-Spider.jpg"}
+UNRESOLVED = set()
 
 def rat(x):
     if x is None:
@@ -81,9 +84,12 @@ def caption(original):
     return re.sub(r"[-_]+", " ", no_ext).strip()
 
 PEOPLE = {
-    "Nathan and Zeke1.jpg", "Nathan and Zeke2.jpg",
-    "Nathan.jpg", "mum - Diana.jpg",
     "Timmy.JPG", "Timmy2.JPG", "Timmy3.JPG", "Timmy4.JPG", "Timmy5.JPG",
+}
+# Taken at mum & dad's house in Hornsby Heights (same visit as Sprout)
+HORNSBY_HEIGHTS = {
+    "Sprout.jpg", "Nathan and Zeke1.jpg", "Nathan and Zeke2.jpg",
+    "Nathan.jpg", "mum - Diana.jpg",
 }
 PLANES = {
     "Plane - Quatari.jpg", "Plane - Virgin.jpg",
@@ -106,6 +112,12 @@ ARTARMON_TITLES = {
 
 GARDEN_START = "131127"
 GARDEN_END = "134238"
+TOWNHALL_START = "142257"
+TOWNHALL_END = "142342"
+QVB_START = "143005"
+QVB_END = "143821"
+DH_PIANO_START = "152343"
+DH_PIANO_END = "152405"
 
 def classify(original, dt):
     if "Sydney CBD" in original:
@@ -113,19 +125,25 @@ def classify(original, dt):
         time_code = m.group(2) if m else None
         if time_code and GARDEN_START <= time_code <= GARDEN_END:
             return "Chinese Garden of Friendship", None, "Darling Harbour, Sydney (water dragons & waterfall)"
+        if time_code and TOWNHALL_START <= time_code <= TOWNHALL_END:
+            return "Sydney Town Hall", None, "Town Hall, Sydney (Ukraine solidarity protest)"
+        if time_code and QVB_START <= time_code <= QVB_END:
+            return "Queen Victoria Building", None, "QVB, Sydney (public piano, clock, mall interior)"
+        if time_code and DH_PIANO_START <= time_code <= DH_PIANO_END:
+            return "Darling Harbour Piano", None, "Darling Harbour, Sydney"
         if time_code and time_code > GARDEN_END:
             return "Sydney CBD", None, "Darling Harbour to Wynyard, Sydney"
         return "Sydney CBD", None, "Darling Harbour area, Sydney"
     if original in ARTARMON_TITLES:
         return "Artarmon", None, "Artarmon"
-    if original == "Sprout.jpg":
-        return "Hornsby Heights", None, "Hornsby Heights, Sydney"
+    if original in HORNSBY_HEIGHTS:
+        return "Hornsby Heights", None, "Hornsby Heights, Sydney (mum & dad's house)"
     if original in PEOPLE:
         return "Gladesville", "People", "Home"
     if original in PLANES:
         return "Gladesville", "Planes", "Home"
     if original in UNCATEGORIZED_GLADESVILLE:
-        return "Gladesville", "Uncategorized", "Home (unconfirmed)"
+        return "Gladesville", "Uncategorized", "Home"
     return "Gladesville", "Insects", "Home"
 
 def main():

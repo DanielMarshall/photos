@@ -27,6 +27,9 @@
     ['Artarmon', null],
     ['Sydney CBD', null],
     ['Chinese Garden of Friendship', null],
+    ['Sydney Town Hall', null],
+    ['Queen Victoria Building', null],
+    ['Darling Harbour Piano', null],
   ];
 
   const SECTION_LABELS = {
@@ -37,7 +40,10 @@
     'Hornsby Heights|null': 'Hornsby Heights',
     'Artarmon|null': 'Artarmon',
     'Sydney CBD|null': 'Sydney CBD (Darling Harbour)',
+    'Sydney Town Hall|null': 'Sydney Town Hall — Ukraine Solidarity Protest',
+    'Queen Victoria Building|null': 'Queen Victoria Building — Public Piano',
     'Chinese Garden of Friendship|null': 'Chinese Garden of Friendship',
+    'Darling Harbour Piano|null': 'Darling Harbour Piano',
   };
 
   function groupKey(item) {
@@ -78,10 +84,11 @@
       img.alt = item.title || item.caption || 'Photo';
       fig.appendChild(img);
 
-      const label = item.title || item.caption;
+      const label = item.title || item.original_filename;
       if (label) {
         const cap = document.createElement('figcaption');
         cap.textContent = label;
+        if (!item.title) cap.classList.add('filename');
         fig.appendChild(cap);
       }
       fig.addEventListener('click', () => open(item._index));
@@ -96,6 +103,7 @@
   let zoomed = false; // viewing the full-resolution source (vs medium)
   let fullLoaded = false;
   let zoomScale = 'fit'; // 'fit' | 1 | 0.5 | 0.25 | custom number (<=1)
+  let currentFocus = { x: 0.5, y: 0.5 }; // fraction of natural image currently centered
 
   function open(i) {
     current = i;
@@ -109,6 +117,7 @@
     const item = items[current];
     fullLoaded = false;
     zoomScale = 'fit';
+    currentFocus = { x: 0.5, y: 0.5 };
     zoomBar.hidden = !zoomed;
     setViewportMode('fit');
     hideSpotlight();
@@ -121,6 +130,7 @@
     lbZoom.textContent = zoomed ? 'Back to normal size' : 'View full resolution';
 
     lbMeta.innerHTML = '';
+    addMeta('File', item.original_filename);
     addMeta('Location', [item.category, item.subcategory].filter(Boolean).join(' – '));
     if (item.location) addMeta('Where', item.location);
     if (item.description) addMeta('Notes', item.description);
@@ -222,13 +232,24 @@
     const h = lbImg.naturalHeight * scale;
     lbImg.style.width = `${w}px`;
     lbImg.style.height = `${h}px`;
-    const fx = focus ? focus.x : 0.5;
-    const fy = focus ? focus.y : 0.5;
+    const f = focus || currentFocus;
+    currentFocus = f;
     lbViewport.scrollTo({
-      left: fx * w - lbViewport.clientWidth / 2,
-      top: fy * h - lbViewport.clientHeight / 2,
+      left: f.x * w - lbViewport.clientWidth / 2,
+      top: f.y * h - lbViewport.clientHeight / 2,
       behavior: 'smooth',
     });
+  }
+
+  // Keep currentFocus in sync with wherever the view has been panned to,
+  // so switching zoom levels afterwards doesn't jump back to image center.
+  function syncFocusFromScroll() {
+    const w = parseFloat(lbImg.style.width) || lbImg.naturalWidth || 1;
+    const h = parseFloat(lbImg.style.height) || lbImg.naturalHeight || 1;
+    currentFocus = {
+      x: (lbViewport.scrollLeft + lbViewport.clientWidth / 2) / w,
+      y: (lbViewport.scrollTop + lbViewport.clientHeight / 2) / h,
+    };
   }
 
   lbImg.addEventListener('load', () => {
@@ -281,6 +302,7 @@
     if (isPanning) {
       lbViewport.scrollLeft = panStart.scrollLeft - (e.clientX - panStart.x);
       lbViewport.scrollTop = panStart.scrollTop - (e.clientY - panStart.y);
+      syncFocusFromScroll();
     } else if (isSelecting) {
       const rect = lbViewport.getBoundingClientRect();
       const curX = Math.max(0, Math.min(rect.width, e.clientX - rect.left));
@@ -359,10 +381,15 @@
     if (lightbox.hidden) return;
     if (e.key === 'Escape') return close();
     if (zoomed && zoomScale !== 'fit') {
-      if (e.key === 'ArrowLeft') return lbViewport.scrollBy(-PAN_STEP, 0);
-      if (e.key === 'ArrowRight') return lbViewport.scrollBy(PAN_STEP, 0);
-      if (e.key === 'ArrowUp') return lbViewport.scrollBy(0, -PAN_STEP);
-      if (e.key === 'ArrowDown') return lbViewport.scrollBy(0, PAN_STEP);
+      const pan = (dx, dy) => {
+        hideSpotlight();
+        lbViewport.scrollBy(dx, dy);
+        syncFocusFromScroll();
+      };
+      if (e.key === 'ArrowLeft') return pan(-PAN_STEP, 0);
+      if (e.key === 'ArrowRight') return pan(PAN_STEP, 0);
+      if (e.key === 'ArrowUp') return pan(0, -PAN_STEP);
+      if (e.key === 'ArrowDown') return pan(0, PAN_STEP);
     }
     if (e.key === 'ArrowLeft') step(-1);
     if (e.key === 'ArrowRight') step(1);
