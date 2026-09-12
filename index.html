@@ -33,7 +33,16 @@
   <button class="lb-nav lb-prev" id="lb-prev" aria-label="Previous">&#10094;</button>
   <button class="lb-nav lb-next" id="lb-next" aria-label="Next">&#10095;</button>
   <div class="lb-content">
-    <img id="lb-img" src="" alt="">
+    <div class="lb-viewport" id="lb-viewport">
+      <img id="lb-img" src="" alt="">
+      <div class="lb-select" id="lb-select" hidden></div>
+    </div>
+    <div class="zoom-bar" id="zoom-bar" hidden>
+      <button data-zoom="fit" class="zoom-btn active">Fit</button>
+      <button data-zoom="1" class="zoom-btn">1:1</button>
+      <button data-zoom="2" class="zoom-btn">2:1</button>
+      <button data-zoom="4" class="zoom-btn">4:1</button>
+    </div>
     <div class="lb-info">
       <h3 id="lb-title"></h3>
       <div class="lb-meta" id="lb-meta"></div>

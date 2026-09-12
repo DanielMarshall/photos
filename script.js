@@ -1,6 +1,7 @@
 (async function () {
   const main = document.getElementById('sections');
   const lightbox = document.getElementById('lightbox');
+  const lbViewport = document.getElementById('lb-viewport');
   const lbImg = document.getElementById('lb-img');
   const lbTitle = document.getElementById('lb-title');
   const lbMeta = document.getElementById('lb-meta');
@@ -8,6 +9,9 @@
   const lbClose = document.getElementById('lb-close');
   const lbPrev = document.getElementById('lb-prev');
   const lbNext = document.getElementById('lb-next');
+  const zoomBar = document.getElementById('zoom-bar');
+  const zoomButtons = Array.from(zoomBar.querySelectorAll('.zoom-btn'));
+  const lbSelect = document.getElementById('lb-select');
 
   const res = await fetch('images.json');
   const items = await res.json();
@@ -87,7 +91,9 @@
   });
 
   let current = -1;
-  let zoomed = false;
+  let zoomed = false; // viewing the full-resolution source (vs medium)
+  let fullLoaded = false;
+  let zoomScale = 'fit'; // 'fit' | 1 | 2 | 4 | custom number
 
   function open(i) {
     current = i;
@@ -99,6 +105,12 @@
 
   function render() {
     const item = items[current];
+    fullLoaded = false;
+    zoomScale = 'fit';
+    zoomBar.hidden = !zoomed;
+    setViewportMode('fit');
+    lbImg.style.width = '';
+    lbImg.style.height = '';
     lbImg.src = zoomed ? item.full : item.medium;
     lbImg.alt = item.title || item.caption || 'Photo';
     lbTitle.textContent = item.title || item.caption || '(untitled)';
@@ -149,6 +161,143 @@
     render();
   }
 
+  function setViewportMode(mode) {
+    lbViewport.classList.toggle('fit', mode === 'fit');
+    lbViewport.classList.toggle('zoomed', mode === 'zoomed');
+    lbViewport.classList.toggle('selectable', mode === 'fit' && zoomed);
+  }
+
+  // scale: 'fit' | number. focus: fraction (0-1) of the natural image to center on.
+  function setZoom(scale, focus) {
+    zoomScale = scale;
+    zoomButtons.forEach((b) => {
+      const isFit = scale === 'fit' && b.dataset.zoom === 'fit';
+      const isNum = typeof scale === 'number' && Number(b.dataset.zoom) === scale;
+      b.classList.toggle('active', isFit || isNum);
+    });
+
+    if (scale === 'fit') {
+      setViewportMode('fit');
+      lbImg.style.width = '';
+      lbImg.style.height = '';
+      return;
+    }
+    if (!fullLoaded) return;
+    setViewportMode('zoomed');
+    const w = lbImg.naturalWidth * scale;
+    const h = lbImg.naturalHeight * scale;
+    lbImg.style.width = `${w}px`;
+    lbImg.style.height = `${h}px`;
+    const fx = focus ? focus.x : 0.5;
+    const fy = focus ? focus.y : 0.5;
+    lbViewport.scrollLeft = fx * w - lbViewport.clientWidth / 2;
+    lbViewport.scrollTop = fy * h - lbViewport.clientHeight / 2;
+  }
+
+  lbImg.addEventListener('load', () => {
+    if (zoomed) {
+      fullLoaded = true;
+      setZoom(zoomScale);
+    }
+  });
+
+  zoomButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const z = btn.dataset.zoom;
+      setZoom(z === 'fit' ? 'fit' : Number(z));
+    });
+  });
+
+  // Drag-to-pan when zoomed in; drag-to-select-a-region-to-zoom when at fit.
+  let isPanning = false;
+  let panStart = { x: 0, y: 0, scrollLeft: 0, scrollTop: 0 };
+  let isSelecting = false;
+  let selStart = { x: 0, y: 0 };
+
+  lbViewport.addEventListener('mousedown', (e) => {
+    if (lbViewport.classList.contains('zoomed')) {
+      isPanning = true;
+      panStart = {
+        x: e.clientX,
+        y: e.clientY,
+        scrollLeft: lbViewport.scrollLeft,
+        scrollTop: lbViewport.scrollTop,
+      };
+      lbViewport.classList.add('dragging');
+      e.preventDefault();
+    } else if (lbViewport.classList.contains('selectable')) {
+      isSelecting = true;
+      const rect = lbViewport.getBoundingClientRect();
+      selStart = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+      lbSelect.style.left = `${selStart.x}px`;
+      lbSelect.style.top = `${selStart.y}px`;
+      lbSelect.style.width = '0px';
+      lbSelect.style.height = '0px';
+      lbSelect.hidden = false;
+      e.preventDefault();
+    }
+  });
+
+  document.addEventListener('mousemove', (e) => {
+    if (isPanning) {
+      lbViewport.scrollLeft = panStart.scrollLeft - (e.clientX - panStart.x);
+      lbViewport.scrollTop = panStart.scrollTop - (e.clientY - panStart.y);
+    } else if (isSelecting) {
+      const rect = lbViewport.getBoundingClientRect();
+      const curX = Math.max(0, Math.min(rect.width, e.clientX - rect.left));
+      const curY = Math.max(0, Math.min(rect.height, e.clientY - rect.top));
+      const x = Math.min(curX, selStart.x);
+      const y = Math.min(curY, selStart.y);
+      const w = Math.abs(curX - selStart.x);
+      const h = Math.abs(curY - selStart.y);
+      lbSelect.style.left = `${x}px`;
+      lbSelect.style.top = `${y}px`;
+      lbSelect.style.width = `${w}px`;
+      lbSelect.style.height = `${h}px`;
+    }
+  });
+
+  document.addEventListener('mouseup', (e) => {
+    if (isPanning) {
+      isPanning = false;
+      lbViewport.classList.remove('dragging');
+    }
+    if (isSelecting) {
+      isSelecting = false;
+      lbSelect.hidden = true;
+      const selW = parseFloat(lbSelect.style.width);
+      const selH = parseFloat(lbSelect.style.height);
+      if (selW > 12 && selH > 12 && fullLoaded) {
+        zoomToSelection();
+      }
+    }
+  });
+
+  function zoomToSelection() {
+    const imgRect = lbImg.getBoundingClientRect();
+    const viewportRect = lbViewport.getBoundingClientRect();
+    const selLeft = parseFloat(lbSelect.style.left) + viewportRect.left;
+    const selTop = parseFloat(lbSelect.style.top) + viewportRect.top;
+    const selW = parseFloat(lbSelect.style.width);
+    const selH = parseFloat(lbSelect.style.height);
+
+    // Selection in fractions of the (letterboxed) displayed image.
+    const fx1 = (selLeft - imgRect.left) / imgRect.width;
+    const fy1 = (selTop - imgRect.top) / imgRect.height;
+    const fracW = selW / imgRect.width;
+    const fracH = selH / imgRect.height;
+    const fx = Math.min(Math.max(fx1 + fracW / 2, 0), 1);
+    const fy = Math.min(Math.max(fy1 + fracH / 2, 0), 1);
+
+    const scaleX = lbViewport.clientWidth / (fracW * lbImg.naturalWidth);
+    const scaleY = lbViewport.clientHeight / (fracH * lbImg.naturalHeight);
+    const scale = Math.min(Math.max(Math.min(scaleX, scaleY), 1), 8);
+
+    setZoom(scale, { x: fx, y: fy });
+  }
+
+  const PAN_STEP = 100;
+
   lbClose.addEventListener('click', close);
   lbPrev.addEventListener('click', () => step(-1));
   lbNext.addEventListener('click', () => step(1));
@@ -160,7 +309,13 @@
 
   document.addEventListener('keydown', (e) => {
     if (lightbox.hidden) return;
-    if (e.key === 'Escape') close();
+    if (e.key === 'Escape') return close();
+    if (zoomed && zoomScale !== 'fit') {
+      if (e.key === 'ArrowLeft') return lbViewport.scrollBy(-PAN_STEP, 0);
+      if (e.key === 'ArrowRight') return lbViewport.scrollBy(PAN_STEP, 0);
+      if (e.key === 'ArrowUp') return lbViewport.scrollBy(0, -PAN_STEP);
+      if (e.key === 'ArrowDown') return lbViewport.scrollBy(0, PAN_STEP);
+    }
     if (e.key === 'ArrowLeft') step(-1);
     if (e.key === 'ArrowRight') step(1);
   });

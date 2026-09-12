@@ -161,11 +161,86 @@ main {
   gap: 0.6rem;
 }
 
-.lb-content img {
-  max-width: 100%;
-  max-height: 65vh;
-  object-fit: contain;
+.lb-viewport {
+  width: min(92vw, 1400px);
+  height: 65vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
   border-radius: 6px;
+  background: #000;
+  user-select: none;
+}
+
+.lb-viewport.fit img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.lb-viewport.fit.selectable {
+  cursor: crosshair;
+}
+
+.lb-viewport.zoomed {
+  overflow: auto;
+  cursor: grab;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.lb-viewport.zoomed.dragging {
+  cursor: grabbing;
+}
+
+.lb-viewport.zoomed img {
+  max-width: none;
+  max-height: none;
+}
+
+.lb-viewport img {
+  display: block;
+  border-radius: 6px;
+  pointer-events: none;
+}
+
+.lb-select {
+  position: absolute;
+  border: 1.5px dashed #fff;
+  background: rgba(255,255,255,0.15);
+  pointer-events: none;
+}
+
+.zoom-bar {
+  display: flex;
+  gap: 6px;
+}
+
+.zoom-bar[hidden] {
+  display: none;
+}
+
+.zoom-btn {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #ccc;
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+.zoom-btn:hover {
+  border-color: #fff;
+  color: #fff;
+}
+
+.zoom-btn.active {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  border-color: #fff;
 }
 
 .lb-info {

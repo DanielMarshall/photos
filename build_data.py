@@ -85,7 +85,16 @@ PEOPLE = {
     "Nathan.jpg", "mum - Diana.jpg",
     "Timmy.JPG", "Timmy2.JPG", "Timmy3.JPG", "Timmy4.JPG", "Timmy5.JPG",
 }
-PLANES = {"Plane - Quatari.jpg", "Plane - Virgin.jpg"}
+PLANES = {
+    "Plane - Quatari.jpg", "Plane - Virgin.jpg",
+    # early-evening plane-spotting session on 2026-09-11, before the
+    # P9111035+ night macro spider session -- same day, different subject
+    "11092026_172707P9110001.jpg", "11092026_172854P9110003.jpg",
+    "11092026_173133P9110005.jpg", "11092026_173147P9110006.jpg",
+    "11092026_173500P9110010.jpg", "11092026_173648P9110013.jpg",
+    "11092026_174001P9110019.jpg", "11092026_185659P9110024.jpg",
+    "11092026_190153P9110025.jpg",
+}
 UNCATEGORIZED_GLADESVILLE = {"Bus-Stop.jpg"}
 
 # Taken at work (Artarmon), not home -- first names only, no employer/address published
