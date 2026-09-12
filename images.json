@@ -1,956 +1,3333 @@
 [
   {
-    "thumb": "images/thumbs/11092026-172707p9110001.jpg",
-    "medium": "images/medium/11092026-172707p9110001.jpg",
-    "full": "images/full/11092026-172707p9110001.jpg",
-    "caption": ""
-  },
-  {
-    "thumb": "images/thumbs/11092026-172854p9110003.jpg",
-    "medium": "images/medium/11092026-172854p9110003.jpg",
-    "full": "images/full/11092026-172854p9110003.jpg",
-    "caption": ""
-  },
-  {
-    "thumb": "images/thumbs/11092026-173133p9110005.jpg",
-    "medium": "images/medium/11092026-173133p9110005.jpg",
-    "full": "images/full/11092026-173133p9110005.jpg",
-    "caption": ""
-  },
-  {
-    "thumb": "images/thumbs/11092026-173147p9110006.jpg",
-    "medium": "images/medium/11092026-173147p9110006.jpg",
-    "full": "images/full/11092026-173147p9110006.jpg",
-    "caption": ""
-  },
-  {
-    "thumb": "images/thumbs/11092026-173500p9110010.jpg",
-    "medium": "images/medium/11092026-173500p9110010.jpg",
-    "full": "images/full/11092026-173500p9110010.jpg",
-    "caption": ""
-  },
-  {
-    "thumb": "images/thumbs/11092026-173648p9110013.jpg",
-    "medium": "images/medium/11092026-173648p9110013.jpg",
-    "full": "images/full/11092026-173648p9110013.jpg",
-    "caption": ""
-  },
-  {
-    "thumb": "images/thumbs/11092026-174001p9110019.jpg",
-    "medium": "images/medium/11092026-174001p9110019.jpg",
-    "full": "images/full/11092026-174001p9110019.jpg",
-    "caption": ""
-  },
-  {
-    "thumb": "images/thumbs/11092026-185659p9110024.jpg",
-    "medium": "images/medium/11092026-185659p9110024.jpg",
-    "full": "images/full/11092026-185659p9110024.jpg",
-    "caption": ""
-  },
-  {
-    "thumb": "images/thumbs/11092026-190153p9110025.jpg",
-    "medium": "images/medium/11092026-190153p9110025.jpg",
-    "full": "images/full/11092026-190153p9110025.jpg",
-    "caption": ""
-  },
-  {
-    "thumb": "images/thumbs/11092026-200012p9111035-under-spider-stack.jpg",
-    "medium": "images/medium/11092026-200012p9111035-under-spider-stack.jpg",
-    "full": "images/full/11092026-200012p9111035-under-spider-stack.jpg",
-    "caption": "under spider stack"
-  },
-  {
-    "thumb": "images/thumbs/11092026-200012p9111035.jpg",
-    "medium": "images/medium/11092026-200012p9111035.jpg",
-    "full": "images/full/11092026-200012p9111035.jpg",
-    "caption": ""
-  },
-  {
-    "thumb": "images/thumbs/11092026-200200p9111040.jpg",
-    "medium": "images/medium/11092026-200200p9111040.jpg",
-    "full": "images/full/11092026-200200p9111040.jpg",
-    "caption": ""
-  },
-  {
-    "thumb": "images/thumbs/11092026-200213p9111041.jpg",
-    "medium": "images/medium/11092026-200213p9111041.jpg",
-    "full": "images/full/11092026-200213p9111041.jpg",
-    "caption": ""
-  },
-  {
-    "thumb": "images/thumbs/11092026-200240p9111043.jpg",
-    "medium": "images/medium/11092026-200240p9111043.jpg",
-    "full": "images/full/11092026-200240p9111043.jpg",
-    "caption": ""
-  },
-  {
-    "thumb": "images/thumbs/11092026-200243p9111044.jpg",
-    "medium": "images/medium/11092026-200243p9111044.jpg",
-    "full": "images/full/11092026-200243p9111044.jpg",
-    "caption": ""
-  },
-  {
-    "thumb": "images/thumbs/11092026-200244p9111045.jpg",
-    "medium": "images/medium/11092026-200244p9111045.jpg",
-    "full": "images/full/11092026-200244p9111045.jpg",
-    "caption": ""
-  },
-  {
-    "thumb": "images/thumbs/11092026-200254p9111048.jpg",
-    "medium": "images/medium/11092026-200254p9111048.jpg",
-    "full": "images/full/11092026-200254p9111048.jpg",
-    "caption": ""
-  },
-  {
-    "thumb": "images/thumbs/11092026-200303p9111050.jpg",
-    "medium": "images/medium/11092026-200303p9111050.jpg",
-    "full": "images/full/11092026-200303p9111050.jpg",
-    "caption": ""
-  },
-  {
-    "thumb": "images/thumbs/11092026-200310p9111051.jpg",
-    "medium": "images/medium/11092026-200310p9111051.jpg",
-    "full": "images/full/11092026-200310p9111051.jpg",
-    "caption": ""
-  },
-  {
-    "thumb": "images/thumbs/11092026-200341p9111055.jpg",
-    "medium": "images/medium/11092026-200341p9111055.jpg",
-    "full": "images/full/11092026-200341p9111055.jpg",
-    "caption": ""
-  },
-  {
-    "thumb": "images/thumbs/11092026-200351p9111056.jpg",
-    "medium": "images/medium/11092026-200351p9111056.jpg",
-    "full": "images/full/11092026-200351p9111056.jpg",
-    "caption": ""
-  },
-  {
-    "thumb": "images/thumbs/11092026-200357p9111057.jpg",
-    "medium": "images/medium/11092026-200357p9111057.jpg",
-    "full": "images/full/11092026-200357p9111057.jpg",
-    "caption": ""
-  },
-  {
-    "thumb": "images/thumbs/11092026-200402p9111059.jpg",
-    "medium": "images/medium/11092026-200402p9111059.jpg",
-    "full": "images/full/11092026-200402p9111059.jpg",
-    "caption": ""
-  },
-  {
-    "thumb": "images/thumbs/11092026-200404p9111060.jpg",
-    "medium": "images/medium/11092026-200404p9111060.jpg",
-    "full": "images/full/11092026-200404p9111060.jpg",
-    "caption": ""
-  },
-  {
-    "thumb": "images/thumbs/11092026-200407p9111061.jpg",
-    "medium": "images/medium/11092026-200407p9111061.jpg",
-    "full": "images/full/11092026-200407p9111061.jpg",
-    "caption": ""
-  },
-  {
-    "thumb": "images/thumbs/11092026-200828p9111073.jpg",
-    "medium": "images/medium/11092026-200828p9111073.jpg",
-    "full": "images/full/11092026-200828p9111073.jpg",
-    "caption": ""
-  },
-  {
-    "thumb": "images/thumbs/11092026-200832p9111074.jpg",
-    "medium": "images/medium/11092026-200832p9111074.jpg",
-    "full": "images/full/11092026-200832p9111074.jpg",
-    "caption": ""
-  },
-  {
-    "thumb": "images/thumbs/11092026-201904p9111337-stack.jpg",
-    "medium": "images/medium/11092026-201904p9111337-stack.jpg",
-    "full": "images/full/11092026-201904p9111337-stack.jpg",
-    "caption": "stack"
-  },
-  {
-    "thumb": "images/thumbs/11092026-201904p9111337.jpg",
-    "medium": "images/medium/11092026-201904p9111337.jpg",
-    "full": "images/full/11092026-201904p9111337.jpg",
-    "caption": ""
-  },
-  {
-    "thumb": "images/thumbs/12092026-081712p9120050wasp.jpg",
-    "medium": "images/medium/12092026-081712p9120050wasp.jpg",
-    "full": "images/full/12092026-081712p9120050wasp.jpg",
-    "caption": "wasp"
-  },
-  {
-    "thumb": "images/thumbs/12092026-081712p9120052wasp-stack.jpg",
-    "medium": "images/medium/12092026-081712p9120052wasp-stack.jpg",
-    "full": "images/full/12092026-081712p9120052wasp-stack.jpg",
-    "caption": "wasp stack"
-  },
-  {
-    "thumb": "images/thumbs/12092026-081712p9120052wasp.jpg",
-    "medium": "images/medium/12092026-081712p9120052wasp.jpg",
-    "full": "images/full/12092026-081712p9120052wasp.jpg",
-    "caption": "wasp"
-  },
-  {
-    "thumb": "images/thumbs/12092026-123035p9120046-01sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-123035p9120046-01sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-123035p9120046-01sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-123056p9120052-01sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-123056p9120052-01sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-123056p9120052-01sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-123301p9120055-01sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-123301p9120055-01sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-123301p9120055-01sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-123606p9120061-01sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-123606p9120061-01sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-123606p9120061-01sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-123631p9120067-01sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-123631p9120067-01sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-123631p9120067-01sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-124003p9120074sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-124003p9120074sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-124003p9120074sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-124436p9120089sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-124436p9120089sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-124436p9120089sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-124523p9120095sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-124523p9120095sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-124523p9120095sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-124543p9120101sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-124543p9120101sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-124543p9120101sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-124552p9120107sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-124552p9120107sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-124552p9120107sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-124612p9120113sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-124612p9120113sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-124612p9120113sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-124739p9120119sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-124739p9120119sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-124739p9120119sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-124824p9120125sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-124824p9120125sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-124824p9120125sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-124839p9120128sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-124839p9120128sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-124839p9120128sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-125221p9120136sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-125221p9120136sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-125221p9120136sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-125843p9120169sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-125843p9120169sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-125843p9120169sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-130047p9120183sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-130047p9120183sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-130047p9120183sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-130156p9120189sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-130156p9120189sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-130156p9120189sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-130258p9120201sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-130258p9120201sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-130258p9120201sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-130403p9120210sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-130403p9120210sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-130403p9120210sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-130418p9120213sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-130418p9120213sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-130418p9120213sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-130420p9120216sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-130420p9120216sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-130420p9120216sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-130502p9120222sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-130502p9120222sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-130502p9120222sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-131127p9120236sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-131127p9120236sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-131127p9120236sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-131238p9120245sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-131238p9120245sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-131238p9120245sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-131505p9120257sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-131505p9120257sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-131505p9120257sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-131508p9120260sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-131508p9120260sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-131508p9120260sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-131554p9120269sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-131554p9120269sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-131554p9120269sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-131600p9120275sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-131600p9120275sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-131600p9120275sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-131717p9120284sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-131717p9120284sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-131717p9120284sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-131721p9120287sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-131721p9120287sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-131721p9120287sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-131736p9120290sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-131736p9120290sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-131736p9120290sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-131947p9120308sydney-cbd-8stack.jpg",
-    "medium": "images/medium/12092026-131947p9120308sydney-cbd-8stack.jpg",
-    "full": "images/full/12092026-131947p9120308sydney-cbd-8stack.jpg",
-    "caption": "Sydney CBD 8stack"
-  },
-  {
-    "thumb": "images/thumbs/12092026-132044p9120399-01sydney-cbd-8stack.jpg",
-    "medium": "images/medium/12092026-132044p9120399-01sydney-cbd-8stack.jpg",
-    "full": "images/full/12092026-132044p9120399-01sydney-cbd-8stack.jpg",
-    "caption": "Sydney CBD 8stack"
-  },
-  {
-    "thumb": "images/thumbs/12092026-132418p9120736-01sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-132418p9120736-01sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-132418p9120736-01sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-132428p9120737-01sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-132428p9120737-01sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-132428p9120737-01sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-132503p9120740-01sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-132503p9120740-01sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-132503p9120740-01sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-132646p9120743-01sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-132646p9120743-01sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-132646p9120743-01sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-132652p9120744-01sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-132652p9120744-01sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-132652p9120744-01sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-132706p9120746-01sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-132706p9120746-01sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-132706p9120746-01sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-132713p9120747-01sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-132713p9120747-01sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-132713p9120747-01sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-132725p9120748-01sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-132725p9120748-01sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-132725p9120748-01sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-132739p9120749-01sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-132739p9120749-01sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-132739p9120749-01sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-132811p9120753-01sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-132811p9120753-01sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-132811p9120753-01sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-132910p9120755-01sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-132910p9120755-01sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-132910p9120755-01sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-132938p9120758-01sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-132938p9120758-01sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-132938p9120758-01sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-133003p9120761-01sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-133003p9120761-01sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-133003p9120761-01sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-133030p9120767-01sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-133030p9120767-01sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-133030p9120767-01sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-133346p9120771-01sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-133346p9120771-01sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-133346p9120771-01sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-133401p9120772-01sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-133401p9120772-01sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-133401p9120772-01sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-133423p9120773-01sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-133423p9120773-01sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-133423p9120773-01sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-133447p9120775-01sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-133447p9120775-01sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-133447p9120775-01sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-133616p9120781sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-133616p9120781sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-133616p9120781sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-133649p9120784sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-133649p9120784sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-133649p9120784sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-133656p9120786sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-133656p9120786sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-133656p9120786sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-134219p9120824sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-134219p9120824sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-134219p9120824sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-134230p9120825sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-134230p9120825sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-134230p9120825sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-134238p9120826sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-134238p9120826sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-134238p9120826sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-135523p9120836sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-135523p9120836sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-135523p9120836sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-141139p9120841sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-141139p9120841sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-141139p9120841sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-141147p9120842sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-141147p9120842sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-141147p9120842sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-141340p9120843sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-141340p9120843sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-141340p9120843sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-141433p9120844sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-141433p9120844sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-141433p9120844sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-141634p9120848sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-141634p9120848sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-141634p9120848sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-141938p9120849sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-141938p9120849sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-141938p9120849sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-141956p9120850sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-141956p9120850sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-141956p9120850sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-142001p9120851sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-142001p9120851sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-142001p9120851sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-142012p9120853sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-142012p9120853sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-142012p9120853sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-142257p9120855sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-142257p9120855sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-142257p9120855sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-142312p9120856sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-142312p9120856sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-142312p9120856sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-142320p9120857sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-142320p9120857sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-142320p9120857sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-142342p9120858sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-142342p9120858sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-142342p9120858sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-143005p9120861sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-143005p9120861sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-143005p9120861sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-143006p9120862sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-143006p9120862sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-143006p9120862sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-143010p9120865sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-143010p9120865sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-143010p9120865sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-143241p9120867sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-143241p9120867sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-143241p9120867sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-143338p9120873sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-143338p9120873sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-143338p9120873sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-143338p9120874sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-143338p9120874sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-143338p9120874sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-143342p9120876sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-143342p9120876sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-143342p9120876sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-143601p9120886sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-143601p9120886sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-143601p9120886sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-143608p9120887sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-143608p9120887sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-143608p9120887sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-143612p9120892sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-143612p9120892sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-143612p9120892sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-143615p9120893sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-143615p9120893sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-143615p9120893sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-143707p9120897sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-143707p9120897sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-143707p9120897sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-143752p9120902sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-143752p9120902sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-143752p9120902sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-143821p9120906sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-143821p9120906sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-143821p9120906sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-151247p9120921sydney-cbd-copy.jpg",
-    "medium": "images/medium/12092026-151247p9120921sydney-cbd-copy.jpg",
-    "full": "images/full/12092026-151247p9120921sydney-cbd-copy.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-151433p9120928sydney-cbd.jpg",
-    "medium": "images/medium/12092026-151433p9120928sydney-cbd.jpg",
-    "full": "images/full/12092026-151433p9120928sydney-cbd.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-151617p9120932sydney-cbd.jpg",
-    "medium": "images/medium/12092026-151617p9120932sydney-cbd.jpg",
-    "full": "images/full/12092026-151617p9120932sydney-cbd.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-151859p9120938sydney-cbd.jpg",
-    "medium": "images/medium/12092026-151859p9120938sydney-cbd.jpg",
-    "full": "images/full/12092026-151859p9120938sydney-cbd.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-152240p9120945sydney-cbd.jpg",
-    "medium": "images/medium/12092026-152240p9120945sydney-cbd.jpg",
-    "full": "images/full/12092026-152240p9120945sydney-cbd.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-152343p9120948sydney-cbd.jpg",
-    "medium": "images/medium/12092026-152343p9120948sydney-cbd.jpg",
-    "full": "images/full/12092026-152343p9120948sydney-cbd.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-152405p9120951sydney-cbd.jpg",
-    "medium": "images/medium/12092026-152405p9120951sydney-cbd.jpg",
-    "full": "images/full/12092026-152405p9120951sydney-cbd.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-153629p9120952sydney-cbd.jpg",
-    "medium": "images/medium/12092026-153629p9120952sydney-cbd.jpg",
-    "full": "images/full/12092026-153629p9120952sydney-cbd.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-154147p9120953sydney-cbd.jpg",
-    "medium": "images/medium/12092026-154147p9120953sydney-cbd.jpg",
-    "full": "images/full/12092026-154147p9120953sydney-cbd.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-154905p9120962sydney-cbd.jpg",
-    "medium": "images/medium/12092026-154905p9120962sydney-cbd.jpg",
-    "full": "images/full/12092026-154905p9120962sydney-cbd.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-155157p9120967sydney-cbd.jpg",
-    "medium": "images/medium/12092026-155157p9120967sydney-cbd.jpg",
-    "full": "images/full/12092026-155157p9120967sydney-cbd.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-155423p9120974sydney-cbd.jpg",
-    "medium": "images/medium/12092026-155423p9120974sydney-cbd.jpg",
-    "full": "images/full/12092026-155423p9120974sydney-cbd.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-155609p9120984sydney-cbd.jpg",
-    "medium": "images/medium/12092026-155609p9120984sydney-cbd.jpg",
-    "full": "images/full/12092026-155609p9120984sydney-cbd.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-155917p9120993sydney-cbd.jpg",
-    "medium": "images/medium/12092026-155917p9120993sydney-cbd.jpg",
-    "full": "images/full/12092026-155917p9120993sydney-cbd.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-160005p9120996sydney-cbd.jpg",
-    "medium": "images/medium/12092026-160005p9120996sydney-cbd.jpg",
-    "full": "images/full/12092026-160005p9120996sydney-cbd.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-160517p9121012sydney-cbd.jpg",
-    "medium": "images/medium/12092026-160517p9121012sydney-cbd.jpg",
-    "full": "images/full/12092026-160517p9121012sydney-cbd.jpg",
-    "caption": "Sydney CBD"
-  },
-  {
-    "thumb": "images/thumbs/12092026-185356p9120006uv-spider-2stack.jpg",
-    "medium": "images/medium/12092026-185356p9120006uv-spider-2stack.jpg",
-    "full": "images/full/12092026-185356p9120006uv-spider-2stack.jpg",
-    "caption": "UV Spider 2stack"
-  },
-  {
-    "thumb": "images/thumbs/billy.jpg",
-    "medium": "images/medium/billy.jpg",
-    "full": "images/full/billy.jpg",
-    "caption": "Billy"
-  },
-  {
-    "thumb": "images/thumbs/bus-stop.jpg",
-    "medium": "images/medium/bus-stop.jpg",
-    "full": "images/full/bus-stop.jpg",
-    "caption": "Bus Stop"
-  },
-  {
     "thumb": "images/thumbs/chloe-kiani.jpg",
     "medium": "images/medium/chloe-kiani.jpg",
     "full": "images/full/chloe-kiani.jpg",
-    "caption": "Chloe kiani"
-  },
-  {
-    "thumb": "images/thumbs/grub-and-slug.jpg",
-    "medium": "images/medium/grub-and-slug.jpg",
-    "full": "images/full/grub-and-slug.jpg",
-    "caption": "Grub and Slug"
-  },
-  {
-    "thumb": "images/thumbs/mum-diana.jpg",
-    "medium": "images/medium/mum-diana.jpg",
-    "full": "images/full/mum-diana.jpg",
-    "caption": "mum   Diana"
-  },
-  {
-    "thumb": "images/thumbs/nathan-and-zeke1.jpg",
-    "medium": "images/medium/nathan-and-zeke1.jpg",
-    "full": "images/full/nathan-and-zeke1.jpg",
-    "caption": "Nathan and Zeke1"
-  },
-  {
-    "thumb": "images/thumbs/nathan-and-zeke2.jpg",
-    "medium": "images/medium/nathan-and-zeke2.jpg",
-    "full": "images/full/nathan-and-zeke2.jpg",
-    "caption": "Nathan and Zeke2"
-  },
-  {
-    "thumb": "images/thumbs/nathan.jpg",
-    "medium": "images/medium/nathan.jpg",
-    "full": "images/full/nathan.jpg",
-    "caption": "Nathan"
-  },
-  {
-    "thumb": "images/thumbs/orb-weaver1.jpg",
-    "medium": "images/medium/orb-weaver1.jpg",
-    "full": "images/full/orb-weaver1.jpg",
-    "caption": "Orb Weaver1"
-  },
-  {
-    "thumb": "images/thumbs/orb-weaver2.jpg",
-    "medium": "images/medium/orb-weaver2.jpg",
-    "full": "images/full/orb-weaver2.jpg",
-    "caption": "Orb Weaver2"
-  },
-  {
-    "thumb": "images/thumbs/orb-weaver3.jpg",
-    "medium": "images/medium/orb-weaver3.jpg",
-    "full": "images/full/orb-weaver3.jpg",
-    "caption": "Orb Weaver3"
-  },
-  {
-    "thumb": "images/thumbs/plane-quatari.jpg",
-    "medium": "images/medium/plane-quatari.jpg",
-    "full": "images/full/plane-quatari.jpg",
-    "caption": "Plane   Quatari"
-  },
-  {
-    "thumb": "images/thumbs/plane-virgin.jpg",
-    "medium": "images/medium/plane-virgin.jpg",
-    "full": "images/full/plane-virgin.jpg",
-    "caption": "Plane   Virgin"
+    "original_filename": "Chloe-kiani.JPG",
+    "caption": "Chloe kiani",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "People",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/5.6",
+      "shutter": "1/80s",
+      "iso": 5000,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:04 08:53:11"
+    }
   },
   {
     "thumb": "images/thumbs/slava.jpg",
     "medium": "images/medium/slava.jpg",
     "full": "images/full/slava.jpg",
-    "caption": "Slava"
+    "original_filename": "Slava.JPG",
+    "caption": "Slava",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "People",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/5.6",
+      "shutter": "1/100s",
+      "iso": 8000,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:04 16:10:04"
+    }
   },
   {
-    "thumb": "images/thumbs/spider-back.jpg",
-    "medium": "images/medium/spider-back.jpg",
-    "full": "images/full/spider-back.jpg",
-    "caption": "Spider back"
-  },
-  {
-    "thumb": "images/thumbs/spider-underside.jpg",
-    "medium": "images/medium/spider-underside.jpg",
-    "full": "images/full/spider-underside.jpg",
-    "caption": "Spider underside"
-  },
-  {
-    "thumb": "images/thumbs/sprout.jpg",
-    "medium": "images/medium/sprout.jpg",
-    "full": "images/full/sprout.jpg",
-    "caption": "Sprout"
-  },
-  {
-    "thumb": "images/thumbs/stack-2-spider.jpg",
-    "medium": "images/medium/stack-2-spider.jpg",
-    "full": "images/full/stack-2-spider.jpg",
-    "caption": "STACK 2 Spider"
+    "thumb": "images/thumbs/billy.jpg",
+    "medium": "images/medium/billy.jpg",
+    "full": "images/full/billy.jpg",
+    "original_filename": "Billy.JPG",
+    "caption": "Billy",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "People",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/5.6",
+      "shutter": "1/100s",
+      "iso": 16000,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:04 16:43:31"
+    }
   },
   {
     "thumb": "images/thumbs/stack-p9040321.jpg",
     "medium": "images/medium/stack-p9040321.jpg",
     "full": "images/full/stack-p9040321.jpg",
-    "caption": "STACK P9040321"
+    "original_filename": "STACK-P9040321.jpg",
+    "caption": "STACK P9040321",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Insects",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:04 19:23:04"
+    }
+  },
+  {
+    "thumb": "images/thumbs/orb-weaver1.jpg",
+    "medium": "images/medium/orb-weaver1.jpg",
+    "full": "images/full/orb-weaver1.jpg",
+    "original_filename": "Orb Weaver1.jpg",
+    "caption": "Orb Weaver1",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Insects",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:04 20:10:35"
+    }
+  },
+  {
+    "thumb": "images/thumbs/orb-weaver2.jpg",
+    "medium": "images/medium/orb-weaver2.jpg",
+    "full": "images/full/orb-weaver2.jpg",
+    "original_filename": "Orb Weaver2.jpg",
+    "caption": "Orb Weaver2",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Insects",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:04 20:10:39"
+    }
+  },
+  {
+    "thumb": "images/thumbs/orb-weaver3.jpg",
+    "medium": "images/medium/orb-weaver3.jpg",
+    "full": "images/full/orb-weaver3.jpg",
+    "original_filename": "Orb Weaver3.jpg",
+    "caption": "Orb Weaver3",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Insects",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:04 20:10:39"
+    }
+  },
+  {
+    "thumb": "images/thumbs/bus-stop.jpg",
+    "medium": "images/medium/bus-stop.jpg",
+    "full": "images/full/bus-stop.jpg",
+    "original_filename": "Bus-Stop.jpg",
+    "caption": "Bus Stop",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Uncategorized",
+    "location": "Home (unconfirmed)",
+    "settings": {
+      "aperture": "f/5.6",
+      "shutter": "1/50s",
+      "iso": 25600,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:04 20:14:06"
+    }
   },
   {
     "thumb": "images/thumbs/timmy.jpg",
     "medium": "images/medium/timmy.jpg",
     "full": "images/full/timmy.jpg",
-    "caption": "Timmy"
+    "original_filename": "Timmy.JPG",
+    "caption": "Timmy",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "People",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/5.6",
+      "shutter": "1/125s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:05 10:22:47"
+    }
   },
   {
     "thumb": "images/thumbs/timmy2.jpg",
     "medium": "images/medium/timmy2.jpg",
     "full": "images/full/timmy2.jpg",
-    "caption": "Timmy2"
+    "original_filename": "Timmy2.JPG",
+    "caption": "Timmy2",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "People",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/20",
+      "shutter": "1/80s",
+      "iso": 800,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:05 10:24:31"
+    }
   },
   {
     "thumb": "images/thumbs/timmy3.jpg",
     "medium": "images/medium/timmy3.jpg",
     "full": "images/full/timmy3.jpg",
-    "caption": "Timmy3"
+    "original_filename": "Timmy3.JPG",
+    "caption": "Timmy3",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "People",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/20",
+      "shutter": "1/100s",
+      "iso": 2000,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:05 10:24:43"
+    }
   },
   {
     "thumb": "images/thumbs/timmy4.jpg",
     "medium": "images/medium/timmy4.jpg",
     "full": "images/full/timmy4.jpg",
-    "caption": "Timmy4"
+    "original_filename": "Timmy4.JPG",
+    "caption": "Timmy4",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "People",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/5.6",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:05 10:25:07"
+    }
   },
   {
     "thumb": "images/thumbs/timmy5.jpg",
     "medium": "images/medium/timmy5.jpg",
     "full": "images/full/timmy5.jpg",
-    "caption": "Timmy5"
+    "original_filename": "Timmy5.JPG",
+    "caption": "Timmy5",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "People",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/5.6",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:05 10:25:08"
+    }
+  },
+  {
+    "thumb": "images/thumbs/spider-back.jpg",
+    "medium": "images/medium/spider-back.jpg",
+    "full": "images/full/spider-back.jpg",
+    "original_filename": "Spider back.jpg",
+    "caption": "Spider back",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Insects",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/125s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:05 12:59:59"
+    }
+  },
+  {
+    "thumb": "images/thumbs/grub-and-slug.jpg",
+    "medium": "images/medium/grub-and-slug.jpg",
+    "full": "images/full/grub-and-slug.jpg",
+    "original_filename": "Grub and Slug.jpg",
+    "caption": "Grub and Slug",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Insects",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:05 15:55:24"
+    }
+  },
+  {
+    "thumb": "images/thumbs/nathan.jpg",
+    "medium": "images/medium/nathan.jpg",
+    "full": "images/full/nathan.jpg",
+    "original_filename": "Nathan.jpg",
+    "caption": "Nathan",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "People",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/5.6",
+      "shutter": "1/100s",
+      "iso": 2500,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:06 12:49:50"
+    }
+  },
+  {
+    "thumb": "images/thumbs/mum-diana.jpg",
+    "medium": "images/medium/mum-diana.jpg",
+    "full": "images/full/mum-diana.jpg",
+    "original_filename": "mum - Diana.jpg",
+    "caption": "mum   Diana",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "People",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/5.6",
+      "shutter": "1/100s",
+      "iso": 3200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:06 12:50:29"
+    }
+  },
+  {
+    "thumb": "images/thumbs/nathan-and-zeke1.jpg",
+    "medium": "images/medium/nathan-and-zeke1.jpg",
+    "full": "images/full/nathan-and-zeke1.jpg",
+    "original_filename": "Nathan and Zeke1.jpg",
+    "caption": "Nathan and Zeke1",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "People",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/5.6",
+      "shutter": "1/100s",
+      "iso": 10000,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:06 12:53:48"
+    }
+  },
+  {
+    "thumb": "images/thumbs/nathan-and-zeke2.jpg",
+    "medium": "images/medium/nathan-and-zeke2.jpg",
+    "full": "images/full/nathan-and-zeke2.jpg",
+    "original_filename": "Nathan and Zeke2.jpg",
+    "caption": "Nathan and Zeke2",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "People",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/5.6",
+      "shutter": "1/80s",
+      "iso": 6400,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:06 12:53:54"
+    }
+  },
+  {
+    "thumb": "images/thumbs/spider-underside.jpg",
+    "medium": "images/medium/spider-underside.jpg",
+    "full": "images/full/spider-underside.jpg",
+    "original_filename": "Spider underside.jpg",
+    "caption": "Spider underside",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Insects",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/9",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:06 13:01:28"
+    }
+  },
+  {
+    "thumb": "images/thumbs/sprout.jpg",
+    "medium": "images/medium/sprout.jpg",
+    "full": "images/full/sprout.jpg",
+    "original_filename": "Sprout.jpg",
+    "caption": "Sprout",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Uncategorized",
+    "location": "Home (unconfirmed)",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:06 13:16:48"
+    }
+  },
+  {
+    "thumb": "images/thumbs/plane-virgin.jpg",
+    "medium": "images/medium/plane-virgin.jpg",
+    "full": "images/full/plane-virgin.jpg",
+    "original_filename": "Plane - Virgin.jpg",
+    "caption": "Plane   Virgin",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Planes",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/7.1",
+      "shutter": "1/200s",
+      "iso": 250,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:09 17:30:19"
+    }
+  },
+  {
+    "thumb": "images/thumbs/plane-quatari.jpg",
+    "medium": "images/medium/plane-quatari.jpg",
+    "full": "images/full/plane-quatari.jpg",
+    "original_filename": "Plane - Quatari.jpg",
+    "caption": "Plane   Quatari",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Planes",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/7.1",
+      "shutter": "1/160s",
+      "iso": 500,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:09 17:36:38"
+    }
+  },
+  {
+    "thumb": "images/thumbs/11092026-172707p9110001.jpg",
+    "medium": "images/medium/11092026-172707p9110001.jpg",
+    "full": "images/full/11092026-172707p9110001.jpg",
+    "original_filename": "11092026_172707P9110001.jpg",
+    "caption": "",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Insects",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/6.3",
+      "shutter": "1/2500s",
+      "iso": 5000,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:11 17:27:07"
+    }
+  },
+  {
+    "thumb": "images/thumbs/11092026-172854p9110003.jpg",
+    "medium": "images/medium/11092026-172854p9110003.jpg",
+    "full": "images/full/11092026-172854p9110003.jpg",
+    "original_filename": "11092026_172854P9110003.jpg",
+    "caption": "",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Insects",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/6.3",
+      "shutter": "1/2500s",
+      "iso": 3200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:11 17:28:54"
+    }
+  },
+  {
+    "thumb": "images/thumbs/11092026-173133p9110005.jpg",
+    "medium": "images/medium/11092026-173133p9110005.jpg",
+    "full": "images/full/11092026-173133p9110005.jpg",
+    "original_filename": "11092026_173133P9110005.jpg",
+    "caption": "",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Insects",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/7.1",
+      "shutter": "1/2500s",
+      "iso": 3200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:11 17:31:33"
+    }
+  },
+  {
+    "thumb": "images/thumbs/11092026-173147p9110006.jpg",
+    "medium": "images/medium/11092026-173147p9110006.jpg",
+    "full": "images/full/11092026-173147p9110006.jpg",
+    "original_filename": "11092026_173147P9110006.jpg",
+    "caption": "",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Insects",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/7.1",
+      "shutter": "1/2500s",
+      "iso": 3200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:11 17:31:47"
+    }
+  },
+  {
+    "thumb": "images/thumbs/11092026-173500p9110010.jpg",
+    "medium": "images/medium/11092026-173500p9110010.jpg",
+    "full": "images/full/11092026-173500p9110010.jpg",
+    "original_filename": "11092026_173500P9110010.jpg",
+    "caption": "",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Insects",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/7.1",
+      "shutter": "1/2500s",
+      "iso": 3200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:11 17:35:00"
+    }
+  },
+  {
+    "thumb": "images/thumbs/11092026-173648p9110013.jpg",
+    "medium": "images/medium/11092026-173648p9110013.jpg",
+    "full": "images/full/11092026-173648p9110013.jpg",
+    "original_filename": "11092026_173648P9110013.jpg",
+    "caption": "",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Insects",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/7.1",
+      "shutter": "1/2500s",
+      "iso": 3200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:11 17:36:48"
+    }
+  },
+  {
+    "thumb": "images/thumbs/11092026-174001p9110019.jpg",
+    "medium": "images/medium/11092026-174001p9110019.jpg",
+    "full": "images/full/11092026-174001p9110019.jpg",
+    "original_filename": "11092026_174001P9110019.jpg",
+    "caption": "",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Insects",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/7.1",
+      "shutter": "1/2500s",
+      "iso": 3200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:11 17:40:01"
+    }
+  },
+  {
+    "thumb": "images/thumbs/11092026-185659p9110024.jpg",
+    "medium": "images/medium/11092026-185659p9110024.jpg",
+    "full": "images/full/11092026-185659p9110024.jpg",
+    "original_filename": "11092026_185659P9110024.jpg",
+    "caption": "",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Insects",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/9",
+      "shutter": "60s",
+      "iso": 400,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:11 18:56:59"
+    }
+  },
+  {
+    "thumb": "images/thumbs/11092026-190153p9110025.jpg",
+    "medium": "images/medium/11092026-190153p9110025.jpg",
+    "full": "images/full/11092026-190153p9110025.jpg",
+    "original_filename": "11092026_190153P9110025.jpg",
+    "caption": "",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Insects",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/7.1",
+      "shutter": "20s",
+      "iso": 400,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:11 19:01:53"
+    }
+  },
+  {
+    "thumb": "images/thumbs/11092026-200012p9111035-under-spider-stack.jpg",
+    "medium": "images/medium/11092026-200012p9111035-under-spider-stack.jpg",
+    "full": "images/full/11092026-200012p9111035-under-spider-stack.jpg",
+    "original_filename": "11092026_200012P9111035 under spider stack.jpg",
+    "caption": "under spider stack",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Insects",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:11 20:00:12"
+    }
+  },
+  {
+    "thumb": "images/thumbs/11092026-200012p9111035.jpg",
+    "medium": "images/medium/11092026-200012p9111035.jpg",
+    "full": "images/full/11092026-200012p9111035.jpg",
+    "original_filename": "11092026_200012P9111035.jpg",
+    "caption": "",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Insects",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:11 20:00:12"
+    }
+  },
+  {
+    "thumb": "images/thumbs/11092026-200200p9111040.jpg",
+    "medium": "images/medium/11092026-200200p9111040.jpg",
+    "full": "images/full/11092026-200200p9111040.jpg",
+    "original_filename": "11092026_200200P9111040.jpg",
+    "caption": "",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Insects",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:11 20:02:00"
+    }
+  },
+  {
+    "thumb": "images/thumbs/11092026-200213p9111041.jpg",
+    "medium": "images/medium/11092026-200213p9111041.jpg",
+    "full": "images/full/11092026-200213p9111041.jpg",
+    "original_filename": "11092026_200213P9111041.jpg",
+    "caption": "",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Insects",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:11 20:02:13"
+    }
+  },
+  {
+    "thumb": "images/thumbs/11092026-200240p9111043.jpg",
+    "medium": "images/medium/11092026-200240p9111043.jpg",
+    "full": "images/full/11092026-200240p9111043.jpg",
+    "original_filename": "11092026_200240P9111043.jpg",
+    "caption": "",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Insects",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:11 20:02:40"
+    }
+  },
+  {
+    "thumb": "images/thumbs/11092026-200243p9111044.jpg",
+    "medium": "images/medium/11092026-200243p9111044.jpg",
+    "full": "images/full/11092026-200243p9111044.jpg",
+    "original_filename": "11092026_200243P9111044.jpg",
+    "caption": "",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Insects",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:11 20:02:43"
+    }
+  },
+  {
+    "thumb": "images/thumbs/11092026-200244p9111045.jpg",
+    "medium": "images/medium/11092026-200244p9111045.jpg",
+    "full": "images/full/11092026-200244p9111045.jpg",
+    "original_filename": "11092026_200244P9111045.jpg",
+    "caption": "",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Insects",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:11 20:02:44"
+    }
+  },
+  {
+    "thumb": "images/thumbs/11092026-200254p9111048.jpg",
+    "medium": "images/medium/11092026-200254p9111048.jpg",
+    "full": "images/full/11092026-200254p9111048.jpg",
+    "original_filename": "11092026_200254P9111048.jpg",
+    "caption": "",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Insects",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:11 20:02:54"
+    }
+  },
+  {
+    "thumb": "images/thumbs/11092026-200303p9111050.jpg",
+    "medium": "images/medium/11092026-200303p9111050.jpg",
+    "full": "images/full/11092026-200303p9111050.jpg",
+    "original_filename": "11092026_200303P9111050.jpg",
+    "caption": "",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Insects",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:11 20:03:03"
+    }
+  },
+  {
+    "thumb": "images/thumbs/11092026-200310p9111051.jpg",
+    "medium": "images/medium/11092026-200310p9111051.jpg",
+    "full": "images/full/11092026-200310p9111051.jpg",
+    "original_filename": "11092026_200310P9111051.jpg",
+    "caption": "",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Insects",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:11 20:03:10"
+    }
+  },
+  {
+    "thumb": "images/thumbs/11092026-200341p9111055.jpg",
+    "medium": "images/medium/11092026-200341p9111055.jpg",
+    "full": "images/full/11092026-200341p9111055.jpg",
+    "original_filename": "11092026_200341P9111055.jpg",
+    "caption": "",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Insects",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:11 20:03:41"
+    }
+  },
+  {
+    "thumb": "images/thumbs/11092026-200351p9111056.jpg",
+    "medium": "images/medium/11092026-200351p9111056.jpg",
+    "full": "images/full/11092026-200351p9111056.jpg",
+    "original_filename": "11092026_200351P9111056.jpg",
+    "caption": "",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Insects",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:11 20:03:51"
+    }
+  },
+  {
+    "thumb": "images/thumbs/11092026-200357p9111057.jpg",
+    "medium": "images/medium/11092026-200357p9111057.jpg",
+    "full": "images/full/11092026-200357p9111057.jpg",
+    "original_filename": "11092026_200357P9111057.jpg",
+    "caption": "",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Insects",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:11 20:03:57"
+    }
+  },
+  {
+    "thumb": "images/thumbs/11092026-200402p9111059.jpg",
+    "medium": "images/medium/11092026-200402p9111059.jpg",
+    "full": "images/full/11092026-200402p9111059.jpg",
+    "original_filename": "11092026_200402P9111059.jpg",
+    "caption": "",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Insects",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:11 20:04:02"
+    }
+  },
+  {
+    "thumb": "images/thumbs/11092026-200404p9111060.jpg",
+    "medium": "images/medium/11092026-200404p9111060.jpg",
+    "full": "images/full/11092026-200404p9111060.jpg",
+    "original_filename": "11092026_200404P9111060.jpg",
+    "caption": "",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Insects",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:11 20:04:04"
+    }
+  },
+  {
+    "thumb": "images/thumbs/11092026-200407p9111061.jpg",
+    "medium": "images/medium/11092026-200407p9111061.jpg",
+    "full": "images/full/11092026-200407p9111061.jpg",
+    "original_filename": "11092026_200407P9111061.jpg",
+    "caption": "",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Insects",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:11 20:04:07"
+    }
+  },
+  {
+    "thumb": "images/thumbs/11092026-200828p9111073.jpg",
+    "medium": "images/medium/11092026-200828p9111073.jpg",
+    "full": "images/full/11092026-200828p9111073.jpg",
+    "original_filename": "11092026_200828P9111073.jpg",
+    "caption": "",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Insects",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:11 20:08:28"
+    }
+  },
+  {
+    "thumb": "images/thumbs/11092026-200832p9111074.jpg",
+    "medium": "images/medium/11092026-200832p9111074.jpg",
+    "full": "images/full/11092026-200832p9111074.jpg",
+    "original_filename": "11092026_200832P9111074.jpg",
+    "caption": "",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Insects",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:11 20:08:32"
+    }
+  },
+  {
+    "thumb": "images/thumbs/11092026-201904p9111337-stack.jpg",
+    "medium": "images/medium/11092026-201904p9111337-stack.jpg",
+    "full": "images/full/11092026-201904p9111337-stack.jpg",
+    "original_filename": "11092026_201904P9111337 stack.jpg",
+    "caption": "stack",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Insects",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:11 20:19:04"
+    }
+  },
+  {
+    "thumb": "images/thumbs/11092026-201904p9111337.jpg",
+    "medium": "images/medium/11092026-201904p9111337.jpg",
+    "full": "images/full/11092026-201904p9111337.jpg",
+    "original_filename": "11092026_201904P9111337.jpg",
+    "caption": "",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Insects",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:11 20:19:04"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-081712p9120050wasp.jpg",
+    "medium": "images/medium/12092026-081712p9120050wasp.jpg",
+    "full": "images/full/12092026-081712p9120050wasp.jpg",
+    "original_filename": "12092026_081712P9120050wasp.jpg",
+    "caption": "wasp",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Insects",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 08:17:12"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-081712p9120052wasp-stack.jpg",
+    "medium": "images/medium/12092026-081712p9120052wasp-stack.jpg",
+    "full": "images/full/12092026-081712p9120052wasp-stack.jpg",
+    "original_filename": "12092026_081712P9120052wasp stack.jpg",
+    "caption": "wasp stack",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Insects",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 08:17:12"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-081712p9120052wasp.jpg",
+    "medium": "images/medium/12092026-081712p9120052wasp.jpg",
+    "full": "images/full/12092026-081712p9120052wasp.jpg",
+    "original_filename": "12092026_081712P9120052wasp.jpg",
+    "caption": "wasp",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Insects",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 08:17:12"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-123035p9120046-01sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-123035p9120046-01sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-123035p9120046-01sydney-cbd-copy.jpg",
+    "original_filename": "12092026_123035P9120046_01Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/5.6",
+      "shutter": "1/1000s",
+      "iso": 1000,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 12:30:35"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-123056p9120052-01sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-123056p9120052-01sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-123056p9120052-01sydney-cbd-copy.jpg",
+    "original_filename": "12092026_123056P9120052_01Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/14",
+      "shutter": "1/1000s",
+      "iso": 1000,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 12:30:56"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-123301p9120055-01sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-123301p9120055-01sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-123301p9120055-01sydney-cbd-copy.jpg",
+    "original_filename": "12092026_123301P9120055_01Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/13",
+      "shutter": "1/1000s",
+      "iso": 1000,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 12:33:01"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-123606p9120061-01sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-123606p9120061-01sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-123606p9120061-01sydney-cbd-copy.jpg",
+    "original_filename": "12092026_123606P9120061_01Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/1000s",
+      "iso": 1000,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 12:36:06"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-123631p9120067-01sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-123631p9120067-01sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-123631p9120067-01sydney-cbd-copy.jpg",
+    "original_filename": "12092026_123631P9120067_01Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/7.1",
+      "shutter": "1/1000s",
+      "iso": 1000,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 12:36:31"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-124003p9120074sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-124003p9120074sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-124003p9120074sydney-cbd-copy.jpg",
+    "original_filename": "12092026_124003P9120074Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/13",
+      "shutter": "1/1000s",
+      "iso": 800,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 12:40:03"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-124436p9120089sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-124436p9120089sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-124436p9120089sydney-cbd-copy.jpg",
+    "original_filename": "12092026_124436P9120089Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/11",
+      "shutter": "1/1000s",
+      "iso": 1000,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 12:44:36"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-124523p9120095sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-124523p9120095sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-124523p9120095sydney-cbd-copy.jpg",
+    "original_filename": "12092026_124523P9120095Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/1000s",
+      "iso": 1000,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 12:45:23"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-124543p9120101sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-124543p9120101sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-124543p9120101sydney-cbd-copy.jpg",
+    "original_filename": "12092026_124543P9120101Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/9",
+      "shutter": "1/1000s",
+      "iso": 1000,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 12:45:43"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-124552p9120107sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-124552p9120107sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-124552p9120107sydney-cbd-copy.jpg",
+    "original_filename": "12092026_124552P9120107Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/1000s",
+      "iso": 1000,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 12:45:52"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-124612p9120113sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-124612p9120113sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-124612p9120113sydney-cbd-copy.jpg",
+    "original_filename": "12092026_124612P9120113Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/5.6",
+      "shutter": "1/1000s",
+      "iso": 1000,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 12:46:12"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-124739p9120119sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-124739p9120119sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-124739p9120119sydney-cbd-copy.jpg",
+    "original_filename": "12092026_124739P9120119Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/4.5",
+      "shutter": "1/1000s",
+      "iso": 1000,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 12:47:39"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-124824p9120125sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-124824p9120125sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-124824p9120125sydney-cbd-copy.jpg",
+    "original_filename": "12092026_124824P9120125Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/5.6",
+      "shutter": "1/1000s",
+      "iso": 1000,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 12:48:24"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-124839p9120128sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-124839p9120128sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-124839p9120128sydney-cbd-copy.jpg",
+    "original_filename": "12092026_124839P9120128Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/20",
+      "shutter": "1/1000s",
+      "iso": 1000,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 12:48:39"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-125221p9120136sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-125221p9120136sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-125221p9120136sydney-cbd-copy.jpg",
+    "original_filename": "12092026_125221P9120136Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/500s",
+      "iso": 1250,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 12:52:21"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-125843p9120169sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-125843p9120169sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-125843p9120169sydney-cbd-copy.jpg",
+    "original_filename": "12092026_125843P9120169Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/4000s",
+      "iso": 1250,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 12:58:43"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-130047p9120183sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-130047p9120183sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-130047p9120183sydney-cbd-copy.jpg",
+    "original_filename": "12092026_130047P9120183Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/22",
+      "shutter": "1/50s",
+      "iso": 160,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 13:00:47"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-130156p9120189sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-130156p9120189sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-130156p9120189sydney-cbd-copy.jpg",
+    "original_filename": "12092026_130156P9120189Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/18",
+      "shutter": "1/50s",
+      "iso": 160,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 13:01:56"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-130258p9120201sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-130258p9120201sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-130258p9120201sydney-cbd-copy.jpg",
+    "original_filename": "12092026_130258P9120201Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/5.6",
+      "shutter": "1/500s",
+      "iso": 160,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 13:02:58"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-130403p9120210sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-130403p9120210sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-130403p9120210sydney-cbd-copy.jpg",
+    "original_filename": "12092026_130403P9120210Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/13",
+      "shutter": "1/80s",
+      "iso": 160,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 13:04:03"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-130418p9120213sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-130418p9120213sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-130418p9120213sydney-cbd-copy.jpg",
+    "original_filename": "12092026_130418P9120213Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/22",
+      "shutter": "1/6s",
+      "iso": 80,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 13:04:18"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-130420p9120216sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-130420p9120216sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-130420p9120216sydney-cbd-copy.jpg",
+    "original_filename": "12092026_130420P9120216Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/22",
+      "shutter": "1/6s",
+      "iso": 80,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 13:04:20"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-130502p9120222sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-130502p9120222sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-130502p9120222sydney-cbd-copy.jpg",
+    "original_filename": "12092026_130502P9120222Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/3200s",
+      "iso": 320,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 13:05:02"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-131127p9120236sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-131127p9120236sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-131127p9120236sydney-cbd-copy.jpg",
+    "original_filename": "12092026_131127P9120236Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Chinese Garden of Friendship",
+    "subcategory": null,
+    "location": "Darling Harbour, Sydney (water dragons & waterfall)",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/8000s",
+      "iso": 400,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 13:11:27"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-131238p9120245sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-131238p9120245sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-131238p9120245sydney-cbd-copy.jpg",
+    "original_filename": "12092026_131238P9120245Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Chinese Garden of Friendship",
+    "subcategory": null,
+    "location": "Darling Harbour, Sydney (water dragons & waterfall)",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/8000s",
+      "iso": 10000,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 13:12:38"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-131505p9120257sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-131505p9120257sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-131505p9120257sydney-cbd-copy.jpg",
+    "original_filename": "12092026_131505P9120257Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Chinese Garden of Friendship",
+    "subcategory": null,
+    "location": "Darling Harbour, Sydney (water dragons & waterfall)",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/8000s",
+      "iso": 1600,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 13:15:05"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-131508p9120260sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-131508p9120260sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-131508p9120260sydney-cbd-copy.jpg",
+    "original_filename": "12092026_131508P9120260Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Chinese Garden of Friendship",
+    "subcategory": null,
+    "location": "Darling Harbour, Sydney (water dragons & waterfall)",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/8000s",
+      "iso": 1250,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 13:15:08"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-131554p9120269sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-131554p9120269sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-131554p9120269sydney-cbd-copy.jpg",
+    "original_filename": "12092026_131554P9120269Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Chinese Garden of Friendship",
+    "subcategory": null,
+    "location": "Darling Harbour, Sydney (water dragons & waterfall)",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/8000s",
+      "iso": 400,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 13:15:54"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-131600p9120275sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-131600p9120275sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-131600p9120275sydney-cbd-copy.jpg",
+    "original_filename": "12092026_131600P9120275Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Chinese Garden of Friendship",
+    "subcategory": null,
+    "location": "Darling Harbour, Sydney (water dragons & waterfall)",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/8000s",
+      "iso": 2000,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 13:16:00"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-131717p9120284sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-131717p9120284sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-131717p9120284sydney-cbd-copy.jpg",
+    "original_filename": "12092026_131717P9120284Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Chinese Garden of Friendship",
+    "subcategory": null,
+    "location": "Darling Harbour, Sydney (water dragons & waterfall)",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/8000s",
+      "iso": 3200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 13:17:17"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-131721p9120287sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-131721p9120287sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-131721p9120287sydney-cbd-copy.jpg",
+    "original_filename": "12092026_131721P9120287Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Chinese Garden of Friendship",
+    "subcategory": null,
+    "location": "Darling Harbour, Sydney (water dragons & waterfall)",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/8000s",
+      "iso": 3200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 13:17:21"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-131736p9120290sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-131736p9120290sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-131736p9120290sydney-cbd-copy.jpg",
+    "original_filename": "12092026_131736P9120290Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Chinese Garden of Friendship",
+    "subcategory": null,
+    "location": "Darling Harbour, Sydney (water dragons & waterfall)",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/800s",
+      "iso": 400,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 13:17:36"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-131947p9120308sydney-cbd-8stack.jpg",
+    "medium": "images/medium/12092026-131947p9120308sydney-cbd-8stack.jpg",
+    "full": "images/full/12092026-131947p9120308sydney-cbd-8stack.jpg",
+    "original_filename": "12092026_131947P9120308Sydney CBD 8stack.jpg",
+    "caption": "Sydney CBD 8stack",
+    "title": "",
+    "description": "",
+    "category": "Chinese Garden of Friendship",
+    "subcategory": null,
+    "location": "Darling Harbour, Sydney (water dragons & waterfall)",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/1000s",
+      "iso": 320,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 13:19:47"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-132044p9120399-01sydney-cbd-8stack.jpg",
+    "medium": "images/medium/12092026-132044p9120399-01sydney-cbd-8stack.jpg",
+    "full": "images/full/12092026-132044p9120399-01sydney-cbd-8stack.jpg",
+    "original_filename": "12092026_132044P9120399_01Sydney CBD 8stack.jpg",
+    "caption": "Sydney CBD 8stack",
+    "title": "",
+    "description": "",
+    "category": "Chinese Garden of Friendship",
+    "subcategory": null,
+    "location": "Darling Harbour, Sydney (water dragons & waterfall)",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 13:20:44"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-132418p9120736-01sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-132418p9120736-01sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-132418p9120736-01sydney-cbd-copy.jpg",
+    "original_filename": "12092026_132418P9120736_01Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Chinese Garden of Friendship",
+    "subcategory": null,
+    "location": "Darling Harbour, Sydney (water dragons & waterfall)",
+    "settings": {
+      "aperture": "f/7.1",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 13:24:18"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-132428p9120737-01sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-132428p9120737-01sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-132428p9120737-01sydney-cbd-copy.jpg",
+    "original_filename": "12092026_132428P9120737_01Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Chinese Garden of Friendship",
+    "subcategory": null,
+    "location": "Darling Harbour, Sydney (water dragons & waterfall)",
+    "settings": {
+      "aperture": "f/22",
+      "shutter": "1/8s",
+      "iso": 100,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 13:24:28"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-132503p9120740-01sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-132503p9120740-01sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-132503p9120740-01sydney-cbd-copy.jpg",
+    "original_filename": "12092026_132503P9120740_01Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Chinese Garden of Friendship",
+    "subcategory": null,
+    "location": "Darling Harbour, Sydney (water dragons & waterfall)",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/2500s",
+      "iso": 1000,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 13:25:03"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-132646p9120743-01sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-132646p9120743-01sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-132646p9120743-01sydney-cbd-copy.jpg",
+    "original_filename": "12092026_132646P9120743_01Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Chinese Garden of Friendship",
+    "subcategory": null,
+    "location": "Darling Harbour, Sydney (water dragons & waterfall)",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/2500s",
+      "iso": 500,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 13:26:46"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-132652p9120744-01sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-132652p9120744-01sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-132652p9120744-01sydney-cbd-copy.jpg",
+    "original_filename": "12092026_132652P9120744_01Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Chinese Garden of Friendship",
+    "subcategory": null,
+    "location": "Darling Harbour, Sydney (water dragons & waterfall)",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/800s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 13:26:52"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-132706p9120746-01sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-132706p9120746-01sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-132706p9120746-01sydney-cbd-copy.jpg",
+    "original_filename": "12092026_132706P9120746_01Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Chinese Garden of Friendship",
+    "subcategory": null,
+    "location": "Darling Harbour, Sydney (water dragons & waterfall)",
+    "settings": {
+      "aperture": "f/18",
+      "shutter": "1/80s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 13:27:06"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-132713p9120747-01sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-132713p9120747-01sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-132713p9120747-01sydney-cbd-copy.jpg",
+    "original_filename": "12092026_132713P9120747_01Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Chinese Garden of Friendship",
+    "subcategory": null,
+    "location": "Darling Harbour, Sydney (water dragons & waterfall)",
+    "settings": {
+      "aperture": "f/22",
+      "shutter": "1/25s",
+      "iso": 100,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 13:27:13"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-132725p9120748-01sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-132725p9120748-01sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-132725p9120748-01sydney-cbd-copy.jpg",
+    "original_filename": "12092026_132725P9120748_01Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Chinese Garden of Friendship",
+    "subcategory": null,
+    "location": "Darling Harbour, Sydney (water dragons & waterfall)",
+    "settings": {
+      "aperture": "f/22",
+      "shutter": "1/25s",
+      "iso": 100,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 13:27:25"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-132739p9120749-01sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-132739p9120749-01sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-132739p9120749-01sydney-cbd-copy.jpg",
+    "original_filename": "12092026_132739P9120749_01Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Chinese Garden of Friendship",
+    "subcategory": null,
+    "location": "Darling Harbour, Sydney (water dragons & waterfall)",
+    "settings": {
+      "aperture": "f/22",
+      "shutter": "1/6s",
+      "iso": 80,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 13:27:39"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-132811p9120753-01sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-132811p9120753-01sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-132811p9120753-01sydney-cbd-copy.jpg",
+    "original_filename": "12092026_132811P9120753_01Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Chinese Garden of Friendship",
+    "subcategory": null,
+    "location": "Darling Harbour, Sydney (water dragons & waterfall)",
+    "settings": {
+      "aperture": "f/22",
+      "shutter": "1/6s",
+      "iso": 80,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 13:28:11"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-132910p9120755-01sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-132910p9120755-01sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-132910p9120755-01sydney-cbd-copy.jpg",
+    "original_filename": "12092026_132910P9120755_01Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Chinese Garden of Friendship",
+    "subcategory": null,
+    "location": "Darling Harbour, Sydney (water dragons & waterfall)",
+    "settings": {
+      "aperture": "f/22",
+      "shutter": "1/6s",
+      "iso": 80,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 13:29:10"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-132938p9120758-01sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-132938p9120758-01sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-132938p9120758-01sydney-cbd-copy.jpg",
+    "original_filename": "12092026_132938P9120758_01Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Chinese Garden of Friendship",
+    "subcategory": null,
+    "location": "Darling Harbour, Sydney (water dragons & waterfall)",
+    "settings": {
+      "aperture": "f/22",
+      "shutter": "1/6s",
+      "iso": 80,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 13:29:38"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-133003p9120761-01sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-133003p9120761-01sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-133003p9120761-01sydney-cbd-copy.jpg",
+    "original_filename": "12092026_133003P9120761_01Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Chinese Garden of Friendship",
+    "subcategory": null,
+    "location": "Darling Harbour, Sydney (water dragons & waterfall)",
+    "settings": {
+      "aperture": "f/9",
+      "shutter": "1/200s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 13:30:03"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-133030p9120767-01sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-133030p9120767-01sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-133030p9120767-01sydney-cbd-copy.jpg",
+    "original_filename": "12092026_133030P9120767_01Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Chinese Garden of Friendship",
+    "subcategory": null,
+    "location": "Darling Harbour, Sydney (water dragons & waterfall)",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/4000s",
+      "iso": 1000,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 13:30:30"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-133346p9120771-01sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-133346p9120771-01sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-133346p9120771-01sydney-cbd-copy.jpg",
+    "original_filename": "12092026_133346P9120771_01Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Chinese Garden of Friendship",
+    "subcategory": null,
+    "location": "Darling Harbour, Sydney (water dragons & waterfall)",
+    "settings": {
+      "aperture": "f/4",
+      "shutter": "1/1000s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 13:33:46"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-133401p9120772-01sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-133401p9120772-01sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-133401p9120772-01sydney-cbd-copy.jpg",
+    "original_filename": "12092026_133401P9120772_01Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Chinese Garden of Friendship",
+    "subcategory": null,
+    "location": "Darling Harbour, Sydney (water dragons & waterfall)",
+    "settings": {
+      "aperture": "f/4.5",
+      "shutter": "1/1000s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 13:34:01"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-133423p9120773-01sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-133423p9120773-01sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-133423p9120773-01sydney-cbd-copy.jpg",
+    "original_filename": "12092026_133423P9120773_01Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Chinese Garden of Friendship",
+    "subcategory": null,
+    "location": "Darling Harbour, Sydney (water dragons & waterfall)",
+    "settings": {
+      "aperture": "f/13",
+      "shutter": "1/1000s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 13:34:23"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-133447p9120775-01sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-133447p9120775-01sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-133447p9120775-01sydney-cbd-copy.jpg",
+    "original_filename": "12092026_133447P9120775_01Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Chinese Garden of Friendship",
+    "subcategory": null,
+    "location": "Darling Harbour, Sydney (water dragons & waterfall)",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/1000s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 13:34:47"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-133616p9120781sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-133616p9120781sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-133616p9120781sydney-cbd-copy.jpg",
+    "original_filename": "12092026_133616P9120781Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Chinese Garden of Friendship",
+    "subcategory": null,
+    "location": "Darling Harbour, Sydney (water dragons & waterfall)",
+    "settings": {
+      "aperture": "f/7.1",
+      "shutter": "1/1000s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 13:36:16"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-133649p9120784sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-133649p9120784sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-133649p9120784sydney-cbd-copy.jpg",
+    "original_filename": "12092026_133649P9120784Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Chinese Garden of Friendship",
+    "subcategory": null,
+    "location": "Darling Harbour, Sydney (water dragons & waterfall)",
+    "settings": {
+      "aperture": "f/4.5",
+      "shutter": "1/1000s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 13:36:49"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-133656p9120786sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-133656p9120786sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-133656p9120786sydney-cbd-copy.jpg",
+    "original_filename": "12092026_133656P9120786Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Chinese Garden of Friendship",
+    "subcategory": null,
+    "location": "Darling Harbour, Sydney (water dragons & waterfall)",
+    "settings": {
+      "aperture": "f/5.6",
+      "shutter": "1/1000s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 13:36:56"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-134219p9120824sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-134219p9120824sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-134219p9120824sydney-cbd-copy.jpg",
+    "original_filename": "12092026_134219P9120824Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Chinese Garden of Friendship",
+    "subcategory": null,
+    "location": "Darling Harbour, Sydney (water dragons & waterfall)",
+    "settings": {
+      "aperture": "f/7.1",
+      "shutter": "1/1000s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 13:42:19"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-134230p9120825sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-134230p9120825sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-134230p9120825sydney-cbd-copy.jpg",
+    "original_filename": "12092026_134230P9120825Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Chinese Garden of Friendship",
+    "subcategory": null,
+    "location": "Darling Harbour, Sydney (water dragons & waterfall)",
+    "settings": {
+      "aperture": "f/6.3",
+      "shutter": "1/1000s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 13:42:30"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-134238p9120826sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-134238p9120826sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-134238p9120826sydney-cbd-copy.jpg",
+    "original_filename": "12092026_134238P9120826Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Chinese Garden of Friendship",
+    "subcategory": null,
+    "location": "Darling Harbour, Sydney (water dragons & waterfall)",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/1000s",
+      "iso": 400,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 13:42:38"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-135523p9120836sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-135523p9120836sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-135523p9120836sydney-cbd-copy.jpg",
+    "original_filename": "12092026_135523P9120836Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/1000s",
+      "iso": 10000,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 13:55:23"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-141139p9120841sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-141139p9120841sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-141139p9120841sydney-cbd-copy.jpg",
+    "original_filename": "12092026_141139P9120841Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/5",
+      "shutter": "1/1600s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 14:11:39"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-141147p9120842sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-141147p9120842sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-141147p9120842sydney-cbd-copy.jpg",
+    "original_filename": "12092026_141147P9120842Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/1600s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 14:11:47"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-141340p9120843sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-141340p9120843sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-141340p9120843sydney-cbd-copy.jpg",
+    "original_filename": "12092026_141340P9120843Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/1600s",
+      "iso": 1250,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 14:13:40"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-141433p9120844sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-141433p9120844sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-141433p9120844sydney-cbd-copy.jpg",
+    "original_filename": "12092026_141433P9120844Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/1600s",
+      "iso": 2500,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 14:14:33"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-141634p9120848sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-141634p9120848sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-141634p9120848sydney-cbd-copy.jpg",
+    "original_filename": "12092026_141634P9120848Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/1600s",
+      "iso": 640,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 14:16:34"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-141938p9120849sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-141938p9120849sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-141938p9120849sydney-cbd-copy.jpg",
+    "original_filename": "12092026_141938P9120849Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/1600s",
+      "iso": 25600,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 14:19:38"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-141956p9120850sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-141956p9120850sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-141956p9120850sydney-cbd-copy.jpg",
+    "original_filename": "12092026_141956P9120850Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/80s",
+      "iso": 1600,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 14:19:56"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-142001p9120851sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-142001p9120851sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-142001p9120851sydney-cbd-copy.jpg",
+    "original_filename": "12092026_142001P9120851Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/80s",
+      "iso": 1600,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 14:20:01"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-142012p9120853sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-142012p9120853sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-142012p9120853sydney-cbd-copy.jpg",
+    "original_filename": "12092026_142012P9120853Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/4",
+      "shutter": "1/13s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 14:20:12"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-142257p9120855sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-142257p9120855sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-142257p9120855sydney-cbd-copy.jpg",
+    "original_filename": "12092026_142257P9120855Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/1000s",
+      "iso": 640,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 14:22:57"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-142312p9120856sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-142312p9120856sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-142312p9120856sydney-cbd-copy.jpg",
+    "original_filename": "12092026_142312P9120856Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/1000s",
+      "iso": 250,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 14:23:12"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-142320p9120857sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-142320p9120857sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-142320p9120857sydney-cbd-copy.jpg",
+    "original_filename": "12092026_142320P9120857Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/1000s",
+      "iso": 400,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 14:23:20"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-142342p9120858sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-142342p9120858sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-142342p9120858sydney-cbd-copy.jpg",
+    "original_filename": "12092026_142342P9120858Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/1000s",
+      "iso": 400,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 14:23:42"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-143005p9120861sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-143005p9120861sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-143005p9120861sydney-cbd-copy.jpg",
+    "original_filename": "12092026_143005P9120861Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/1000s",
+      "iso": 25600,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 14:30:05"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-143006p9120862sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-143006p9120862sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-143006p9120862sydney-cbd-copy.jpg",
+    "original_filename": "12092026_143006P9120862Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/1000s",
+      "iso": 25600,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 14:30:06"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-143010p9120865sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-143010p9120865sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-143010p9120865sydney-cbd-copy.jpg",
+    "original_filename": "12092026_143010P9120865Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/1000s",
+      "iso": 25600,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 14:30:10"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-143241p9120867sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-143241p9120867sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-143241p9120867sydney-cbd-copy.jpg",
+    "original_filename": "12092026_143241P9120867Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/1000s",
+      "iso": 25600,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 14:32:41"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-143338p9120873sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-143338p9120873sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-143338p9120873sydney-cbd-copy.jpg",
+    "original_filename": "12092026_143338P9120873Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/1000s",
+      "iso": 25600,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 14:33:38"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-143338p9120874sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-143338p9120874sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-143338p9120874sydney-cbd-copy.jpg",
+    "original_filename": "12092026_143338P9120874Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/1000s",
+      "iso": 25600,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 14:33:38"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-143342p9120876sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-143342p9120876sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-143342p9120876sydney-cbd-copy.jpg",
+    "original_filename": "12092026_143342P9120876Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/1000s",
+      "iso": 25600,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 14:33:42"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-143601p9120886sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-143601p9120886sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-143601p9120886sydney-cbd-copy.jpg",
+    "original_filename": "12092026_143601P9120886Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/500s",
+      "iso": 25600,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 14:36:01"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-143608p9120887sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-143608p9120887sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-143608p9120887sydney-cbd-copy.jpg",
+    "original_filename": "12092026_143608P9120887Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/500s",
+      "iso": 25600,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 14:36:08"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-143612p9120892sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-143612p9120892sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-143612p9120892sydney-cbd-copy.jpg",
+    "original_filename": "12092026_143612P9120892Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/500s",
+      "iso": 25600,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 14:36:12"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-143615p9120893sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-143615p9120893sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-143615p9120893sydney-cbd-copy.jpg",
+    "original_filename": "12092026_143615P9120893Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/500s",
+      "iso": 25600,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 14:36:15"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-143707p9120897sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-143707p9120897sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-143707p9120897sydney-cbd-copy.jpg",
+    "original_filename": "12092026_143707P9120897Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/500s",
+      "iso": 3200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 14:37:07"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-143752p9120902sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-143752p9120902sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-143752p9120902sydney-cbd-copy.jpg",
+    "original_filename": "12092026_143752P9120902Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/30s",
+      "iso": 320,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 14:37:52"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-143821p9120906sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-143821p9120906sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-143821p9120906sydney-cbd-copy.jpg",
+    "original_filename": "12092026_143821P9120906Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/30s",
+      "iso": 320,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 14:38:21"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-151247p9120921sydney-cbd-copy.jpg",
+    "medium": "images/medium/12092026-151247p9120921sydney-cbd-copy.jpg",
+    "full": "images/full/12092026-151247p9120921sydney-cbd-copy.jpg",
+    "original_filename": "12092026_151247P9120921Sydney CBD - Copy.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/6.3",
+      "shutter": "1/30s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 15:12:47"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-151433p9120928sydney-cbd.jpg",
+    "medium": "images/medium/12092026-151433p9120928sydney-cbd.jpg",
+    "full": "images/full/12092026-151433p9120928sydney-cbd.jpg",
+    "original_filename": "12092026_151433P9120928Sydney CBD.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/7.1",
+      "shutter": "1/30s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 15:14:33"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-151617p9120932sydney-cbd.jpg",
+    "medium": "images/medium/12092026-151617p9120932sydney-cbd.jpg",
+    "full": "images/full/12092026-151617p9120932sydney-cbd.jpg",
+    "original_filename": "12092026_151617P9120932Sydney CBD.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/7.1",
+      "shutter": "1/30s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 15:16:17"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-151859p9120938sydney-cbd.jpg",
+    "medium": "images/medium/12092026-151859p9120938sydney-cbd.jpg",
+    "full": "images/full/12092026-151859p9120938sydney-cbd.jpg",
+    "original_filename": "12092026_151859P9120938Sydney CBD.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/18",
+      "shutter": "1/30s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 15:18:59"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-152240p9120945sydney-cbd.jpg",
+    "medium": "images/medium/12092026-152240p9120945sydney-cbd.jpg",
+    "full": "images/full/12092026-152240p9120945sydney-cbd.jpg",
+    "original_filename": "12092026_152240P9120945Sydney CBD.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/18",
+      "shutter": "1/30s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 15:22:40"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-152343p9120948sydney-cbd.jpg",
+    "medium": "images/medium/12092026-152343p9120948sydney-cbd.jpg",
+    "full": "images/full/12092026-152343p9120948sydney-cbd.jpg",
+    "original_filename": "12092026_152343P9120948Sydney CBD.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/11",
+      "shutter": "1/30s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 15:23:43"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-152405p9120951sydney-cbd.jpg",
+    "medium": "images/medium/12092026-152405p9120951sydney-cbd.jpg",
+    "full": "images/full/12092026-152405p9120951sydney-cbd.jpg",
+    "original_filename": "12092026_152405P9120951Sydney CBD.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/500s",
+      "iso": 400,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 15:24:05"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-153629p9120952sydney-cbd.jpg",
+    "medium": "images/medium/12092026-153629p9120952sydney-cbd.jpg",
+    "full": "images/full/12092026-153629p9120952sydney-cbd.jpg",
+    "original_filename": "12092026_153629P9120952Sydney CBD.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/500s",
+      "iso": 4000,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 15:36:29"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-154147p9120953sydney-cbd.jpg",
+    "medium": "images/medium/12092026-154147p9120953sydney-cbd.jpg",
+    "full": "images/full/12092026-154147p9120953sydney-cbd.jpg",
+    "original_filename": "12092026_154147P9120953Sydney CBD.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/500s",
+      "iso": 10000,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 15:41:47"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-154905p9120962sydney-cbd.jpg",
+    "medium": "images/medium/12092026-154905p9120962sydney-cbd.jpg",
+    "full": "images/full/12092026-154905p9120962sydney-cbd.jpg",
+    "original_filename": "12092026_154905P9120962Sydney CBD.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/2000s",
+      "iso": 1600,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 15:49:05"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-155157p9120967sydney-cbd.jpg",
+    "medium": "images/medium/12092026-155157p9120967sydney-cbd.jpg",
+    "full": "images/full/12092026-155157p9120967sydney-cbd.jpg",
+    "original_filename": "12092026_155157P9120967Sydney CBD.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/2000s",
+      "iso": 640,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 15:51:57"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-155423p9120974sydney-cbd.jpg",
+    "medium": "images/medium/12092026-155423p9120974sydney-cbd.jpg",
+    "full": "images/full/12092026-155423p9120974sydney-cbd.jpg",
+    "original_filename": "12092026_155423P9120974Sydney CBD.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/4.5",
+      "shutter": "1/2000s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 15:54:23"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-155609p9120984sydney-cbd.jpg",
+    "medium": "images/medium/12092026-155609p9120984sydney-cbd.jpg",
+    "full": "images/full/12092026-155609p9120984sydney-cbd.jpg",
+    "original_filename": "12092026_155609P9120984Sydney CBD.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/2000s",
+      "iso": 640,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 15:56:09"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-155917p9120993sydney-cbd.jpg",
+    "medium": "images/medium/12092026-155917p9120993sydney-cbd.jpg",
+    "full": "images/full/12092026-155917p9120993sydney-cbd.jpg",
+    "original_filename": "12092026_155917P9120993Sydney CBD.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/2000s",
+      "iso": 1250,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 15:59:17"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-160005p9120996sydney-cbd.jpg",
+    "medium": "images/medium/12092026-160005p9120996sydney-cbd.jpg",
+    "full": "images/full/12092026-160005p9120996sydney-cbd.jpg",
+    "original_filename": "12092026_160005P9120996Sydney CBD.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/2000s",
+      "iso": 5000,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 16:00:05"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-160517p9121012sydney-cbd.jpg",
+    "medium": "images/medium/12092026-160517p9121012sydney-cbd.jpg",
+    "full": "images/full/12092026-160517p9121012sydney-cbd.jpg",
+    "original_filename": "12092026_160517P9121012Sydney CBD.jpg",
+    "caption": "Sydney CBD",
+    "title": "",
+    "description": "",
+    "category": "Sydney CBD",
+    "subcategory": null,
+    "location": "Darling Harbour area, Sydney",
+    "settings": {
+      "aperture": "f/3.5",
+      "shutter": "1/2000s",
+      "iso": 6400,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 16:05:17"
+    }
+  },
+  {
+    "thumb": "images/thumbs/12092026-185356p9120006uv-spider-2stack.jpg",
+    "medium": "images/medium/12092026-185356p9120006uv-spider-2stack.jpg",
+    "full": "images/full/12092026-185356p9120006uv-spider-2stack.jpg",
+    "original_filename": "12092026_185356P9120006UV Spider 2stack.jpg",
+    "caption": "UV Spider 2stack",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Insects",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/5",
+      "shutter": "1/10s",
+      "iso": 1000,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 18:53:56"
+    }
+  },
+  {
+    "thumb": "images/thumbs/stack-2-spider.jpg",
+    "medium": "images/medium/stack-2-spider.jpg",
+    "full": "images/full/stack-2-spider.jpg",
+    "original_filename": "STACK-2-Spider.jpg",
+    "caption": "STACK 2 Spider",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Insects",
+    "location": "Home",
+    "settings": null
   }
 ]
