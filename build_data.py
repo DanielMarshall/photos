@@ -81,12 +81,19 @@ def caption(original):
     return re.sub(r"[-_]+", " ", no_ext).strip()
 
 PEOPLE = {
-    "Billy.JPG", "Chloe-kiani.JPG", "Nathan and Zeke1.jpg", "Nathan and Zeke2.jpg",
-    "Nathan.jpg", "Slava.JPG", "mum - Diana.jpg",
+    "Nathan and Zeke1.jpg", "Nathan and Zeke2.jpg",
+    "Nathan.jpg", "mum - Diana.jpg",
     "Timmy.JPG", "Timmy2.JPG", "Timmy3.JPG", "Timmy4.JPG", "Timmy5.JPG",
 }
 PLANES = {"Plane - Quatari.jpg", "Plane - Virgin.jpg"}
-UNCATEGORIZED_GLADESVILLE = {"Sprout.jpg", "Bus-Stop.jpg"}
+UNCATEGORIZED_GLADESVILLE = {"Bus-Stop.jpg"}
+
+# Taken at work (Artarmon), not home -- first names only, no employer/address published
+ARTARMON_TITLES = {
+    "Billy.JPG": "Billy",
+    "Chloe-kiani.JPG": "Kiani",
+    "Slava.JPG": "Slava",
+}
 
 GARDEN_START = "131127"
 GARDEN_END = "134238"
@@ -97,7 +104,13 @@ def classify(original, dt):
         time_code = m.group(2) if m else None
         if time_code and GARDEN_START <= time_code <= GARDEN_END:
             return "Chinese Garden of Friendship", None, "Darling Harbour, Sydney (water dragons & waterfall)"
+        if time_code and time_code > GARDEN_END:
+            return "Sydney CBD", None, "Darling Harbour to Wynyard, Sydney"
         return "Sydney CBD", None, "Darling Harbour area, Sydney"
+    if original in ARTARMON_TITLES:
+        return "Artarmon", None, "Artarmon"
+    if original == "Sprout.jpg":
+        return "Hornsby Heights", None, "Hornsby Heights, Sydney"
     if original in PEOPLE:
         return "Gladesville", "People", "Home"
     if original in PLANES:
@@ -131,7 +144,7 @@ def main():
             "full": f"images/full/{slug}.jpg",
             "original_filename": original,
             "caption": caption(original),
-            "title": "",
+            "title": ARTARMON_TITLES.get(original, ""),
             "description": "",
             "category": category,
             "subcategory": subcategory,

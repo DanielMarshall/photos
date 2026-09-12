@@ -17,6 +17,8 @@
     ['Gladesville', 'Planes'],
     ['Gladesville', 'People'],
     ['Gladesville', 'Uncategorized'],
+    ['Hornsby Heights', null],
+    ['Artarmon', null],
     ['Sydney CBD', null],
     ['Chinese Garden of Friendship', null],
   ];
@@ -26,6 +28,8 @@
     'Gladesville|Planes': 'Gladesville — Planes',
     'Gladesville|People': 'Gladesville — People',
     'Gladesville|Uncategorized': 'Gladesville — Other',
+    'Hornsby Heights|null': 'Hornsby Heights',
+    'Artarmon|null': 'Artarmon',
     'Sydney CBD|null': 'Sydney CBD (Darling Harbour)',
     'Chinese Garden of Friendship|null': 'Chinese Garden of Friendship',
   };

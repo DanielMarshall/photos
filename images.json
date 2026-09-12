@@ -5,11 +5,11 @@
     "full": "images/full/chloe-kiani.jpg",
     "original_filename": "Chloe-kiani.JPG",
     "caption": "Chloe kiani",
-    "title": "",
+    "title": "Kiani",
     "description": "",
-    "category": "Gladesville",
-    "subcategory": "People",
-    "location": "Home",
+    "category": "Artarmon",
+    "subcategory": null,
+    "location": "Artarmon",
     "settings": {
       "aperture": "f/5.6",
       "shutter": "1/80s",
@@ -26,11 +26,11 @@
     "full": "images/full/slava.jpg",
     "original_filename": "Slava.JPG",
     "caption": "Slava",
-    "title": "",
+    "title": "Slava",
     "description": "",
-    "category": "Gladesville",
-    "subcategory": "People",
-    "location": "Home",
+    "category": "Artarmon",
+    "subcategory": null,
+    "location": "Artarmon",
     "settings": {
       "aperture": "f/5.6",
       "shutter": "1/100s",
@@ -47,11 +47,11 @@
     "full": "images/full/billy.jpg",
     "original_filename": "Billy.JPG",
     "caption": "Billy",
-    "title": "",
+    "title": "Billy",
     "description": "",
-    "category": "Gladesville",
-    "subcategory": "People",
-    "location": "Home",
+    "category": "Artarmon",
+    "subcategory": null,
+    "location": "Artarmon",
     "settings": {
       "aperture": "f/5.6",
       "shutter": "1/100s",
@@ -427,9 +427,9 @@
     "caption": "Sprout",
     "title": "",
     "description": "",
-    "category": "Gladesville",
-    "subcategory": "Uncategorized",
-    "location": "Home (unconfirmed)",
+    "category": "Hornsby Heights",
+    "subcategory": null,
+    "location": "Hornsby Heights, Sydney",
     "settings": {
       "aperture": "f/10",
       "shutter": "1/100s",
@@ -2382,7 +2382,7 @@
     "description": "",
     "category": "Sydney CBD",
     "subcategory": null,
-    "location": "Darling Harbour area, Sydney",
+    "location": "Darling Harbour to Wynyard, Sydney",
     "settings": {
       "aperture": "f/3.5",
       "shutter": "1/1000s",
@@ -2403,7 +2403,7 @@
     "description": "",
     "category": "Sydney CBD",
     "subcategory": null,
-    "location": "Darling Harbour area, Sydney",
+    "location": "Darling Harbour to Wynyard, Sydney",
     "settings": {
       "aperture": "f/5",
       "shutter": "1/1600s",
@@ -2424,7 +2424,7 @@
     "description": "",
     "category": "Sydney CBD",
     "subcategory": null,
-    "location": "Darling Harbour area, Sydney",
+    "location": "Darling Harbour to Wynyard, Sydney",
     "settings": {
       "aperture": "f/3.5",
       "shutter": "1/1600s",
@@ -2445,7 +2445,7 @@
     "description": "",
     "category": "Sydney CBD",
     "subcategory": null,
-    "location": "Darling Harbour area, Sydney",
+    "location": "Darling Harbour to Wynyard, Sydney",
     "settings": {
       "aperture": "f/3.5",
       "shutter": "1/1600s",
@@ -2466,7 +2466,7 @@
     "description": "",
     "category": "Sydney CBD",
     "subcategory": null,
-    "location": "Darling Harbour area, Sydney",
+    "location": "Darling Harbour to Wynyard, Sydney",
     "settings": {
       "aperture": "f/3.5",
       "shutter": "1/1600s",
@@ -2487,7 +2487,7 @@
     "description": "",
     "category": "Sydney CBD",
     "subcategory": null,
-    "location": "Darling Harbour area, Sydney",
+    "location": "Darling Harbour to Wynyard, Sydney",
     "settings": {
       "aperture": "f/3.5",
       "shutter": "1/1600s",
@@ -2508,7 +2508,7 @@
     "description": "",
     "category": "Sydney CBD",
     "subcategory": null,
-    "location": "Darling Harbour area, Sydney",
+    "location": "Darling Harbour to Wynyard, Sydney",
     "settings": {
       "aperture": "f/3.5",
       "shutter": "1/1600s",
@@ -2529,7 +2529,7 @@
     "description": "",
     "category": "Sydney CBD",
     "subcategory": null,
-    "location": "Darling Harbour area, Sydney",
+    "location": "Darling Harbour to Wynyard, Sydney",
     "settings": {
       "aperture": "f/3.5",
       "shutter": "1/80s",
@@ -2550,7 +2550,7 @@
     "description": "",
     "category": "Sydney CBD",
     "subcategory": null,
-    "location": "Darling Harbour area, Sydney",
+    "location": "Darling Harbour to Wynyard, Sydney",
     "settings": {
       "aperture": "f/3.5",
       "shutter": "1/80s",
@@ -2571,7 +2571,7 @@
     "description": "",
     "category": "Sydney CBD",
     "subcategory": null,
-    "location": "Darling Harbour area, Sydney",
+    "location": "Darling Harbour to Wynyard, Sydney",
     "settings": {
       "aperture": "f/4",
       "shutter": "1/13s",
@@ -2592,7 +2592,7 @@
     "description": "",
     "category": "Sydney CBD",
     "subcategory": null,
-    "location": "Darling Harbour area, Sydney",
+    "location": "Darling Harbour to Wynyard, Sydney",
     "settings": {
       "aperture": "f/3.5",
       "shutter": "1/1000s",
@@ -2613,7 +2613,7 @@
     "description": "",
     "category": "Sydney CBD",
     "subcategory": null,
-    "location": "Darling Harbour area, Sydney",
+    "location": "Darling Harbour to Wynyard, Sydney",
     "settings": {
       "aperture": "f/3.5",
       "shutter": "1/1000s",
@@ -2634,7 +2634,7 @@
     "description": "",
     "category": "Sydney CBD",
     "subcategory": null,
-    "location": "Darling Harbour area, Sydney",
+    "location": "Darling Harbour to Wynyard, Sydney",
     "settings": {
       "aperture": "f/3.5",
       "shutter": "1/1000s",
@@ -2655,7 +2655,7 @@
     "description": "",
     "category": "Sydney CBD",
     "subcategory": null,
-    "location": "Darling Harbour area, Sydney",
+    "location": "Darling Harbour to Wynyard, Sydney",
     "settings": {
       "aperture": "f/3.5",
       "shutter": "1/1000s",
@@ -2676,7 +2676,7 @@
     "description": "",
     "category": "Sydney CBD",
     "subcategory": null,
-    "location": "Darling Harbour area, Sydney",
+    "location": "Darling Harbour to Wynyard, Sydney",
     "settings": {
       "aperture": "f/3.5",
       "shutter": "1/1000s",
@@ -2697,7 +2697,7 @@
     "description": "",
     "category": "Sydney CBD",
     "subcategory": null,
-    "location": "Darling Harbour area, Sydney",
+    "location": "Darling Harbour to Wynyard, Sydney",
     "settings": {
       "aperture": "f/3.5",
       "shutter": "1/1000s",
@@ -2718,7 +2718,7 @@
     "description": "",
     "category": "Sydney CBD",
     "subcategory": null,
-    "location": "Darling Harbour area, Sydney",
+    "location": "Darling Harbour to Wynyard, Sydney",
     "settings": {
       "aperture": "f/3.5",
       "shutter": "1/1000s",
@@ -2739,7 +2739,7 @@
     "description": "",
     "category": "Sydney CBD",
     "subcategory": null,
-    "location": "Darling Harbour area, Sydney",
+    "location": "Darling Harbour to Wynyard, Sydney",
     "settings": {
       "aperture": "f/3.5",
       "shutter": "1/1000s",
@@ -2760,7 +2760,7 @@
     "description": "",
     "category": "Sydney CBD",
     "subcategory": null,
-    "location": "Darling Harbour area, Sydney",
+    "location": "Darling Harbour to Wynyard, Sydney",
     "settings": {
       "aperture": "f/3.5",
       "shutter": "1/1000s",
@@ -2781,7 +2781,7 @@
     "description": "",
     "category": "Sydney CBD",
     "subcategory": null,
-    "location": "Darling Harbour area, Sydney",
+    "location": "Darling Harbour to Wynyard, Sydney",
     "settings": {
       "aperture": "f/3.5",
       "shutter": "1/1000s",
@@ -2802,7 +2802,7 @@
     "description": "",
     "category": "Sydney CBD",
     "subcategory": null,
-    "location": "Darling Harbour area, Sydney",
+    "location": "Darling Harbour to Wynyard, Sydney",
     "settings": {
       "aperture": "f/3.5",
       "shutter": "1/1000s",
@@ -2823,7 +2823,7 @@
     "description": "",
     "category": "Sydney CBD",
     "subcategory": null,
-    "location": "Darling Harbour area, Sydney",
+    "location": "Darling Harbour to Wynyard, Sydney",
     "settings": {
       "aperture": "f/3.5",
       "shutter": "1/500s",
@@ -2844,7 +2844,7 @@
     "description": "",
     "category": "Sydney CBD",
     "subcategory": null,
-    "location": "Darling Harbour area, Sydney",
+    "location": "Darling Harbour to Wynyard, Sydney",
     "settings": {
       "aperture": "f/3.5",
       "shutter": "1/500s",
@@ -2865,7 +2865,7 @@
     "description": "",
     "category": "Sydney CBD",
     "subcategory": null,
-    "location": "Darling Harbour area, Sydney",
+    "location": "Darling Harbour to Wynyard, Sydney",
     "settings": {
       "aperture": "f/3.5",
       "shutter": "1/500s",
@@ -2886,7 +2886,7 @@
     "description": "",
     "category": "Sydney CBD",
     "subcategory": null,
-    "location": "Darling Harbour area, Sydney",
+    "location": "Darling Harbour to Wynyard, Sydney",
     "settings": {
       "aperture": "f/3.5",
       "shutter": "1/500s",
@@ -2907,7 +2907,7 @@
     "description": "",
     "category": "Sydney CBD",
     "subcategory": null,
-    "location": "Darling Harbour area, Sydney",
+    "location": "Darling Harbour to Wynyard, Sydney",
     "settings": {
       "aperture": "f/3.5",
       "shutter": "1/500s",
@@ -2928,7 +2928,7 @@
     "description": "",
     "category": "Sydney CBD",
     "subcategory": null,
-    "location": "Darling Harbour area, Sydney",
+    "location": "Darling Harbour to Wynyard, Sydney",
     "settings": {
       "aperture": "f/3.5",
       "shutter": "1/30s",
@@ -2949,7 +2949,7 @@
     "description": "",
     "category": "Sydney CBD",
     "subcategory": null,
-    "location": "Darling Harbour area, Sydney",
+    "location": "Darling Harbour to Wynyard, Sydney",
     "settings": {
       "aperture": "f/3.5",
       "shutter": "1/30s",
@@ -2970,7 +2970,7 @@
     "description": "",
     "category": "Sydney CBD",
     "subcategory": null,
-    "location": "Darling Harbour area, Sydney",
+    "location": "Darling Harbour to Wynyard, Sydney",
     "settings": {
       "aperture": "f/6.3",
       "shutter": "1/30s",
@@ -2991,7 +2991,7 @@
     "description": "",
     "category": "Sydney CBD",
     "subcategory": null,
-    "location": "Darling Harbour area, Sydney",
+    "location": "Darling Harbour to Wynyard, Sydney",
     "settings": {
       "aperture": "f/7.1",
       "shutter": "1/30s",
@@ -3012,7 +3012,7 @@
     "description": "",
     "category": "Sydney CBD",
     "subcategory": null,
-    "location": "Darling Harbour area, Sydney",
+    "location": "Darling Harbour to Wynyard, Sydney",
     "settings": {
       "aperture": "f/7.1",
       "shutter": "1/30s",
@@ -3033,7 +3033,7 @@
     "description": "",
     "category": "Sydney CBD",
     "subcategory": null,
-    "location": "Darling Harbour area, Sydney",
+    "location": "Darling Harbour to Wynyard, Sydney",
     "settings": {
       "aperture": "f/18",
       "shutter": "1/30s",
@@ -3054,7 +3054,7 @@
     "description": "",
     "category": "Sydney CBD",
     "subcategory": null,
-    "location": "Darling Harbour area, Sydney",
+    "location": "Darling Harbour to Wynyard, Sydney",
     "settings": {
       "aperture": "f/18",
       "shutter": "1/30s",
@@ -3075,7 +3075,7 @@
     "description": "",
     "category": "Sydney CBD",
     "subcategory": null,
-    "location": "Darling Harbour area, Sydney",
+    "location": "Darling Harbour to Wynyard, Sydney",
     "settings": {
       "aperture": "f/11",
       "shutter": "1/30s",
@@ -3096,7 +3096,7 @@
     "description": "",
     "category": "Sydney CBD",
     "subcategory": null,
-    "location": "Darling Harbour area, Sydney",
+    "location": "Darling Harbour to Wynyard, Sydney",
     "settings": {
       "aperture": "f/3.5",
       "shutter": "1/500s",
@@ -3117,7 +3117,7 @@
     "description": "",
     "category": "Sydney CBD",
     "subcategory": null,
-    "location": "Darling Harbour area, Sydney",
+    "location": "Darling Harbour to Wynyard, Sydney",
     "settings": {
       "aperture": "f/3.5",
       "shutter": "1/500s",
@@ -3138,7 +3138,7 @@
     "description": "",
     "category": "Sydney CBD",
     "subcategory": null,
-    "location": "Darling Harbour area, Sydney",
+    "location": "Darling Harbour to Wynyard, Sydney",
     "settings": {
       "aperture": "f/3.5",
       "shutter": "1/500s",
@@ -3159,7 +3159,7 @@
     "description": "",
     "category": "Sydney CBD",
     "subcategory": null,
-    "location": "Darling Harbour area, Sydney",
+    "location": "Darling Harbour to Wynyard, Sydney",
     "settings": {
       "aperture": "f/3.5",
       "shutter": "1/2000s",
@@ -3180,7 +3180,7 @@
     "description": "",
     "category": "Sydney CBD",
     "subcategory": null,
-    "location": "Darling Harbour area, Sydney",
+    "location": "Darling Harbour to Wynyard, Sydney",
     "settings": {
       "aperture": "f/3.5",
       "shutter": "1/2000s",
@@ -3201,7 +3201,7 @@
     "description": "",
     "category": "Sydney CBD",
     "subcategory": null,
-    "location": "Darling Harbour area, Sydney",
+    "location": "Darling Harbour to Wynyard, Sydney",
     "settings": {
       "aperture": "f/4.5",
       "shutter": "1/2000s",
@@ -3222,7 +3222,7 @@
     "description": "",
     "category": "Sydney CBD",
     "subcategory": null,
-    "location": "Darling Harbour area, Sydney",
+    "location": "Darling Harbour to Wynyard, Sydney",
     "settings": {
       "aperture": "f/3.5",
       "shutter": "1/2000s",
@@ -3243,7 +3243,7 @@
     "description": "",
     "category": "Sydney CBD",
     "subcategory": null,
-    "location": "Darling Harbour area, Sydney",
+    "location": "Darling Harbour to Wynyard, Sydney",
     "settings": {
       "aperture": "f/3.5",
       "shutter": "1/2000s",
@@ -3264,7 +3264,7 @@
     "description": "",
     "category": "Sydney CBD",
     "subcategory": null,
-    "location": "Darling Harbour area, Sydney",
+    "location": "Darling Harbour to Wynyard, Sydney",
     "settings": {
       "aperture": "f/3.5",
       "shutter": "1/2000s",
@@ -3285,7 +3285,7 @@
     "description": "",
     "category": "Sydney CBD",
     "subcategory": null,
-    "location": "Darling Harbour area, Sydney",
+    "location": "Darling Harbour to Wynyard, Sydney",
     "settings": {
       "aperture": "f/3.5",
       "shutter": "1/2000s",
