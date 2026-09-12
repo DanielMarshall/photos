@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Macro & Travel</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <h1>Macro &amp; Travel</h1>
+  <p class="subtitle">Macro photography and travel snapshots</p>
+</header>
+
+<main>
+  <section class="video-feature" id="video-feature">
+    <video controls loop playsinline preload="metadata" poster="images/medium/11092026-201904p9111337.jpg">
+      <source src="video/spider-focus-stack.mp4" type="video/mp4">
+      Your browser doesn't support embedded video.
+    </video>
+    <p class="video-caption">Focus-stack alignment sequence, half speed, looped</p>
+  </section>
+
+  <div class="grid" id="grid"></div>
+</main>
+
+<footer class="site-footer">
+  <p>Built with a static gallery generator.</p>
+</footer>
+
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lb-close" id="lb-close" aria-label="Close">&times;</button>
+  <button class="lb-nav lb-prev" id="lb-prev" aria-label="Previous">&#10094;</button>
+  <button class="lb-nav lb-next" id="lb-next" aria-label="Next">&#10095;</button>
+  <div class="lb-content">
+    <img id="lb-img" src="" alt="">
+    <p class="lb-caption" id="lb-caption"></p>
+    <button class="lb-zoom" id="lb-zoom">View full resolution</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
