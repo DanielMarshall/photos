@@ -637,4 +637,87 @@
     if (e.key === 'ArrowLeft') return ssStep(-1);
     if (e.key === ' ') { e.preventDefault(); ssTogglePause(); }
   });
+
+  // ---- Background precache offer ----
+  // Once the thumbnails visible on first load have settled, offer to warm
+  // the browser cache with every medium-resolution image so opening photos
+  // and paging through the lightbox feels instant. Opt-in since the medium
+  // tier adds up to tens of MB -- not something to push on visitors silently.
+  const PRECACHE_CHOICE_KEY = 'gallery-precache-choice';
+
+  function precacheMediums(onProgress) {
+    const total = items.length;
+    let done = 0;
+    let idx = 0;
+    const CONCURRENCY = 6;
+    function loadNext() {
+      if (idx >= total) return;
+      const item = items[idx++];
+      const img = new Image();
+      img.onload = img.onerror = () => {
+        done++;
+        if (onProgress) onProgress(done, total);
+        if (idx < total) loadNext();
+      };
+      img.src = item.medium;
+    }
+    for (let i = 0; i < CONCURRENCY && i < total; i++) loadNext();
+  }
+
+  function showPrecacheOffer() {
+    const banner = document.createElement('div');
+    banner.className = 'precache-banner';
+    banner.innerHTML = `
+      <p class="precache-msg">Cache the full gallery in the background for faster browsing?</p>
+      <div class="precache-actions">
+        <button class="precache-btn precache-yes">Yes, cache it</button>
+        <button class="precache-btn precache-no">No thanks</button>
+      </div>
+    `;
+    document.body.appendChild(banner);
+    const msg = banner.querySelector('.precache-msg');
+
+    banner.querySelector('.precache-yes').addEventListener('click', () => {
+      localStorage.setItem(PRECACHE_CHOICE_KEY, 'accepted');
+      banner.querySelector('.precache-actions').remove();
+      precacheMediums((done, total) => {
+        msg.textContent = `Caching photos… ${done}/${total}`;
+        if (done >= total) {
+          msg.textContent = 'All photos cached for faster browsing.';
+          setTimeout(() => banner.remove(), 2500);
+        }
+      });
+    });
+
+    banner.querySelector('.precache-no').addEventListener('click', () => {
+      localStorage.setItem(PRECACHE_CHOICE_KEY, 'declined');
+      banner.remove();
+    });
+  }
+
+  function whenInitialThumbsSettled(cb) {
+    const viewportBottom = window.innerHeight + 600;
+    const visible = Array.from(document.querySelectorAll('.grid img'))
+      .filter((img) => img.getBoundingClientRect().top < viewportBottom);
+    if (!visible.length) return cb();
+    let pending = visible.filter((img) => !img.complete).length;
+    if (pending === 0) return cb();
+    let settled = 0;
+    visible.forEach((img) => {
+      if (img.complete) return;
+      const onSettle = () => {
+        settled++;
+        if (settled >= pending) cb();
+      };
+      img.addEventListener('load', onSettle, { once: true });
+      img.addEventListener('error', onSettle, { once: true });
+    });
+  }
+
+  const precacheChoice = localStorage.getItem(PRECACHE_CHOICE_KEY);
+  if (precacheChoice === 'accepted') {
+    whenInitialThumbsSettled(() => precacheMediums());
+  } else if (precacheChoice !== 'declined') {
+    whenInitialThumbsSettled(showPrecacheOffer);
+  }
 })();
