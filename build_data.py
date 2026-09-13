@@ -116,6 +116,16 @@ ARTARMON_TITLES = {
 
 # (title, description) supplied by the photographer, keyed by original filename.
 TITLES = {
+    "Timmy.JPG": ("Timmy", ""),
+    "Timmy2.JPG": ("Timmy", ""),
+    "Timmy3.JPG": ("Timmy", ""),
+    "Timmy4.JPG": ("Timmy", ""),
+    "Timmy5.JPG": ("Timmy", ""),
+    "Nathan and Zeke1.jpg": ("Nathan and Zeke", ""),
+    "Nathan and Zeke2.jpg": ("Nathan and Zeke", ""),
+    "Nathan.jpg": ("Nathan", ""),
+    "mum - Diana.jpg": ("Diana", ""),
+    "Bus-Stop.jpg": ("Bus Stop", ""),
     "STACK-2-Spider.jpg": ("Garden Orb Weaver One", "Stacked photo"),
     "STACK-P9040321.jpg": ("Garden Orb Weaver One", "Sample stack slice"),
     "Orb Weaver1.jpg": ("Golden Orb Weaver One", "Too busy making a web to pose for a good photo this time, but I know where you live now."),
