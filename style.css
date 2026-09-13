@@ -137,6 +137,14 @@ main {
   margin-bottom: 2.5rem;
 }
 
+.section-intro {
+  max-width: 640px;
+  margin: -0.3rem 0 1rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
 .photo-section h2 {
   font-size: 1.15rem;
   font-weight: 600;

@@ -210,6 +210,27 @@ TITLES = {
     "11092026_174001P9110019.jpg": ("Qantas 3", ""),
     "11092026_185659P9110024.jpg": ("Timelapse of a plane", ""),
     "11092026_190153P9110025.jpg": ("Timelapse #2", ""),
+    "13092026_161532P9130004last dinosaurs mc-20.jpg": ("Dinosaur", ""),
+    "13092026_161823P9130015last dinosaurs mc-20.jpg": ("Dinosaur", ""),
+    "13092026_161904P9130019last dinosaurs mc-20.jpg": ("Dinosaur", ""),
+    "13092026_161919P9130022last dinosaurs mc-20.jpg": ("Dinosaur", ""),
+    "13092026_162048P9130026_01last dinosaurs mc-20.jpg": ("Dinosaur", ""),
+    "13092026_162051P9130028_02last dinosaurs mc-20.jpg": ("Dinosaur", ""),
+    "13092026_162216P9130030_02last dinosaurs mc-20.jpg": ("Dinosaur", ""),
+    "13092026_162221P9130031_02last dinosaurs mc-20.jpg": ("Dinosaur", ""),
+    "13092026_162230P9130034_02last dinosaurs mc-20.jpg": ("Dinosaur", ""),
+    "13092026_162239P9130036_02last dinosaurs mc-20.jpg": ("Dinosaur", ""),
+    "13092026_162341P9130040_02last dinosaurs mc-20.jpg": ("Dinosaur", ""),
+    "13092026_162344P9130042_02last dinosaurs mc-20.jpg": ("Dinosaur", ""),
+    "13092026_162406P9130043_02last dinosaurs mc-20.jpg": ("Dinosaur", ""),
+    "13092026_162433P9130044_02last dinosaurs mc-20.jpg": ("Dinosaur", ""),
+    "13092026_162437P9130045_02last dinosaurs mc-20.jpg": ("Dinosaur", ""),
+    "13092026_162454P9130047_02last dinosaurs mc-20.jpg": ("Dinosaur", ""),
+    "13092026_162459P9130048_02last dinosaurs mc-20.jpg": ("Dinosaur", ""),
+    "13092026_162516P9130049_02last dinosaurs mc-20.jpg": ("Dinosaur", ""),
+    "13092026_162523P9130052_02last dinosaurs mc-20.jpg": ("Dinosaur", ""),
+    "13092026_162533P9130054_02last dinosaurs mc-20.jpg": ("Dinosaur", ""),
+    "13092026_162544P9130056_02last dinosaurs mc-20.jpg": ("Dinosaur", ""),
 }
 
 # Display-order override: sort as if taken right after P9111337 (same subject,
@@ -254,6 +275,8 @@ def classify(original, dt):
         return "Gladesville", "Uncategorized", "Home"
     if "glitter oi" in original.lower():
         return "Gladesville", "Experiments in Liquids", "Home"
+    if "last dinosaurs" in original.lower():
+        return "Gladesville", "Dinosaurs", "Gladesville"
     return "Gladesville", "Garden", "Home"
 
 def main():
@@ -298,10 +321,11 @@ def main():
         return (dt is None, dt or item["thumb"])
     items.sort(key=sort_key)
 
-    # Experiments in Liquids: show year-month only, not the exact day/time --
-    # applied after sorting so ordering still uses full precision.
+    # Experiments in Liquids / Dinosaurs: show year-month only, not the exact
+    # day/time -- applied after sorting so ordering still uses full precision.
+    TRUNCATE_DATE_SUBCATEGORIES = {"Experiments in Liquids", "Dinosaurs"}
     for item in items:
-        if item["category"] == "Gladesville" and item["subcategory"] == "Experiments in Liquids":
+        if item["category"] == "Gladesville" and item["subcategory"] in TRUNCATE_DATE_SUBCATEGORIES:
             if item["settings"] and item["settings"].get("datetime"):
                 item["settings"]["datetime"] = item["settings"]["datetime"][:7].replace(":", "-")
 

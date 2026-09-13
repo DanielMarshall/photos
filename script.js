@@ -25,6 +25,7 @@
   const SECTION_ORDER = [
     ['Gladesville', 'Garden'],
     ['Gladesville', 'Experiments in Liquids'],
+    ['Gladesville', 'Dinosaurs'],
     ['Gladesville', 'Planes'],
     ['Gladesville', 'People'],
     ['Gladesville', 'Uncategorized'],
@@ -40,6 +41,7 @@
   const SECTION_LABELS = {
     'Gladesville|Garden': 'Gladesville — Garden',
     'Gladesville|Experiments in Liquids': 'Gladesville — Experiments in Liquids',
+    'Gladesville|Dinosaurs': 'The Last of the Dinosaurs',
     'Gladesville|Planes': 'Gladesville — Planes',
     'Gladesville|People': 'Gladesville — People',
     'Gladesville|Uncategorized': 'Gladesville — Other',
@@ -77,6 +79,13 @@
     const heading = document.createElement('h2');
     heading.textContent = SECTION_LABELS[key] || cat;
     section.appendChild(heading);
+
+    if (cat === 'Gladesville' && sub === 'Dinosaurs') {
+      const intro = document.createElement('p');
+      intro.className = 'section-intro';
+      intro.textContent = "They like roasted almonds enough that they will fight each other off to see who gets to almost take off one of my fingers, and hang around for some photos afterwards, until Timmy came to investigate, and their extinction paranoia kicked in and they went to their next stop.";
+      section.appendChild(intro);
+    }
 
     const grid = document.createElement('div');
     grid.className = 'grid';
