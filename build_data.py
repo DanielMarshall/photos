@@ -26,6 +26,9 @@ SOURCE_MAP = {
     "13092026_095951P9130128glitter oil 40Stacked.jpg": os.path.join(CAMROLL, "13092026_095951P9130128glitter oil.jpg"),
     "13092026_100420P9130288glitter oil 16Stacked.jpg": os.path.join(CAMROLL, "13092026_100420P9130288glitter oil.jpg"),
     "13092026_105840P9130459glitter oi 9Stackedl.jpg": os.path.join(CAMROLL, "13092026_105840P9130459glitter oil.jpg"),
+    "13092026_131948P9130028_01glitter oil mc-20 32Stacked.jpg": os.path.join(CAMROLL, "13092026_131948P9130028_01glitter oil mc-20.jpg"),
+    "13092026_132219P9130202_01glitter oil mc-20 22Stacked.jpg": os.path.join(EXPORTS, "13092026_132219P9130202_01glitter oil mc-20.jpg"),
+    "13092026_132615P9130301_01glitter oil mc-20 10stacked.jpg": os.path.join(EXPORTS, "13092026_132615P9130301_01glitter oil mc-20.jpg"),
 }
 UNRESOLVED = set()
 
