@@ -113,6 +113,26 @@ main {
   font-size: 0.85rem;
 }
 
+.section-video {
+  max-width: 640px;
+  margin: 1.5rem auto 0;
+  text-align: center;
+}
+
+.section-video h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.8rem;
+  color: var(--accent);
+}
+
+.section-video video {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #000;
+}
+
 .photo-section {
   margin-bottom: 2.5rem;
 }

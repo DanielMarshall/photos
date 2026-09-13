@@ -102,6 +102,21 @@
     });
 
     section.appendChild(grid);
+
+    if (cat === 'Gladesville' && sub === 'Experiments in Liquids') {
+      const videoBlock = document.createElement('div');
+      videoBlock.className = 'section-video';
+      videoBlock.innerHTML = `
+        <h3>Focus? what's that again?</h3>
+        <video controls playsinline preload="metadata" poster="video/glitter-oil-poster.jpg">
+          <source src="video/glitter-oil-focus-attempts.mp4" type="video/mp4">
+          Your browser doesn't support embedded video.
+        </video>
+        <p class="video-caption">Getting the focus right and an interesting enough shot seems to be the main challenges, but i might be more stable if I used less pizza boxes as structural supports. The MC-20 x2 magnification extender does make for more interesting shots I think, but requires a lot of stability and light. Works for flash, but not so good for backlight.</p>
+      `;
+      section.appendChild(videoBlock);
+    }
+
     main.appendChild(section);
   });
 
