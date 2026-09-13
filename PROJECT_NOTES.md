@@ -35,7 +35,11 @@ plain-JPG sibling with EXIF.
    sibling shell commands in chat history, or re-derive):
    - `images/thumbs/<slug>.jpg` — scale to ≤480px wide, `-q:v 5`
    - `images/medium/<slug>.jpg` — scale to ≤2048px wide, `-q:v 3`
-   - `images/full/<slug>.jpg` — plain copy of the source
+   - `images/full/<slug>.jpg` — re-encode at full resolution, `-q:v 3`
+     (NOT a plain copy — the photographer exports from darktable at ~100%
+     quality "just in case", which is much larger than needed since the site
+     never displays beyond native 1:1 zoom; re-encoding at q:v 3 cuts file
+     size roughly in half with no visible quality loss)
    - `slug` = lowercased filename, non-alphanumerics collapsed to `-`
      (see `slugify()` pattern used throughout).
    - Append `<slug>\t<original filename>` to `manifest.tsv`.
