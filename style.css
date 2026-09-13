@@ -272,6 +272,40 @@ main {
   z-index: 3;
 }
 
+.lb-loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  background: rgba(0,0,0,0.55);
+  z-index: 4;
+  pointer-events: none;
+}
+
+.lb-progress {
+  width: min(60%, 260px);
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255,255,255,0.2);
+  overflow: hidden;
+}
+
+.lb-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: #fff;
+  transition: width 0.15s ease;
+}
+
+.lb-loading-label {
+  margin: 0;
+  font-size: 0.78rem;
+  color: #ddd;
+}
+
 .lb-dim {
   position: fixed;
   background: rgba(0,0,0,0.35);

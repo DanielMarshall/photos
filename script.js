@@ -15,6 +15,9 @@
   const lbSelect = document.getElementById('lb-select');
   const lbDimA = document.getElementById('lb-dim-a');
   const lbDimB = document.getElementById('lb-dim-b');
+  const lbLoading = document.getElementById('lb-loading');
+  const lbProgressBar = document.getElementById('lb-progress-bar');
+  const lbLoadingLabel = document.getElementById('lb-loading-label');
 
   const res = await fetch('images.json');
   const items = await res.json();
@@ -108,7 +111,22 @@
   let zoomScale = 'fit'; // 'fit' | 1 | 0.5 | 0.25 | custom number (<=1)
   let currentFocus = { x: 0.5, y: 0.5 }; // fraction of natural image currently centered
 
+  // The full-resolution image is fetched with progress and kept as a blob
+  // URL for as long as we're on the same photo, so toggling back and forth
+  // doesn't re-download it. Released whenever we move to a different photo.
+  let fullObjectURL = null;
+  let loadToken = 0;
+
+  function releaseFullObjectURL() {
+    loadToken++;
+    if (fullObjectURL) {
+      URL.revokeObjectURL(fullObjectURL);
+      fullObjectURL = null;
+    }
+  }
+
   function open(i) {
+    releaseFullObjectURL();
     current = i;
     zoomed = false;
     render();
@@ -126,9 +144,11 @@
     setViewportMode('fit');
     hideSpotlight();
     lbSelect.hidden = true;
+    lbLoading.hidden = true;
+    lbProgressBar.style.width = '0%';
     lbImg.style.width = '';
     lbImg.style.height = '';
-    lbImg.src = zoomed ? item.full : item.medium;
+    lbImg.src = zoomed ? fullObjectURL : item.medium;
     lbImg.alt = item.title || item.caption || 'Photo';
     lbZoom.textContent = zoomed ? 'Back to normal size' : 'View full resolution';
 
@@ -180,9 +200,12 @@
     lightbox.hidden = true;
     document.body.style.overflow = '';
     resetZoomState();
+    releaseFullObjectURL();
+    lbLoading.hidden = true;
   }
 
   function step(delta) {
+    releaseFullObjectURL();
     const pos = flatOrder.indexOf(current);
     const nextPos = (pos + delta + flatOrder.length) % flatOrder.length;
     current = flatOrder[nextPos];
@@ -386,7 +409,75 @@
   lbClose.addEventListener('click', close);
   lbPrev.addEventListener('click', () => step(-1));
   lbNext.addEventListener('click', () => step(1));
-  lbZoom.addEventListener('click', () => { zoomed = !zoomed; render(); });
+  async function goFullRes() {
+    if (fullObjectURL) {
+      // already fetched for this photo (toggled back to medium and now
+      // returning to full-res) -- reuse it, no network round-trip needed.
+      zoomed = true;
+      render();
+      return;
+    }
+    const item = items[current];
+    const myToken = loadToken;
+
+    lbZoom.disabled = true;
+    let revealed = false;
+    const revealTimer = setTimeout(() => {
+      revealed = true;
+      lbLoadingLabel.textContent = 'Loading full resolution…';
+      lbProgressBar.style.width = '0%';
+      lbLoading.hidden = false;
+    }, 150);
+
+    const cleanup = () => {
+      clearTimeout(revealTimer);
+      if (revealed) lbLoading.hidden = true;
+      lbZoom.disabled = false;
+    };
+
+    try {
+      const response = await fetch(item.full);
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const total = Number(response.headers.get('Content-Length')) || 0;
+
+      let blob;
+      if (response.body && total) {
+        const reader = response.body.getReader();
+        const chunks = [];
+        let received = 0;
+        for (;;) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          if (myToken !== loadToken) return; // user moved on -- abandon
+          chunks.push(value);
+          received += value.length;
+          lbProgressBar.style.width = `${Math.min(100, (received / total) * 100)}%`;
+        }
+        blob = new Blob(chunks);
+      } else {
+        blob = await response.blob();
+      }
+
+      if (myToken !== loadToken) return; // moved on while awaiting the blob
+
+      fullObjectURL = URL.createObjectURL(blob);
+      zoomed = true;
+      render();
+    } catch (err) {
+      console.error('Failed to load full-resolution image', err);
+    } finally {
+      cleanup();
+    }
+  }
+
+  lbZoom.addEventListener('click', () => {
+    if (zoomed) {
+      zoomed = false;
+      render();
+    } else {
+      goFullRes();
+    }
+  });
 
   lightbox.addEventListener('click', (e) => {
     if (e.target === lightbox) close();
