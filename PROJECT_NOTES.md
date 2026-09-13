@@ -207,6 +207,20 @@ normal browser caching is kept for those.
   normalization** (that only runs on its own EXIF-read path). `apply_borders.py`
   replicates the two lookup tables (`CAMERA_NAMES`, `LENS_NAMES`) itself
   before passing `--camera`/`--lens`.
+- **GitHub Pages ("legacy" build) can silently get stuck serving an older
+  commit** — seen 2026-09-13: after several rapid pushes (including a large
+  ~190-file image recompression commit), the live site kept serving content
+  from an earlier commit for well over an hour (`Last-Modified` on
+  `images.json` didn't advance), even past the CDN's own `max-age=600` and
+  through cache-busted query strings — GitHub's Fastly edge caches by path,
+  ignoring the query string, so cache-busting alone doesn't force a refetch;
+  the real problem was the Pages *origin* itself not rebuilding. If this
+  happens again: confirm `git ls-remote origin HEAD` matches your last local
+  commit (rules out a push failure) before assuming it's the deploy that's
+  stuck. A small unrelated follow-up commit is a fine way to nudge it; if
+  that doesn't work within a few minutes, check
+  https://github.com/DanielMarshall/photos/settings/pages for a build error
+  banner.
 - **GitHub's 100MB hard file size limit** — any video added to the repo needs
   compressing first (scale down + higher CRF). The `video/` folder currently
   has `spider-focus-stack-audio.mp4` (~5MB — 4 baked-in loops of the aligned
