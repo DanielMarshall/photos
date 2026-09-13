@@ -3,6 +3,7 @@
   const lightbox = document.getElementById('lightbox');
   const lbViewport = document.getElementById('lb-viewport');
   const lbImg = document.getElementById('lb-img');
+  const lbInfo = document.querySelector('.lb-info');
   const lbTitle = document.getElementById('lb-title');
   const lbMeta = document.getElementById('lb-meta');
   const lbZoom = document.getElementById('lb-zoom');
@@ -127,45 +128,56 @@
     lbImg.style.height = '';
     lbImg.src = zoomed ? item.full : item.medium;
     lbImg.alt = item.title || item.caption || 'Photo';
-    lbTitle.textContent = item.title || item.caption || '(untitled)';
     lbZoom.textContent = zoomed ? 'Back to normal size' : 'View full resolution';
 
+    // Medium view already has the caption baked into its border -- the HTML
+    // panel is only useful once you're looking at the un-bordered full-res
+    // image, and even then kept to as few lines as possible.
+    lbInfo.classList.toggle('info-hidden', !zoomed);
     lbMeta.innerHTML = '';
-    addMeta('File', item.original_filename);
-    addMeta('Location', [item.category, item.subcategory].filter(Boolean).join(' – '));
-    if (item.location) addMeta('Where', item.location);
-    if (item.description) addMeta('Notes', item.description);
-    const s = item.settings;
-    if (s) {
-      const bits = [];
-      if (s.aperture) bits.push(s.aperture);
-      if (s.shutter) bits.push(s.shutter);
-      if (s.iso) bits.push(`ISO ${s.iso}`);
-      if (s.focal) bits.push(s.focal);
-      if (bits.length) addMeta('Settings', bits.join(' · '));
-      if (s.lens) addMeta('Lens', s.lens);
-      if (s.datetime) addMeta('Taken', s.datetime);
+    if (zoomed) {
+      lbTitle.textContent = item.title || item.caption || '(untitled)';
+      const s = item.settings;
+      const line = [];
+      if (item.original_filename) line.push(item.original_filename);
+      if (s) {
+        const bits = [];
+        if (s.aperture) bits.push(s.aperture);
+        if (s.shutter) bits.push(s.shutter);
+        if (s.iso) bits.push(`ISO ${s.iso}`);
+        if (s.focal) bits.push(s.focal);
+        if (bits.length) line.push(bits.join(' · '));
+        if (s.datetime) line.push(s.datetime);
+      }
+      addMeta(line.join('  ·  '));
+      if (item.description) addMeta(item.description);
     }
   }
 
-  function addMeta(label, value) {
-    if (!value) return;
+  function addMeta(text) {
+    if (!text) return;
     const row = document.createElement('div');
     row.className = 'meta-row';
-    const l = document.createElement('span');
-    l.className = 'meta-label';
-    l.textContent = label;
-    const v = document.createElement('span');
-    v.className = 'meta-value';
-    v.textContent = value;
-    row.appendChild(l);
-    row.appendChild(v);
+    row.textContent = text;
     lbMeta.appendChild(row);
+  }
+
+  function resetZoomState() {
+    zoomed = false;
+    zoomScale = 'fit';
+    fullLoaded = false;
+    hideSpotlight();
+    setViewportMode('fit');
+    lbImg.style.width = '';
+    lbImg.style.height = '';
+    lbSelect.hidden = true;
+    lightbox.classList.remove('full-view');
   }
 
   function close() {
     lightbox.hidden = true;
     document.body.style.overflow = '';
+    resetZoomState();
   }
 
   function step(delta) {

@@ -322,58 +322,40 @@ main {
   text-align: left;
 }
 
-/* Full-resolution view: collapse the metadata panel down to just the
-   title + return button, and let the image fill more of the screen. */
+/* Full resolution gets more screen since the image itself has no border. */
 .lightbox.full-view .lb-viewport {
   height: 82vh;
 }
 
-.lightbox.full-view .lb-meta {
+/* Medium view already has the caption/settings baked into its border --
+   the HTML panel only needs to appear for the un-bordered full-res view,
+   collapsed down to the return-to-normal-size button. */
+.lb-info.info-hidden h3,
+.lb-info.info-hidden .lb-meta {
   display: none;
 }
 
-.lightbox.full-view .lb-info {
+.lb-info.info-hidden {
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 1rem;
-  padding: 0.6rem 1.1rem;
-}
-
-.lightbox.full-view .lb-info h3 {
-  margin: 0;
-  font-size: 0.95rem;
+  padding: 0.5rem 1.1rem;
 }
 
 .lb-info h3 {
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.3rem;
   font-size: 1rem;
   color: #fff;
   font-weight: 600;
 }
 
 .lb-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.6rem;
 }
 
 .meta-row {
-  display: flex;
-  gap: 0.5rem;
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   line-height: 1.4;
-}
-
-.meta-label {
   color: var(--muted);
-  min-width: 70px;
-  flex-shrink: 0;
-}
-
-.meta-value {
-  color: #eee;
 }
 
 .lb-zoom {
@@ -392,6 +374,7 @@ main {
 
 .lb-close, .lb-nav {
   position: absolute;
+  z-index: 10;
   background: transparent;
   border: none;
   color: #eee;
