@@ -34,6 +34,15 @@ body {
   padding: 2.5rem 1rem 1.5rem;
 }
 
+.site-kicker {
+  margin: 0 0 0.6rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
 .site-header h1 {
   margin: 0 0 0.4rem;
   font-size: 2rem;

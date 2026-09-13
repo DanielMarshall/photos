@@ -19,7 +19,7 @@
   const lbProgressBar = document.getElementById('lb-progress-bar');
   const lbLoadingLabel = document.getElementById('lb-loading-label');
 
-  const res = await fetch('images.json');
+  const res = await fetch('images.json?v=' + Date.now());
   const items = await res.json();
 
   const SECTION_ORDER = [
