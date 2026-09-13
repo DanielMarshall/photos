@@ -231,6 +231,9 @@ TITLES = {
     "13092026_162523P9130052_02last dinosaurs mc-20.jpg": ("Dinosaur", ""),
     "13092026_162533P9130054_02last dinosaurs mc-20.jpg": ("Dinosaur", ""),
     "13092026_162544P9130056_02last dinosaurs mc-20.jpg": ("Dinosaur", ""),
+    "13092026_180538P9130001Frank.jpg": ("Detail 1", ""),
+    "13092026_183135P9130095_01Frank.jpg": ("Detail 2", ""),
+    "13092026_183206P9130141_01Frank.jpg": ("Detail 3", ""),
 }
 
 # Display-order override: sort as if taken right after P9111337 (same subject,
@@ -277,6 +280,8 @@ def classify(original, dt):
         return "Gladesville", "Experiments in Liquids", "Home"
     if "last dinosaurs" in original.lower():
         return "Gladesville", "Dinosaurs", "Gladesville"
+    if original.lower().endswith("frank.jpg"):
+        return "Gladesville", "Frank photos of Frankie", "Gladesville"
     return "Gladesville", "Garden", "Home"
 
 def main():
@@ -323,7 +328,7 @@ def main():
 
     # Experiments in Liquids / Dinosaurs: show year-month only, not the exact
     # day/time -- applied after sorting so ordering still uses full precision.
-    TRUNCATE_DATE_SUBCATEGORIES = {"Experiments in Liquids", "Dinosaurs"}
+    TRUNCATE_DATE_SUBCATEGORIES = {"Experiments in Liquids", "Dinosaurs", "Frank photos of Frankie"}
     for item in items:
         if item["category"] == "Gladesville" and item["subcategory"] in TRUNCATE_DATE_SUBCATEGORIES:
             if item["settings"] and item["settings"].get("datetime"):

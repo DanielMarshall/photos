@@ -4408,5 +4408,68 @@
       "camera": "OM-1MarkII",
       "datetime": "2026-09"
     }
+  },
+  {
+    "thumb": "images/thumbs/13092026-180538p9130001frank.jpg",
+    "medium": "images/medium/13092026-180538p9130001frank.jpg",
+    "full": "images/full/13092026-180538p9130001frank.jpg",
+    "original_filename": "13092026_180538P9130001Frank.jpg",
+    "caption": "Frank",
+    "title": "Detail 1",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Frank photos of Frankie",
+    "location": "Gladesville",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026-09"
+    }
+  },
+  {
+    "thumb": "images/thumbs/13092026-183135p9130095-01frank.jpg",
+    "medium": "images/medium/13092026-183135p9130095-01frank.jpg",
+    "full": "images/full/13092026-183135p9130095-01frank.jpg",
+    "original_filename": "13092026_183135P9130095_01Frank.jpg",
+    "caption": "Frank",
+    "title": "Detail 2",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Frank photos of Frankie",
+    "location": "Gladesville",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 320,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026-09"
+    }
+  },
+  {
+    "thumb": "images/thumbs/13092026-183206p9130141-01frank.jpg",
+    "medium": "images/medium/13092026-183206p9130141-01frank.jpg",
+    "full": "images/full/13092026-183206p9130141-01frank.jpg",
+    "original_filename": "13092026_183206P9130141_01Frank.jpg",
+    "caption": "Frank",
+    "title": "Detail 3",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Frank photos of Frankie",
+    "location": "Gladesville",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 320,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026-09"
+    }
   }
 ]
