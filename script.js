@@ -176,7 +176,10 @@
       lbTitle.textContent = item.title || item.caption || '(untitled)';
       const s = item.settings;
       const line = [];
-      if (item.original_filename) line.push(item.original_filename);
+      // Only show the raw filename when there's no real title yet -- once a
+      // photo has a proper name, the filename is just noise (and for some
+      // sets, like Experiments in Liquids, deliberately hidden).
+      if (!item.title && item.original_filename) line.push(item.original_filename);
       if (s) {
         const bits = [];
         if (s.aperture) bits.push(s.aperture);

@@ -122,6 +122,37 @@ ARTARMON_TITLES = {
 
 # (title, description) supplied by the photographer, keyed by original filename.
 TITLES = {
+    # Experiments in Liquids -- sequential by shoot order, filenames hidden
+    # from the public site. Negativish is a color-inverted variant of the
+    # immediately preceding shot, not a new experiment, hence "8a". Where
+    # both a stack composite and its plain sample-slice sibling are separate
+    # site entries, they share one number distinguished by suffix.
+    "13092026_095951P9130128glitter oil 40Stacked.jpg": ("Experiment #1", ""),
+    "13092026_100420P9130288glitter oil 16Stacked.jpg": ("Experiment #2", ""),
+    "13092026_100530P9130342glitter oil.jpg": ("Experiment #3", ""),
+    "13092026_102322P9130373glitter oil.jpg": ("Experiment #4", ""),
+    "13092026_102344P9130374glitter oil.jpg": ("Experiment #5", ""),
+    "13092026_103907P9130382glitter oil.jpg": ("Experiment #6", ""),
+    "13092026_104026P9130383glitter oil.jpg": ("Experiment #7", ""),
+    "13092026_104210P9130388glitter oil.jpg": ("Experiment #8", ""),
+    "13092026_104233P9130389glitter oil Negativish.jpg": ("Experiment #8a", ""),
+    "13092026_104646P9130394glitter oil.jpg": ("Experiment #9", ""),
+    "13092026_104923P9130397glitter oil.jpg": ("Experiment #10", ""),
+    "13092026_105840P9130459glitter oi 9Stackedl.jpg": ("Experiment #11", ""),
+    "13092026_105930P9130554glitter oil.jpg": ("Experiment #12", ""),
+    "13092026_131750P9130002glitter oil mc-20.jpg": ("Experiment #13", ""),
+    "13092026_131948P9130028_01glitter oil mc-20 32Stacked.jpg": ("Experiment #14", ""),
+    "13092026_132032P9130105_01glitter oil mc-20.jpg": ("Experiment #15", ""),
+    "13092026_132219P9130202_01glitter oil mc-20 22Stacked.jpg": ("Experiment #16 Stack", ""),
+    "13092026_132219P9130202_01glitter oil mc-20.jpg": ("Experiment #16 Example Slice", ""),
+    "13092026_132615P9130301_01glitter oil mc-20 10stacked.jpg": ("Experiment #17 Stack", ""),
+    "13092026_132615P9130301_01glitter oil mc-20.jpg": ("Experiment #17 Example Slice", ""),
+    "13092026_132725P9130483_01glitter oil mc-20.jpg": ("Experiment #18", ""),
+    "13092026_132831P9130485_01glitter oil mc-20.jpg": ("Experiment #19", ""),
+    "13092026_132858P9130486_01glitter oil mc-20.jpg": ("Experiment #20", ""),
+    "13092026_133011P9130487_01glitter oil mc-20.jpg": ("Experiment #21", ""),
+    "13092026_133107P9130488_01glitter oil mc-20.jpg": ("Experiment #22", ""),
+    "13092026_133445P9130490_01glitter oil mc-20.jpg": ("Experiment #23", ""),
     "Timmy.JPG": ("Timmy", ""),
     "Timmy2.JPG": ("Timmy", ""),
     "Timmy3.JPG": ("Timmy", ""),
@@ -266,6 +297,13 @@ def main():
         dt = SORT_OVERRIDE.get(original) or (item["settings"]["datetime"] if item["settings"] else None)
         return (dt is None, dt or item["thumb"])
     items.sort(key=sort_key)
+
+    # Experiments in Liquids: show year-month only, not the exact day/time --
+    # applied after sorting so ordering still uses full precision.
+    for item in items:
+        if item["category"] == "Gladesville" and item["subcategory"] == "Experiments in Liquids":
+            if item["settings"] and item["settings"].get("datetime"):
+                item["settings"]["datetime"] = item["settings"]["datetime"][:7].replace(":", "-")
 
     with open(os.path.join(PHOTOS, "images.json"), "w", encoding="utf-8") as f:
         json.dump(items, f, indent=2)
