@@ -38,6 +38,10 @@ def to_date(dt):
     return date_part.replace(":", "-")
 
 def main():
+    # optional: pass original_filename(s) as argv to only (re)process those,
+    # instead of every item -- avoids double-bordering already-done images.
+    whitelist = set(sys.argv[1:]) or None
+
     with open(os.path.join(PHOTOS, "images.json"), encoding="utf-8") as f:
         items = json.load(f)
 
@@ -45,6 +49,8 @@ def main():
     done, skipped = 0, 0
 
     for item in items:
+        if whitelist is not None and item["original_filename"] not in whitelist:
+            continue
         settings = item.get("settings")
         if not settings:
             skipped += 1

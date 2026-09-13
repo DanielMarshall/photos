@@ -23,6 +23,9 @@ SOURCE_MAP = {
     # Zerene PMax stack outputs carry zero EXIF -- map to the source RAW.
     "STACK-DANDELION-ZS-PMax.jpg": os.path.join(CAMROLL, "2026_09_04", "P9040361_01.ORF"),
     "Grub Stack PMax.jpg": os.path.join(SAVED, "Grub Single RAW.ORF"),
+    "13092026_095951P9130128glitter oil 40Stacked.jpg": os.path.join(CAMROLL, "13092026_095951P9130128glitter oil.jpg"),
+    "13092026_100420P9130288glitter oil 16Stacked.jpg": os.path.join(CAMROLL, "13092026_100420P9130288glitter oil.jpg"),
+    "13092026_105840P9130459glitter oi 9Stackedl.jpg": os.path.join(CAMROLL, "13092026_105840P9130459glitter oil.jpg"),
 }
 UNRESOLVED = set()
 
@@ -215,6 +218,8 @@ def classify(original, dt):
         return "Gladesville", "Planes", "Home"
     if original in UNCATEGORIZED_GLADESVILLE:
         return "Gladesville", "Uncategorized", "Home"
+    if "glitter oi" in original.lower():
+        return "Gladesville", "Experiments in Liquids", "Home"
     return "Gladesville", "Garden", "Home"
 
 def main():

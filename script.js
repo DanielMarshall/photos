@@ -21,6 +21,7 @@
 
   const SECTION_ORDER = [
     ['Gladesville', 'Garden'],
+    ['Gladesville', 'Experiments in Liquids'],
     ['Gladesville', 'Planes'],
     ['Gladesville', 'People'],
     ['Gladesville', 'Uncategorized'],
@@ -35,6 +36,7 @@
 
   const SECTION_LABELS = {
     'Gladesville|Garden': 'Gladesville — Garden',
+    'Gladesville|Experiments in Liquids': 'Gladesville — Experiments in Liquids',
     'Gladesville|Planes': 'Gladesville — Planes',
     'Gladesville|People': 'Gladesville — People',
     'Gladesville|Uncategorized': 'Gladesville — Other',
