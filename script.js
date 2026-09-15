@@ -562,6 +562,11 @@
     cropEditorControls.hidden = false;
     highlightRatioButton();
     renderEditorBox();
+    // Register the photo (with whatever the box currently shows) as soon as
+    // edit mode is entered, rather than waiting for a drag or ratio click --
+    // otherwise glancing at a photo's default box and moving on leaves no
+    // trace that it was ever opened, which reads as "nothing happened".
+    commitEditingSpec();
   }
 
   function stopEditing() {
