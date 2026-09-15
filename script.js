@@ -465,11 +465,8 @@
     URL.revokeObjectURL(url);
     if (navigator.clipboard) {
       navigator.clipboard.writeText(json).then(() => {
-        const original = exportCropsBtn.textContent;
-        exportCropsBtn.textContent = 'Copied + downloaded!';
-        setTimeout(() => {
-          exportCropsBtn.innerHTML = `Export Crops (<span id="export-count">${Object.keys(cropEdits).length}</span>)`;
-        }, 1500);
+        exportCropsBtn.classList.add('copied');
+        setTimeout(() => exportCropsBtn.classList.remove('copied'), 1500);
       }).catch(() => {});
     }
   });
@@ -628,16 +625,27 @@
     }
   });
 
+  // Always re-reads cropEdits/CROPS fresh rather than trusting a spec
+  // captured in a button's closure -- buildCropBar only runs once per
+  // photo-view, so a stale captured spec would keep reappearing every time
+  // you ctrl+click back into an already-edited crop after editing a
+  // different one on the same photo in between.
+  function resolveSpec(filename, kind, index) {
+    const cfg = getEffectiveConfig(filename);
+    if (kind === 'final') return (cfg && cfg.final) || null;
+    return (cfg && cfg.details && cfg.details[index]) || null;
+  }
+
   function buildCropBar(item) {
     cropBar.innerHTML = '';
     const config = getEffectiveConfig(item.original_filename);
-    const finalSpec = (config && config.final) || null;
 
-    const addButton = (label, kind, index, spec) => {
+    const addButton = (label, kind, index) => {
       const btn = document.createElement('button');
       btn.className = 'crop-btn';
       btn.textContent = label;
       btn.addEventListener('click', (e) => {
+        const spec = resolveSpec(item.original_filename, kind, index);
         if (e.ctrlKey || e.metaKey) {
           if (editing && editing.filename === item.original_filename && editing.kind === kind && editing.index === index) {
             stopEditing();
@@ -653,11 +661,11 @@
       cropBar.appendChild(btn);
     };
 
-    addButton('Final Frame', 'final', undefined, finalSpec);
+    addButton('Final Frame', 'final', undefined);
 
     if (config && config.details) {
       config.details.forEach((spec, index) => {
-        addButton(spec.label, 'detail', index, spec);
+        addButton(spec.label, 'detail', index);
       });
     }
 

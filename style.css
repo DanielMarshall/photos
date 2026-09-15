@@ -665,6 +665,18 @@ main {
   display: none;
 }
 
+.export-btn-confirm {
+  display: none;
+}
+
+.export-crops-btn.copied .export-btn-label {
+  display: none;
+}
+
+.export-crops-btn.copied .export-btn-confirm {
+  display: inline;
+}
+
 .crop-editor-controls {
   display: flex;
   align-items: center;
