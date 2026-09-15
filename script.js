@@ -7,6 +7,7 @@
   const lbTitle = document.getElementById('lb-title');
   const lbMeta = document.getElementById('lb-meta');
   const lbZoom = document.getElementById('lb-zoom');
+  const cropBar = document.getElementById('crop-bar');
   const lbClose = document.getElementById('lb-close');
   const lbPrev = document.getElementById('lb-prev');
   const lbNext = document.getElementById('lb-next');
@@ -130,6 +131,23 @@
       thumb.src = groupItems[0].thumb;
       thumb.alt = SECTION_LABELS[key] || cat;
       card.appendChild(thumb);
+
+      // Hover: cycle through this category's thumbnails as a quick preview.
+      let hoverTimer = null;
+      let hoverPos = 0;
+      card.addEventListener('mouseenter', () => {
+        if (groupItems.length < 2) return;
+        hoverTimer = setInterval(() => {
+          hoverPos = (hoverPos + 1) % groupItems.length;
+          thumb.src = groupItems[hoverPos].thumb;
+        }, 700);
+      });
+      card.addEventListener('mouseleave', () => {
+        clearInterval(hoverTimer);
+        hoverTimer = null;
+        hoverPos = 0;
+        thumb.src = groupItems[0].thumb;
+      });
 
       const body = document.createElement('div');
       body.className = 'category-card-body';
@@ -273,12 +291,122 @@
     document.body.style.overflow = 'hidden';
   }
 
+  // Curated "Final Frame" / "Detail" crops for the full-resolution view.
+  // Specs are given as a center point + a standard aspect ratio + a size
+  // (fraction of the image's natural height) so the actual crop rectangle
+  // is computed correctly against each photo's real pixel dimensions,
+  // rather than guessing width/height fractions by hand. Entries here are
+  // illustrative starting points -- estimated by eye, meant to be reviewed
+  // and adjusted, not final. Any photo without an entry still gets a
+  // "Final Frame" button, using a generic 10% inset default.
+  const CROPS = {
+    '12092026_143707P9120897Sydney CBD - Copy.jpg': {
+      final: { ratio: [1, 1], center: [0.62, 0.42], size: 0.55 },
+    },
+    '12092026_124523P9120095Sydney CBD - Copy.jpg': {
+      final: { ratio: [16, 9], center: [0.55, 0.6], size: 0.5 },
+    },
+    '12092026_134219P9120824Sydney CBD - Copy.jpg': {
+      final: { ratio: [4, 5], center: [0.5, 0.55], size: 0.75 },
+    },
+    '15092026_174550P9150027_01 michael fender.jpg': {
+      final: { ratio: [1, 1], center: [0.45, 0.4], size: 0.5 },
+    },
+    '13092026_180538P9130001Frank.jpg': {
+      final: { ratio: [4, 5], center: [0.5, 0.45], size: 0.7 },
+      details: [
+        { label: 'Detail #1', ratio: [1, 1], center: [0.5, 0.45], size: 0.25 },
+      ],
+    },
+  };
+  const DEFAULT_FINAL_CROP = { x: 0.1, y: 0.1, w: 0.8, h: 0.8 };
+
+  // Converts a {ratio, center, size} spec into a {x, y, w, h} rect in
+  // fractions of the natural image -- size is a fraction of natural height,
+  // width is derived from the target ratio and the image's real pixel
+  // dimensions so the on-screen crop is a true 1:1 / 4:5 / 16:9 / etc.
+  function rectFromSpec(spec, naturalWidth, naturalHeight) {
+    const h = spec.size;
+    const cropHpx = h * naturalHeight;
+    const cropWpx = cropHpx * (spec.ratio[0] / spec.ratio[1]);
+    const w = cropWpx / naturalWidth;
+    const x = Math.min(Math.max(spec.center[0] - w / 2, 0), 1 - w);
+    const y = Math.min(Math.max(spec.center[1] - h / 2, 0), 1 - h);
+    return { x, y, w, h };
+  }
+
+  // Frames the full-resolution view on a specific crop rectangle (fractions
+  // of the natural image), locking panning to exactly that region. Unlike
+  // the free zoom levels, this is allowed to exceed native (1:1) resolution
+  // if the crop is small -- the point is to fill the frame with the curated
+  // composition, not to cap at pixel-peeping scale.
+  function showCropView(rect, btn) {
+    if (!fullLoaded) return;
+    hideSpotlight();
+    lbSelect.hidden = true;
+    const cropWpx = rect.w * lbImg.naturalWidth;
+    const cropHpx = rect.h * lbImg.naturalHeight;
+    // Cover-fit, not contain-fit: the crop should fill the viewport edge to
+    // edge (clipping its own edges to match the viewport's aspect if
+    // needed), not float inside it with neighbouring image content bleeding
+    // in on the short axis. Deliberately uncapped past native resolution --
+    // that's the point of a curated frame, unlike the free zoom levels.
+    const scale = Math.max(lbViewport.clientWidth / cropWpx, lbViewport.clientHeight / cropHpx);
+    zoomScale = 'crop';
+    zoomButtons.forEach((b) => b.classList.remove('active'));
+    cropBar.querySelectorAll('.crop-btn').forEach((b) => b.classList.remove('active'));
+    if (btn) btn.classList.add('active');
+    setViewportMode('zoomed');
+    lbViewport.classList.add('framed');
+    const w = lbImg.naturalWidth * scale;
+    const h = lbImg.naturalHeight * scale;
+    lbImg.style.width = `${w}px`;
+    lbImg.style.height = `${h}px`;
+    currentFocus = { x: rect.x + rect.w / 2, y: rect.y + rect.h / 2 };
+    lbViewport.scrollLeft = currentFocus.x * w - lbViewport.clientWidth / 2;
+    lbViewport.scrollTop = currentFocus.y * h - lbViewport.clientHeight / 2;
+  }
+
+  function buildCropBar(item) {
+    cropBar.innerHTML = '';
+    const config = CROPS[item.original_filename];
+    const finalSpec = (config && config.final) || null;
+
+    const addButton = (label, resolve) => {
+      const btn = document.createElement('button');
+      btn.className = 'crop-btn';
+      btn.textContent = label;
+      btn.addEventListener('click', () => {
+        const rect = resolve();
+        showCropView(rect, btn);
+      });
+      cropBar.appendChild(btn);
+    };
+
+    addButton('Final Frame', () => {
+      if (finalSpec) return rectFromSpec(finalSpec, lbImg.naturalWidth, lbImg.naturalHeight);
+      return DEFAULT_FINAL_CROP;
+    });
+
+    if (config && config.details) {
+      config.details.forEach((spec) => {
+        addButton(spec.label, () => rectFromSpec(spec, lbImg.naturalWidth, lbImg.naturalHeight));
+      });
+    }
+  }
+
   function render() {
     const item = items[current];
     fullLoaded = false;
     zoomScale = 'fit';
     currentFocus = { x: 0.5, y: 0.5 };
     zoomBar.hidden = !zoomed;
+    cropBar.hidden = !zoomed;
+    if (zoomed) {
+      buildCropBar(item);
+    } else {
+      cropBar.innerHTML = '';
+    }
     lightbox.classList.toggle('full-view', zoomed);
     setViewportMode('fit');
     hideSpotlight();
@@ -356,6 +484,7 @@
   }
 
   function setViewportMode(mode) {
+    lbViewport.classList.remove('framed');
     lbViewport.classList.toggle('fit', mode === 'fit');
     lbViewport.classList.toggle('zoomed', mode === 'zoomed');
     lbViewport.classList.toggle('selectable', mode === 'fit' && zoomed);
