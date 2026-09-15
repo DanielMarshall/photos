@@ -5145,6 +5145,48 @@
     }
   },
   {
+    "thumb": "images/thumbs/15092026-190107p9150185-mirror-30stacked.jpg",
+    "medium": "images/medium/15092026-190107p9150185-mirror-30stacked.jpg",
+    "full": "images/full/15092026-190107p9150185-mirror-30stacked.jpg",
+    "original_filename": "15092026_190107P9150185 mirror 30stacked.jpg",
+    "caption": "mirror 30stacked",
+    "title": "Self Portrait Stack",
+    "description": "The lens, looking at itself in a mirror.",
+    "category": "Gladesville",
+    "subcategory": "Uncategorized",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:15 19:01:07"
+    }
+  },
+  {
+    "thumb": "images/thumbs/15092026-190107p9150185-mirror.jpg",
+    "medium": "images/medium/15092026-190107p9150185-mirror.jpg",
+    "full": "images/full/15092026-190107p9150185-mirror.jpg",
+    "original_filename": "15092026_190107P9150185 mirror.jpg",
+    "caption": "mirror",
+    "title": "Self Portrait Example Slice",
+    "description": "Sample stack slice",
+    "category": "Gladesville",
+    "subcategory": "Uncategorized",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:15 19:01:07"
+    }
+  },
+  {
     "thumb": "images/thumbs/stack-2-spider.jpg",
     "medium": "images/medium/stack-2-spider.jpg",
     "full": "images/full/stack-2-spider.jpg",

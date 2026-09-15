@@ -111,6 +111,7 @@
   let currentOrder = globalOrder;
 
   function renderHome() {
+    document.body.classList.add('home-view');
     main.innerHTML = '';
     const grid = document.createElement('div');
     grid.className = 'category-grid';
@@ -162,6 +163,7 @@
     if (!groupItems || !groupItems.length) return renderHome();
     const [cat, sub] = key.split('|');
 
+    document.body.classList.remove('home-view');
     main.innerHTML = '';
 
     const back = document.createElement('a');

@@ -29,6 +29,30 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
+body.home-view {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)), url('images/bg/home-background.jpg');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+@media (prefers-color-scheme: dark) {
+  body.home-view {
+    background-image: linear-gradient(rgba(8, 8, 8, 0.74), rgba(8, 8, 8, 0.74)), url('images/bg/home-background.jpg');
+  }
+
+  body.home-view .site-kicker { color: #a8d9c0; }
+  body.home-view .site-header h1,
+  body.home-view .subtitle,
+  body.home-view .gear-note { color: #f2f2ef; }
+  body.home-view .slideshow-btn {
+    color: #f2f2ef;
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+  body.home-view .site-footer,
+  body.home-view .site-footer p { color: #cfcfca; }
+}
+
 .site-header {
   text-align: center;
   padding: 2.5rem 1rem 1.5rem;

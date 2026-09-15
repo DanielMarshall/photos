@@ -45,6 +45,7 @@ SOURCE_MAP = {
     # from the same day's "P9150707_01 fluids redux" frame (different photo,
     # coincidentally sharing the base frame number).
     "P9150707 20 stacked.jpg": os.path.join(CAMROLL, "2026_09_15", "15092026_091907P9150707 garden.jpg"),
+    "15092026_190107P9150185 mirror 30stacked.jpg": os.path.join(EXPORTS, "15092026_190107P9150185 mirror.jpg"),
 }
 UNRESOLVED = set()
 
@@ -127,7 +128,11 @@ PLANES = {
     "11092026_174001P9110019.jpg", "11092026_185659P9110024.jpg",
     "11092026_190153P9110025.jpg",
 }
-UNCATEGORIZED_GLADESVILLE = {"Bus-Stop.jpg"}
+UNCATEGORIZED_GLADESVILLE = {
+    "Bus-Stop.jpg",
+    "15092026_190107P9150185 mirror 30stacked.jpg",
+    "15092026_190107P9150185 mirror.jpg",
+}
 
 # Taken at work (Artarmon), not home -- first names only, no employer/address published
 ARTARMON_TITLES = {
@@ -222,6 +227,8 @@ TITLES = {
     "Nathan.jpg": ("Nathan", ""),
     "mum - Diana.jpg": ("Diana", ""),
     "Bus-Stop.jpg": ("Bus Stop", ""),
+    "15092026_190107P9150185 mirror 30stacked.jpg": ("Self Portrait Stack", "The lens, looking at itself in a mirror."),
+    "15092026_190107P9150185 mirror.jpg": ("Self Portrait Example Slice", "Sample stack slice"),
     "STACK-2-Spider.jpg": ("Garden Orb Weaver One Stack", "Stacked photo"),
     "STACK-P9040321.jpg": ("Garden Orb Weaver One Example Slice", "Sample stack slice"),
     "Orb Weaver1.jpg": ("Golden Orb Weaver One", "Too busy making a web to pose for a good photo this time, but I know where you live now."),
