@@ -365,7 +365,7 @@ TITLES = {
     "12092026_153629P9120952Sydney CBD.jpg": ("Checking In", ""),
     "12092026_154147P9120953Sydney CBD.jpg": ("Streets of the CBD II", ""),
     "12092026_154905P9120962Sydney CBD.jpg": ("Street Ping Pong", ""),
-    "12092026_155157P9120967Sydney CBD.jpg": ("Street Ping Pong II", ""),
+    "12092026_155157P9120967Sydney CBD.jpg": ("Concrete Jungle", ""),
     "12092026_155423P9120974Sydney CBD.jpg": ("Darling Harbour Marina", ""),
     "12092026_155609P9120984Sydney CBD.jpg": ("Darling Harbour Marina II", ""),
     "12092026_155917P9120993Sydney CBD.jpg": ("Glass Reflections III", ""),
