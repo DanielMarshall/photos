@@ -126,27 +126,63 @@
       card.className = 'category-card';
       card.href = `#/c/${encodeURIComponent(key)}`;
 
+      const thumbWrap = document.createElement('div');
+      thumbWrap.className = 'card-thumb-wrap';
+
       const thumb = document.createElement('img');
       thumb.className = 'category-card-thumb';
       thumb.src = groupItems[0].thumb;
       thumb.alt = SECTION_LABELS[key] || cat;
-      card.appendChild(thumb);
+      thumbWrap.appendChild(thumb);
 
-      // Hover: cycle through this category's thumbnails as a quick preview.
+      const shutterTop = document.createElement('div');
+      shutterTop.className = 'shutter shutter-top';
+      const shutterBottom = document.createElement('div');
+      shutterBottom.className = 'shutter shutter-bottom';
+      thumbWrap.appendChild(shutterTop);
+      thumbWrap.appendChild(shutterBottom);
+
+      card.appendChild(thumbWrap);
+
+      // Hover: cycle through this category's thumbnails, swapping behind a
+      // quick camera-shutter close/open rather than a straight cut.
+      const SHUTTER_MS = 50;
       let hoverTimer = null;
+      let shutterTimeout = null;
       let hoverPos = 0;
+
+      function openShutters() {
+        shutterTop.classList.remove('closed');
+        shutterBottom.classList.remove('closed');
+      }
+
+      function goToThumb(index, animate) {
+        if (!animate) {
+          thumb.src = groupItems[index].thumb;
+          openShutters();
+          return;
+        }
+        shutterTop.classList.add('closed');
+        shutterBottom.classList.add('closed');
+        shutterTimeout = setTimeout(() => {
+          thumb.src = groupItems[index].thumb;
+          openShutters();
+        }, SHUTTER_MS);
+      }
+
       card.addEventListener('mouseenter', () => {
         if (groupItems.length < 2) return;
         hoverTimer = setInterval(() => {
           hoverPos = (hoverPos + 1) % groupItems.length;
-          thumb.src = groupItems[hoverPos].thumb;
+          goToThumb(hoverPos, true);
         }, 700);
       });
       card.addEventListener('mouseleave', () => {
         clearInterval(hoverTimer);
+        clearTimeout(shutterTimeout);
         hoverTimer = null;
         hoverPos = 0;
-        thumb.src = groupItems[0].thumb;
+        goToThumb(0, false);
       });
 
       const body = document.createElement('div');
