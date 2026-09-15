@@ -476,15 +476,13 @@
   // in-progress version -- committed into cropEdits on every drag release.
   let editing = null;
 
-  function imgViewportOffset() {
-    const vpR = lbViewport.getBoundingClientRect();
-    const imgR = lbImg.getBoundingClientRect();
-    return {
-      left: imgR.left - vpR.left,
-      top: imgR.top - vpR.top,
-      width: imgR.width,
-      height: imgR.height,
-    };
+  // Page-absolute (client) rect of the displayed image -- the same
+  // coordinate space as mouse events (e.clientX/clientY), so drag math
+  // never has to mix "relative to the viewport" with "relative to the
+  // page" (that mismatch was the cause of the erratic resize behaviour).
+  function imgPageRect() {
+    const r = lbImg.getBoundingClientRect();
+    return { left: r.left, top: r.top, width: r.width, height: r.height };
   }
 
   function renderEditorBox() {
@@ -492,13 +490,23 @@
       cropEditorBox.hidden = true;
       return;
     }
-    const off = imgViewportOffset();
     const rect = rectFromSpec(editing.spec, lbImg.naturalWidth, lbImg.naturalHeight);
+    // offsetLeft/offsetTop/offsetWidth/offsetHeight are relative to the
+    // nearest positioned ancestor (.lb-viewport) and do NOT include scroll
+    // -- exactly what CSS left/top on an absolutely-positioned sibling
+    // needs. Using getBoundingClientRect() here (screen/scroll-space)
+    // double-counts the scroll offset once the browser re-applies it while
+    // rendering the box, which is what made it drift at roughly 2x the
+    // image's own pan/scroll speed.
+    const baseLeft = lbImg.offsetLeft;
+    const baseTop = lbImg.offsetTop;
+    const w = lbImg.offsetWidth;
+    const h = lbImg.offsetHeight;
     cropEditorBox.hidden = false;
-    cropEditorBox.style.left = `${off.left + rect.x * off.width}px`;
-    cropEditorBox.style.top = `${off.top + rect.y * off.height}px`;
-    cropEditorBox.style.width = `${rect.w * off.width}px`;
-    cropEditorBox.style.height = `${rect.h * off.height}px`;
+    cropEditorBox.style.left = `${baseLeft + rect.x * w}px`;
+    cropEditorBox.style.top = `${baseTop + rect.y * h}px`;
+    cropEditorBox.style.width = `${rect.w * w}px`;
+    cropEditorBox.style.height = `${rect.h * h}px`;
   }
 
   function commitEditingSpec() {
@@ -588,31 +596,45 @@
     const corner = e.target.dataset && e.target.dataset.corner;
     e.preventDefault();
     e.stopPropagation();
-    const off = imgViewportOffset();
     dragStart = {
       x: e.clientX,
       y: e.clientY,
       center: editing.spec.center.slice(),
       size: editing.spec.size,
-      off,
+      img: imgPageRect(),
     };
     dragMode = corner ? 'resize' : 'move';
   });
 
   document.addEventListener('mousemove', (e) => {
     if (!dragMode || !editing) return;
-    const off = dragStart.off;
+    const img = dragStart.img;
     if (dragMode === 'move') {
-      const dxFrac = (e.clientX - dragStart.x) / off.width;
-      const dyFrac = (e.clientY - dragStart.y) / off.height;
+      const dxFrac = (e.clientX - dragStart.x) / img.width;
+      const dyFrac = (e.clientY - dragStart.y) / img.height;
       const rect = rectFromSpec({ ...editing.spec, center: dragStart.center }, lbImg.naturalWidth, lbImg.naturalHeight);
       editing.spec.center = [
         Math.min(Math.max(dragStart.center[0] + dxFrac, rect.w / 2), 1 - rect.w / 2),
         Math.min(Math.max(dragStart.center[1] + dyFrac, rect.h / 2), 1 - rect.h / 2),
       ];
     } else {
-      const fy = (e.clientY - off.top) / off.height;
-      const newSize = Math.min(Math.max(Math.abs(fy - dragStart.center[1]) * 2, 0.04), 1);
+      // Resize around the fixed center: the dragged corner's distance from
+      // center (along whichever axis its own natural pixel span is taller,
+      // so panoramic/portrait ratios resize predictably from any corner)
+      // becomes the new half-size.
+      const fx = (e.clientX - img.left) / img.width;
+      const fy = (e.clientY - img.top) / img.height;
+      // `size` is defined as a fraction of the image's natural HEIGHT, so a
+      // vertical mouse offset from center maps to it directly. A horizontal
+      // offset has to be converted through the image's own aspect (which,
+      // since it's rendered at uniform scale, equals img.width/img.height)
+      // and the locked ratio first. Averaging both keeps a diagonal drag on
+      // any corner tracking the cursor smoothly instead of only ever
+      // reading one axis.
+      const imgAspect = img.width / img.height;
+      const sizeFromY = Math.abs(fy - dragStart.center[1]) * 2;
+      const sizeFromX = Math.abs(fx - dragStart.center[0]) * 2 * imgAspect * (editing.spec.ratio[1] / editing.spec.ratio[0]);
+      const newSize = Math.min(Math.max((sizeFromY + sizeFromX) / 2, 0.04), 1);
       editing.spec.size = newSize;
     }
     renderEditorBox();
@@ -819,6 +841,7 @@
       setViewportMode('fit');
       lbImg.style.width = '';
       lbImg.style.height = '';
+      if (editing) renderEditorBox();
       return;
     }
     if (!fullLoaded) return;
@@ -909,6 +932,9 @@
       lbViewport.scrollLeft = panStart.scrollLeft - (e.clientX - panStart.x);
       lbViewport.scrollTop = panStart.scrollTop - (e.clientY - panStart.y);
       syncFocusFromScroll();
+      // Keep the crop-editor box glued to the image on every pan frame --
+      // don't wait for the (slightly async) scroll event to catch up.
+      if (editing) renderEditorBox();
     } else if (isSelecting) {
       const rect = lbViewport.getBoundingClientRect();
       const curX = Math.max(0, Math.min(rect.width, e.clientX - rect.left));
