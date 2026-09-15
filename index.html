@@ -36,6 +36,7 @@
 
 <div class="lightbox" id="lightbox" hidden>
   <button class="lb-close" id="lb-close" aria-label="Close">&times;</button>
+  <button class="export-crops-btn" id="export-crops-btn" hidden>Export Crops (<span id="export-count">0</span>)</button>
   <button class="lb-nav lb-prev" id="lb-prev" aria-label="Previous">&#10094;</button>
   <button class="lb-nav lb-next" id="lb-next" aria-label="Next">&#10095;</button>
   <div class="lb-content">
@@ -44,6 +45,12 @@
       <div class="lb-dim" id="lb-dim-a" hidden></div>
       <div class="lb-dim" id="lb-dim-b" hidden></div>
       <div class="lb-select" id="lb-select" hidden></div>
+      <div class="crop-editor-box" id="crop-editor-box" hidden>
+        <div class="ce-handle ce-nw" data-corner="nw"></div>
+        <div class="ce-handle ce-ne" data-corner="ne"></div>
+        <div class="ce-handle ce-sw" data-corner="sw"></div>
+        <div class="ce-handle ce-se" data-corner="se"></div>
+      </div>
       <div class="lb-loading" id="lb-loading" hidden>
         <div class="lb-progress"><div class="lb-progress-bar" id="lb-progress-bar"></div></div>
         <p class="lb-loading-label" id="lb-loading-label">Loading full resolution…</p>
@@ -61,6 +68,10 @@
       <div class="lb-zoom-row">
         <button class="lb-zoom" id="lb-zoom">View full resolution</button>
         <div class="crop-bar" id="crop-bar" hidden></div>
+      </div>
+      <div class="crop-editor-controls" id="crop-editor-controls" hidden>
+        <div class="ratio-picker" id="ratio-picker"></div>
+        <button class="crop-btn" id="add-detail-btn">+ Add Detail</button>
       </div>
     </div>
   </div>

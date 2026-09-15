@@ -8,6 +8,12 @@
   const lbMeta = document.getElementById('lb-meta');
   const lbZoom = document.getElementById('lb-zoom');
   const cropBar = document.getElementById('crop-bar');
+  const cropEditorBox = document.getElementById('crop-editor-box');
+  const cropEditorControls = document.getElementById('crop-editor-controls');
+  const ratioPicker = document.getElementById('ratio-picker');
+  const addDetailBtn = document.getElementById('add-detail-btn');
+  const exportCropsBtn = document.getElementById('export-crops-btn');
+  const exportCountEl = document.getElementById('export-count');
   const lbClose = document.getElementById('lb-close');
   const lbPrev = document.getElementById('lb-prev');
   const lbNext = document.getElementById('lb-next');
@@ -403,31 +409,266 @@
     lbViewport.scrollTop = currentFocus.y * h - lbViewport.clientHeight / 2;
   }
 
+  // ---- Hidden crop-editing tool (ctrl+click a Final Frame/Detail button) ----
+  // Lets the photographer visually redefine a Final Frame / Detail crop on
+  // the live site, accumulating changes across as many photos as they like
+  // in one browsing session, then export everything as one JSON blob to
+  // hand back for the CROPS config above. Never surfaced in the normal UI.
+  const RATIO_PRESETS = [
+    { label: 'Portrait', ratio: [4, 5] },
+    { label: 'Square', ratio: [1, 1] },
+    { label: 'Landscape', ratio: [3, 2] },
+    { label: 'Wide', ratio: [16, 9] },
+    { label: 'Panoramic', ratio: [2, 1] },
+  ];
+  const CROP_EDITS_KEY = 'gallery-crop-edits';
+
+  let cropEdits = {};
+  try {
+    cropEdits = JSON.parse(localStorage.getItem(CROP_EDITS_KEY) || '{}');
+  } catch (e) {
+    cropEdits = {};
+  }
+  updateExportButton();
+
+  function saveCropEdits() {
+    localStorage.setItem(CROP_EDITS_KEY, JSON.stringify(cropEdits));
+    updateExportButton();
+  }
+
+  function updateExportButton() {
+    const count = Object.keys(cropEdits).length;
+    exportCropsBtn.hidden = count === 0;
+    exportCountEl.textContent = String(count);
+  }
+
+  function getEffectiveConfig(filename) {
+    const base = CROPS[filename];
+    const edit = cropEdits[filename];
+    if (!base && !edit) return null;
+    return {
+      final: (edit && edit.final) || (base && base.final) || null,
+      details: (edit && edit.details) || (base && base.details) || null,
+    };
+  }
+
+  exportCropsBtn.addEventListener('click', () => {
+    const json = JSON.stringify(cropEdits, null, 2);
+    const blob = new Blob([json], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'crop-edits.json';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(json).then(() => {
+        const original = exportCropsBtn.textContent;
+        exportCropsBtn.textContent = 'Copied + downloaded!';
+        setTimeout(() => {
+          exportCropsBtn.innerHTML = `Export Crops (<span id="export-count">${Object.keys(cropEdits).length}</span>)`;
+        }, 1500);
+      }).catch(() => {});
+    }
+  });
+
+  // Currently-being-edited crop, if any: { filename, kind: 'final'|'detail',
+  // index (for detail), spec: {ratio, center, size} }. `spec` is the live,
+  // in-progress version -- committed into cropEdits on every drag release.
+  let editing = null;
+
+  function imgViewportOffset() {
+    const vpR = lbViewport.getBoundingClientRect();
+    const imgR = lbImg.getBoundingClientRect();
+    return {
+      left: imgR.left - vpR.left,
+      top: imgR.top - vpR.top,
+      width: imgR.width,
+      height: imgR.height,
+    };
+  }
+
+  function renderEditorBox() {
+    if (!editing || !editing.spec) {
+      cropEditorBox.hidden = true;
+      return;
+    }
+    const off = imgViewportOffset();
+    const rect = rectFromSpec(editing.spec, lbImg.naturalWidth, lbImg.naturalHeight);
+    cropEditorBox.hidden = false;
+    cropEditorBox.style.left = `${off.left + rect.x * off.width}px`;
+    cropEditorBox.style.top = `${off.top + rect.y * off.height}px`;
+    cropEditorBox.style.width = `${rect.w * off.width}px`;
+    cropEditorBox.style.height = `${rect.h * off.height}px`;
+  }
+
+  function commitEditingSpec() {
+    if (!editing) return;
+    const filename = editing.filename;
+    if (!cropEdits[filename]) cropEdits[filename] = {};
+    if (editing.kind === 'final') {
+      cropEdits[filename].final = editing.spec;
+    } else {
+      if (!cropEdits[filename].details) cropEdits[filename].details = [];
+      cropEdits[filename].details[editing.index] = editing.spec;
+    }
+    saveCropEdits();
+  }
+
+  function highlightRatioButton() {
+    const buttons = ratioPicker.querySelectorAll('.ratio-btn');
+    buttons.forEach((b) => {
+      const r = JSON.parse(b.dataset.ratio);
+      const match = editing && editing.spec && r[0] === editing.spec.ratio[0] && r[1] === editing.spec.ratio[1];
+      b.classList.toggle('active', !!match);
+    });
+  }
+
+  function buildRatioPicker() {
+    ratioPicker.innerHTML = '';
+    RATIO_PRESETS.forEach((preset) => {
+      const btn = document.createElement('button');
+      btn.className = 'ratio-btn';
+      btn.textContent = preset.label;
+      btn.dataset.ratio = JSON.stringify(preset.ratio);
+      btn.addEventListener('click', () => {
+        if (!editing) return;
+        if (!editing.spec) editing.spec = { ratio: preset.ratio, center: [0.5, 0.5], size: 0.6 };
+        else editing.spec.ratio = preset.ratio;
+        highlightRatioButton();
+        renderEditorBox();
+        commitEditingSpec();
+      });
+      ratioPicker.appendChild(btn);
+    });
+  }
+  buildRatioPicker();
+
+  function startEditing(item, kind, index, initialSpec) {
+    editing = {
+      filename: item.original_filename,
+      kind,
+      index,
+      spec: initialSpec ? { ...initialSpec, ratio: initialSpec.ratio.slice(), center: initialSpec.center.slice() } : null,
+    };
+    if (!editing.spec) editing.spec = { ratio: [4, 5], center: [0.5, 0.5], size: 0.6 };
+    cropEditorControls.hidden = false;
+    highlightRatioButton();
+    renderEditorBox();
+  }
+
+  function stopEditing() {
+    editing = null;
+    cropEditorControls.hidden = true;
+    cropEditorBox.hidden = true;
+  }
+
+  addDetailBtn.addEventListener('click', () => {
+    const item = items[current];
+    const filename = item.original_filename;
+    if (!cropEdits[filename]) cropEdits[filename] = {};
+    if (!cropEdits[filename].details) cropEdits[filename].details = [];
+    const index = cropEdits[filename].details.length;
+    const label = `Detail #${index + 1}`;
+    const spec = { label, ratio: [1, 1], center: [0.5, 0.5], size: 0.25 };
+    cropEdits[filename].details.push(spec);
+    saveCropEdits();
+    buildCropBar(item);
+    startEditing(item, 'detail', index, spec);
+  });
+
+  // Dragging the box body moves it; dragging a corner handle resizes it
+  // (uniformly, keeping the locked ratio, growing/shrinking around the
+  // fixed center) -- both expressed in fractions of the natural image so
+  // they work correctly no matter the current zoom level.
+  let dragMode = null; // 'move' | 'resize'
+  let dragStart = null;
+
+  cropEditorBox.addEventListener('mousedown', (e) => {
+    if (!editing || !editing.spec) return;
+    const corner = e.target.dataset && e.target.dataset.corner;
+    e.preventDefault();
+    e.stopPropagation();
+    const off = imgViewportOffset();
+    dragStart = {
+      x: e.clientX,
+      y: e.clientY,
+      center: editing.spec.center.slice(),
+      size: editing.spec.size,
+      off,
+    };
+    dragMode = corner ? 'resize' : 'move';
+  });
+
+  document.addEventListener('mousemove', (e) => {
+    if (!dragMode || !editing) return;
+    const off = dragStart.off;
+    if (dragMode === 'move') {
+      const dxFrac = (e.clientX - dragStart.x) / off.width;
+      const dyFrac = (e.clientY - dragStart.y) / off.height;
+      const rect = rectFromSpec({ ...editing.spec, center: dragStart.center }, lbImg.naturalWidth, lbImg.naturalHeight);
+      editing.spec.center = [
+        Math.min(Math.max(dragStart.center[0] + dxFrac, rect.w / 2), 1 - rect.w / 2),
+        Math.min(Math.max(dragStart.center[1] + dyFrac, rect.h / 2), 1 - rect.h / 2),
+      ];
+    } else {
+      const fy = (e.clientY - off.top) / off.height;
+      const newSize = Math.min(Math.max(Math.abs(fy - dragStart.center[1]) * 2, 0.04), 1);
+      editing.spec.size = newSize;
+    }
+    renderEditorBox();
+  });
+
+  document.addEventListener('mouseup', () => {
+    if (dragMode) {
+      dragMode = null;
+      commitEditingSpec();
+    }
+  });
+
   function buildCropBar(item) {
     cropBar.innerHTML = '';
-    const config = CROPS[item.original_filename];
+    const config = getEffectiveConfig(item.original_filename);
     const finalSpec = (config && config.final) || null;
 
-    const addButton = (label, resolve) => {
+    const addButton = (label, kind, index, spec) => {
       const btn = document.createElement('button');
       btn.className = 'crop-btn';
       btn.textContent = label;
-      btn.addEventListener('click', () => {
-        const rect = resolve();
+      btn.addEventListener('click', (e) => {
+        if (e.ctrlKey || e.metaKey) {
+          if (editing && editing.filename === item.original_filename && editing.kind === kind && editing.index === index) {
+            stopEditing();
+          } else {
+            startEditing(item, kind, index, spec);
+          }
+          return;
+        }
+        stopEditing();
+        const rect = spec ? rectFromSpec(spec, lbImg.naturalWidth, lbImg.naturalHeight) : DEFAULT_FINAL_CROP;
         showCropView(rect, btn);
       });
       cropBar.appendChild(btn);
     };
 
-    addButton('Final Frame', () => {
-      if (finalSpec) return rectFromSpec(finalSpec, lbImg.naturalWidth, lbImg.naturalHeight);
-      return DEFAULT_FINAL_CROP;
-    });
+    addButton('Final Frame', 'final', undefined, finalSpec);
 
     if (config && config.details) {
-      config.details.forEach((spec) => {
-        addButton(spec.label, () => rectFromSpec(spec, lbImg.naturalWidth, lbImg.naturalHeight));
+      config.details.forEach((spec, index) => {
+        addButton(spec.label, 'detail', index, spec);
       });
+    }
+
+    // Re-show the editor UI if we were mid-edit on this same photo (e.g.
+    // right after "+ Add Detail" rebuilt the bar to add its button).
+    if (editing && editing.filename === item.original_filename) {
+      cropEditorControls.hidden = false;
+      highlightRatioButton();
+      renderEditorBox();
+    } else {
+      stopEditing();
     }
   }
 
@@ -508,6 +749,7 @@
     resetZoomState();
     releaseFullObjectURL();
     lbLoading.hidden = true;
+    stopEditing();
   }
 
   function step(delta) {
@@ -584,7 +826,18 @@
       top: f.y * h - lbViewport.clientHeight / 2,
       behavior: 'smooth',
     });
+    if (editing) renderEditorBox();
   }
+
+  // Keeps the crop-editor overlay aligned through panning, zoom-level
+  // changes (including the smooth-scroll animation), and window resizes --
+  // it has to track the image's on-screen rect at any magnification.
+  lbViewport.addEventListener('scroll', () => {
+    if (editing) renderEditorBox();
+  });
+  window.addEventListener('resize', () => {
+    if (editing) renderEditorBox();
+  });
 
   // Keep currentFocus in sync with wherever the view has been panned to,
   // so switching zoom levels afterwards doesn't jump back to image center.
