@@ -56,6 +56,25 @@
     'Darling Harbour Piano|null': 'Darling Harbour Piano',
   };
 
+  // Shown on each category's card on the home view, and again as an intro
+  // line in the category's own detail view.
+  const SECTION_DESCRIPTIONS = {
+    'Gladesville|Garden': 'Backyard macro photography — spiders, insects, and other garden life, including focus-stacked composites.',
+    'Gladesville|Experiments in Liquids': 'Macro tests of oil and glitter in liquid, exploring focus and lighting technique.',
+    'Gladesville|Dinosaurs': "They like roasted almonds enough that they will fight each other off to see who gets to almost take off one of my fingers, and hang around for some photos afterwards, until Timmy came to investigate, and their extinction paranoia kicked in and they went to their next stop.",
+    'Gladesville|Frank photos of Frankie': "Extreme close-up macro shots of Frankie's facial features.",
+    'Gladesville|Planes': 'Planes photographed from the yard, some with the MC-20 teleconverter for extra reach.',
+    'Gladesville|People': 'Family and friends around home.',
+    'Gladesville|Uncategorized': "A few photos that don't fit anywhere else yet.",
+    'Hornsby Heights|null': "Family photos at mum and dad's house in Hornsby Heights.",
+    'Artarmon|null': 'Photos taken around Artarmon.',
+    'Sydney CBD|null': 'Snapshots around Darling Harbour and the Sydney CBD.',
+    'Chinese Garden of Friendship|null': 'Water dragons and the waterfall at the Chinese Garden of Friendship, Darling Harbour.',
+    'Sydney Town Hall|null': 'A Ukraine solidarity protest at Sydney Town Hall.',
+    'Queen Victoria Building|null': 'The public piano, clock, and mall interior at the QVB.',
+    'Darling Harbour Piano|null': 'A public piano at Darling Harbour.',
+  };
+
   function groupKey(item) {
     return `${item.category}|${item.subcategory}`;
   }
@@ -68,12 +87,79 @@
     groups.get(key).push(item);
   });
 
-  const flatOrder = [];
-
+  // Full site order (category order, then within-category order) -- used by
+  // the whole-site slideshow regardless of which view is currently showing.
+  const globalOrder = [];
   SECTION_ORDER.forEach(([cat, sub]) => {
     const key = `${cat}|${sub}`;
     const groupItems = groups.get(key);
     if (!groupItems || !groupItems.length) return;
+    groupItems.forEach((item) => globalOrder.push(item._index));
+  });
+
+  // Lightbox prev/next steps through whichever category grid is currently
+  // open -- set each time a category detail view is rendered.
+  let currentOrder = globalOrder;
+
+  function renderHome() {
+    main.innerHTML = '';
+    const grid = document.createElement('div');
+    grid.className = 'category-grid';
+
+    SECTION_ORDER.forEach(([cat, sub]) => {
+      const key = `${cat}|${sub}`;
+      const groupItems = groups.get(key);
+      if (!groupItems || !groupItems.length) return;
+
+      const card = document.createElement('a');
+      card.className = 'category-card';
+      card.href = `#/c/${encodeURIComponent(key)}`;
+
+      const thumb = document.createElement('img');
+      thumb.className = 'category-card-thumb';
+      thumb.src = groupItems[0].thumb;
+      thumb.alt = SECTION_LABELS[key] || cat;
+      card.appendChild(thumb);
+
+      const body = document.createElement('div');
+      body.className = 'category-card-body';
+
+      const heading = document.createElement('h2');
+      heading.textContent = SECTION_LABELS[key] || cat;
+      body.appendChild(heading);
+
+      const desc = SECTION_DESCRIPTIONS[key];
+      if (desc) {
+        const p = document.createElement('p');
+        p.textContent = desc;
+        body.appendChild(p);
+      }
+
+      const count = document.createElement('div');
+      count.className = 'category-count';
+      count.textContent = `${groupItems.length} photo${groupItems.length === 1 ? '' : 's'}`;
+      body.appendChild(count);
+
+      card.appendChild(body);
+      grid.appendChild(card);
+    });
+
+    main.appendChild(grid);
+    window.scrollTo(0, 0);
+  }
+
+  function renderCategory(key) {
+    const groupItems = groups.get(key);
+    if (!groupItems || !groupItems.length) return renderHome();
+    const [cat, sub] = key.split('|');
+
+    main.innerHTML = '';
+
+    const back = document.createElement('a');
+    back.className = 'back-link';
+    back.href = '#';
+    back.textContent = '← All categories';
+    main.appendChild(back);
 
     const section = document.createElement('section');
     section.className = 'photo-section';
@@ -82,18 +168,20 @@
     heading.textContent = SECTION_LABELS[key] || cat;
     section.appendChild(heading);
 
-    if (cat === 'Gladesville' && sub === 'Dinosaurs') {
+    const desc = SECTION_DESCRIPTIONS[key];
+    if (desc) {
       const intro = document.createElement('p');
       intro.className = 'section-intro';
-      intro.textContent = "They like roasted almonds enough that they will fight each other off to see who gets to almost take off one of my fingers, and hang around for some photos afterwards, until Timmy came to investigate, and their extinction paranoia kicked in and they went to their next stop.";
+      intro.textContent = desc;
       section.appendChild(intro);
     }
 
     const grid = document.createElement('div');
     grid.className = 'grid';
 
+    currentOrder = groupItems.map((item) => item._index);
+
     groupItems.forEach((item) => {
-      flatOrder.push(item._index);
       const fig = document.createElement('figure');
       const img = document.createElement('img');
       img.src = item.thumb;
@@ -129,7 +217,21 @@
     }
 
     main.appendChild(section);
-  });
+    window.scrollTo(0, 0);
+  }
+
+  function route() {
+    const m = location.hash.match(/^#\/c\/(.+)$/);
+    if (m) {
+      const key = decodeURIComponent(m[1]);
+      if (groups.has(key)) return renderCategory(key);
+    }
+    currentOrder = globalOrder;
+    renderHome();
+  }
+
+  window.addEventListener('hashchange', route);
+  route();
 
   let current = -1;
   let zoomed = false; // viewing the full-resolution source (vs medium)
@@ -235,9 +337,9 @@
 
   function step(delta) {
     releaseFullObjectURL();
-    const pos = flatOrder.indexOf(current);
-    const nextPos = (pos + delta + flatOrder.length) % flatOrder.length;
-    current = flatOrder[nextPos];
+    const pos = currentOrder.indexOf(current);
+    const nextPos = (pos + delta + currentOrder.length) % currentOrder.length;
+    current = currentOrder[nextPos];
     zoomed = false;
     render();
   }
@@ -599,8 +701,8 @@
   }
 
   function ssOpen() {
-    if (!flatOrder.length) return;
-    ssOrder = flatOrder.slice();
+    if (!globalOrder.length) return;
+    ssOrder = globalOrder.slice();
     ssPaused = false;
     ssShowingA = false;
     ssImgA.classList.remove('visible');
@@ -640,30 +742,44 @@
     if (e.key === ' ') { e.preventDefault(); ssTogglePause(); }
   });
 
-  // ---- Background precache offer ----
-  // Once the thumbnails visible on first load have settled, offer to warm
-  // the browser cache with every medium-resolution image so opening photos
-  // and paging through the lightbox feels instant. Opt-in since the medium
-  // tier adds up to tens of MB -- not something to push on visitors silently.
+  // ---- Background caching ----
+  // First warm the browser cache with every thumbnail across the whole site
+  // (most aren't in the DOM yet -- they only appear once a category is
+  // opened), then, once that's done, offer to also cache every
+  // medium-resolution image so opening photos and paging through the
+  // lightbox feels instant. The medium step stays opt-in (remembered via
+  // localStorage) since it can add up to tens of MB; thumbnails are small
+  // enough to just warm proactively.
   const PRECACHE_CHOICE_KEY = 'gallery-precache-choice';
 
-  function precacheMediums(onProgress) {
+  function precacheAll(urlOf, onProgress) {
     const total = items.length;
     let done = 0;
     let idx = 0;
     const CONCURRENCY = 6;
-    function loadNext() {
-      if (idx >= total) return;
-      const item = items[idx++];
-      const img = new Image();
-      img.onload = img.onerror = () => {
-        done++;
-        if (onProgress) onProgress(done, total);
-        if (idx < total) loadNext();
-      };
-      img.src = item.medium;
-    }
-    for (let i = 0; i < CONCURRENCY && i < total; i++) loadNext();
+    return new Promise((resolve) => {
+      function loadNext() {
+        if (idx >= total) return;
+        const item = items[idx++];
+        const img = new Image();
+        img.onload = img.onerror = () => {
+          done++;
+          if (onProgress) onProgress(done, total);
+          if (idx < total) loadNext();
+          else if (done >= total) resolve();
+        };
+        img.src = urlOf(item);
+      }
+      for (let i = 0; i < CONCURRENCY && i < total; i++) loadNext();
+    });
+  }
+
+  function precacheThumbs() {
+    return precacheAll((item) => item.thumb);
+  }
+
+  function precacheMediums(onProgress) {
+    return precacheAll((item) => item.medium, onProgress);
   }
 
   function showPrecacheOffer() {
@@ -697,29 +813,12 @@
     });
   }
 
-  function whenInitialThumbsSettled(cb) {
-    const viewportBottom = window.innerHeight + 600;
-    const visible = Array.from(document.querySelectorAll('.grid img'))
-      .filter((img) => img.getBoundingClientRect().top < viewportBottom);
-    if (!visible.length) return cb();
-    let pending = visible.filter((img) => !img.complete).length;
-    if (pending === 0) return cb();
-    let settled = 0;
-    visible.forEach((img) => {
-      if (img.complete) return;
-      const onSettle = () => {
-        settled++;
-        if (settled >= pending) cb();
-      };
-      img.addEventListener('load', onSettle, { once: true });
-      img.addEventListener('error', onSettle, { once: true });
-    });
-  }
-
-  const precacheChoice = localStorage.getItem(PRECACHE_CHOICE_KEY);
-  if (precacheChoice === 'accepted') {
-    whenInitialThumbsSettled(() => precacheMediums());
-  } else if (precacheChoice !== 'declined') {
-    whenInitialThumbsSettled(showPrecacheOffer);
-  }
+  precacheThumbs().then(() => {
+    const precacheChoice = localStorage.getItem(PRECACHE_CHOICE_KEY);
+    if (precacheChoice === 'accepted') {
+      precacheMediums();
+    } else if (precacheChoice !== 'declined') {
+      showPrecacheOffer();
+    }
+  });
 })();
