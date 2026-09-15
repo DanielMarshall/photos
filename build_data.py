@@ -29,6 +29,22 @@ SOURCE_MAP = {
     "13092026_131948P9130028_01glitter oil mc-20 32Stacked.jpg": os.path.join(CAMROLL, "13092026_131948P9130028_01glitter oil mc-20.jpg"),
     "13092026_132219P9130202_01glitter oil mc-20 22Stacked.jpg": os.path.join(EXPORTS, "13092026_132219P9130202_01glitter oil mc-20.jpg"),
     "13092026_132615P9130301_01glitter oil mc-20 10stacked.jpg": os.path.join(EXPORTS, "13092026_132615P9130301_01glitter oil mc-20.jpg"),
+    "14092026_192938P9140110work and moss 20stacked.jpg": os.path.join(EXPORTS, "14092026_192938P9140110work and moss.jpg"),
+    "14092026_193312P9140182work and moss mass stack.jpg": os.path.join(EXPORTS, "14092026_193312P9140182work and moss.jpg"),
+    "14092026_193540P9140324work and moss 30 stack.jpg": os.path.join(EXPORTS, "14092026_193540P9140324work and moss.jpg"),
+    "14092026_194038P9140624work and moss messy 100stack.jpg": os.path.join(EXPORTS, "14092026_194038P9140624work and moss.jpg"),
+    "14092026_194042P9140652work and moss 50 stacked.jpg": os.path.join(CAMROLL, "2026_09_14", "14092026_194042P9140652work and moss.jpg"),
+    "15092026_140211P9150010 fluids redux 12stacked.jpg": os.path.join(CAMROLL, "2026_09_15", "P9150010.ORF"),
+    "15092026_140325P9150080 fluids redux 12 stack.jpg": os.path.join(CAMROLL, "2026_09_14", "15092026_140325P9150080 fluids redux.jpg"),
+    "15092026_140445P9150300 fluids redux 17stacked.jpg": os.path.join(EXPORTS, "15092026_140445P9150300 fluids redux.jpg"),
+    "15092026_141441P9150645 fluids redux 20stacked.jpg": os.path.join(EXPORTS, "15092026_141441P9150645 fluids redux.jpg"),
+    "15092026_141528P9150748 fluids redux 40stacked.jpg": os.path.join(EXPORTS, "15092026_141528P9150748 fluids redux.jpg"),
+    "15092026_170642P9150014_01 mickaels flowers 25stacked.jpg": os.path.join(EXPORTS, "15092026_170642P9150014_01 mickaels flowers.jpg"),
+    "15092026_170801P9150100 mickaels flowers 25 stacked.jpg": os.path.join(EXPORTS, "15092026_170801P9150100 mickaels flowers.jpg"),
+    # No suffix in either the composite's or the source's filename -- distinct
+    # from the same day's "P9150707_01 fluids redux" frame (different photo,
+    # coincidentally sharing the base frame number).
+    "P9150707 20 stacked.jpg": os.path.join(CAMROLL, "2026_09_15", "15092026_091907P9150707 garden.jpg"),
 }
 UNRESOLVED = set()
 
@@ -118,6 +134,49 @@ ARTARMON_TITLES = {
     "Billy.JPG": "Billy",
     "Chloe-kiani.JPG": "Kiani",
     "Slava.JPG": "Slava",
+}
+ARTARMON_PEOPLE = {
+    "14092026_170006P9140017 Alex Chin.jpg",
+    "14092026_170020P9140018 Alex Eye.jpg",
+    "14092026_170023P9140019 Alex Eye.jpg",
+    "14092026_170026P9140020 Alex Eye.jpg",
+    "14092026_170402P9140021 Alex.jpg",
+    "14092026_170435P9140025 Alex.jpg",
+}
+KITCHEN_MOSS = {
+    "14092026_192938P9140110work and moss 20stacked.jpg",
+    "14092026_192938P9140110work and moss.jpg",
+    "14092026_193312P9140182work and moss mass stack.jpg",
+    "14092026_193312P9140182work and moss.jpg",
+    "14092026_193540P9140324work and moss 30 stack.jpg",
+    "14092026_193540P9140324work and moss.jpg",
+    "14092026_194038P9140624work and moss messy 100stack.jpg",
+    "14092026_194038P9140624work and moss.jpg",
+    "14092026_194042P9140652work and moss 50 stacked.jpg",
+}
+FLUIDS_REDUX = {
+    "15092026_140105P9150003 fluids redux.jpg",
+    "15092026_140211P9150010 fluids redux 12stacked.jpg",
+    "15092026_140325P9150080 fluids redux 12 stack.jpg",
+    "15092026_140445P9150300 fluids redux 17stacked.jpg",
+    "15092026_140445P9150300 fluids redux.jpg",
+    "15092026_141441P9150645 fluids redux 20stacked.jpg",
+    "15092026_141441P9150645 fluids redux.jpg",
+    "15092026_141528P9150748 fluids redux 40stacked.jpg",
+    "15092026_141528P9150748 fluids redux.jpg",
+}
+MICHAELS_FLOWERS = {
+    "15092026_170642P9150014_01 mickaels flowers 25stacked.jpg",
+    "15092026_170642P9150014_01 mickaels flowers.jpg",
+    "15092026_170801P9150100 mickaels flowers 25 stacked.jpg",
+    "15092026_170801P9150100 mickaels flowers.jpg",
+}
+MICHAELS_FENDER = {
+    "15092026_174550P9150027_01 michael fender.jpg",
+    "15092026_174604P9150028_01 michael fender.jpg",
+    "15092026_174630P9150030_01 michael fender.jpg",
+    "15092026_174636P9150031_01 michael fender.jpg",
+    "15092026_174652P9150033_01 michael fender.jpg",
 }
 
 # (title, description) supplied by the photographer, keyed by original filename.
@@ -231,6 +290,40 @@ TITLES = {
     "13092026_162523P9130052_02last dinosaurs mc-20.jpg": ("Dinosaur", ""),
     "13092026_162533P9130054_02last dinosaurs mc-20.jpg": ("Dinosaur", ""),
     "13092026_162544P9130056_02last dinosaurs mc-20.jpg": ("Dinosaur", ""),
+    "14092026_170006P9140017 Alex Chin.jpg": ("Chin", ""),
+    "14092026_170020P9140018 Alex Eye.jpg": ("Eye", ""),
+    "14092026_170023P9140019 Alex Eye.jpg": ("Eye II", ""),
+    "14092026_170026P9140020 Alex Eye.jpg": ("Eye III", ""),
+    "14092026_170402P9140021 Alex.jpg": ("Caught Mid-Laugh", ""),
+    "14092026_170435P9140025 Alex.jpg": ("Caught Mid-Laugh II", ""),
+    "14092026_192938P9140110work and moss 20stacked.jpg": ("Moss Stack", "Stacked photo"),
+    "14092026_192938P9140110work and moss.jpg": ("Moss Example Slice", "Sample stack slice"),
+    "14092026_193312P9140182work and moss mass stack.jpg": ("Moss II Stack", "Stacked photo"),
+    "14092026_193312P9140182work and moss.jpg": ("Moss II Example Slice", "Sample stack slice"),
+    "14092026_193540P9140324work and moss 30 stack.jpg": ("Moss III Stack", "Stacked photo"),
+    "14092026_193540P9140324work and moss.jpg": ("Moss III Example Slice", "Sample stack slice"),
+    "14092026_194038P9140624work and moss messy 100stack.jpg": ("Moss IV Stack", "100-frame stack"),
+    "14092026_194038P9140624work and moss.jpg": ("Moss IV Example Slice", "Sample stack slice"),
+    "14092026_194042P9140652work and moss 50 stacked.jpg": ("Moss V", "50-frame stack"),
+    "15092026_140105P9150003 fluids redux.jpg": ("Experiment #24", ""),
+    "15092026_140211P9150010 fluids redux 12stacked.jpg": ("Experiment #25", ""),
+    "15092026_140325P9150080 fluids redux 12 stack.jpg": ("Experiment #26", ""),
+    "15092026_140445P9150300 fluids redux 17stacked.jpg": ("Experiment #27 Stack", ""),
+    "15092026_140445P9150300 fluids redux.jpg": ("Experiment #27 Example Slice", ""),
+    "15092026_141441P9150645 fluids redux 20stacked.jpg": ("Experiment #28 Stack", ""),
+    "15092026_141441P9150645 fluids redux.jpg": ("Experiment #28 Example Slice", ""),
+    "15092026_141528P9150748 fluids redux 40stacked.jpg": ("Experiment #29 Stack", ""),
+    "15092026_141528P9150748 fluids redux.jpg": ("Experiment #29 Example Slice", ""),
+    "15092026_170642P9150014_01 mickaels flowers 25stacked.jpg": ("Michael's Flowers Stack", "Stacked photo"),
+    "15092026_170642P9150014_01 mickaels flowers.jpg": ("Michael's Flowers Example Slice", "Sample stack slice"),
+    "15092026_170801P9150100 mickaels flowers 25 stacked.jpg": ("Michael's Flowers II Stack", "Stacked photo"),
+    "15092026_170801P9150100 mickaels flowers.jpg": ("Michael's Flowers II Example Slice", "Sample stack slice"),
+    "15092026_174550P9150027_01 michael fender.jpg": ("The Badge", ""),
+    "15092026_174604P9150028_01 michael fender.jpg": ("Dialing It In", ""),
+    "15092026_174630P9150030_01 michael fender.jpg": ("Fine-Tuning by Ear", ""),
+    "15092026_174636P9150031_01 michael fender.jpg": ("Getting There", ""),
+    "15092026_174652P9150033_01 michael fender.jpg": ("Caught Mid-Motion", ""),
+    "P9150707 20 stacked.jpg": ("Wasp Nest II", ""),
     "13092026_180538P9130001Frank.jpg": ("Detail 1", ""),
     "13092026_183135P9130095_01Frank.jpg": ("Detail 2", ""),
     "13092026_183206P9130141_01Frank.jpg": ("Detail 3", ""),
@@ -266,8 +359,16 @@ def classify(original, dt):
         if time_code and time_code > GARDEN_END:
             return "Sydney CBD", None, "Darling Harbour to Wynyard, Sydney"
         return "Sydney CBD", None, "Darling Harbour area, Sydney"
-    if original in ARTARMON_TITLES:
+    if original in ARTARMON_TITLES or original in ARTARMON_PEOPLE:
         return "Artarmon", None, "Artarmon"
+    if original in KITCHEN_MOSS:
+        return "Gladesville", "Moss", "Home"
+    if original in FLUIDS_REDUX:
+        return "Gladesville", "Experiments in Liquids", "Home"
+    if original in MICHAELS_FLOWERS:
+        return "Gladesville", "Michael's Flowers", "Home"
+    if original in MICHAELS_FENDER:
+        return "Gladesville", "Michael's Fender", "Home"
     if original in HORNSBY_HEIGHTS:
         return "Hornsby Heights", None, "Hornsby Heights, Sydney (mum & dad's house)"
     if original in PEOPLE:

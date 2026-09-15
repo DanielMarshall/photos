@@ -63,27 +63,6 @@
     }
   },
   {
-    "thumb": "images/thumbs/stack-2-spider.jpg",
-    "medium": "images/medium/stack-2-spider.jpg",
-    "full": "images/full/stack-2-spider.jpg",
-    "original_filename": "STACK-2-Spider.jpg",
-    "caption": "STACK 2 Spider",
-    "title": "Garden Orb Weaver One Stack",
-    "description": "Stacked photo",
-    "category": "Gladesville",
-    "subcategory": "Garden",
-    "location": "Home",
-    "settings": {
-      "aperture": "f/8",
-      "shutter": "1/100s",
-      "iso": 200,
-      "focal": "90mm",
-      "lens": "OM 90mm F3.5",
-      "camera": "OM-1MarkII",
-      "datetime": "2026:09:04 19:23:04"
-    }
-  },
-  {
     "thumb": "images/thumbs/stack-p9040321.jpg",
     "medium": "images/medium/stack-p9040321.jpg",
     "full": "images/full/stack-p9040321.jpg",
@@ -186,27 +165,6 @@
       "lens": "OM 90mm F3.5",
       "camera": "OM-1MarkII",
       "datetime": "2026:09:04 20:14:06"
-    }
-  },
-  {
-    "thumb": "images/thumbs/stack-dandelion-zs-pmax.jpg",
-    "medium": "images/medium/stack-dandelion-zs-pmax.jpg",
-    "full": "images/full/stack-dandelion-zs-pmax.jpg",
-    "original_filename": "STACK-DANDELION-ZS-PMax.jpg",
-    "caption": "STACK DANDELION ZS PMax",
-    "title": "Dandelion Stack",
-    "description": "36-frame stack",
-    "category": "Gladesville",
-    "subcategory": "Garden",
-    "location": "Home",
-    "settings": {
-      "aperture": "f/8",
-      "shutter": "1/100s",
-      "iso": 200,
-      "focal": "90mm",
-      "lens": "OM 90mm F3.5",
-      "camera": "OM-1MarkII",
-      "datetime": "2026:09:04 20:22:01"
     }
   },
   {
@@ -4471,5 +4429,745 @@
       "camera": "OM-1MarkII",
       "datetime": "2026-09"
     }
+  },
+  {
+    "thumb": "images/thumbs/14092026-170006p9140017-alex-chin.jpg",
+    "medium": "images/medium/14092026-170006p9140017-alex-chin.jpg",
+    "full": "images/full/14092026-170006p9140017-alex-chin.jpg",
+    "original_filename": "14092026_170006P9140017 Alex Chin.jpg",
+    "caption": "Alex Chin",
+    "title": "Chin",
+    "description": "",
+    "category": "Artarmon",
+    "subcategory": null,
+    "location": "Artarmon",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:14 17:00:06"
+    }
+  },
+  {
+    "thumb": "images/thumbs/14092026-170020p9140018-alex-eye.jpg",
+    "medium": "images/medium/14092026-170020p9140018-alex-eye.jpg",
+    "full": "images/full/14092026-170020p9140018-alex-eye.jpg",
+    "original_filename": "14092026_170020P9140018 Alex Eye.jpg",
+    "caption": "Alex Eye",
+    "title": "Eye",
+    "description": "",
+    "category": "Artarmon",
+    "subcategory": null,
+    "location": "Artarmon",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:14 17:00:20"
+    }
+  },
+  {
+    "thumb": "images/thumbs/14092026-170023p9140019-alex-eye.jpg",
+    "medium": "images/medium/14092026-170023p9140019-alex-eye.jpg",
+    "full": "images/full/14092026-170023p9140019-alex-eye.jpg",
+    "original_filename": "14092026_170023P9140019 Alex Eye.jpg",
+    "caption": "Alex Eye",
+    "title": "Eye II",
+    "description": "",
+    "category": "Artarmon",
+    "subcategory": null,
+    "location": "Artarmon",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:14 17:00:23"
+    }
+  },
+  {
+    "thumb": "images/thumbs/14092026-170026p9140020-alex-eye.jpg",
+    "medium": "images/medium/14092026-170026p9140020-alex-eye.jpg",
+    "full": "images/full/14092026-170026p9140020-alex-eye.jpg",
+    "original_filename": "14092026_170026P9140020 Alex Eye.jpg",
+    "caption": "Alex Eye",
+    "title": "Eye III",
+    "description": "",
+    "category": "Artarmon",
+    "subcategory": null,
+    "location": "Artarmon",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:14 17:00:26"
+    }
+  },
+  {
+    "thumb": "images/thumbs/14092026-170402p9140021-alex.jpg",
+    "medium": "images/medium/14092026-170402p9140021-alex.jpg",
+    "full": "images/full/14092026-170402p9140021-alex.jpg",
+    "original_filename": "14092026_170402P9140021 Alex.jpg",
+    "caption": "Alex",
+    "title": "Caught Mid-Laugh",
+    "description": "",
+    "category": "Artarmon",
+    "subcategory": null,
+    "location": "Artarmon",
+    "settings": {
+      "aperture": "f/7.1",
+      "shutter": "1/200s",
+      "iso": 16000,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:14 17:04:02"
+    }
+  },
+  {
+    "thumb": "images/thumbs/14092026-170435p9140025-alex.jpg",
+    "medium": "images/medium/14092026-170435p9140025-alex.jpg",
+    "full": "images/full/14092026-170435p9140025-alex.jpg",
+    "original_filename": "14092026_170435P9140025 Alex.jpg",
+    "caption": "Alex",
+    "title": "Caught Mid-Laugh II",
+    "description": "",
+    "category": "Artarmon",
+    "subcategory": null,
+    "location": "Artarmon",
+    "settings": {
+      "aperture": "f/7.1",
+      "shutter": "1/160s",
+      "iso": 12800,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:14 17:04:35"
+    }
+  },
+  {
+    "thumb": "images/thumbs/14092026-192938p9140110work-and-moss-20stacked.jpg",
+    "medium": "images/medium/14092026-192938p9140110work-and-moss-20stacked.jpg",
+    "full": "images/full/14092026-192938p9140110work-and-moss-20stacked.jpg",
+    "original_filename": "14092026_192938P9140110work and moss 20stacked.jpg",
+    "caption": "work and moss 20stacked",
+    "title": "Moss Stack",
+    "description": "Stacked photo",
+    "category": "Gladesville",
+    "subcategory": "Moss",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:14 19:29:38"
+    }
+  },
+  {
+    "thumb": "images/thumbs/14092026-192938p9140110work-and-moss.jpg",
+    "medium": "images/medium/14092026-192938p9140110work-and-moss.jpg",
+    "full": "images/full/14092026-192938p9140110work-and-moss.jpg",
+    "original_filename": "14092026_192938P9140110work and moss.jpg",
+    "caption": "work and moss",
+    "title": "Moss Example Slice",
+    "description": "Sample stack slice",
+    "category": "Gladesville",
+    "subcategory": "Moss",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:14 19:29:38"
+    }
+  },
+  {
+    "thumb": "images/thumbs/14092026-193312p9140182work-and-moss-mass-stack.jpg",
+    "medium": "images/medium/14092026-193312p9140182work-and-moss-mass-stack.jpg",
+    "full": "images/full/14092026-193312p9140182work-and-moss-mass-stack.jpg",
+    "original_filename": "14092026_193312P9140182work and moss mass stack.jpg",
+    "caption": "work and moss mass stack",
+    "title": "Moss II Stack",
+    "description": "Stacked photo",
+    "category": "Gladesville",
+    "subcategory": "Moss",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:14 19:33:12"
+    }
+  },
+  {
+    "thumb": "images/thumbs/14092026-193312p9140182work-and-moss.jpg",
+    "medium": "images/medium/14092026-193312p9140182work-and-moss.jpg",
+    "full": "images/full/14092026-193312p9140182work-and-moss.jpg",
+    "original_filename": "14092026_193312P9140182work and moss.jpg",
+    "caption": "work and moss",
+    "title": "Moss II Example Slice",
+    "description": "Sample stack slice",
+    "category": "Gladesville",
+    "subcategory": "Moss",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:14 19:33:12"
+    }
+  },
+  {
+    "thumb": "images/thumbs/14092026-193540p9140324work-and-moss-30-stack.jpg",
+    "medium": "images/medium/14092026-193540p9140324work-and-moss-30-stack.jpg",
+    "full": "images/full/14092026-193540p9140324work-and-moss-30-stack.jpg",
+    "original_filename": "14092026_193540P9140324work and moss 30 stack.jpg",
+    "caption": "work and moss 30 stack",
+    "title": "Moss III Stack",
+    "description": "Stacked photo",
+    "category": "Gladesville",
+    "subcategory": "Moss",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:14 19:35:40"
+    }
+  },
+  {
+    "thumb": "images/thumbs/14092026-193540p9140324work-and-moss.jpg",
+    "medium": "images/medium/14092026-193540p9140324work-and-moss.jpg",
+    "full": "images/full/14092026-193540p9140324work-and-moss.jpg",
+    "original_filename": "14092026_193540P9140324work and moss.jpg",
+    "caption": "work and moss",
+    "title": "Moss III Example Slice",
+    "description": "Sample stack slice",
+    "category": "Gladesville",
+    "subcategory": "Moss",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:14 19:35:40"
+    }
+  },
+  {
+    "thumb": "images/thumbs/14092026-194038p9140624work-and-moss-messy-100stack.jpg",
+    "medium": "images/medium/14092026-194038p9140624work-and-moss-messy-100stack.jpg",
+    "full": "images/full/14092026-194038p9140624work-and-moss-messy-100stack.jpg",
+    "original_filename": "14092026_194038P9140624work and moss messy 100stack.jpg",
+    "caption": "work and moss messy 100stack",
+    "title": "Moss IV Stack",
+    "description": "100-frame stack",
+    "category": "Gladesville",
+    "subcategory": "Moss",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:14 19:40:38"
+    }
+  },
+  {
+    "thumb": "images/thumbs/14092026-194038p9140624work-and-moss.jpg",
+    "medium": "images/medium/14092026-194038p9140624work-and-moss.jpg",
+    "full": "images/full/14092026-194038p9140624work-and-moss.jpg",
+    "original_filename": "14092026_194038P9140624work and moss.jpg",
+    "caption": "work and moss",
+    "title": "Moss IV Example Slice",
+    "description": "Sample stack slice",
+    "category": "Gladesville",
+    "subcategory": "Moss",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:14 19:40:38"
+    }
+  },
+  {
+    "thumb": "images/thumbs/14092026-194042p9140652work-and-moss-50-stacked.jpg",
+    "medium": "images/medium/14092026-194042p9140652work-and-moss-50-stacked.jpg",
+    "full": "images/full/14092026-194042p9140652work-and-moss-50-stacked.jpg",
+    "original_filename": "14092026_194042P9140652work and moss 50 stacked.jpg",
+    "caption": "work and moss 50 stacked",
+    "title": "Moss V",
+    "description": "50-frame stack",
+    "category": "Gladesville",
+    "subcategory": "Moss",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:14 19:40:42"
+    }
+  },
+  {
+    "thumb": "images/thumbs/p9150707-20-stacked.jpg",
+    "medium": "images/medium/p9150707-20-stacked.jpg",
+    "full": "images/full/p9150707-20-stacked.jpg",
+    "original_filename": "P9150707 20 stacked.jpg",
+    "caption": "P9150707 20 stacked",
+    "title": "Wasp Nest II",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/7.1",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:15 09:19:07"
+    }
+  },
+  {
+    "thumb": "images/thumbs/15092026-140105p9150003-fluids-redux.jpg",
+    "medium": "images/medium/15092026-140105p9150003-fluids-redux.jpg",
+    "full": "images/full/15092026-140105p9150003-fluids-redux.jpg",
+    "original_filename": "15092026_140105P9150003 fluids redux.jpg",
+    "caption": "fluids redux",
+    "title": "Experiment #24",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Experiments in Liquids",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026-09"
+    }
+  },
+  {
+    "thumb": "images/thumbs/15092026-140211p9150010-fluids-redux-12stacked.jpg",
+    "medium": "images/medium/15092026-140211p9150010-fluids-redux-12stacked.jpg",
+    "full": "images/full/15092026-140211p9150010-fluids-redux-12stacked.jpg",
+    "original_filename": "15092026_140211P9150010 fluids redux 12stacked.jpg",
+    "caption": "fluids redux 12stacked",
+    "title": "Experiment #25",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Experiments in Liquids",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026-09"
+    }
+  },
+  {
+    "thumb": "images/thumbs/15092026-140325p9150080-fluids-redux-12-stack.jpg",
+    "medium": "images/medium/15092026-140325p9150080-fluids-redux-12-stack.jpg",
+    "full": "images/full/15092026-140325p9150080-fluids-redux-12-stack.jpg",
+    "original_filename": "15092026_140325P9150080 fluids redux 12 stack.jpg",
+    "caption": "fluids redux 12 stack",
+    "title": "Experiment #26",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Experiments in Liquids",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026-09"
+    }
+  },
+  {
+    "thumb": "images/thumbs/15092026-140445p9150300-fluids-redux-17stacked.jpg",
+    "medium": "images/medium/15092026-140445p9150300-fluids-redux-17stacked.jpg",
+    "full": "images/full/15092026-140445p9150300-fluids-redux-17stacked.jpg",
+    "original_filename": "15092026_140445P9150300 fluids redux 17stacked.jpg",
+    "caption": "fluids redux 17stacked",
+    "title": "Experiment #27 Stack",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Experiments in Liquids",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026-09"
+    }
+  },
+  {
+    "thumb": "images/thumbs/15092026-140445p9150300-fluids-redux.jpg",
+    "medium": "images/medium/15092026-140445p9150300-fluids-redux.jpg",
+    "full": "images/full/15092026-140445p9150300-fluids-redux.jpg",
+    "original_filename": "15092026_140445P9150300 fluids redux.jpg",
+    "caption": "fluids redux",
+    "title": "Experiment #27 Example Slice",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Experiments in Liquids",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026-09"
+    }
+  },
+  {
+    "thumb": "images/thumbs/15092026-141441p9150645-fluids-redux-20stacked.jpg",
+    "medium": "images/medium/15092026-141441p9150645-fluids-redux-20stacked.jpg",
+    "full": "images/full/15092026-141441p9150645-fluids-redux-20stacked.jpg",
+    "original_filename": "15092026_141441P9150645 fluids redux 20stacked.jpg",
+    "caption": "fluids redux 20stacked",
+    "title": "Experiment #28 Stack",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Experiments in Liquids",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026-09"
+    }
+  },
+  {
+    "thumb": "images/thumbs/15092026-141441p9150645-fluids-redux.jpg",
+    "medium": "images/medium/15092026-141441p9150645-fluids-redux.jpg",
+    "full": "images/full/15092026-141441p9150645-fluids-redux.jpg",
+    "original_filename": "15092026_141441P9150645 fluids redux.jpg",
+    "caption": "fluids redux",
+    "title": "Experiment #28 Example Slice",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Experiments in Liquids",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026-09"
+    }
+  },
+  {
+    "thumb": "images/thumbs/15092026-141528p9150748-fluids-redux-40stacked.jpg",
+    "medium": "images/medium/15092026-141528p9150748-fluids-redux-40stacked.jpg",
+    "full": "images/full/15092026-141528p9150748-fluids-redux-40stacked.jpg",
+    "original_filename": "15092026_141528P9150748 fluids redux 40stacked.jpg",
+    "caption": "fluids redux 40stacked",
+    "title": "Experiment #29 Stack",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Experiments in Liquids",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026-09"
+    }
+  },
+  {
+    "thumb": "images/thumbs/15092026-141528p9150748-fluids-redux.jpg",
+    "medium": "images/medium/15092026-141528p9150748-fluids-redux.jpg",
+    "full": "images/full/15092026-141528p9150748-fluids-redux.jpg",
+    "original_filename": "15092026_141528P9150748 fluids redux.jpg",
+    "caption": "fluids redux",
+    "title": "Experiment #29 Example Slice",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Experiments in Liquids",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026-09"
+    }
+  },
+  {
+    "thumb": "images/thumbs/15092026-170642p9150014-01-mickaels-flowers-25stacked.jpg",
+    "medium": "images/medium/15092026-170642p9150014-01-mickaels-flowers-25stacked.jpg",
+    "full": "images/full/15092026-170642p9150014-01-mickaels-flowers-25stacked.jpg",
+    "original_filename": "15092026_170642P9150014_01 mickaels flowers 25stacked.jpg",
+    "caption": "mickaels flowers 25stacked",
+    "title": "Michael's Flowers Stack",
+    "description": "Stacked photo",
+    "category": "Gladesville",
+    "subcategory": "Michael's Flowers",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/11",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:15 17:06:42"
+    }
+  },
+  {
+    "thumb": "images/thumbs/15092026-170642p9150014-01-mickaels-flowers.jpg",
+    "medium": "images/medium/15092026-170642p9150014-01-mickaels-flowers.jpg",
+    "full": "images/full/15092026-170642p9150014-01-mickaels-flowers.jpg",
+    "original_filename": "15092026_170642P9150014_01 mickaels flowers.jpg",
+    "caption": "mickaels flowers",
+    "title": "Michael's Flowers Example Slice",
+    "description": "Sample stack slice",
+    "category": "Gladesville",
+    "subcategory": "Michael's Flowers",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/11",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:15 17:06:42"
+    }
+  },
+  {
+    "thumb": "images/thumbs/15092026-170801p9150100-mickaels-flowers-25-stacked.jpg",
+    "medium": "images/medium/15092026-170801p9150100-mickaels-flowers-25-stacked.jpg",
+    "full": "images/full/15092026-170801p9150100-mickaels-flowers-25-stacked.jpg",
+    "original_filename": "15092026_170801P9150100 mickaels flowers 25 stacked.jpg",
+    "caption": "mickaels flowers 25 stacked",
+    "title": "Michael's Flowers II Stack",
+    "description": "Stacked photo",
+    "category": "Gladesville",
+    "subcategory": "Michael's Flowers",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/11",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:15 17:08:01"
+    }
+  },
+  {
+    "thumb": "images/thumbs/15092026-170801p9150100-mickaels-flowers.jpg",
+    "medium": "images/medium/15092026-170801p9150100-mickaels-flowers.jpg",
+    "full": "images/full/15092026-170801p9150100-mickaels-flowers.jpg",
+    "original_filename": "15092026_170801P9150100 mickaels flowers.jpg",
+    "caption": "mickaels flowers",
+    "title": "Michael's Flowers II Example Slice",
+    "description": "Sample stack slice",
+    "category": "Gladesville",
+    "subcategory": "Michael's Flowers",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/11",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:15 17:08:01"
+    }
+  },
+  {
+    "thumb": "images/thumbs/15092026-174550p9150027-01-michael-fender.jpg",
+    "medium": "images/medium/15092026-174550p9150027-01-michael-fender.jpg",
+    "full": "images/full/15092026-174550p9150027-01-michael-fender.jpg",
+    "original_filename": "15092026_174550P9150027_01 michael fender.jpg",
+    "caption": "michael fender",
+    "title": "The Badge",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Michael's Fender",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:15 17:45:50"
+    }
+  },
+  {
+    "thumb": "images/thumbs/15092026-174604p9150028-01-michael-fender.jpg",
+    "medium": "images/medium/15092026-174604p9150028-01-michael-fender.jpg",
+    "full": "images/full/15092026-174604p9150028-01-michael-fender.jpg",
+    "original_filename": "15092026_174604P9150028_01 michael fender.jpg",
+    "caption": "michael fender",
+    "title": "Dialing It In",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Michael's Fender",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:15 17:46:04"
+    }
+  },
+  {
+    "thumb": "images/thumbs/15092026-174630p9150030-01-michael-fender.jpg",
+    "medium": "images/medium/15092026-174630p9150030-01-michael-fender.jpg",
+    "full": "images/full/15092026-174630p9150030-01-michael-fender.jpg",
+    "original_filename": "15092026_174630P9150030_01 michael fender.jpg",
+    "caption": "michael fender",
+    "title": "Fine-Tuning by Ear",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Michael's Fender",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:15 17:46:30"
+    }
+  },
+  {
+    "thumb": "images/thumbs/15092026-174636p9150031-01-michael-fender.jpg",
+    "medium": "images/medium/15092026-174636p9150031-01-michael-fender.jpg",
+    "full": "images/full/15092026-174636p9150031-01-michael-fender.jpg",
+    "original_filename": "15092026_174636P9150031_01 michael fender.jpg",
+    "caption": "michael fender",
+    "title": "Getting There",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Michael's Fender",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:15 17:46:36"
+    }
+  },
+  {
+    "thumb": "images/thumbs/15092026-174652p9150033-01-michael-fender.jpg",
+    "medium": "images/medium/15092026-174652p9150033-01-michael-fender.jpg",
+    "full": "images/full/15092026-174652p9150033-01-michael-fender.jpg",
+    "original_filename": "15092026_174652P9150033_01 michael fender.jpg",
+    "caption": "michael fender",
+    "title": "Caught Mid-Motion",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Michael's Fender",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:15 17:46:52"
+    }
+  },
+  {
+    "thumb": "images/thumbs/stack-2-spider.jpg",
+    "medium": "images/medium/stack-2-spider.jpg",
+    "full": "images/full/stack-2-spider.jpg",
+    "original_filename": "STACK-2-Spider.jpg",
+    "caption": "STACK 2 Spider",
+    "title": "Garden Orb Weaver One Stack",
+    "description": "Stacked photo",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": null
+  },
+  {
+    "thumb": "images/thumbs/stack-dandelion-zs-pmax.jpg",
+    "medium": "images/medium/stack-dandelion-zs-pmax.jpg",
+    "full": "images/full/stack-dandelion-zs-pmax.jpg",
+    "original_filename": "STACK-DANDELION-ZS-PMax.jpg",
+    "caption": "STACK DANDELION ZS PMax",
+    "title": "Dandelion Stack",
+    "description": "36-frame stack",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": null
   }
 ]
