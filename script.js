@@ -68,7 +68,7 @@
     'Gladesville|Garden': 'Backyard macro photography — spiders, insects, and other garden life, including focus-stacked composites.',
     'Gladesville|Experiments in Liquids': 'Macro tests of oil and glitter in liquid, exploring focus and lighting technique.',
     'Gladesville|Dinosaurs': "They like roasted almonds enough that they will fight each other off to see who gets to almost take off one of my fingers, and hang around for some photos afterwards, until Timmy came to investigate, and their extinction paranoia kicked in and they went to their next stop.",
-    'Gladesville|Frank photos of Frankie': "Extreme close-up macro shots of Frankie's facial features.",
+    'Gladesville|Frank photos of Frankie': "Extreme close-up macro shots of Frankie's facial features. Don't ask about the eyeshadow.",
     "Gladesville|Michael's Flowers": 'Macro photos of a tiny flower arrangement Michael put together.',
     "Gladesville|Michael's Fender": "Michael dialling in the tone on his Fender bass amp.",
     'Gladesville|Moss': 'Macro shots of a moss sample on the kitchen counter.',
