@@ -718,6 +718,10 @@
       buildCropBar(item);
     } else {
       cropBar.innerHTML = '';
+      // The crop editor (box + controls) only makes sense over the full-res
+      // view -- leaving it open when dropping back to medium stranded a
+      // stale, wrongly-sized box whose dimming outline blacked out the image.
+      stopEditing();
     }
     lightbox.classList.toggle('full-view', zoomed);
     setViewportMode('fit');
