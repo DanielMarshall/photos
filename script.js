@@ -442,7 +442,15 @@
     // and that clamped value never gets revisited once the box finishes
     // growing. Snapping the resize instantly here (and restoring the
     // transition afterwards) avoids that stale clamp.
-    const prevTransition = lbImg.style.transition;
+    //
+    // The restore always sets '' (defer to the stylesheet's own transition),
+    // never a captured "previous" value -- frameRect() now runs on every
+    // committed edit, so back-to-back calls (e.g. a drag release immediately
+    // followed by another action) can each schedule a restore before the
+    // first one's rAF has fired. A save/restore pattern there is a race: the
+    // second call would capture 'none' (the first call's disabled value,
+    // not yet restored) as "previous", and its own restore would then
+    // permanently re-disable the transition once both rAFs run in order.
     lbImg.style.transition = 'none';
     lbImg.style.width = `${w}px`;
     lbImg.style.height = `${h}px`;
@@ -450,7 +458,7 @@
     currentFocus = { x: rect.x + rect.w / 2, y: rect.y + rect.h / 2 };
     lbViewport.scrollLeft = currentFocus.x * w - lbViewport.clientWidth / 2;
     lbViewport.scrollTop = currentFocus.y * h - lbViewport.clientHeight / 2;
-    requestAnimationFrame(() => { lbImg.style.transition = prevTransition; });
+    requestAnimationFrame(() => { lbImg.style.transition = ''; });
     return { scale, cropWpx, cropHpx };
   }
 
