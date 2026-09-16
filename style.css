@@ -482,9 +482,7 @@ main {
 
 .lb-dim {
   position: fixed;
-  background: rgba(0,0,0,0.35);
-  backdrop-filter: grayscale(0.5);
-  -webkit-backdrop-filter: grayscale(0.5);
+  background: var(--overlay);
   pointer-events: none;
   z-index: 2;
   transition: opacity 0.2s ease;
