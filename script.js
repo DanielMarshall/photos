@@ -414,28 +414,20 @@
   // of the natural image), locking panning to exactly that region. Unlike
   // the free zoom levels, this is allowed to exceed native (1:1) resolution
   // if the crop is small -- the point is to fill the frame with the curated
-  // composition, not to cap at pixel-peeping scale.
-  function showCropView(rect, btn) {
-    if (!fullLoaded) return;
-    hideSpotlight();
-    lbSelect.hidden = true;
+  // composition, not to cap at pixel-peeping scale. Contain-fit, not
+  // cover-fit: the crop's own aspect ratio (portrait, square, panoramic,
+  // ...) is usually nothing like the lightbox viewport's, so filling the
+  // viewport edge to edge on the mismatched axis (cover-fit) would zoom in
+  // well past the curated rectangle and chop off content the photographer
+  // explicitly kept in frame -- e.g. a 4:5 portrait crop in a wide viewport
+  // would only fill left-right and slice the top and bottom off.
+  // Shared by the plain preview and the live editor view below; returns the
+  // scale and pixel crop size so callers can dim whatever's left over on the
+  // non-matching axis however suits them.
+  function frameRect(rect) {
     const cropWpx = rect.w * lbImg.naturalWidth;
     const cropHpx = rect.h * lbImg.naturalHeight;
-    // Contain-fit, not cover-fit: the crop's own aspect ratio (portrait,
-    // square, panoramic, ...) is usually nothing like the lightbox
-    // viewport's, so filling the viewport edge to edge on the mismatched
-    // axis (cover-fit) would zoom in well past the curated rectangle and
-    // chop off content the photographer explicitly kept in frame -- e.g. a
-    // 4:5 portrait crop in a wide viewport would only fill left-right and
-    // slice the top and bottom off. Contain-fit shows the whole rectangle;
-    // showSpotlight() below dims the leftover viewport space on the
-    // non-matching axis so it still reads as a clean frame rather than
-    // neighbouring image content bleeding in around it.
     const scale = Math.min(lbViewport.clientWidth / cropWpx, lbViewport.clientHeight / cropHpx);
-    zoomScale = 'crop';
-    zoomButtons.forEach((b) => b.classList.remove('active'));
-    cropBar.querySelectorAll('.crop-btn').forEach((b) => b.classList.remove('active'));
-    if (btn) btn.classList.add('active');
     setViewportMode('zoomed');
     lbViewport.classList.add('framed');
     const w = lbImg.naturalWidth * scale;
@@ -458,8 +450,23 @@
     currentFocus = { x: rect.x + rect.w / 2, y: rect.y + rect.h / 2 };
     lbViewport.scrollLeft = currentFocus.x * w - lbViewport.clientWidth / 2;
     lbViewport.scrollTop = currentFocus.y * h - lbViewport.clientHeight / 2;
-    showSpotlight(scale, cropWpx, cropHpx);
     requestAnimationFrame(() => { lbImg.style.transition = prevTransition; });
+    return { scale, cropWpx, cropHpx };
+  }
+
+  function showCropView(rect, btn) {
+    if (!fullLoaded) return;
+    hideSpotlight();
+    lbSelect.hidden = true;
+    zoomScale = 'crop';
+    zoomButtons.forEach((b) => b.classList.remove('active'));
+    cropBar.querySelectorAll('.crop-btn').forEach((b) => b.classList.remove('active'));
+    if (btn) btn.classList.add('active');
+    // showSpotlight() dims the leftover viewport space on the non-matching
+    // axis so it still reads as a clean frame rather than neighbouring image
+    // content bleeding in around it.
+    const { scale, cropWpx, cropHpx } = frameRect(rect);
+    showSpotlight(scale, cropWpx, cropHpx);
   }
 
   // ---- Hidden crop-editing tool (ctrl+click a Final Frame/Detail button) ----
@@ -573,6 +580,27 @@
       cropEdits[filename].details[editing.index] = editing.spec;
     }
     saveCropEdits();
+    applyEditorZoom();
+  }
+
+  // Zooms/pans the view to frame whatever the box currently represents, so
+  // editing shows a real close-up instead of a tiny box on the whole shrunk
+  // photo. Only applied at each committed change (entering edit mode, a
+  // drag's release, a ratio switch) -- not continuously while a drag is in
+  // progress, since the drag math assumes the image's on-screen rect stays
+  // constant for the whole gesture (see imgPageRect() above); re-zooming
+  // mid-drag would invalidate that reference frame and reintroduce the
+  // erratic-tracking bug fixed earlier. The box's own outline dims
+  // everything outside it -- semi-transparently, so there's still enough
+  // context to judge the move -- which is why this skips showSpotlight().
+  function applyEditorZoom() {
+    if (!editing || !editing.spec || !fullLoaded) return;
+    hideSpotlight();
+    zoomScale = 'crop';
+    zoomButtons.forEach((b) => b.classList.remove('active'));
+    const rect = rectFromSpec(editing.spec, lbImg.naturalWidth, lbImg.naturalHeight);
+    frameRect(rect);
+    renderEditorBox();
   }
 
   function highlightRatioButton() {
@@ -634,6 +662,17 @@
     editing = null;
     cropEditorControls.hidden = true;
     cropEditorBox.hidden = true;
+    // Editing zooms/pans the view to frame the crop (applyEditorZoom) --
+    // closing it without picking a preview should return to the normal
+    // full-photo view rather than leaving it parked mid-zoom. If we're not
+    // in full-res view at all, render() handles its own reset right after.
+    if (zoomed) {
+      zoomScale = 'fit';
+      hideSpotlight();
+      setViewportMode('fit');
+      lbImg.style.width = '';
+      lbImg.style.height = '';
+    }
   }
 
   addDetailBtn.addEventListener('click', () => {
