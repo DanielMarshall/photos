@@ -402,11 +402,25 @@
     lbViewport.classList.add('framed');
     const w = lbImg.naturalWidth * scale;
     const h = lbImg.naturalHeight * scale;
+    // Jumping straight from one curated crop to another (e.g. Final Frame to
+    // a Detail) resizes the image between two already-explicit pixel sizes,
+    // which the image's width/height CSS transition (there for the free
+    // zoom-level buttons) happily animates. The scroll assignment right
+    // below is a one-shot, evaluated the instant it runs -- if the box is
+    // still mid-transition (effectively still at its OLD size at that
+    // instant) the browser clamps it to the old, smaller scrollable range,
+    // and that clamped value never gets revisited once the box finishes
+    // growing. Snapping the resize instantly here (and restoring the
+    // transition afterwards) avoids that stale clamp.
+    const prevTransition = lbImg.style.transition;
+    lbImg.style.transition = 'none';
     lbImg.style.width = `${w}px`;
     lbImg.style.height = `${h}px`;
+    lbImg.offsetHeight; // force layout before the scroll assignment below
     currentFocus = { x: rect.x + rect.w / 2, y: rect.y + rect.h / 2 };
     lbViewport.scrollLeft = currentFocus.x * w - lbViewport.clientWidth / 2;
     lbViewport.scrollTop = currentFocus.y * h - lbViewport.clientHeight / 2;
+    requestAnimationFrame(() => { lbImg.style.transition = prevTransition; });
   }
 
   // ---- Hidden crop-editing tool (ctrl+click a Final Frame/Detail button) ----
@@ -674,10 +688,12 @@
       btn.addEventListener('click', (e) => {
         const spec = resolveSpec(item.original_filename, kind, index);
         if (e.ctrlKey || e.metaKey) {
+          cropBar.querySelectorAll('.crop-btn').forEach((b) => b.classList.remove('active'));
           if (editing && editing.filename === item.original_filename && editing.kind === kind && editing.index === index) {
             stopEditing();
           } else {
             startEditing(item, kind, index, spec);
+            btn.classList.add('active');
           }
           return;
         }
@@ -702,6 +718,8 @@
       cropEditorControls.hidden = false;
       highlightRatioButton();
       renderEditorBox();
+      const editingBtn = cropBar.querySelectorAll('.crop-btn')[editing.kind === 'final' ? 0 : 1 + editing.index];
+      if (editingBtn) editingBtn.classList.add('active');
     } else {
       stopEditing();
     }
