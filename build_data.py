@@ -25,6 +25,9 @@ SOURCE_MAP = {
     "Grub Stack PMax.jpg": os.path.join(SAVED, "Grub Single RAW.ORF"),
     "13092026_095951P9130128glitter oil 40Stacked.jpg": os.path.join(CAMROLL, "13092026_095951P9130128glitter oil.jpg"),
     "13092026_100420P9130288glitter oil 16Stacked.jpg": os.path.join(CAMROLL, "13092026_100420P9130288glitter oil.jpg"),
+    "16092026_184141P9160208 indoor macro 24stacked.jpg": os.path.join(EXPORTS, "16092026_184141P9160208 indoor macro.jpg"),
+    "16092026_184614P9160360 indoor macro 40stacked.jpg": os.path.join(EXPORTS, "16092026_184614P9160360 indoor macro.jpg"),
+    "16092026_184801P9160518 indoor macro 50stacked.jpg": os.path.join(EXPORTS, "16092026_184801P9160518 indoor macro.jpg"),
     "13092026_105840P9130459glitter oi 9Stackedl.jpg": os.path.join(CAMROLL, "13092026_105840P9130459glitter oil.jpg"),
     "13092026_131948P9130028_01glitter oil mc-20 32Stacked.jpg": os.path.join(CAMROLL, "13092026_131948P9130028_01glitter oil mc-20.jpg"),
     "13092026_132219P9130202_01glitter oil mc-20 22Stacked.jpg": os.path.join(EXPORTS, "13092026_132219P9130202_01glitter oil mc-20.jpg"),
@@ -183,6 +186,30 @@ MICHAELS_FENDER = {
     "15092026_174636P9150031_01 michael fender.jpg",
     "15092026_174652P9150033_01 michael fender.jpg",
 }
+MICHAELS_STUDIO = {
+    "16092026_190157P9161030 michael at work.jpg",
+    "16092026_190202P9161031 michael at work.jpg",
+    "16092026_190248P9161032 michael at work.jpg",
+    "16092026_190840P9161042 michael at work.jpg",
+    "16092026_190852P9161043 michael at work.jpg",
+    "16092026_190956P9161046 michael at work.jpg",
+    "16092026_191112P9161049 michael at work.jpg",
+    "16092026_191219P9161050 michael at work.jpg",
+    "16092026_191221P9161051 michael at work.jpg",
+    "16092026_191228P9161053 michael at work.jpg",
+    "16092026_191231P9161054 michael at work.jpg",
+    "16092026_191236P9161055 michael at work.jpg",
+    "16092026_191238P9161056 michael at work.jpg",
+    "16092026_191241P9161057 michael at work.jpg",
+}
+INDOOR_MACRO = {
+    "16092026_184141P9160208 indoor macro 24stacked.jpg",
+    "16092026_184141P9160208 indoor macro.jpg",
+    "16092026_184614P9160360 indoor macro 40stacked.jpg",
+    "16092026_184614P9160360 indoor macro.jpg",
+    "16092026_184801P9160518 indoor macro 50stacked.jpg",
+    "16092026_184801P9160518 indoor macro.jpg",
+}
 
 # (title, description) supplied by the photographer, keyed by original filename.
 TITLES = {
@@ -330,6 +357,26 @@ TITLES = {
     "15092026_174630P9150030_01 michael fender.jpg": ("Fine-Tuning by Ear", ""),
     "15092026_174636P9150031_01 michael fender.jpg": ("Getting There", ""),
     "15092026_174652P9150033_01 michael fender.jpg": ("Caught Mid-Motion", ""),
+    "16092026_190157P9161030 michael at work.jpg": ("Settling In", ""),
+    "16092026_190202P9161031 michael at work.jpg": ("At the Desk", ""),
+    "16092026_190248P9161032 michael at work.jpg": ("Mid-Sentence", ""),
+    "16092026_190840P9161042 michael at work.jpg": ("Tea Break", ""),
+    "16092026_190852P9161043 michael at work.jpg": ("Topping Up", ""),
+    "16092026_190956P9161046 michael at work.jpg": ("Dialing In the Mix", ""),
+    "16092026_191112P9161049 michael at work.jpg": ("Keys and Coffee", ""),
+    "16092026_191219P9161050 michael at work.jpg": ("The Flash Strikes Back", ""),
+    "16092026_191221P9161051 michael at work.jpg": ("Seeing Spots", ""),
+    "16092026_191228P9161053 michael at work.jpg": ("Squint", ""),
+    "16092026_191231P9161054 michael at work.jpg": ("Pose", ""),
+    "16092026_191236P9161055 michael at work.jpg": ("My Eyes!", ""),
+    "16092026_191238P9161056 michael at work.jpg": ("The Flash Wins", ""),
+    "16092026_191241P9161057 michael at work.jpg": ("I Pray This Stops", ""),
+    "16092026_184141P9160208 indoor macro 24stacked.jpg": ("Hard Drive Circuit Board", ""),
+    "16092026_184141P9160208 indoor macro.jpg": ("Hard Drive Circuit Board — Example Slice", "Sample stack slice"),
+    "16092026_184614P9160360 indoor macro 40stacked.jpg": ("Mandarin Peel", ""),
+    "16092026_184614P9160360 indoor macro.jpg": ("Mandarin Peel — Example Slice", "Sample stack slice"),
+    "16092026_184801P9160518 indoor macro 50stacked.jpg": ("Wine Cork", ""),
+    "16092026_184801P9160518 indoor macro.jpg": ("Wine Cork — Example Slice", "Sample stack slice"),
     "P9150707 20 stacked.jpg": ("Wasp Nest II", ""),
     "12092026_123035P9120046_01Sydney CBD - Copy.jpg": ("Watching the Harbour", ""),
     "12092026_123056P9120052_01Sydney CBD - Copy.jpg": ("Watching the Harbour II", ""),
@@ -479,6 +526,10 @@ def classify(original, dt):
         return "Gladesville", "Michael's Flowers", "Home"
     if original in MICHAELS_FENDER:
         return "Gladesville", "Michael's Fender", "Home"
+    if original in MICHAELS_STUDIO:
+        return "Gladesville", "Michael's Studio", "Home"
+    if original in INDOOR_MACRO:
+        return "Gladesville", "Indoor Macro", "Home"
     if original in HORNSBY_HEIGHTS:
         return "Hornsby Heights", None, "Hornsby Heights, Sydney (mum & dad's house)"
     if original in PEOPLE:
