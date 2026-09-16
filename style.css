@@ -233,6 +233,7 @@ main {
 
 .category-card-body {
   position: relative;
+  flex: 1;
   padding: 0.9rem 1rem 1.1rem;
   background-color: var(--card-bg);
   background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('images/bg/home-background.jpg');
