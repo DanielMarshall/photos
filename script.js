@@ -360,6 +360,13 @@
         { label: 'Detail #1', ratio: [1, 1], center: [0.5, 0.45], size: 0.25 },
       ],
     },
+    'STACK-P9040321.jpg': {
+      final: { ratio: [4, 5], center: [0.527712933058113, 0.41477980554067295], size: 0.6642409490332538 },
+      details: [
+        { label: 'Detail #1', ratio: [3, 2], center: [0.5407599994519044, 0.5407900078674402], size: 0.18520797027518904 },
+        { label: 'Detail #2', ratio: [3, 2], center: [0.5277807921866522, 0.3425736127523091], size: 0.25 },
+      ],
+    },
   };
   const DEFAULT_FINAL_CROP = { x: 0.1, y: 0.1, w: 0.8, h: 0.8 };
 
@@ -388,12 +395,17 @@
     lbSelect.hidden = true;
     const cropWpx = rect.w * lbImg.naturalWidth;
     const cropHpx = rect.h * lbImg.naturalHeight;
-    // Cover-fit, not contain-fit: the crop should fill the viewport edge to
-    // edge (clipping its own edges to match the viewport's aspect if
-    // needed), not float inside it with neighbouring image content bleeding
-    // in on the short axis. Deliberately uncapped past native resolution --
-    // that's the point of a curated frame, unlike the free zoom levels.
-    const scale = Math.max(lbViewport.clientWidth / cropWpx, lbViewport.clientHeight / cropHpx);
+    // Contain-fit, not cover-fit: the crop's own aspect ratio (portrait,
+    // square, panoramic, ...) is usually nothing like the lightbox
+    // viewport's, so filling the viewport edge to edge on the mismatched
+    // axis (cover-fit) would zoom in well past the curated rectangle and
+    // chop off content the photographer explicitly kept in frame -- e.g. a
+    // 4:5 portrait crop in a wide viewport would only fill left-right and
+    // slice the top and bottom off. Contain-fit shows the whole rectangle;
+    // showSpotlight() below dims the leftover viewport space on the
+    // non-matching axis so it still reads as a clean frame rather than
+    // neighbouring image content bleeding in around it.
+    const scale = Math.min(lbViewport.clientWidth / cropWpx, lbViewport.clientHeight / cropHpx);
     zoomScale = 'crop';
     zoomButtons.forEach((b) => b.classList.remove('active'));
     cropBar.querySelectorAll('.crop-btn').forEach((b) => b.classList.remove('active'));
@@ -420,6 +432,7 @@
     currentFocus = { x: rect.x + rect.w / 2, y: rect.y + rect.h / 2 };
     lbViewport.scrollLeft = currentFocus.x * w - lbViewport.clientWidth / 2;
     lbViewport.scrollTop = currentFocus.y * h - lbViewport.clientHeight / 2;
+    showSpotlight(scale, cropWpx, cropHpx);
     requestAnimationFrame(() => { lbImg.style.transition = prevTransition; });
   }
 
