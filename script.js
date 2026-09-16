@@ -384,6 +384,20 @@
     return { x, y, w, h };
   }
 
+  // The largest `size` (fraction of natural height) that still keeps the
+  // box fully on the photo for a given center + ratio -- used to cap
+  // resizing and ratio switches so a box near an edge can't grow (or
+  // reshape) into void beyond the image's own bounds. Moving the box is
+  // already trapped separately, by clamping center to keep the box (at its
+  // existing size) fully in bounds.
+  function maxSizeInBounds(center, ratio, naturalWidth, naturalHeight) {
+    const naturalAspect = naturalHeight / naturalWidth; // height-per-width
+    const widthFracPerSize = (ratio[0] / ratio[1]) * naturalAspect;
+    const maxByHeight = 2 * Math.min(center[1], 1 - center[1]);
+    const maxByWidth = (2 * Math.min(center[0], 1 - center[0])) / widthFracPerSize;
+    return Math.min(maxByHeight, maxByWidth);
+  }
+
   // Frames the full-resolution view on a specific crop rectangle (fractions
   // of the natural image), locking panning to exactly that region. Unlike
   // the free zoom levels, this is allowed to exceed native (1:1) resolution
@@ -568,7 +582,15 @@
       btn.addEventListener('click', () => {
         if (!editing) return;
         if (!editing.spec) editing.spec = { ratio: preset.ratio, center: [0.5, 0.5], size: 0.6 };
-        else editing.spec.ratio = preset.ratio;
+        else {
+          editing.spec.ratio = preset.ratio;
+          // Switching to a more extreme shape (e.g. Square -> Panoramic)
+          // at the same size and center can push the new box off the
+          // photo's edges just as growing a corner handle can -- cap it
+          // the same way.
+          const cap = maxSizeInBounds(editing.spec.center, preset.ratio, lbImg.naturalWidth, lbImg.naturalHeight);
+          editing.spec.size = Math.min(editing.spec.size, cap);
+        }
         highlightRatioButton();
         renderEditorBox();
         commitEditingSpec();
@@ -666,7 +688,8 @@
       const imgAspect = img.width / img.height;
       const sizeFromY = Math.abs(fy - dragStart.center[1]) * 2;
       const sizeFromX = Math.abs(fx - dragStart.center[0]) * 2 * imgAspect * (editing.spec.ratio[1] / editing.spec.ratio[0]);
-      const newSize = Math.min(Math.max((sizeFromY + sizeFromX) / 2, 0.04), 1);
+      const cap = maxSizeInBounds(editing.spec.center, editing.spec.ratio, lbImg.naturalWidth, lbImg.naturalHeight);
+      const newSize = Math.min(Math.max((sizeFromY + sizeFromX) / 2, 0.04), 1, cap);
       editing.spec.size = newSize;
     }
     renderEditorBox();
