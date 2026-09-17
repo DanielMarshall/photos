@@ -460,10 +460,20 @@
     lbImg.style.transition = 'none';
     lbImg.style.width = `${w}px`;
     lbImg.style.height = `${h}px`;
-    lbImg.offsetHeight; // force layout before the scroll assignment below
+    lbImg.offsetHeight; // force layout before the position assignment below
     currentFocus = { x: rect.x + rect.w / 2, y: rect.y + rect.h / 2 };
-    lbViewport.scrollLeft = currentFocus.x * w - lbViewport.clientWidth / 2;
-    lbViewport.scrollTop = currentFocus.y * h - lbViewport.clientHeight / 2;
+    // A curated crop is locked to one exact composition, so position the
+    // image directly (absolute left/top) rather than through scrollLeft/Top.
+    // Native scrolling can only shift content within [0, size - viewport],
+    // which can't center an off-center focus point once the scaled image
+    // ends up SMALLER than the viewport on an axis -- there's nowhere left
+    // to scroll, so it just sits pinned at flex-start instead of centered on
+    // the crop. Absolute positioning has no such clamp: the image can be
+    // pushed however far the focus point demands, showing blank space on
+    // one side while the opposite edge is clipped by overflow:hidden.
+    lbImg.style.position = 'absolute';
+    lbImg.style.left = `${lbViewport.clientWidth / 2 - currentFocus.x * w}px`;
+    lbImg.style.top = `${lbViewport.clientHeight / 2 - currentFocus.y * h}px`;
     requestAnimationFrame(() => { lbImg.style.transition = ''; });
     return { scale, cropWpx, cropHpx };
   }
@@ -916,6 +926,15 @@
     lbViewport.classList.toggle('fit', mode === 'fit');
     lbViewport.classList.toggle('zoomed', mode === 'zoomed');
     lbViewport.classList.toggle('selectable', mode === 'fit' && zoomed);
+    // A framed crop (see frameRect()) positions the image with absolute
+    // left/top instead of the normal flex layout + scroll. Clear that here,
+    // the one place every mode transition passes through, so leaving a
+    // framed view doesn't leave it stuck off in a corner of whatever comes
+    // next -- frameRect() re-applies its own left/top immediately after
+    // calling this, for the case where we're just entering framed mode.
+    lbImg.style.position = '';
+    lbImg.style.left = '';
+    lbImg.style.top = '';
   }
 
   function hideSpotlight() {
@@ -1200,7 +1219,12 @@
   document.addEventListener('keydown', (e) => {
     if (lightbox.hidden) return;
     if (e.key === 'Escape') return close();
-    if (zoomed && zoomScale !== 'fit') {
+    // 'crop' (a curated Final Frame/Detail) is intentionally excluded: it's
+    // now positioned with absolute left/top, not scroll (see frameRect()),
+    // so scrollBy() would be a silent no-op and syncFocusFromScroll() would
+    // overwrite currentFocus with a meaningless value read back from a
+    // scroll position that was never actually moved.
+    if (zoomed && zoomScale !== 'fit' && zoomScale !== 'crop') {
       const pan = (dx, dy) => {
         hideSpotlight();
         lbViewport.scrollBy(dx, dy);
