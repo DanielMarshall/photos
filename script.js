@@ -594,27 +594,6 @@
       cropEdits[filename].details[editing.index] = editing.spec;
     }
     saveCropEdits();
-    applyEditorZoom();
-  }
-
-  // Zooms/pans the view to frame whatever the box currently represents, so
-  // editing shows a real close-up instead of a tiny box on the whole shrunk
-  // photo. Only applied at each committed change (entering edit mode, a
-  // drag's release, a ratio switch) -- not continuously while a drag is in
-  // progress, since the drag math assumes the image's on-screen rect stays
-  // constant for the whole gesture (see imgPageRect() above); re-zooming
-  // mid-drag would invalidate that reference frame and reintroduce the
-  // erratic-tracking bug fixed earlier. The box's own outline dims
-  // everything outside it -- semi-transparently, so there's still enough
-  // context to judge the move -- which is why this skips showSpotlight().
-  function applyEditorZoom() {
-    if (!editing || !editing.spec || !fullLoaded) return;
-    hideSpotlight();
-    zoomScale = 'crop';
-    zoomButtons.forEach((b) => b.classList.remove('active'));
-    const rect = rectFromSpec(editing.spec, lbImg.naturalWidth, lbImg.naturalHeight);
-    frameRect(rect);
-    renderEditorBox();
   }
 
   function highlightRatioButton() {
@@ -662,6 +641,18 @@
       spec: initialSpec ? { ...initialSpec, ratio: initialSpec.ratio.slice(), center: initialSpec.center.slice() } : null,
     };
     if (!editing.spec) editing.spec = { ratio: [4, 5], center: [0.5, 0.5], size: 0.6 };
+    // Editing always starts at the plain fit view (whole photo) with the box
+    // overlaid on top, regardless of whatever zoom/preview was showing right
+    // before -- moving or resizing the box no longer auto-reframes to the
+    // cropped magnification (it used to; that made the box a moving target
+    // to edit and hid whether a positioning bug was in the box math or in
+    // the reframe). Use the zoom-level buttons or a plain preview click
+    // whenever you want to actually check the framing.
+    zoomScale = 'fit';
+    hideSpotlight();
+    setViewportMode('fit');
+    lbImg.style.width = '';
+    lbImg.style.height = '';
     cropEditorControls.hidden = false;
     highlightRatioButton();
     renderEditorBox();
@@ -676,10 +667,11 @@
     editing = null;
     cropEditorControls.hidden = true;
     cropEditorBox.hidden = true;
-    // Editing zooms/pans the view to frame the crop (applyEditorZoom) --
-    // closing it without picking a preview should return to the normal
-    // full-photo view rather than leaving it parked mid-zoom. If we're not
-    // in full-res view at all, render() handles its own reset right after.
+    // Editing normally sits at fit view, but you can still use the zoom-level
+    // buttons while editing to check the box up close -- closing without
+    // picking a preview should return to the normal full-photo view rather
+    // than leaving it parked mid-zoom. If we're not in full-res view at all,
+    // render() handles its own reset right after.
     if (zoomed) {
       zoomScale = 'fit';
       hideSpotlight();
