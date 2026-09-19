@@ -213,15 +213,17 @@ MICHAELS_STUDIO = {
     "16092026_191238P9161056 michael at work.jpg",
     "16092026_191241P9161057 michael at work.jpg",
 }
-# Photos out and about rather than at home -- the 17 Sep "mix" set minus the
-# two backyard possum-watching shots (18 Sep).
-OUT_AND_ABOUT = {
-    "17092026_163653P9170003 mix.jpg",
-    "17092026_163709P9170006 mix.jpg",
-    "17092026_163801P9170008 mix.jpg",
-    "17092026_163818P9170009 mix.jpg",
-    "17092026_163848P9170010 mix.jpg",
-    "17092026_174152P9170014 mix.jpg",
+# Where the one-off "mix" photos were taken, when it isn't home. The 17 Sep
+# set was all shot within two minutes at the Ashfield car park and its shop
+# entrance; City Glow is on the drive home. The two 18 Sep possum-watching
+# shots were in the back yard, so they take the default ("Home").
+LOCATION_OVERRIDE = {
+    "17092026_163653P9170003 mix.jpg": "Ashfield",
+    "17092026_163709P9170006 mix.jpg": "Ashfield",
+    "17092026_163801P9170008 mix.jpg": "Ashfield",
+    "17092026_163818P9170009 mix.jpg": "Ashfield",
+    "17092026_163848P9170010 mix.jpg": "Ashfield",
+    "17092026_174152P9170014 mix.jpg": "Gladesville",
 }
 # Banjo Paterson Park, Gladesville: shoreline macro plus telephoto across the
 # bay to Abbotsford (19 Sep).
@@ -636,7 +638,7 @@ def classify(original, dt):
     if original in PLANES:
         return "Gladesville", "Planes", "Home"
     if original in UNCATEGORIZED_GLADESVILLE:
-        return "Gladesville", "Uncategorized", "Gladesville" if original in OUT_AND_ABOUT else "Home"
+        return "Gladesville", "Uncategorized", LOCATION_OVERRIDE.get(original, "Home")
     if "glitter oi" in original.lower():
         return "Gladesville", "Experiments in Liquids", "Home"
     if "last dinosaurs" in original.lower():
