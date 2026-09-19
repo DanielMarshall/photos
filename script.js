@@ -871,7 +871,25 @@
       purgedSliceEdits = true;
     }
   });
-  if (purgedSliceEdits) saveCropEdits();
+  // Saved edits identical to what's now baked into CROPS are already on the
+  // site, so drop them: the export count then means "not on the site yet",
+  // and a stale copy can't mask a later change to the baked one. Anything
+  // that differs (or has no baked counterpart) is kept untouched.
+  const sameCrop = (a, b) => !!a && !!b && !!a.full === !!b.full && (a.full || (
+    a.ratio[0] === b.ratio[0] && a.ratio[1] === b.ratio[1] &&
+    a.center[0] === b.center[0] && a.center[1] === b.center[1] &&
+    a.size === b.size && (a.label || '') === (b.label || '')));
+  let prunedRedundant = false;
+  Object.keys(cropEdits).forEach((name) => {
+    const edit = cropEdits[name];
+    const base = CROPS[name];
+    if (!base || !edit) return;
+    if (edit.final && sameCrop(edit.final, base.final)) { delete edit.final; prunedRedundant = true; }
+    if (edit.details && base.details && edit.details.length === base.details.length
+        && edit.details.every((d, i) => sameCrop(d, base.details[i]))) { delete edit.details; prunedRedundant = true; }
+    if (!edit.final && !edit.details) delete cropEdits[name];
+  });
+  if (purgedSliceEdits || prunedRedundant) saveCropEdits();
   updateExportButton();
 
   function saveCropEdits() {
