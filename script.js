@@ -380,17 +380,17 @@
     'Orb Weaver1.jpg': {
       final: { ratio: [3, 2], center: [0.500864561100154, 0.3651296829971182], size: 0.5236131123919308 },
       details: [
-        { label: 'Detail #1', ratio: [1, 1], center: [0.5248559427570341, 0.3569884726224784], size: 0.3117936104106629 },
+        { label: "Detail #1", ratio: [1, 1], center: [0.5248559427570341, 0.3569884726224784], size: 0.3117936104106629 },
       ],
     },
     'Orb Weaver2.jpg': {
       final: { ratio: [1, 1], center: [0.5354430379746835, 0.47524613220815753], size: 0.6754746835443037 },
     },
     'Orb Weaver3.jpg': {
-      final: { ratio: [1, 1], center: [0.5059071729957806, 0.5101265822784811], size: 0.6 },
+      final: { ratio: [1, 1], center: [0.5442048727596109, 0.5355336892747573], size: 0.4680731364275668 },
     },
     'Spider back.jpg': {
-      final: { ratio: [4, 5], center: [0.6814275237000081, 0.31342363853263916], size: 0.5170331089602357 },
+      final: { ratio: [4, 5], center: [0.6955867127266709, 0.3047514988285933], size: 0.3727305475504322 },
     },
     'Grub Stack PMax.jpg': {
       final: { ratio: [1, 1], center: [0.5465525123878241, 0.40223914898741103], size: 0.7880220038656199 },
@@ -622,9 +622,132 @@
     },
     '15092026_170642P9150014_01 mickaels flowers 25stacked.jpg': {
       final: { ratio: [3, 2], center: [0.5, 0.4444444444444444], size: 0.8743696946661599 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.3834201610259026, 0.38963641221188644], size: 0.21534743642678456 },
+      ],
     },
     '15092026_170801P9150100 mickaels flowers 25 stacked.jpg': {
       final: { ratio: [3, 2], center: [0.5, 0.5405422526289118], size: 0.8888888888888888 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.5186527742358555, 0.5], size: 0.232446020450295 },
+      ],
+    },
+    '19092026_123136P9190262 whelk 28stacked ----.jpg': {
+      final: { ratio: [3, 2], center: [0.5, 0.48911908289412964], size: 0.8888888888888888 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.5979270647382419, 0.5979282539528332], size: 0.20434508051392908 },
+      ],
+    },
+    '19092026_123302P9190280 barnicles 1 10stacked ------.jpg': {
+      final: { ratio: [1, 1], center: [0.5163211774563736, 0.4968911665411799], size: 0.9711825711024216 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.6235746293125433, 0.2948169917178734], size: 0.2137930196973745 },
+      ],
+    },
+    '19092026_123346P9190370 barnicles 2 40stacked ----.jpg': {
+      final: { ratio: [3, 2], center: [0.6352326132099531, 0.42383358025890755], size: 0.6 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.7180042988815623, 0.534197168047021], size: 0.1873679352974037 },
+      ],
+    },
+    '19092026_124517P9190537 bay landscape.jpg': {
+      final: { ratio: [3, 2], center: [0.6025695214948662, 0.6021956087824352], size: 0.46215412312629633 },
+    },
+    '16092026_184141P9160208 indoor macro 24stacked.jpg': {
+      final: { ratio: [3, 2], center: [0.5267235598075808, 0.583232839138351], size: 0.7816373095301652 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.45800599407685894, 0.5847461634863209], size: 0.2242557518148069 },
+      ],
+    },
+    '16092026_184614P9160360 indoor macro 40stacked.jpg': {
+      final: { ratio: [3, 2], center: [0.5, 0.47427348608450975], size: 0.8888888888888888 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.5283743283264466, 0.5090799460878201], size: 0.21460830909649814 },
+      ],
+    },
+    '16092026_184801P9160518 indoor macro 50stacked.jpg': {
+      final: { ratio: [3, 2], center: [0.49546010746776853, 0.5393464330472204], size: 0.8602894232815492 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.7723935519338878, 0.33050767302735806], size: 0.1798018490931877 },
+      ],
+    },
+    '14092026_192938P9140110work and moss 20stacked.jpg': {
+      final: { ratio: [3, 2], center: [0.5, 0.529533917858791], size: 0.8614666569515621 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.4685234434769937, 0.621244504893984], size: 0.21690185315619456 },
+      ],
+    },
+    '14092026_193312P9140182work and moss mass stack.jpg': {
+      final: { ratio: [3, 2], center: [0.5139895806768917, 0.468911665411799], size: 0.828823905633951 },
+    },
+    '14092026_193540P9140324work and moss 30 stack.jpg': {
+      final: { ratio: [3, 2], center: [0.5069947903384459, 0.44599886117385446], size: 0.8563999600601256 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.4067361288207221, 0.6181356714351638], size: 0.15926699536103756 },
+      ],
+    },
+    '14092026_194038P9140624work and moss messy 100stack.jpg': {
+      final: { ratio: [3, 2], center: [0.5, 0.5], size: 0.8687206016888089 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.4895078144923312, 0.5450780851528915], size: 0.20912976950914436 },
+      ],
+    },
+    '14092026_194042P9140652work and moss 50 stacked.jpg': {
+      final: { ratio: [3, 2], center: [0.5, 0.5435834213925091], size: 0.8809557355876483 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.48985576161039784, 0.5856639661852765], size: 0.20366326171187038 },
+      ],
+    },
+    '17092026_163801P9170008 mix.jpg': {
+      final: { ratio: [1, 1], center: [0.375, 0.5], size: 1 },
+    },
+    '18092026_195938P9180089 mix.jpg': {
+      final: { ratio: [3, 2], center: [0.638903960933261, 0.325596257264813], size: 0.6 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.572924579489962, 0.36263776014662263], size: 0.1608869703619746 },
+      ],
+    },
+    '18092026_195212P9180088 mix.jpg': {
+      final: { ratio: [3, 2], center: [0.5, 0.4521547254443292], size: 0.8888888888888888 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.7002532103454512, 0.35492078037957897], size: 0.1686039501290182 },
+      ],
+    },
+    '17092026_163848P9170010 mix.jpg': {
+      final: { ratio: [1, 1], center: [0.5, 0.5], size: 1 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.5180342015815149, 0.5631208171891511], size: 0.25 },
+      ],
+    },
+    '17092026_174152P9170014 mix.jpg': {
+      final: { ratio: [2, 1], center: [0.5045085503953788, 0.5270517787953505], size: 0.6492603029235646 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.4650587344358148, 0.5240460255958671], size: 0.25 },
+      ],
+    },
+    'Bus-Stop.jpg': {
+      final: { ratio: [1, 1], center: [0.5293055775699618, 0.5187155101561582], size: 0.9625689796876834 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.2633011042426163, 0.7344487495597041], size: 0.15254197487378185 },
+      ],
+    },
+    '13092026_180538P9130001Frank.jpg': {
+      final: { ratio: [3, 2], center: [0.5, 0.4669367148056828], size: 0.8888888888888888 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.5879167327098854, 0.20994481624985326], size: 0.20666901491135367 },
+      ],
+    },
+    '13092026_183135P9130095_01Frank.jpg': {
+      final: { ratio: [3, 2], center: [0.5, 0.5495949277914759], size: 0.8888888888888888 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.2125799122946056, 0.7314429963602207], size: 0.25 },
+      ],
+    },
+    '13092026_183206P9130141_01Frank.jpg': {
+      final: { ratio: [3, 2], center: [0.5, 0.5], size: 0.8888888888888888 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.5755182191225938, 0.42786192321239874], size: 0.2277092873077375 },
+      ],
     },
   };
   // Photos with no curated crop show the whole image as their Final Frame.
@@ -806,7 +929,7 @@
   }
 
   function renderEditorBox() {
-    if (!editing || !editing.spec) {
+    if (!editing || !editing.spec || editing.spec.full) {
       cropEditorBox.hidden = true;
       return;
     }
@@ -829,30 +952,66 @@
     cropEditorBox.style.height = `${rect.h * h}px`;
   }
 
+  // The edit layer's details for a photo. An edit's `details` replaces the
+  // baked-in list wholesale (see getEffectiveConfig), so the first time a
+  // photo's details are touched, seed it with copies of the baked ones --
+  // otherwise editing Detail #1 of two would silently drop Detail #2.
+  function editableDetails(filename) {
+    const entry = cropEdits[filename] || (cropEdits[filename] = {});
+    if (!entry.details) {
+      const base = CROPS[filename] && CROPS[filename].details;
+      entry.details = base ? base.map((d) => ({ ...d, ratio: d.ratio.slice(), center: d.center.slice() })) : [];
+    }
+    return entry.details;
+  }
+
   function commitEditingSpec() {
     if (!editing) return;
     const filename = editing.filename;
-    if (!cropEdits[filename]) cropEdits[filename] = {};
+    const entry = cropEdits[filename] || (cropEdits[filename] = {});
     if (editing.kind === 'final') {
-      cropEdits[filename].final = editing.spec;
+      // "Full image" only has to be stored when it overrides a baked-in
+      // crop; otherwise it's simply the default, i.e. no final at all.
+      const baked = CROPS[filename] && CROPS[filename].final;
+      if (editing.spec.full && !baked) delete entry.final;
+      else entry.final = editing.spec;
     } else {
-      if (!cropEdits[filename].details) cropEdits[filename].details = [];
-      cropEdits[filename].details[editing.index] = editing.spec;
+      editableDetails(filename)[editing.index] = editing.spec;
     }
+    if (!entry.final && !(entry.details && entry.details.length)) delete cropEdits[filename];
     saveCropEdits();
   }
 
   function highlightRatioButton() {
     const buttons = ratioPicker.querySelectorAll('.ratio-btn');
     buttons.forEach((b) => {
+      if (b.dataset.full) {
+        b.hidden = !editing || editing.kind !== 'final';
+        b.classList.toggle('active', !!(editing && editing.spec && editing.spec.full));
+        return;
+      }
       const r = JSON.parse(b.dataset.ratio);
-      const match = editing && editing.spec && r[0] === editing.spec.ratio[0] && r[1] === editing.spec.ratio[1];
+      const match = editing && editing.spec && !editing.spec.full && r[0] === editing.spec.ratio[0] && r[1] === editing.spec.ratio[1];
       b.classList.toggle('active', !!match);
     });
   }
 
   function buildRatioPicker() {
     ratioPicker.innerHTML = '';
+    // Final Frame only: show the whole photo, no crop (and still allow details).
+    const fullBtn = document.createElement('button');
+    fullBtn.className = 'ratio-btn';
+    fullBtn.textContent = 'Full image';
+    fullBtn.dataset.full = '1';
+    fullBtn.hidden = true;
+    fullBtn.addEventListener('click', () => {
+      if (!editing || editing.kind !== 'final') return;
+      editing.spec = { full: true };
+      highlightRatioButton();
+      renderEditorBox();
+      commitEditingSpec();
+    });
+    ratioPicker.appendChild(fullBtn);
     RATIO_PRESETS.forEach((preset) => {
       const btn = document.createElement('button');
       btn.className = 'ratio-btn';
@@ -860,8 +1019,11 @@
       btn.dataset.ratio = JSON.stringify(preset.ratio);
       btn.addEventListener('click', () => {
         if (!editing) return;
-        if (!editing.spec) editing.spec = { ratio: preset.ratio, center: [0.5, 0.5], size: 0.6 };
-        else {
+        if (!editing.spec || editing.spec.full) {
+          // Coming back from "Full image": start with the largest box of this shape.
+          const cap = maxSizeInBounds([0.5, 0.5], preset.ratio, lbImg.naturalWidth, lbImg.naturalHeight);
+          editing.spec = { ratio: preset.ratio, center: [0.5, 0.5], size: Math.min(cap, 1) };
+        } else {
           editing.spec.ratio = preset.ratio;
           // Switching to a more extreme shape (e.g. Square -> Panoramic)
           // at the same size and center can push the new box off the
@@ -884,9 +1046,15 @@
       filename: item.original_filename,
       kind,
       index,
-      spec: initialSpec ? { ...initialSpec, ratio: initialSpec.ratio.slice(), center: initialSpec.center.slice() } : null,
+      spec: !initialSpec ? null
+        : initialSpec.full ? { full: true }
+        : { ...initialSpec, ratio: initialSpec.ratio.slice(), center: initialSpec.center.slice() },
     };
-    if (!editing.spec) editing.spec = { ratio: [4, 5], center: [0.5, 0.5], size: 0.6 };
+    if (!editing.spec) {
+      // A Final Frame nobody has cropped is the whole image; open it that way
+      // (no box) instead of inventing a crop. Details always need a box.
+      editing.spec = kind === 'final' ? { full: true } : { ratio: [4, 5], center: [0.5, 0.5], size: 0.6 };
+    }
     // Editing always starts at the plain fit view (whole photo) with the box
     // overlaid on top, regardless of whatever zoom/preview was showing right
     // before -- moving or resizing the box no longer auto-reframes to the
@@ -930,12 +1098,11 @@
   addDetailBtn.addEventListener('click', () => {
     const item = items[current];
     const filename = item.original_filename;
-    if (!cropEdits[filename]) cropEdits[filename] = {};
-    if (!cropEdits[filename].details) cropEdits[filename].details = [];
-    const index = cropEdits[filename].details.length;
+    const details = editableDetails(filename);
+    const index = details.length;
     const label = `Detail #${index + 1}`;
     const spec = { label, ratio: [1, 1], center: [0.5, 0.5], size: 0.25 };
-    cropEdits[filename].details.push(spec);
+    details.push(spec);
     saveCropEdits();
     buildCropBar(item);
     startEditing(item, 'detail', index, spec);
@@ -949,7 +1116,7 @@
   let dragStart = null;
 
   cropEditorBox.addEventListener('mousedown', (e) => {
-    if (!editing || !editing.spec) return;
+    if (!editing || !editing.spec || editing.spec.full) return;
     const corner = e.target.dataset && e.target.dataset.corner;
     e.preventDefault();
     e.stopPropagation();
@@ -1037,7 +1204,7 @@
           return;
         }
         stopEditing();
-        const rect = spec ? rectFromSpec(spec, lbImg.naturalWidth, lbImg.naturalHeight) : DEFAULT_FINAL_CROP;
+        const rect = spec && !spec.full ? rectFromSpec(spec, lbImg.naturalWidth, lbImg.naturalHeight) : DEFAULT_FINAL_CROP;
         showCropView(rect, btn);
       });
       cropBar.appendChild(btn);

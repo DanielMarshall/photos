@@ -740,6 +740,10 @@ main {
   cursor: pointer;
 }
 
+.ratio-btn[hidden] {
+  display: none;
+}
+
 .ratio-btn:hover {
   border-color: #fff;
   color: #fff;
