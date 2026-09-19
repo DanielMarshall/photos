@@ -75,7 +75,10 @@ def main():
         if settings.get("lens"):
             cmd += ["--lens", LENS_NAMES.get(settings["lens"], settings["lens"])]
         if settings.get("shutter"):
-            cmd += ["--shutter", settings["shutter"].rstrip("s")]
+            # "1/100s" -> "1/100", but a long exposure "15s" -> 15" (the seconds
+            # mark exifborder uses) -- a bare "15" reads as a number, not a shutter speed.
+            shutter = settings["shutter"].rstrip("s")
+            cmd += ["--shutter", shutter if "/" in shutter else shutter + '"']
         if settings.get("aperture"):
             cmd += ["--aperture", settings["aperture"]]
         if settings.get("iso"):

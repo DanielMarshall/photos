@@ -34,12 +34,14 @@
 
   const SECTION_ORDER = [
     ['Gladesville', 'Garden'],
+    ['Gladesville', 'Ants'],
     ['Gladesville', 'Experiments in Liquids'],
     ['Gladesville', 'Dinosaurs'],
     ['Gladesville', 'Frank photos of Frankie'],
     ["Gladesville", "Michael's Flowers"],
     ["Gladesville", "Michael's Fender"],
     ["Gladesville", "Michael's Studio"],
+    ['Gladesville', 'Banjo Paterson Park'],
     ['Gladesville', 'Planes'],
     ['Gladesville', 'People'],
     ['Gladesville', 'Uncategorized'],
@@ -56,6 +58,8 @@
 
   const SECTION_LABELS = {
     'Gladesville|Garden': 'Gladesville: Garden',
+    'Gladesville|Ants': 'Gladesville: Ants',
+    'Gladesville|Banjo Paterson Park': 'Gladesville: Banjo Paterson Park',
     'Gladesville|Experiments in Liquids': 'Gladesville: Experiments in Liquids',
     'Gladesville|Dinosaurs': 'The Last of the Dinosaurs',
     'Gladesville|Frank photos of Frankie': 'Frank photos of Frankie',
@@ -79,6 +83,8 @@
   // Shown on each category's card on the home view, and again as an intro
   // line in the category's own detail view.
   const SECTION_DESCRIPTIONS = {
+    'Gladesville|Ants': "Ants rushing madly around a weed in the back yard. A narrow aperture let the flash freeze them as best it could; a lower flash power and wider aperture might still beat the sunlight for sharper shots, but it's a good idea of what to expect from ants in motion.",
+    'Gladesville|Banjo Paterson Park': 'Shoreline macro and telephoto views across the bay to Abbotsford, where the Sydney Rowing Club and Abbotsford Rowing Club sit side by side.',
     'Gladesville|Garden': 'Backyard macro photography — spiders, insects, and other garden life, including focus-stacked composites.',
     'Gladesville|Experiments in Liquids': 'Macro tests of oil and glitter in liquid, exploring focus and lighting technique.',
     'Gladesville|Dinosaurs': "They like roasted almonds enough that they will fight each other off to see who gets to almost take off one of my fingers, and hang around for some photos afterwards, until Timmy came to investigate, and their extinction paranoia kicked in and they went to their next stop.",

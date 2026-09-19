@@ -49,6 +49,9 @@ SOURCE_MAP = {
     # coincidentally sharing the base frame number).
     "P9150707 20 stacked.jpg": os.path.join(CAMROLL, "2026_09_15", "15092026_091907P9150707 garden.jpg"),
     "15092026_190107P9150185 mirror 30stacked.jpg": os.path.join(EXPORTS, "15092026_190107P9150185 mirror.jpg"),
+    "19092026_123136P9190262 whelk 28stacked ----.jpg": os.path.join(EXPORTS, "19092026_123136P9190262 whelk.jpg"),
+    "19092026_123302P9190280 barnicles 1 10stacked ------.jpg": os.path.join(EXPORTS, "19092026_123302P9190280 barnicles 1.jpg"),
+    "19092026_123346P9190370 barnicles 2 40stacked ----.jpg": os.path.join(EXPORTS, "19092026_123346P9190370 barnicles 2.jpg"),
 }
 UNRESOLVED = set()
 
@@ -135,6 +138,14 @@ UNCATEGORIZED_GLADESVILLE = {
     "Bus-Stop.jpg",
     "15092026_190107P9150185 mirror 30stacked.jpg",
     "15092026_190107P9150185 mirror.jpg",
+    "17092026_163653P9170003 mix.jpg",
+    "17092026_163709P9170006 mix.jpg",
+    "17092026_163801P9170008 mix.jpg",
+    "17092026_163818P9170009 mix.jpg",
+    "17092026_163848P9170010 mix.jpg",
+    "17092026_174152P9170014 mix.jpg",
+    "18092026_195212P9180088 mix.jpg",
+    "18092026_195938P9180089 mix.jpg",
 }
 
 # Taken at work (Artarmon), not home -- first names only, no employer/address published
@@ -201,6 +212,52 @@ MICHAELS_STUDIO = {
     "16092026_191236P9161055 michael at work.jpg",
     "16092026_191238P9161056 michael at work.jpg",
     "16092026_191241P9161057 michael at work.jpg",
+}
+# Photos out and about rather than at home -- the 17 Sep "mix" set minus the
+# two backyard possum-watching shots (18 Sep).
+OUT_AND_ABOUT = {
+    "17092026_163653P9170003 mix.jpg",
+    "17092026_163709P9170006 mix.jpg",
+    "17092026_163801P9170008 mix.jpg",
+    "17092026_163818P9170009 mix.jpg",
+    "17092026_163848P9170010 mix.jpg",
+    "17092026_174152P9170014 mix.jpg",
+}
+# Banjo Paterson Park, Gladesville: shoreline macro plus telephoto across the
+# bay to Abbotsford (19 Sep).
+BANJO_PATERSON = {
+    "19092026_122745P9190108 waterline.jpg",
+    "19092026_123136P9190262 whelk 28stacked ----.jpg",
+    "19092026_123302P9190280 barnicles 1 10stacked ------.jpg",
+    "19092026_123346P9190370 barnicles 2 40stacked ----.jpg",
+    "19092026_123136P9190262 whelk.jpg",
+    "19092026_123302P9190280 barnicles 1.jpg",
+    "19092026_123346P9190370 barnicles 2.jpg",
+    "19092026_123821P9190438 bay landscape.jpg",
+    "19092026_123845P9190465 bay landscape.jpg",
+    "19092026_124002P9190470 bay landscape.jpg",
+    "19092026_124127P9190474 bay landscape.jpg",
+    "19092026_124151P9190493 bay landscape.jpg",
+    "19092026_124259P9190514 bay landscape.jpg",
+    "19092026_124357P9190535 bay landscape.jpg",
+    "19092026_124517P9190537 bay landscape.jpg",
+    "19092026_124549P9190540 bay landscape.jpg",
+}
+ANTS = {
+    "19092026_140734P9190560 ants.jpg",
+    "19092026_140742P9190570 ants.jpg",
+    "19092026_140743P9190571 ants.jpg",
+    "19092026_140744P9190572 ants.jpg",
+    "19092026_140744P9190573 ants.jpg",
+    "19092026_140746P9190574 ants.jpg",
+    "19092026_140747P9190575 ants.jpg",
+    "19092026_140750P9190578 ants.jpg",
+    "19092026_140755P9190583 ants.jpg",
+    "19092026_140756P9190586 ants.jpg",
+    "19092026_140808P9190600 ants.jpg",
+    "19092026_140817P9190606 ants.jpg",
+    "19092026_140817P9190607 ants.jpg",
+    "19092026_140819P9190611 ants.jpg",
 }
 INDOOR_MACRO = {
     "16092026_184141P9160208 indoor macro 24stacked.jpg",
@@ -377,6 +434,44 @@ TITLES = {
     "16092026_184614P9160360 indoor macro.jpg": ("Mandarin Peel: Example Slice", "Sample stack slice"),
     "16092026_184801P9160518 indoor macro 50stacked.jpg": ("Wine Cork", ""),
     "16092026_184801P9160518 indoor macro.jpg": ("Wine Cork: Example Slice", "Sample stack slice"),
+    "17092026_163653P9170003 mix.jpg": ("Behind the Diffuser", ""),
+    "17092026_163709P9170006 mix.jpg": ("The Diffuser", ""),
+    "17092026_163801P9170008 mix.jpg": ("Night Car Park", ""),
+    "17092026_163818P9170009 mix.jpg": ("Empty Car Park", ""),
+    "17092026_163848P9170010 mix.jpg": ("Chain Link", ""),
+    "17092026_174152P9170014 mix.jpg": ("City Glow", ""),
+    "18092026_195212P9180088 mix.jpg": ("Where's the Possum?", "15 second exposure, no flash, focused on a possum that stayed hidden in the trees."),
+    "18092026_195938P9180089 mix.jpg": ("Still No Possum", "30 second exposure, no flash, focused above and beyond the Hills Hoist on a possum that stayed hidden."),
+    "19092026_122745P9190108 waterline.jpg": ("The Waterline", ""),
+    "19092026_123136P9190262 whelk 28stacked ----.jpg": ("Whelk", "Stacked photo"),
+    "19092026_123136P9190262 whelk.jpg": ("Whelk: Example Slice", "Sample stack slice"),
+    "19092026_123302P9190280 barnicles 1 10stacked ------.jpg": ("Barnacles", "Stacked photo"),
+    "19092026_123302P9190280 barnicles 1.jpg": ("Barnacles: Example Slice", "Sample stack slice"),
+    "19092026_123346P9190370 barnicles 2 40stacked ----.jpg": ("Barnacles II", "Stacked photo"),
+    "19092026_123346P9190370 barnicles 2.jpg": ("Barnacles II: Example Slice", "Sample stack slice"),
+    "19092026_123821P9190438 bay landscape.jpg": ("Yachts at Anchor", ""),
+    "19092026_123845P9190465 bay landscape.jpg": ("Moored Yacht", ""),
+    "19092026_124002P9190470 bay landscape.jpg": ("Moored Yacht II", ""),
+    "19092026_124127P9190474 bay landscape.jpg": ("Rowing Club Jetty", "Across the bay in Abbotsford, where the Sydney Rowing Club and Abbotsford Rowing Club sit side by side."),
+    "19092026_124151P9190493 bay landscape.jpg": ("Rowing Club Jetty II", "Across the bay in Abbotsford, where the Sydney Rowing Club and Abbotsford Rowing Club sit side by side."),
+    "19092026_124259P9190514 bay landscape.jpg": ("Masts and Rooftops", ""),
+    "19092026_124357P9190535 bay landscape.jpg": ("Palms and Chimneys", ""),
+    "19092026_124517P9190537 bay landscape.jpg": ("Qantas Overhead", ""),
+    "19092026_124549P9190540 bay landscape.jpg": ("Red Sail", ""),
+    "19092026_140734P9190560 ants.jpg": ("Ants #1", ""),
+    "19092026_140742P9190570 ants.jpg": ("Ants #2", ""),
+    "19092026_140743P9190571 ants.jpg": ("Ants #3", ""),
+    "19092026_140744P9190572 ants.jpg": ("Ants #4", ""),
+    "19092026_140744P9190573 ants.jpg": ("Ants #5", ""),
+    "19092026_140746P9190574 ants.jpg": ("Ants #6", ""),
+    "19092026_140747P9190575 ants.jpg": ("Ants #7", ""),
+    "19092026_140750P9190578 ants.jpg": ("Ants #8", ""),
+    "19092026_140755P9190583 ants.jpg": ("Ants #9", ""),
+    "19092026_140756P9190586 ants.jpg": ("Ants #10", ""),
+    "19092026_140808P9190600 ants.jpg": ("Ants #11", ""),
+    "19092026_140817P9190606 ants.jpg": ("Ants #12", ""),
+    "19092026_140817P9190607 ants.jpg": ("Ants #13", ""),
+    "19092026_140819P9190611 ants.jpg": ("Ants #14", ""),
     "P9150707 20 stacked.jpg": ("Wasp Nest II", ""),
     "12092026_123035P9120046_01Sydney CBD - Copy.jpg": ("Watching the Harbour", ""),
     "12092026_123056P9120052_01Sydney CBD - Copy.jpg": ("Watching the Harbour II", ""),
@@ -530,6 +625,10 @@ def classify(original, dt):
         return "Gladesville", "Michael's Studio", "Home"
     if original in INDOOR_MACRO:
         return "Gladesville", "Indoor Macro", "Home"
+    if original in BANJO_PATERSON:
+        return "Gladesville", "Banjo Paterson Park", "Banjo Paterson Park, Gladesville"
+    if original in ANTS:
+        return "Gladesville", "Ants", "Home"
     if original in HORNSBY_HEIGHTS:
         return "Hornsby Heights", None, "Hornsby Heights, Sydney (mum & dad's house)"
     if original in PEOPLE:
@@ -537,7 +636,7 @@ def classify(original, dt):
     if original in PLANES:
         return "Gladesville", "Planes", "Home"
     if original in UNCATEGORIZED_GLADESVILLE:
-        return "Gladesville", "Uncategorized", "Home"
+        return "Gladesville", "Uncategorized", "Gladesville" if original in OUT_AND_ABOUT else "Home"
     if "glitter oi" in original.lower():
         return "Gladesville", "Experiments in Liquids", "Home"
     if "last dinosaurs" in original.lower():
