@@ -417,6 +417,12 @@ main {
   cursor: grab;
   align-items: flex-start;
   justify-content: flex-start;
+  /* An image smaller than the viewport on an axis sits centred rather than
+     pinned to the corner; one that overflows still starts at the edge so it
+     scrolls normally. Second declaration is ignored by browsers without
+     `safe`, which keep the flex-start above. */
+  align-items: safe center;
+  justify-content: safe center;
 }
 
 .lb-viewport.zoomed.dragging {
@@ -432,7 +438,6 @@ main {
   display: block;
   border-radius: 6px;
   pointer-events: none;
-  transition: width 0.25s ease, height 0.25s ease;
 }
 
 .lb-select {

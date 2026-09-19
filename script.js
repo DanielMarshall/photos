@@ -339,7 +339,6 @@
   let zoomed = false; // viewing the full-resolution source (vs medium)
   let fullLoaded = false;
   let zoomScale = 'fit'; // 'fit' | 1 | 0.5 | 0.25 | custom number (<=1)
-  let currentFocus = { x: 0.5, y: 0.5 }; // fraction of natural image currently centered
 
   // The full-resolution image is fetched with progress and kept as a blob
   // URL for as long as we're on the same photo, so toggling back and forth
@@ -682,9 +681,8 @@
   // well past the curated rectangle and chop off content the photographer
   // explicitly kept in frame -- e.g. a 4:5 portrait crop in a wide viewport
   // would only fill left-right and slice the top and bottom off.
-  // Shared by the plain preview and the live editor view below; returns the
-  // scale and pixel crop size so callers can dim whatever's left over on the
-  // non-matching axis however suits them.
+  // Returns the scale and pixel crop size so the caller can dim whatever's
+  // left over on the non-matching axis.
   function frameRect(rect) {
     const cropWpx = rect.w * lbImg.naturalWidth;
     const cropHpx = rect.h * lbImg.naturalHeight;
@@ -693,30 +691,10 @@
     lbViewport.classList.add('framed');
     const w = lbImg.naturalWidth * scale;
     const h = lbImg.naturalHeight * scale;
-    // Jumping straight from one curated crop to another (e.g. Final Frame to
-    // a Detail) resizes the image between two already-explicit pixel sizes,
-    // which the image's width/height CSS transition (there for the free
-    // zoom-level buttons) happily animates. The scroll assignment right
-    // below is a one-shot, evaluated the instant it runs -- if the box is
-    // still mid-transition (effectively still at its OLD size at that
-    // instant) the browser clamps it to the old, smaller scrollable range,
-    // and that clamped value never gets revisited once the box finishes
-    // growing. Snapping the resize instantly here (and restoring the
-    // transition afterwards) avoids that stale clamp.
-    //
-    // The restore always sets '' (defer to the stylesheet's own transition),
-    // never a captured "previous" value -- frameRect() now runs on every
-    // committed edit, so back-to-back calls (e.g. a drag release immediately
-    // followed by another action) can each schedule a restore before the
-    // first one's rAF has fired. A save/restore pattern there is a race: the
-    // second call would capture 'none' (the first call's disabled value,
-    // not yet restored) as "previous", and its own restore would then
-    // permanently re-disable the transition once both rAFs run in order.
-    lbImg.style.transition = 'none';
+    const focusX = rect.x + rect.w / 2;
+    const focusY = rect.y + rect.h / 2;
     lbImg.style.width = `${w}px`;
     lbImg.style.height = `${h}px`;
-    lbImg.offsetHeight; // force layout before the position assignment below
-    currentFocus = { x: rect.x + rect.w / 2, y: rect.y + rect.h / 2 };
     // A curated crop is locked to one exact composition, so position the
     // image directly (absolute left/top) rather than through scrollLeft/Top.
     // Native scrolling can only shift content within [0, size - viewport],
@@ -727,9 +705,12 @@
     // pushed however far the focus point demands, showing blank space on
     // one side while the opposite edge is clipped by overflow:hidden.
     lbImg.style.position = 'absolute';
-    lbImg.style.left = `${lbViewport.clientWidth / 2 - currentFocus.x * w}px`;
-    lbImg.style.top = `${lbViewport.clientHeight / 2 - currentFocus.y * h}px`;
-    requestAnimationFrame(() => { lbImg.style.transition = ''; });
+    lbImg.style.left = `${lbViewport.clientWidth / 2 - focusX * w}px`;
+    lbImg.style.top = `${lbViewport.clientHeight / 2 - focusY * h}px`;
+    // An earlier pan leaves the viewport scrolled; an absolutely placed image
+    // would have that offset applied on top of its own left/top.
+    lbViewport.scrollLeft = 0;
+    lbViewport.scrollTop = 0;
     return { scale, cropWpx, cropHpx };
   }
 
@@ -1099,7 +1080,6 @@
     const item = items[current];
     fullLoaded = false;
     zoomScale = 'fit';
-    currentFocus = { x: 0.5, y: 0.5 };
     zoomBar.hidden = !zoomed;
     // No Final Frame/Detail buttons on an example slice -- only its stack has them.
     const hasCrops = zoomed && !isSlice(item);
@@ -1209,6 +1189,7 @@
   }
 
   function setViewportMode(mode) {
+    cancelZoomAnim();
     lbViewport.classList.remove('framed');
     lbViewport.classList.toggle('fit', mode === 'fit');
     lbViewport.classList.toggle('zoomed', mode === 'zoomed');
@@ -1254,41 +1235,166 @@
     lbDimB.hidden = false;
   }
 
-  // scale: 'fit' | number (<=1). focus: fraction (0-1) of the natural image to center on.
-  function setZoom(scale, focus) {
+  // ---- Animated zoom ----
+  // One requestAnimationFrame loop drives size AND position together, so the
+  // point at the centre of the view stays exactly there for the whole zoom.
+  // (The old version ran a CSS width/height transition and a native
+  // smooth-scroll side by side; the two never stay in step, so the centre
+  // drifted mid-zoom and the scroll got clamped against a half-grown image.)
+  const ZOOM_MS = 450;
+  let zoomAnimFrame = 0;
+
+  function cancelZoomAnim() {
+    if (zoomAnimFrame) cancelAnimationFrame(zoomAnimFrame);
+    zoomAnimFrame = 0;
+  }
+
+  // Like CSS cubic-bezier(): (x1, y1, x2, y2) -> easing function of t in 0..1.
+  function cubicBezier(x1, y1, x2, y2) {
+    const cx = 3 * x1, bx = 3 * (x2 - x1) - cx, ax = 1 - cx - bx;
+    const cy = 3 * y1, by = 3 * (y2 - y1) - cy, ay = 1 - cy - by;
+    const sampleX = (t) => ((ax * t + bx) * t + cx) * t;
+    const sampleY = (t) => ((ay * t + by) * t + cy) * t;
+    const slopeX = (t) => (3 * ax * t + 2 * bx) * t + cx;
+    return (x) => {
+      if (x <= 0) return 0;
+      if (x >= 1) return 1;
+      let t = x;
+      for (let i = 0; i < 8; i++) {
+        const err = sampleX(t) - x;
+        if (Math.abs(err) < 1e-6) return sampleY(t);
+        const slope = slopeX(t);
+        if (Math.abs(slope) < 1e-6) break;
+        t -= err / slope;
+      }
+      let lo = 0, hi = 1;
+      t = x;
+      for (let i = 0; i < 24; i++) {
+        const err = sampleX(t) - x;
+        if (Math.abs(err) < 1e-6) break;
+        if (err > 0) hi = t; else lo = t;
+        t = (lo + hi) / 2;
+      }
+      return sampleY(t);
+    };
+  }
+  // A touch of ease-in so it doesn't lurch off the mark, then a long,
+  // gentle settle -- fast at the start, slowing toward the end, like a lens.
+  const zoomEase = cubicBezier(0.25, 0.8, 0.25, 1);
+
+  // Where the image's top-left sits inside the viewport (<= 0 when it overflows)
+  // along one axis: keep `focus` (a 0-1 fraction of the image) at the centre of
+  // the view, but never pull the image's edge past the viewport's edge, and
+  // centre it when it's smaller than the viewport. This is exactly what native
+  // scrolling would settle on, which is why the hand-off at the end is seamless.
+  function axisOffset(view, size, focus) {
+    if (size <= view) return (view - size) / 2;
+    return Math.min(0, Math.max(view - size, view / 2 - focus * size));
+  }
+
+  // scale: 'fit' | number. Options: focus -- {x, y} fraction (0-1) of the
+  // natural image to end up centred (default: whatever is centred right now);
+  // onDone -- called once the zoom has landed; instant -- skip the animation.
+  function setZoom(scale, opts = {}) {
     zoomScale = scale;
     zoomButtons.forEach((b) => {
       const isFit = scale === 'fit' && b.dataset.zoom === 'fit';
       const isNum = typeof scale === 'number' && Number(b.dataset.zoom) === scale;
       b.classList.toggle('active', isFit || isNum);
     });
+    if (scale !== 'fit' && !fullLoaded) return;
 
-    if (scale === 'fit') {
-      setViewportMode('fit');
-      lbImg.style.width = '';
-      lbImg.style.height = '';
+    const nw = lbImg.naturalWidth;
+    const nh = lbImg.naturalHeight;
+    const vw = lbViewport.clientWidth;
+    const vh = lbViewport.clientHeight;
+    const w1 = scale === 'fit' ? nw * Math.min(1, vw / nw, vh / nh) : nw * scale;
+    const h1 = w1 * nh / nw;
+
+    // Where things stand right now, measured from the DOM so it's right
+    // whatever state we're in: fit, scrolled zoom, a framed crop, or the
+    // middle of another zoom that this press interrupts.
+    const vpRect = lbViewport.getBoundingClientRect();
+    const r = lbImg.getBoundingClientRect();
+    const w0 = r.width;
+    const h0 = r.height;
+    const x0 = r.left - vpRect.left;
+    const y0 = r.top - vpRect.top;
+    const clamp01 = (v) => Math.min(1, Math.max(0, v));
+    const f0 = w0 > 0 && h0 > 0
+      ? { x: clamp01((vw / 2 - x0) / w0), y: clamp01((vh / 2 - y0) / h0) }
+      : { x: 0.5, y: 0.5 };
+    const f1 = opts.focus || f0;
+
+    const land = () => {
+      if (scale === 'fit') {
+        setViewportMode('fit');
+        lbImg.style.width = '';
+        lbImg.style.height = '';
+      } else {
+        setViewportMode('zoomed');
+        lbImg.style.width = `${w1}px`;
+        lbImg.style.height = `${h1}px`;
+        lbImg.offsetWidth; // lay out before scrolling
+        // Smaller than the viewport on an axis? Nothing to scroll -- the
+        // stylesheet centres it there.
+        lbViewport.scrollLeft = w1 > vw ? -axisOffset(vw, w1, f1.x) : 0;
+        lbViewport.scrollTop = h1 > vh ? -axisOffset(vh, h1, f1.y) : 0;
+      }
       if (editing) renderEditorBox();
+      if (opts.onDone) opts.onDone();
+    };
+
+    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const nothingToAnimate = Math.abs(w1 - w0) < 0.5 && Math.abs(f1.x - f0.x) < 0.001 && Math.abs(f1.y - f0.y) < 0.001;
+    if (opts.instant || reduceMotion || nothingToAnimate || !(w0 > 0 && h0 > 0) || !(nw > 0)) {
+      land();
       return;
     }
-    if (!fullLoaded) return;
+
+    // Take over positioning: overflow hidden + an absolutely placed image,
+    // starting exactly where it is on screen now.
     setViewportMode('zoomed');
-    const w = lbImg.naturalWidth * scale;
-    const h = lbImg.naturalHeight * scale;
-    lbImg.style.width = `${w}px`;
-    lbImg.style.height = `${h}px`;
-    const f = focus || currentFocus;
-    currentFocus = f;
-    lbViewport.scrollTo({
-      left: f.x * w - lbViewport.clientWidth / 2,
-      top: f.y * h - lbViewport.clientHeight / 2,
-      behavior: 'smooth',
-    });
+    lbViewport.classList.add('framed');
+    lbImg.style.position = 'absolute';
+    lbImg.style.width = `${w0}px`;
+    lbImg.style.height = `${h0}px`;
+    lbImg.style.left = `${x0}px`;
+    lbImg.style.top = `${y0}px`;
+    // x0/y0 already include any panning. Leftover scroll would be applied a
+    // second time on top of an absolutely placed image, so zero it.
+    lbViewport.scrollLeft = 0;
+    lbViewport.scrollTop = 0;
     if (editing) renderEditorBox();
+
+    const start = performance.now();
+    const tick = (now) => {
+      const t = Math.min(1, (now - start) / ZOOM_MS);
+      if (t >= 1) {
+        zoomAnimFrame = 0;
+        land();
+        return;
+      }
+      const e = zoomEase(t);
+      // Interpolate size geometrically so each frame is the same *ratio*
+      // bigger than the last -- that's what makes a zoom feel steady.
+      const w = w0 * Math.pow(w1 / w0, e);
+      const h = h0 * Math.pow(h1 / h0, e);
+      const fx = f0.x + (f1.x - f0.x) * e;
+      const fy = f0.y + (f1.y - f0.y) * e;
+      lbImg.style.width = `${w}px`;
+      lbImg.style.height = `${h}px`;
+      lbImg.style.left = `${axisOffset(vw, w, fx)}px`;
+      lbImg.style.top = `${axisOffset(vh, h, fy)}px`;
+      if (editing) renderEditorBox();
+      zoomAnimFrame = requestAnimationFrame(tick);
+    };
+    zoomAnimFrame = requestAnimationFrame(tick);
   }
 
   // Keeps the crop-editor overlay aligned through panning, zoom-level
-  // changes (including the smooth-scroll animation), and window resizes --
-  // it has to track the image's on-screen rect at any magnification.
+  // changes, and window resizes -- it has to track the image's on-screen
+  // rect at any magnification.
   lbViewport.addEventListener('scroll', () => {
     if (editing) renderEditorBox();
   });
@@ -1296,21 +1402,10 @@
     if (editing) renderEditorBox();
   });
 
-  // Keep currentFocus in sync with wherever the view has been panned to,
-  // so switching zoom levels afterwards doesn't jump back to image center.
-  function syncFocusFromScroll() {
-    const w = parseFloat(lbImg.style.width) || lbImg.naturalWidth || 1;
-    const h = parseFloat(lbImg.style.height) || lbImg.naturalHeight || 1;
-    currentFocus = {
-      x: (lbViewport.scrollLeft + lbViewport.clientWidth / 2) / w,
-      y: (lbViewport.scrollTop + lbViewport.clientHeight / 2) / h,
-    };
-  }
-
   lbImg.addEventListener('load', () => {
     if (zoomed) {
       fullLoaded = true;
-      setZoom(zoomScale);
+      setZoom(zoomScale, { instant: true });
     }
   });
 
@@ -1329,6 +1424,7 @@
   let selStart = { x: 0, y: 0 };
 
   lbViewport.addEventListener('mousedown', (e) => {
+    if (zoomAnimFrame) return; // mid-zoom: the image is being positioned by the animation
     if (lbViewport.classList.contains('zoomed')) {
       hideSpotlight();
       isPanning = true;
@@ -1357,7 +1453,6 @@
     if (isPanning) {
       lbViewport.scrollLeft = panStart.scrollLeft - (e.clientX - panStart.x);
       lbViewport.scrollTop = panStart.scrollTop - (e.clientY - panStart.y);
-      syncFocusFromScroll();
       // Keep the crop-editor box glued to the image on every pan frame --
       // don't wait for the (slightly async) scroll event to catch up.
       if (editing) renderEditorBox();
@@ -1414,14 +1509,15 @@
     const scaleY = lbViewport.clientHeight / selHNatural;
     const scale = Math.min(scaleX, scaleY, 1);
 
-    setZoom(scale, { x: fx, y: fy });
-
-    // Keep the drawn box on screen through the zoom transition, then swap it
-    // for the spotlight dimming over whatever extra image got revealed.
-    setTimeout(() => {
-      lbSelect.hidden = true;
-      showSpotlight(scale, selWNatural, selHNatural);
-    }, 260);
+    // Keep the drawn box on screen while it zooms, then swap it for the
+    // spotlight dimming over whatever extra image got revealed.
+    setZoom(scale, {
+      focus: { x: fx, y: fy },
+      onDone: () => {
+        lbSelect.hidden = true;
+        showSpotlight(scale, selWNatural, selHNatural);
+      },
+    });
   }
 
   const PAN_STEP = 100;
@@ -1510,16 +1606,15 @@
   document.addEventListener('keydown', (e) => {
     if (lightbox.hidden) return;
     if (e.key === 'Escape') return close();
+    // Mid-zoom the animation owns the image's position, so arrows do nothing.
+    if (zoomAnimFrame && e.key.startsWith('Arrow')) return;
     // 'crop' (a curated Final Frame/Detail) is intentionally excluded: it's
-    // now positioned with absolute left/top, not scroll (see frameRect()),
-    // so scrollBy() would be a silent no-op and syncFocusFromScroll() would
-    // overwrite currentFocus with a meaningless value read back from a
-    // scroll position that was never actually moved.
+    // positioned with absolute left/top, not scroll (see frameRect()), so
+    // scrollBy() would be a silent no-op.
     if (zoomed && zoomScale !== 'fit' && zoomScale !== 'crop') {
       const pan = (dx, dy) => {
         hideSpotlight();
         lbViewport.scrollBy(dx, dy);
-        syncFocusFromScroll();
       };
       if (e.key === 'ArrowLeft') return pan(-PAN_STEP, 0);
       if (e.key === 'ArrowRight') return pan(PAN_STEP, 0);
