@@ -55,23 +55,23 @@
   ];
 
   const SECTION_LABELS = {
-    'Gladesville|Garden': 'Gladesville — Garden',
-    'Gladesville|Experiments in Liquids': 'Gladesville — Experiments in Liquids',
+    'Gladesville|Garden': 'Gladesville: Garden',
+    'Gladesville|Experiments in Liquids': 'Gladesville: Experiments in Liquids',
     'Gladesville|Dinosaurs': 'The Last of the Dinosaurs',
     'Gladesville|Frank photos of Frankie': 'Frank photos of Frankie',
     "Gladesville|Michael's Flowers": "Michael's Flowers",
     "Gladesville|Michael's Fender": "Michael's Fender",
     "Gladesville|Michael's Studio": "Michael's Studio",
-    'Gladesville|Moss': 'Gladesville — Moss',
-    'Gladesville|Indoor Macro': 'Gladesville — Indoor Macro',
-    'Gladesville|Planes': 'Gladesville — Planes',
-    'Gladesville|People': 'Gladesville — People',
-    'Gladesville|Uncategorized': 'Gladesville — Other',
+    'Gladesville|Moss': 'Gladesville: Moss',
+    'Gladesville|Indoor Macro': 'Gladesville: Indoor Macro',
+    'Gladesville|Planes': 'Gladesville: Planes',
+    'Gladesville|People': 'Gladesville: People',
+    'Gladesville|Uncategorized': 'Gladesville: Other',
     'Hornsby Heights|null': 'Hornsby Heights',
     'Artarmon|null': 'Artarmon',
     'Sydney CBD|null': 'Sydney CBD (Darling Harbour)',
-    'Sydney Town Hall|null': 'Sydney Town Hall — Ukraine Solidarity Protest',
-    'Queen Victoria Building|null': 'Queen Victoria Building — Public Piano',
+    'Sydney Town Hall|null': 'Sydney Town Hall: Ukraine Solidarity Protest',
+    'Queen Victoria Building|null': 'Queen Victoria Building: Public Piano',
     'Chinese Garden of Friendship|null': 'Chinese Garden of Friendship',
     'Darling Harbour Piano|null': 'Darling Harbour Piano',
   };
@@ -367,29 +367,10 @@
   // Specs are given as a center point + a standard aspect ratio + a size
   // (fraction of the image's natural height) so the actual crop rectangle
   // is computed correctly against each photo's real pixel dimensions,
-  // rather than guessing width/height fractions by hand. Entries here are
-  // illustrative starting points -- estimated by eye, meant to be reviewed
-  // and adjusted, not final. Any photo without an entry still gets a
-  // "Final Frame" button, using a generic 10% inset default.
+  // rather than guessing width/height fractions by hand. Every entry here
+  // was set by the photographer in the crop editor. Any photo without an
+  // entry still gets a "Final Frame" button, which shows the whole image.
   const CROPS = {
-    '12092026_143707P9120897Sydney CBD - Copy.jpg': {
-      final: { ratio: [1, 1], center: [0.62, 0.42], size: 0.55 },
-    },
-    '12092026_124523P9120095Sydney CBD - Copy.jpg': {
-      final: { ratio: [16, 9], center: [0.55, 0.6], size: 0.5 },
-    },
-    '12092026_134219P9120824Sydney CBD - Copy.jpg': {
-      final: { ratio: [4, 5], center: [0.5, 0.55], size: 0.75 },
-    },
-    '15092026_174550P9150027_01 michael fender.jpg': {
-      final: { ratio: [1, 1], center: [0.45, 0.4], size: 0.5 },
-    },
-    '13092026_180538P9130001Frank.jpg': {
-      final: { ratio: [4, 5], center: [0.5, 0.45], size: 0.7 },
-      details: [
-        { label: 'Detail #1', ratio: [1, 1], center: [0.5, 0.45], size: 0.25 },
-      ],
-    },
     'Orb Weaver1.jpg': {
       final: { ratio: [3, 2], center: [0.500864561100154, 0.3651296829971182], size: 0.5236131123919308 },
       details: [
@@ -640,7 +621,8 @@
       final: { ratio: [3, 2], center: [0.5, 0.5405422526289118], size: 0.8888888888888888 },
     },
   };
-  const DEFAULT_FINAL_CROP = { x: 0.1, y: 0.1, w: 0.8, h: 0.8 };
+  // Photos with no curated crop show the whole image as their Final Frame.
+  const DEFAULT_FINAL_CROP = { x: 0, y: 0, w: 1, h: 1 };
 
   // Converts a {ratio, center, size} spec into a {x, y, w, h} rect in
   // fractions of the natural image -- size is a fraction of natural height,
