@@ -7,6 +7,9 @@
   const lbTitle = document.getElementById('lb-title');
   const lbMeta = document.getElementById('lb-meta');
   const lbZoom = document.getElementById('lb-zoom');
+  const lbSample = document.getElementById('lb-sample');
+  const lbSampleThumb = document.getElementById('lb-sample-thumb');
+  const lbSampleLabel = document.getElementById('lb-sample-label');
   const cropBar = document.getElementById('crop-bar');
   const cropEditorBox = document.getElementById('crop-editor-box');
   const cropEditorControls = document.getElementById('crop-editor-controls');
@@ -101,9 +104,31 @@
     return `${item.category}|${item.subcategory}`;
   }
 
+  // A stack and its example slice are linked (build_data.py sets `sample` on
+  // the stack and `sample_of` on the slice, each holding the other's
+  // original_filename). Only the stack appears in the grids, category counts,
+  // hover slideshows and the whole-site slideshow -- the slice is reached
+  // from the stack's lightbox instead, so it doesn't distract from the
+  // finished stack. It keeps its slot in `items` (and so its _index) since
+  // the lightbox still opens it by index.
+  const indexByOriginal = new Map();
+  items.forEach((item, i) => indexByOriginal.set(item.original_filename, i));
+
+  function linkedIndex(item) {
+    const partner = item.sample || item.sample_of;
+    return partner ? indexByOriginal.get(partner) : undefined;
+  }
+
+  // True for an example slice whose stack exists on the site. Slices get no
+  // Final Frame/Detail crops of their own -- those belong to the stack.
+  function isSlice(item) {
+    return !!item.sample_of && indexByOriginal.has(item.sample_of);
+  }
+
   const groups = new Map();
   items.forEach((item, i) => {
     item._index = i;
+    if (isSlice(item)) return;
     const key = groupKey(item);
     if (!groups.has(key)) groups.set(key, []);
     groups.get(key).push(item);
@@ -366,13 +391,6 @@
         { label: 'Detail #1', ratio: [1, 1], center: [0.5, 0.45], size: 0.25 },
       ],
     },
-    'STACK-P9040321.jpg': {
-      final: { ratio: [4, 5], center: [0.527712933058113, 0.41477980554067295], size: 0.6642409490332538 },
-      details: [
-        { label: 'Detail #1', ratio: [3, 2], center: [0.5407599994519044, 0.5407900078674402], size: 0.18520797027518904 },
-        { label: 'Detail #2', ratio: [3, 2], center: [0.5277807921866522, 0.3425736127523091], size: 0.25 },
-      ],
-    },
     'Orb Weaver1.jpg': {
       final: { ratio: [3, 2], center: [0.500864561100154, 0.3651296829971182], size: 0.5236131123919308 },
       details: [
@@ -384,6 +402,243 @@
     },
     'Orb Weaver3.jpg': {
       final: { ratio: [1, 1], center: [0.5059071729957806, 0.5101265822784811], size: 0.6 },
+    },
+    'Spider back.jpg': {
+      final: { ratio: [4, 5], center: [0.6814275237000081, 0.31342363853263916], size: 0.5170331089602357 },
+    },
+    'Grub Stack PMax.jpg': {
+      final: { ratio: [1, 1], center: [0.5465525123878241, 0.40223914898741103], size: 0.7880220038656199 },
+      details: [
+        { label: "Detail #1", ratio: [3, 2], center: [0.5835397428490615, 0.30345488742672405], size: 0.2018953962601729 },
+      ],
+    },
+    'Grub and Slug.jpg': {
+      final: { ratio: [3, 2], center: [0.5794300569943399, 0.3738399493383645], size: 0.747679898676729 },
+    },
+    '11092026_200012P9111035 under spider stack.jpg': {
+      final: { ratio: [3, 2], center: [0.5143236538192776, 0.5962327705875108], size: 0.7654657991561022 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.4010179785183055, 0.5663028736000029], size: 0.15363306068851362 },
+      ],
+    },
+    '11092026_200200P9111040.jpg': {
+      final: { ratio: [1, 1], center: [0.36976815727223383, 0.4410695757025882], size: 0.83398600896558 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.4737328134619331, 0.39002834659457797], size: 0.18866750476461167 },
+      ],
+    },
+    '11092026_200213P9111041.jpg': {
+      final: { ratio: [1, 1], center: [0.625, 0.5], size: 0.9721620423159762 },
+    },
+    '11092026_200240P9111043.jpg': {
+      final: { ratio: [3, 2], center: [0.5133786891165125, 0.43351070568858485], size: 0.8572912707462309 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.42945782102202545, 0.2178259217027746], size: 0.25 },
+      ],
+    },
+    'Spider underside.jpg': {
+      final: { ratio: [4, 5], center: [0.4720263773018377, 0.6086532370454834], size: 0.4711294818193335 },
+    },
+    '11092026_200243P9111044.jpg': {
+      final: { ratio: [3, 2], center: [0.5352710894889873, 0.41729380463702015], size: 0.8153258161239918 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.903817511069725, 0.15458000760167234], size: 0.25 },
+      ],
+    },
+    '11092026_200244P9111045.jpg': {
+      final: { ratio: [3, 2], center: [0.5074900228050171, 0.48702647915874825], size: 0.8755732927910808 },
+    },
+    '11092026_200254P9111048.jpg': {
+      final: { ratio: [3, 2], center: [0.63845496009122, 0.6786266311921956], size: 0.6427467376156089 },
+    },
+    '11092026_200303P9111050.jpg': {
+      final: { ratio: [3, 2], center: [0.5, 0.5], size: 0.8888888888888888 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.5681096900476996, 0.198365640440897], size: 0.21446851640694295 },
+      ],
+    },
+    '11092026_200310P9111051.jpg': {
+      final: { ratio: [1, 1], center: [0.40270044278900063, 0.5], size: 1 },
+    },
+    '11092026_200402P9111059.jpg': {
+      final: { ratio: [4, 5], center: [0.672706714049524, 0.5], size: 1 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.47810759962752514, 0.5421639427340681], size: 0.20395286963131887 },
+      ],
+    },
+    '11092026_200404P9111060.jpg': {
+      final: { ratio: [4, 5], center: [0.7, 0.5], size: 1 },
+    },
+    '11092026_200407P9111061.jpg': {
+      final: { ratio: [4, 5], center: [0.6301381577697117, 0.5], size: 1 },
+    },
+    '11092026_200828P9111073.jpg': {
+      final: { ratio: [3, 2], center: [0.5, 0.5227036614721905], size: 0.8888888888888888 },
+    },
+    '11092026_200832P9111074.jpg': {
+      final: { ratio: [3, 2], center: [0.5, 0.46798428987710633], size: 0.8888888888888888 },
+    },
+    '11092026_201904P9111337 stack.jpg': {
+      final: { ratio: [3, 2], center: [0.5, 0.536095274293678], size: 0.8888888888888888 },
+    },
+    '12092026_185356P9120006UV Spider 2stack.jpg': {
+      final: { ratio: [4, 5], center: [0.42667060910703725, 0.5946185688941454], size: 0.7321111768184505 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.43494973388527497, 0.6371969248965109], size: 0.21525724423418086 },
+      ],
+    },
+    '12092026_081712P9120050wasp.jpg': {
+      final: { ratio: [3, 2], center: [0.5472410705810896, 0.37746105805747165], size: 0.7549221161149433 },
+    },
+    '12092026_081712P9120052wasp stack.jpg': {
+      final: { ratio: [3, 2], center: [0.5481433249087605, 0.5113518307360954], size: 0.8033007557177592 },
+    },
+    'P9150707 20 stacked.jpg': {
+      final: { ratio: [1, 1], center: [0.4942869385131758, 0.5], size: 1 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.3971648932371634, 0.39640315170558693], size: 0.21537051584184347 },
+      ],
+    },
+    'STACK-2-Spider.jpg': {
+      final: { ratio: [4, 5], center: [0.476031379969645, 0.49842298499371657], size: 0.926524037158416 },
+    },
+    '13092026_100530P9130342glitter oil.jpg': {
+      final: { ratio: [3, 2], center: [0.5, 0.5], size: 0.8681253696037847 },
+    },
+    '13092026_102322P9130373glitter oil.jpg': {
+      final: { ratio: [3, 2], center: [0.5047309284447072, 0.5473092844470727], size: 0.8507786319731913 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.35452395032525136, 0.7964715158683225], size: 0.22156514882712403 },
+      ],
+    },
+    '13092026_102344P9130374glitter oil.jpg': {
+      final: { ratio: [3, 2], center: [0.5, 0.5], size: 0.8888888888888888 },
+    },
+    '13092026_103907P9130382glitter oil.jpg': {
+      final: { ratio: [3, 2], center: [0.5, 0.5441553321506012], size: 0.8888888888888888 },
+    },
+    '13092026_104026P9130383glitter oil.jpg': {
+      final: { ratio: [3, 2], center: [0.5, 0.5], size: 0.8888888888888888 },
+    },
+    '13092026_104210P9130388glitter oil.jpg': {
+      final: { ratio: [3, 2], center: [0.5, 0.5], size: 0.8888888888888888 },
+    },
+    '13092026_104233P9130389glitter oil Negativish.jpg': {
+      final: { ratio: [3, 2], center: [0.5, 0.5], size: 0.8888888888888888 },
+    },
+    '13092026_104646P9130394glitter oil.jpg': {
+      final: { ratio: [3, 2], center: [0.5, 0.5555555555555556], size: 0.8888888888888888 },
+    },
+    '13092026_104923P9130397glitter oil.jpg': {
+      final: { ratio: [3, 2], center: [0.5, 0.5], size: 0.8888888888888888 },
+    },
+    '13092026_105930P9130554glitter oil.jpg': {
+      final: { ratio: [1, 1], center: [0.5272028385570668, 0.4041247782377291], size: 0.8082495564754582 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.47989355410999407, 0.4684604770352848], size: 0.21525724423418094 },
+      ],
+    },
+    '13092026_131750P9130002glitter oil mc-20.jpg': {
+      final: { ratio: [3, 2], center: [0.5, 0.539424403705894], size: 0.8888888888888888 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.8607332939089297, 0.8469347526118668], size: 0.22629607727183132 },
+      ],
+    },
+    '13092026_132032P9130105_01glitter oil mc-20.jpg': {
+      final: { ratio: [3, 2], center: [0.5, 0.5], size: 0.8888888888888888 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.39591957421644, 0.8027794204612655], size: 0.22787305342006706 },
+      ],
+    },
+    '13092026_132219P9130202_01glitter oil mc-20 22Stacked.jpg': {
+      final: { ratio: [3, 2], center: [0.5, 0.4731914054799921], size: 0.8888888888888888 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.6573033707865168, 0.4353439779223339], size: 0.21998817267888826 },
+      ],
+    },
+    '13092026_132615P9130301_01glitter oil mc-20 10stacked.jpg': {
+      final: { ratio: [3, 2], center: [0.5, 0.46530652473881334], size: 0.8888888888888888 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.24571259609698398, 0.37068795584466785], size: 0.22156514882712408 },
+      ],
+    },
+    '13092026_132831P9130485_01glitter oil mc-20.jpg': {
+      final: { ratio: [3, 2], center: [0.5, 0.5410013798541297], size: 0.8888888888888888 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.5638675340035482, 0.5898876404494382], size: 0.2152572442341809 },
+      ],
+    },
+    '13092026_132858P9130486_01glitter oil mc-20.jpg': {
+      final: { ratio: [3, 2], center: [0.5, 0.5283855706682437], size: 0.8888888888888888 },
+    },
+    '13092026_133011P9130487_01glitter oil mc-20.jpg': {
+      final: { ratio: [1, 1], center: [0.38290952099349496, 0.5], size: 1 },
+    },
+    '13092026_133107P9130488_01glitter oil mc-20.jpg': {
+      final: { ratio: [1, 1], center: [0.46215257244234176, 0.47664104080425784], size: 0.9532820816085157 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.16055588409225313, 0.4889611669623497], size: 0.17267888823181549 },
+      ],
+    },
+    '13092026_133445P9130490_01glitter oil mc-20.jpg': {
+      final: { ratio: [3, 2], center: [0.5, 0.47161442933175635], size: 0.8888888888888888 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.11561206386753398, 0.19879755568697022], size: 0.2184111965306525 },
+      ],
+    },
+    '15092026_140105P9150003 fluids redux.jpg': {
+      final: { ratio: [3, 2], center: [0.4506948551153163, 0.5047309284447072], size: 0.8012352979827846 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.09432288586635129, 0.7318154937906565], size: 0.23891188645771738 },
+      ],
+    },
+    '15092026_140445P9150300 fluids redux 17stacked.jpg': {
+      final: { ratio: [1, 1], center: [0.47161442933175635, 0.5], size: 1 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.5804257835600236, 0.40538143110585456], size: 0.2152572442341809 },
+      ],
+    },
+    '15092026_141441P9150645 fluids redux 20stacked.jpg': {
+      final: { ratio: [3, 2], center: [0.5, 0.5], size: 0.8888888888888888 },
+    },
+    '15092026_141528P9150748 fluids redux 40stacked.jpg': {
+      final: { ratio: [3, 2], center: [0.5, 0.5], size: 0.8888888888888888 },
+    },
+    '13092026_095951P9130128glitter oil 40Stacked.jpg': {
+      final: { ratio: [3, 2], center: [0.5, 0.5], size: 0.8643743007450784 },
+    },
+    '13092026_100420P9130288glitter oil 16Stacked.jpg': {
+      final: { ratio: [3, 2], center: [0.49885738770263505, 0.4465020576131687], size: 0.8827949566362763 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.19949296579304437, 0.670630103073151], size: 0.23212882953652791 },
+      ],
+    },
+    '13092026_105840P9130459glitter oi 9Stackedl.jpg': {
+      final: { ratio: [1, 1], center: [0.5171391844604728, 0.32327596467423647], size: 0.6465519293484729 },
+    },
+    '13092026_131948P9130028_01glitter oil mc-20 32Stacked.jpg': {
+      final: { ratio: [3, 2], center: [0.5, 0.4908591016210812], size: 0.8888888888888888 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.5868385345997287, 0.5853150515365755], size: 0.21537051584184336 },
+      ],
+    },
+    '15092026_140211P9150010 fluids redux 12stacked.jpg': {
+      final: { ratio: [1, 1], center: [0.4360137113475684, 0.5365635935156752], size: 0.9268728129686497 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.32860815539527244, 0.4131614654002714], size: 0.1792115975148182 },
+      ],
+    },
+    '15092026_140325P9150080 fluids redux 12 stack.jpg': {
+      final: { ratio: [3, 2], center: [0.5, 0.46038944035801854], size: 0.8888888888888888 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.47371991716060846, 0.4649598895474779], size: 0.21425170796734033 },
+      ],
+    },
+    '15092026_170642P9150014_01 mickaels flowers 25stacked.jpg': {
+      final: { ratio: [3, 2], center: [0.5, 0.4444444444444444], size: 0.8743696946661599 },
+    },
+    '15092026_170801P9150100 mickaels flowers 25 stacked.jpg': {
+      final: { ratio: [3, 2], center: [0.5, 0.5405422526289118], size: 0.8888888888888888 },
     },
   };
   const DEFAULT_FINAL_CROP = { x: 0.1, y: 0.1, w: 0.8, h: 0.8 };
@@ -513,6 +768,18 @@
   } catch (e) {
     cropEdits = {};
   }
+  // Example slices carry no crops of their own, so drop any edits this
+  // browser still holds for them (from before that rule) rather than letting
+  // them count toward -- and reappear in -- the next export.
+  let purgedSliceEdits = false;
+  Object.keys(cropEdits).forEach((name) => {
+    const it = items[indexByOriginal.get(name)];
+    if (it && isSlice(it)) {
+      delete cropEdits[name];
+      purgedSliceEdits = true;
+    }
+  });
+  if (purgedSliceEdits) saveCropEdits();
   updateExportButton();
 
   function saveCropEdits() {
@@ -834,8 +1101,10 @@
     zoomScale = 'fit';
     currentFocus = { x: 0.5, y: 0.5 };
     zoomBar.hidden = !zoomed;
-    cropBar.hidden = !zoomed;
-    if (zoomed) {
+    // No Final Frame/Detail buttons on an example slice -- only its stack has them.
+    const hasCrops = zoomed && !isSlice(item);
+    cropBar.hidden = !hasCrops;
+    if (hasCrops) {
       buildCropBar(item);
     } else {
       cropBar.innerHTML = '';
@@ -855,6 +1124,14 @@
     lbImg.src = zoomed ? fullObjectURL : item.medium;
     lbImg.alt = item.title || item.caption || 'Photo';
     lbZoom.textContent = zoomed ? 'Back to normal size' : 'View full resolution';
+
+    // Stack <-> example slice link: a thumbnail of the partner photo.
+    const partnerIndex = linkedIndex(item);
+    lbSample.hidden = partnerIndex === undefined;
+    if (partnerIndex !== undefined) {
+      lbSampleThumb.src = items[partnerIndex].thumb;
+      lbSampleLabel.textContent = item.sample ? 'Sample slice' : 'Back to stack';
+    }
 
     // Medium view already has the caption baked into its border -- the HTML
     // panel is only useful once you're looking at the un-bordered full-res
@@ -914,9 +1191,19 @@
 
   function step(delta) {
     releaseFullObjectURL();
-    const pos = currentOrder.indexOf(current);
-    const nextPos = (pos + delta + currentOrder.length) % currentOrder.length;
-    current = currentOrder[nextPos];
+    // An example slice isn't in any grid order, so step from its stack's
+    // position -- otherwise indexOf() is -1 and "next" would jump to the
+    // start of the category instead of the photo after the stack.
+    const here = items[current];
+    const anchor = isSlice(here) ? indexByOriginal.get(here.sample_of) : current;
+    let order = currentOrder;
+    let pos = order.indexOf(anchor);
+    if (pos === -1) {
+      order = globalOrder;
+      pos = Math.max(order.indexOf(anchor), 0);
+    }
+    const nextPos = (pos + delta + order.length) % order.length;
+    current = order[nextPos];
     zoomed = false;
     render();
   }
@@ -1140,6 +1427,10 @@
   const PAN_STEP = 100;
 
   lbClose.addEventListener('click', close);
+  lbSample.addEventListener('click', () => {
+    const partnerIndex = linkedIndex(items[current]);
+    if (partnerIndex !== undefined) open(partnerIndex);
+  });
   lbPrev.addEventListener('click', () => step(-1));
   lbNext.addEventListener('click', () => step(1));
   async function goFullRes() {

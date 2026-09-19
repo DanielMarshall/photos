@@ -81,7 +81,8 @@
       "lens": "OM 90mm F3.5",
       "camera": "OM-1MarkII",
       "datetime": "2026:09:04 19:23:04"
-    }
+    },
+    "sample_of": "STACK-2-Spider.jpg"
   },
   {
     "thumb": "images/thumbs/orb-weaver1.jpg",
@@ -186,7 +187,8 @@
       "lens": "OM 90mm F3.5",
       "camera": "OM-1MarkII",
       "datetime": "2026:09:04 20:22:01"
-    }
+    },
+    "sample_of": "STACK-DANDELION-ZS-PMax.jpg"
   },
   {
     "thumb": "images/thumbs/timmy.jpg",
@@ -333,7 +335,8 @@
       "lens": "OM 90mm F3.5",
       "camera": "OM-1MarkII",
       "datetime": "2026:09:05 15:54:25"
-    }
+    },
+    "sample": "Grub Single Sample.jpg"
   },
   {
     "thumb": "images/thumbs/grub-single-sample.jpg",
@@ -354,7 +357,8 @@
       "lens": "OM 90mm F3.5",
       "camera": "OM-1MarkII",
       "datetime": "2026:09:05 15:54:25"
-    }
+    },
+    "sample_of": "Grub Stack PMax.jpg"
   },
   {
     "thumb": "images/thumbs/grub-and-slug.jpg",
@@ -753,7 +757,8 @@
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
       "datetime": "2026:09:11 20:00:12"
-    }
+    },
+    "sample": "11092026_200012P9111035.jpg"
   },
   {
     "thumb": "images/thumbs/11092026-200012p9111035.jpg",
@@ -774,7 +779,8 @@
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
       "datetime": "2026:09:11 20:00:12"
-    }
+    },
+    "sample_of": "11092026_200012P9111035 under spider stack.jpg"
   },
   {
     "thumb": "images/thumbs/11092026-200200p9111040.jpg",
@@ -1131,7 +1137,8 @@
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
       "datetime": "2026:09:11 20:19:04"
-    }
+    },
+    "sample": "11092026_201904P9111337.jpg"
   },
   {
     "thumb": "images/thumbs/11092026-201904p9111337.jpg",
@@ -1152,7 +1159,8 @@
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
       "datetime": "2026:09:11 20:19:04"
-    }
+    },
+    "sample_of": "11092026_201904P9111337 stack.jpg"
   },
   {
     "thumb": "images/thumbs/12092026-185356p9120006uv-spider-2stack.jpg",
@@ -1207,7 +1215,8 @@
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
       "datetime": "2026:09:12 08:17:12"
-    }
+    },
+    "sample": "12092026_081712P9120052wasp.jpg"
   },
   {
     "thumb": "images/thumbs/12092026-081712p9120052wasp.jpg",
@@ -1228,7 +1237,8 @@
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
       "datetime": "2026:09:12 08:17:12"
-    }
+    },
+    "sample_of": "12092026_081712P9120052wasp stack.jpg"
   },
   {
     "thumb": "images/thumbs/12092026-123035p9120046-01sydney-cbd-copy.jpg",
@@ -3601,7 +3611,8 @@
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
       "datetime": "2026-09"
-    }
+    },
+    "sample": "13092026_132219P9130202_01glitter oil mc-20.jpg"
   },
   {
     "thumb": "images/thumbs/13092026-132219p9130202-01glitter-oil-mc-20.jpg",
@@ -3622,7 +3633,8 @@
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
       "datetime": "2026-09"
-    }
+    },
+    "sample_of": "13092026_132219P9130202_01glitter oil mc-20 22Stacked.jpg"
   },
   {
     "thumb": "images/thumbs/13092026-132615p9130301-01glitter-oil-mc-20-10stacked.jpg",
@@ -3643,7 +3655,8 @@
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
       "datetime": "2026-09"
-    }
+    },
+    "sample": "13092026_132615P9130301_01glitter oil mc-20.jpg"
   },
   {
     "thumb": "images/thumbs/13092026-132615p9130301-01glitter-oil-mc-20.jpg",
@@ -3664,7 +3677,8 @@
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
       "datetime": "2026-09"
-    }
+    },
+    "sample_of": "13092026_132615P9130301_01glitter oil mc-20 10stacked.jpg"
   },
   {
     "thumb": "images/thumbs/13092026-132725p9130483-01glitter-oil-mc-20.jpg",
@@ -4441,7 +4455,8 @@
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
       "datetime": "2026:09:14 19:29:38"
-    }
+    },
+    "sample": "14092026_192938P9140110work and moss.jpg"
   },
   {
     "thumb": "images/thumbs/14092026-192938p9140110work-and-moss.jpg",
@@ -4462,7 +4477,8 @@
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
       "datetime": "2026:09:14 19:29:38"
-    }
+    },
+    "sample_of": "14092026_192938P9140110work and moss 20stacked.jpg"
   },
   {
     "thumb": "images/thumbs/14092026-193312p9140182work-and-moss-mass-stack.jpg",
@@ -4483,7 +4499,8 @@
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
       "datetime": "2026:09:14 19:33:12"
-    }
+    },
+    "sample": "14092026_193312P9140182work and moss.jpg"
   },
   {
     "thumb": "images/thumbs/14092026-193312p9140182work-and-moss.jpg",
@@ -4504,7 +4521,8 @@
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
       "datetime": "2026:09:14 19:33:12"
-    }
+    },
+    "sample_of": "14092026_193312P9140182work and moss mass stack.jpg"
   },
   {
     "thumb": "images/thumbs/14092026-193540p9140324work-and-moss-30-stack.jpg",
@@ -4525,7 +4543,8 @@
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
       "datetime": "2026:09:14 19:35:40"
-    }
+    },
+    "sample": "14092026_193540P9140324work and moss.jpg"
   },
   {
     "thumb": "images/thumbs/14092026-193540p9140324work-and-moss.jpg",
@@ -4546,7 +4565,8 @@
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
       "datetime": "2026:09:14 19:35:40"
-    }
+    },
+    "sample_of": "14092026_193540P9140324work and moss 30 stack.jpg"
   },
   {
     "thumb": "images/thumbs/14092026-194038p9140624work-and-moss-messy-100stack.jpg",
@@ -4567,7 +4587,8 @@
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
       "datetime": "2026:09:14 19:40:38"
-    }
+    },
+    "sample": "14092026_194038P9140624work and moss.jpg"
   },
   {
     "thumb": "images/thumbs/14092026-194038p9140624work-and-moss.jpg",
@@ -4588,7 +4609,8 @@
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
       "datetime": "2026:09:14 19:40:38"
-    }
+    },
+    "sample_of": "14092026_194038P9140624work and moss messy 100stack.jpg"
   },
   {
     "thumb": "images/thumbs/15092026-140105p9150003-fluids-redux.jpg",
@@ -4630,7 +4652,8 @@
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
       "datetime": "2026-09"
-    }
+    },
+    "sample": "15092026_140445P9150300 fluids redux.jpg"
   },
   {
     "thumb": "images/thumbs/15092026-140445p9150300-fluids-redux.jpg",
@@ -4651,7 +4674,8 @@
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
       "datetime": "2026-09"
-    }
+    },
+    "sample_of": "15092026_140445P9150300 fluids redux 17stacked.jpg"
   },
   {
     "thumb": "images/thumbs/15092026-141441p9150645-fluids-redux-20stacked.jpg",
@@ -4672,7 +4696,8 @@
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
       "datetime": "2026-09"
-    }
+    },
+    "sample": "15092026_141441P9150645 fluids redux.jpg"
   },
   {
     "thumb": "images/thumbs/15092026-141441p9150645-fluids-redux.jpg",
@@ -4693,7 +4718,8 @@
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
       "datetime": "2026-09"
-    }
+    },
+    "sample_of": "15092026_141441P9150645 fluids redux 20stacked.jpg"
   },
   {
     "thumb": "images/thumbs/15092026-141528p9150748-fluids-redux-40stacked.jpg",
@@ -4714,7 +4740,8 @@
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
       "datetime": "2026-09"
-    }
+    },
+    "sample": "15092026_141528P9150748 fluids redux.jpg"
   },
   {
     "thumb": "images/thumbs/15092026-141528p9150748-fluids-redux.jpg",
@@ -4735,7 +4762,8 @@
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
       "datetime": "2026-09"
-    }
+    },
+    "sample_of": "15092026_141528P9150748 fluids redux 40stacked.jpg"
   },
   {
     "thumb": "images/thumbs/15092026-170642p9150014-01-mickaels-flowers-25stacked.jpg",
@@ -4756,7 +4784,8 @@
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
       "datetime": "2026:09:15 17:06:42"
-    }
+    },
+    "sample": "15092026_170642P9150014_01 mickaels flowers.jpg"
   },
   {
     "thumb": "images/thumbs/15092026-170642p9150014-01-mickaels-flowers.jpg",
@@ -4777,7 +4806,8 @@
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
       "datetime": "2026:09:15 17:06:42"
-    }
+    },
+    "sample_of": "15092026_170642P9150014_01 mickaels flowers 25stacked.jpg"
   },
   {
     "thumb": "images/thumbs/15092026-170801p9150100-mickaels-flowers-25-stacked.jpg",
@@ -4798,7 +4828,8 @@
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
       "datetime": "2026:09:15 17:08:01"
-    }
+    },
+    "sample": "15092026_170801P9150100 mickaels flowers.jpg"
   },
   {
     "thumb": "images/thumbs/15092026-170801p9150100-mickaels-flowers.jpg",
@@ -4819,7 +4850,8 @@
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
       "datetime": "2026:09:15 17:08:01"
-    }
+    },
+    "sample_of": "15092026_170801P9150100 mickaels flowers 25 stacked.jpg"
   },
   {
     "thumb": "images/thumbs/15092026-174550p9150027-01-michael-fender.jpg",
@@ -4945,7 +4977,8 @@
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
       "datetime": "2026:09:15 19:01:07"
-    }
+    },
+    "sample": "15092026_190107P9150185 mirror.jpg"
   },
   {
     "thumb": "images/thumbs/15092026-190107p9150185-mirror.jpg",
@@ -4966,7 +4999,8 @@
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
       "datetime": "2026:09:15 19:01:07"
-    }
+    },
+    "sample_of": "15092026_190107P9150185 mirror 30stacked.jpg"
   },
   {
     "thumb": "images/thumbs/16092026-184141p9160208-indoor-macro-24stacked.jpg",
@@ -4987,7 +5021,8 @@
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
       "datetime": "2026:09:16 18:41:41"
-    }
+    },
+    "sample": "16092026_184141P9160208 indoor macro.jpg"
   },
   {
     "thumb": "images/thumbs/16092026-184141p9160208-indoor-macro.jpg",
@@ -5008,7 +5043,8 @@
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
       "datetime": "2026:09:16 18:41:41"
-    }
+    },
+    "sample_of": "16092026_184141P9160208 indoor macro 24stacked.jpg"
   },
   {
     "thumb": "images/thumbs/16092026-184614p9160360-indoor-macro-40stacked.jpg",
@@ -5029,7 +5065,8 @@
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
       "datetime": "2026:09:16 18:46:14"
-    }
+    },
+    "sample": "16092026_184614P9160360 indoor macro.jpg"
   },
   {
     "thumb": "images/thumbs/16092026-184614p9160360-indoor-macro.jpg",
@@ -5050,7 +5087,8 @@
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
       "datetime": "2026:09:16 18:46:14"
-    }
+    },
+    "sample_of": "16092026_184614P9160360 indoor macro 40stacked.jpg"
   },
   {
     "thumb": "images/thumbs/16092026-184801p9160518-indoor-macro-50stacked.jpg",
@@ -5071,7 +5109,8 @@
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
       "datetime": "2026:09:16 18:48:01"
-    }
+    },
+    "sample": "16092026_184801P9160518 indoor macro.jpg"
   },
   {
     "thumb": "images/thumbs/16092026-184801p9160518-indoor-macro.jpg",
@@ -5092,7 +5131,8 @@
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
       "datetime": "2026:09:16 18:48:01"
-    }
+    },
+    "sample_of": "16092026_184801P9160518 indoor macro 50stacked.jpg"
   },
   {
     "thumb": "images/thumbs/16092026-190157p9161030-michael-at-work.jpg",
@@ -5529,7 +5569,8 @@
     "category": "Gladesville",
     "subcategory": "Garden",
     "location": "Home",
-    "settings": null
+    "settings": null,
+    "sample": "STACK-P9040321.jpg"
   },
   {
     "thumb": "images/thumbs/stack-dandelion-zs-pmax.jpg",
@@ -5542,6 +5583,7 @@
     "category": "Gladesville",
     "subcategory": "Garden",
     "location": "Home",
-    "settings": null
+    "settings": null,
+    "sample": "STACK-DANDELIONP9040361_01.jpg"
   }
 ]

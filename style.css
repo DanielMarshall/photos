@@ -579,6 +579,34 @@ main {
   border-color: #fff;
 }
 
+/* Link between a stack and its example slice: a pill with the partner's
+   thumbnail, so the slice stays out of the grids but is one click away. */
+.lb-sample {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.4);
+  color: #eee;
+  padding: 0.2rem 0.8rem 0.2rem 0.25rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+.lb-sample[hidden] {
+  display: none;
+}
+.lb-sample:hover {
+  border-color: #fff;
+}
+.lb-sample img {
+  width: 34px;
+  height: 26px;
+  object-fit: cover;
+  border-radius: 13px;
+  display: block;
+}
+
 .lb-zoom-row {
   display: flex;
   align-items: center;

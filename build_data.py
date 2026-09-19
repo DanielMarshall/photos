@@ -546,6 +546,34 @@ def classify(original, dt):
         return "Gladesville", "Frank photos of Frankie", "Gladesville"
     return "Gladesville", "Garden", "Home"
 
+# Stack composite -> its "Example Slice" photo, for the pairs SOURCE_MAP can't
+# express (the stack's source there is a raw file, or a differently-named
+# export). Every other pair is derived automatically: a stack whose SOURCE_MAP
+# source is a published photo titled "... Example Slice".
+SAMPLE_EXTRA = {
+    "STACK-2-Spider.jpg": "STACK-P9040321.jpg",
+    "STACK-DANDELION-ZS-PMax.jpg": "STACK-DANDELIONP9040361_01.jpg",
+    "Grub Stack PMax.jpg": "Grub Single Sample.jpg",
+}
+
+def link_samples(items):
+    """Tag each stack with `sample` and each of its slices with `sample_of`
+    (both hold the partner's original_filename). The site hides slices from
+    the grids and reaches them through their stack's lightbox instead."""
+    by_name = {i["original_filename"]: i for i in items}
+    pairs = dict(SAMPLE_EXTRA)
+    for stack, src in SOURCE_MAP.items():
+        slice_name = os.path.basename(src)
+        if (stack in by_name and slice_name in by_name
+                and by_name[slice_name]["title"].endswith("Example Slice")):
+            pairs[stack] = slice_name
+    for stack, slice_name in pairs.items():
+        if stack in by_name and slice_name in by_name:
+            by_name[stack]["sample"] = slice_name
+            by_name[slice_name]["sample_of"] = stack
+    return [i["original_filename"] for i in items
+            if i["title"].endswith("Example Slice") and "sample_of" not in i]
+
 def main():
     with open(os.path.join(PHOTOS, "manifest.tsv"), encoding="utf-8") as f:
         lines = [l.rstrip("\n") for l in f if l.strip()]
@@ -596,10 +624,13 @@ def main():
             if item["settings"] and item["settings"].get("datetime"):
                 item["settings"]["datetime"] = item["settings"]["datetime"][:7].replace(":", "-")
 
+    unpaired_slices = link_samples(items)
+
     with open(os.path.join(PHOTOS, "images.json"), "w", encoding="utf-8") as f:
         json.dump(items, f, indent=2)
 
     print(f"Wrote {len(items)} items")
+    print(f"Example slices with no stack to hang off (will show in the grid): {unpaired_slices}")
     from collections import Counter
     cats = Counter((i["category"], i["subcategory"]) for i in items)
     for k, v in sorted(cats.items(), key=lambda x: -x[1]):
