@@ -584,8 +584,9 @@ main {
   border-color: #fff;
 }
 
-/* "View detail" buttons sit in the same row as the other pills. */
-.lb-detail-btns {
+/* "View detail" and sample-slice pills sit in the same row as the other buttons. */
+.lb-detail-btns,
+.lb-sample-btns {
   display: contents;
 }
 
@@ -660,6 +661,21 @@ main {
   border-radius: 20px;
   font-size: 0.78rem;
   cursor: pointer;
+}
+
+/* A Final Frame that is the whole image: almost invisible to visitors, but
+   still clickable (ctrl+click opens the editor). Fully visible when in use. */
+.crop-btn.ghost {
+  color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+.crop-btn.ghost:hover {
+  color: rgba(255, 255, 255, 0.6);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+.crop-btn.ghost.active {
+  color: #fff;
+  border-color: #fff;
 }
 
 .crop-btn:hover {

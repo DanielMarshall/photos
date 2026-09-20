@@ -7,11 +7,9 @@
   const lbTitle = document.getElementById('lb-title');
   const lbMeta = document.getElementById('lb-meta');
   const lbZoom = document.getElementById('lb-zoom');
-  const lbSample = document.getElementById('lb-sample');
+  const lbSampleBtns = document.getElementById('lb-sample-btns');
   const lbDetailBtns = document.getElementById('lb-detail-btns');
   const lbDetailHi = document.getElementById('lb-detail-hi');
-  const lbSampleThumb = document.getElementById('lb-sample-thumb');
-  const lbSampleLabel = document.getElementById('lb-sample-label');
   const cropBar = document.getElementById('crop-bar');
   const cropEditorBox = document.getElementById('crop-editor-box');
   const cropEditorControls = document.getElementById('crop-editor-controls');
@@ -122,9 +120,11 @@
   const indexByOriginal = new Map();
   items.forEach((item, i) => indexByOriginal.set(item.original_filename, i));
 
-  function linkedIndex(item) {
-    const partner = item.sample || item.sample_of;
-    return partner ? indexByOriginal.get(partner) : undefined;
+  // Indexes of the photos this one links to: a stack's example slices, or a
+  // slice's stack.
+  function linkedIndices(item) {
+    const partners = item.samples || (item.sample_of ? [item.sample_of] : []);
+    return partners.map((name) => indexByOriginal.get(name)).filter((i) => i !== undefined);
   }
 
   // True for an example slice whose stack exists on the site. Slices get no
@@ -470,6 +470,9 @@
     },
     '11092026_200832P9111074.jpg': {
       final: { ratio: [3, 2], center: [0.5, 0.46798428987710633], size: 0.8888888888888888 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.33678784590341837, 0.3888754913545711], size: 0.23113560180384404 },
+      ],
     },
     '11092026_201904P9111337 stack.jpg': {
       final: { ratio: [3, 2], center: [0.5, 0.536095274293678], size: 0.8888888888888888 },
@@ -480,11 +483,11 @@
         { label: "Detail #1", ratio: [1, 1], center: [0.43494973388527497, 0.6371969248965109], size: 0.21525724423418086 },
       ],
     },
-    '12092026_081712P9120050wasp.jpg': {
-      final: { ratio: [3, 2], center: [0.5472410705810896, 0.37746105805747165], size: 0.7549221161149433 },
-    },
     '12092026_081712P9120052wasp stack.jpg': {
       final: { ratio: [3, 2], center: [0.5481433249087605, 0.5113518307360954], size: 0.8033007557177592 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.632901016430471, 0.29637140844728344], size: 0.20291210259150402 },
+      ],
     },
     'P9150707 20 stacked.jpg': {
       final: { ratio: [1, 1], center: [0.4942869385131758, 0.5], size: 1 },
@@ -494,6 +497,9 @@
     },
     'STACK-2-Spider.jpg': {
       final: { ratio: [4, 5], center: [0.476031379969645, 0.49842298499371657], size: 0.926524037158416 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.4927366270711962, 0.6679790026246719], size: 0.21156983755408953 },
+      ],
     },
     '13092026_100530P9130342glitter oil.jpg': {
       final: { ratio: [3, 2], center: [0.5, 0.5], size: 0.8681253696037847 },
@@ -756,6 +762,41 @@
         { label: "Detail #1", ratio: [1, 1], center: [0.5755182191225938, 0.42786192321239874], size: 0.2277092873077375 },
       ],
     },
+    'STACK-DANDELION-ZS-PMax.jpg': {
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.5, 0.5], size: 0.18736847083303776 },
+      ],
+    },
+    '13092026_162544P9130056_02last dinosaurs mc-20.jpg': {
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.35910780014441446, 0.3301749442291887], size: 0.5147117529646588 },
+      ],
+    },
+    '13092026_162533P9130054_02last dinosaurs mc-20.jpg': {
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.2339955266726546, 0.4759539744041329], size: 0.25 },
+      ],
+    },
+    '13092026_162523P9130052_02last dinosaurs mc-20.jpg': {
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.4492788080519892, 0.484971234002583], size: 0.28632147469766356 },
+      ],
+    },
+    '13092026_162459P9130048_02last dinosaurs mc-20.jpg': {
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.3805234145224635, 0.43988493601033224], size: 0.3163790066924974 },
+      ],
+    },
+    '13092026_162341P9130040_02last dinosaurs mc-20.jpg': {
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.5834081823145066, 0.3166490548315134], size: 0.3629681812844898 },
+      ],
+    },
+    '13092026_162344P9130042_02last dinosaurs mc-20.jpg': {
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.46844014723234884, 0.33768932722789713], size: 0.3885170834800987 },
+      ],
+    },
   };
   // Photos with no curated crop show the whole image as their Final Frame.
   const DEFAULT_FINAL_CROP = { x: 0, y: 0, w: 1, h: 1 };
@@ -1005,6 +1046,10 @@
     }
     if (!entry.final && !(entry.details && entry.details.length)) delete cropEdits[filename];
     saveCropEdits();
+    if (editing.kind === 'final') {
+      const finalBtn = cropBarButton('final');
+      if (finalBtn) finalBtn.classList.toggle('ghost', !finalCropRect(items[current]));
+    }
   }
 
   function highlightRatioButton() {
@@ -1256,6 +1301,10 @@
     };
 
     addButton('Final Frame', 'final', undefined);
+    // An uncropped Final Frame means nothing to a visitor, so keep its button
+    // almost invisible -- still there (ctrl+click) to open the editor and
+    // add details.
+    cropBarButton('final').classList.toggle('ghost', !finalCropRect(item));
 
     // The full-resolution view opens on the Final Frame, so when that's a
     // crop, offer a way back to the whole photo.
@@ -1375,13 +1424,21 @@
     lbImg.alt = item.title || item.caption || 'Photo';
     lbZoom.textContent = zoomed ? 'Back to normal size' : 'View full resolution';
 
-    // Stack <-> example slice link: a thumbnail of the partner photo.
-    const partnerIndex = linkedIndex(item);
-    lbSample.hidden = partnerIndex === undefined;
-    if (partnerIndex !== undefined) {
-      lbSampleThumb.src = items[partnerIndex].thumb;
-      lbSampleLabel.textContent = item.sample ? 'Sample slice' : 'Back to stack';
-    }
+    // Stack <-> example slice links: a thumbnail pill per partner photo.
+    lbSampleBtns.innerHTML = '';
+    const partners = linkedIndices(item);
+    partners.forEach((partnerIndex, n) => {
+      const btn = document.createElement('button');
+      btn.className = 'lb-sample';
+      const thumb = document.createElement('img');
+      thumb.src = items[partnerIndex].thumb;
+      thumb.alt = '';
+      const label = document.createElement('span');
+      label.textContent = !item.samples ? 'Back to stack' : partners.length === 1 ? 'Sample slice' : `Sample slice ${n + 1}`;
+      btn.append(thumb, label);
+      btn.addEventListener('click', () => open(partnerIndex));
+      lbSampleBtns.appendChild(btn);
+    });
 
     // Medium view already has the caption baked into its border -- the HTML
     // panel is only useful once you're looking at the un-bordered full-res
@@ -1814,10 +1871,6 @@
   const PAN_STEP = 100;
 
   lbClose.addEventListener('click', close);
-  lbSample.addEventListener('click', () => {
-    const partnerIndex = linkedIndex(items[current]);
-    if (partnerIndex !== undefined) open(partnerIndex);
-  });
   lbPrev.addEventListener('click', () => step(-1));
   lbNext.addEventListener('click', () => step(1));
   async function goFullRes() {

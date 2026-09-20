@@ -96,6 +96,46 @@
     ]
   },
   {
+    "thumb": "images/thumbs/stack-2-spider.jpg",
+    "medium": "images/medium/stack-2-spider.jpg",
+    "full": "images/full/stack-2-spider.jpg",
+    "original_filename": "STACK-2-Spider.jpg",
+    "caption": "STACK 2 Spider",
+    "title": "Garden Orb Weaver One Stack",
+    "description": "Stacked photo",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/8",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:04 19:23:04",
+      "focal": "90mm",
+      "iso": 200,
+      "lens": "OM 90mm F3.5",
+      "shutter": "1/100s"
+    },
+    "size": [
+      3499,
+      2799
+    ],
+    "medium_crop": [
+      0.179565,
+      0.035161,
+      0.592933,
+      0.926524
+    ],
+    "medium_frame": [
+      0.03496821071752952,
+      0.026570048309178744,
+      0.9300635785649409,
+      0.883367839889579
+    ],
+    "samples": [
+      "STACK-P9040321.jpg"
+    ]
+  },
+  {
     "thumb": "images/thumbs/stack-p9040321.jpg",
     "medium": "images/medium/stack-p9040321.jpg",
     "full": "images/full/stack-p9040321.jpg",
@@ -274,6 +314,41 @@
       0.02631578947368421,
       0.943778801843318,
       0.8835202761000863
+    ]
+  },
+  {
+    "thumb": "images/thumbs/stack-dandelion-zs-pmax.jpg",
+    "medium": "images/medium/stack-dandelion-zs-pmax.jpg",
+    "full": "images/full/stack-dandelion-zs-pmax.jpg",
+    "original_filename": "STACK-DANDELION-ZS-PMax.jpg",
+    "caption": "STACK DANDELION ZS PMax",
+    "title": "Dandelion Stack",
+    "description": "36-frame stack",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/8",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:04 20:22:01",
+      "focal": "90mm",
+      "iso": 200,
+      "lens": "OM 90mm F3.5",
+      "shutter": "1/100s"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "samples": [
+      "STACK-DANDELIONP9040361_01.jpg"
     ]
   },
   {
@@ -542,7 +617,9 @@
       0.943778801843318,
       0.8835202761000863
     ],
-    "sample": "Grub Single Sample.jpg"
+    "samples": [
+      "Grub Single Sample.jpg"
+    ]
   },
   {
     "thumb": "images/thumbs/grub-single-sample.jpg",
@@ -1199,7 +1276,9 @@
       0.943778801843318,
       0.8349633251833741
     ],
-    "sample": "11092026_200012P9111035.jpg"
+    "samples": [
+      "11092026_200012P9111035.jpg"
+    ]
   },
   {
     "thumb": "images/thumbs/11092026-200012p9111035.jpg",
@@ -1847,7 +1926,9 @@
       0.943778801843318,
       0.8349633251833741
     ],
-    "sample": "11092026_201904P9111337.jpg"
+    "samples": [
+      "11092026_201904P9111337.jpg"
+    ]
   },
   {
     "thumb": "images/thumbs/11092026-201904p9111337.jpg",
@@ -1893,7 +1974,15 @@
     "category": "Gladesville",
     "subcategory": "Garden",
     "location": "Home",
-    "settings": null,
+    "settings": {
+      "aperture": "f/5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 18:53:56",
+      "focal": "90mm",
+      "iso": 1000,
+      "lens": "OM 90mm F3.5",
+      "shutter": "1/10s"
+    },
     "size": [
       5184,
       3888
@@ -1905,10 +1994,10 @@
       0.732111
     ],
     "medium_frame": [
-      0,
-      0,
-      1,
-      1
+      0.03496821071752952,
+      0.026570048309178744,
+      0.9300635785649409,
+      0.883367839889579
     ]
   },
   {
@@ -1917,7 +2006,7 @@
     "full": "images/full/12092026-081712p9120050wasp.jpg",
     "original_filename": "12092026_081712P9120050wasp.jpg",
     "caption": "wasp",
-    "title": "Wasp nest just starting",
+    "title": "Wasp nest just starting Example Slice II",
     "description": "Eggs just laid",
     "category": "Gladesville",
     "subcategory": "Garden",
@@ -1935,18 +2024,14 @@
       5184,
       3888
     ],
-    "medium_crop": [
-      0.122597,
-      0.0,
-      0.849287,
-      0.754922
-    ],
+    "medium_crop": null,
     "medium_frame": [
       0.028110599078341014,
-      0.03728606356968215,
+      0.033776301218161685,
       0.943778801843318,
-      0.8349633251833741
-    ]
+      0.8504983388704319
+    ],
+    "sample_of": "12092026_081712P9120052wasp stack.jpg"
   },
   {
     "thumb": "images/thumbs/12092026-081712p9120052wasp-stack.jpg",
@@ -1984,7 +2069,10 @@
       0.943778801843318,
       0.8349633251833741
     ],
-    "sample": "12092026_081712P9120052wasp.jpg"
+    "samples": [
+      "12092026_081712P9120052wasp.jpg",
+      "12092026_081712P9120050wasp.jpg"
+    ]
   },
   {
     "thumb": "images/thumbs/12092026-081712p9120052wasp.jpg",
@@ -2186,7 +2274,7 @@
     "original_filename": "12092026_124003P9120074Sydney CBD - Copy.jpg",
     "caption": "Sydney CBD",
     "title": "Spiral Balconies",
-    "description": "",
+    "description": "The Exchange at Darling Square, a six-storey civic hub designed by Japanese architecture firm Kengo Kuma & Associates, wrapped in spiralling balconies of Accoya timber.",
     "category": "Sydney CBD",
     "subcategory": null,
     "location": "Darling Harbour area, Sydney",
@@ -2218,7 +2306,7 @@
     "original_filename": "12092026_124436P9120089Sydney CBD - Copy.jpg",
     "caption": "Sydney CBD",
     "title": "Spiral Balconies II",
-    "description": "",
+    "description": "The Exchange again: Kengo Kuma & Associates' spiral of Accoya timber balconies.",
     "category": "Sydney CBD",
     "subcategory": null,
     "location": "Darling Harbour area, Sydney",
@@ -3030,6 +3118,70 @@
       "lens": "OM 90mm F3.5",
       "camera": "OM-1MarkII",
       "datetime": "2026:09:12 13:17:36"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ]
+  },
+  {
+    "thumb": "images/thumbs/12092026-131947p9120308sydney-cbd-8stack.jpg",
+    "medium": "images/medium/12092026-131947p9120308sydney-cbd-8stack.jpg",
+    "full": "images/full/12092026-131947p9120308sydney-cbd-8stack.jpg",
+    "original_filename": "12092026_131947P9120308Sydney CBD 8stack.jpg",
+    "caption": "Sydney CBD 8stack",
+    "title": "Water Dragon by the Tree",
+    "description": "",
+    "category": "Chinese Garden of Friendship",
+    "subcategory": null,
+    "location": "Darling Harbour, Sydney (water dragons & waterfall)",
+    "settings": {
+      "aperture": "f/3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 13:19:47",
+      "focal": "90mm",
+      "iso": 320,
+      "lens": "OM 90mm F3.5",
+      "shutter": "1/1000s"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ]
+  },
+  {
+    "thumb": "images/thumbs/12092026-132044p9120399-01sydney-cbd-8stack.jpg",
+    "medium": "images/medium/12092026-132044p9120399-01sydney-cbd-8stack.jpg",
+    "full": "images/full/12092026-132044p9120399-01sydney-cbd-8stack.jpg",
+    "original_filename": "12092026_132044P9120399_01Sydney CBD 8stack.jpg",
+    "caption": "Sydney CBD 8stack",
+    "title": "Water Dragon by the Tree II",
+    "description": "",
+    "category": "Chinese Garden of Friendship",
+    "subcategory": null,
+    "location": "Darling Harbour, Sydney (water dragons & waterfall)",
+    "settings": {
+      "aperture": "f/10",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:12 13:20:44",
+      "focal": "90mm",
+      "iso": 200,
+      "lens": "OM 90mm F3.5",
+      "shutter": "1/100s"
     },
     "size": [
       5184,
@@ -5220,6 +5372,80 @@
     ]
   },
   {
+    "thumb": "images/thumbs/13092026-095951p9130128glitter-oil-40stacked.jpg",
+    "medium": "images/medium/13092026-095951p9130128glitter-oil-40stacked.jpg",
+    "full": "images/full/13092026-095951p9130128glitter-oil-40stacked.jpg",
+    "original_filename": "13092026_095951P9130128glitter oil 40Stacked.jpg",
+    "caption": "glitter oil 40Stacked",
+    "title": "Experiment #1",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Experiments in Liquids",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/8",
+      "camera": "OM-1MarkII",
+      "datetime": "2026-09",
+      "focal": "90mm",
+      "iso": 200,
+      "lens": "OM 90mm F3.5",
+      "shutter": "1/100s"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": [
+      0.013789,
+      0.067813,
+      0.972421,
+      0.864374
+    ],
+    "medium_frame": [
+      0.028110599078341014,
+      0.03728606356968215,
+      0.943778801843318,
+      0.8349633251833741
+    ]
+  },
+  {
+    "thumb": "images/thumbs/13092026-100420p9130288glitter-oil-16stacked.jpg",
+    "medium": "images/medium/13092026-100420p9130288glitter-oil-16stacked.jpg",
+    "full": "images/full/13092026-100420p9130288glitter-oil-16stacked.jpg",
+    "original_filename": "13092026_100420P9130288glitter oil 16Stacked.jpg",
+    "caption": "glitter oil 16Stacked",
+    "title": "Experiment #2",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Experiments in Liquids",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/6.3",
+      "camera": "OM-1MarkII",
+      "datetime": "2026-09",
+      "focal": "90mm",
+      "iso": 200,
+      "lens": "OM 90mm F3.5",
+      "shutter": "1/25s"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": [
+      0.002285,
+      0.005105,
+      0.993144,
+      0.882795
+    ],
+    "medium_frame": [
+      0.028110599078341014,
+      0.03728606356968215,
+      0.943778801843318,
+      0.8349633251833741
+    ]
+  },
+  {
     "thumb": "images/thumbs/13092026-100530p9130342glitter-oil.jpg",
     "medium": "images/medium/13092026-100530p9130342glitter-oil.jpg",
     "full": "images/full/13092026-100530p9130342glitter-oil.jpg",
@@ -5553,6 +5779,43 @@
     ]
   },
   {
+    "thumb": "images/thumbs/13092026-105840p9130459glitter-oi-9stackedl.jpg",
+    "medium": "images/medium/13092026-105840p9130459glitter-oi-9stackedl.jpg",
+    "full": "images/full/13092026-105840p9130459glitter-oi-9stackedl.jpg",
+    "original_filename": "13092026_105840P9130459glitter oi 9Stackedl.jpg",
+    "caption": "glitter oi 9Stackedl",
+    "title": "Experiment #11",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Experiments in Liquids",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/8",
+      "camera": "OM-1MarkII",
+      "datetime": "2026-09",
+      "focal": "90mm",
+      "iso": 200,
+      "lens": "OM 90mm F3.5",
+      "shutter": "1/100s"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": [
+      0.274682,
+      0.0,
+      0.484914,
+      0.646552
+    ],
+    "medium_frame": [
+      0.028110599078341014,
+      0.02631578947368421,
+      0.943778801843318,
+      0.8835202761000863
+    ]
+  },
+  {
     "thumb": "images/thumbs/13092026-105930p9130554glitter-oil.jpg",
     "medium": "images/medium/13092026-105930p9130554glitter-oil.jpg",
     "full": "images/full/13092026-105930p9130554glitter-oil.jpg",
@@ -5616,6 +5879,43 @@
     "medium_crop": [
       0.0,
       0.09498,
+      1.0,
+      0.888889
+    ],
+    "medium_frame": [
+      0.028110599078341014,
+      0.03728606356968215,
+      0.943778801843318,
+      0.8349633251833741
+    ]
+  },
+  {
+    "thumb": "images/thumbs/13092026-131948p9130028-01glitter-oil-mc-20-32stacked.jpg",
+    "medium": "images/medium/13092026-131948p9130028-01glitter-oil-mc-20-32stacked.jpg",
+    "full": "images/full/13092026-131948p9130028-01glitter-oil-mc-20-32stacked.jpg",
+    "original_filename": "13092026_131948P9130028_01glitter oil mc-20 32Stacked.jpg",
+    "caption": "glitter oil mc-20 32Stacked",
+    "title": "Experiment #14",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Experiments in Liquids",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "camera": "OM-1MarkII",
+      "datetime": "2026-09",
+      "focal": "180mm",
+      "iso": 200,
+      "lens": "OM 90mm F3.5 + MC-20",
+      "shutter": "1/100s"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": [
+      0.0,
+      0.046415,
       1.0,
       0.888889
     ],
@@ -5699,7 +5999,9 @@
       0.943778801843318,
       0.8349633251833741
     ],
-    "sample": "13092026_132219P9130202_01glitter oil mc-20.jpg"
+    "samples": [
+      "13092026_132219P9130202_01glitter oil mc-20.jpg"
+    ]
   },
   {
     "thumb": "images/thumbs/13092026-132219p9130202-01glitter-oil-mc-20.jpg",
@@ -5770,7 +6072,9 @@
       0.943778801843318,
       0.8349633251833741
     ],
-    "sample": "13092026_132615P9130301_01glitter oil mc-20.jpg"
+    "samples": [
+      "13092026_132615P9130301_01glitter oil mc-20.jpg"
+    ]
   },
   {
     "thumb": "images/thumbs/13092026-132615p9130301-01glitter-oil-mc-20.jpg",
@@ -7033,7 +7337,9 @@
       0.943778801843318,
       0.8347613219094248
     ],
-    "sample": "14092026_192938P9140110work and moss.jpg"
+    "samples": [
+      "14092026_192938P9140110work and moss.jpg"
+    ]
   },
   {
     "thumb": "images/thumbs/14092026-192938p9140110work-and-moss.jpg",
@@ -7104,7 +7410,9 @@
       0.943778801843318,
       0.8349633251833741
     ],
-    "sample": "14092026_193312P9140182work and moss.jpg"
+    "samples": [
+      "14092026_193312P9140182work and moss.jpg"
+    ]
   },
   {
     "thumb": "images/thumbs/14092026-193312p9140182work-and-moss.jpg",
@@ -7175,7 +7483,9 @@
       0.943778801843318,
       0.8349633251833741
     ],
-    "sample": "14092026_193540P9140324work and moss.jpg"
+    "samples": [
+      "14092026_193540P9140324work and moss.jpg"
+    ]
   },
   {
     "thumb": "images/thumbs/14092026-193540p9140324work-and-moss.jpg",
@@ -7246,7 +7556,9 @@
       0.943778801843318,
       0.8349633251833741
     ],
-    "sample": "14092026_194038P9140624work and moss.jpg"
+    "samples": [
+      "14092026_194038P9140624work and moss.jpg"
+    ]
   },
   {
     "thumb": "images/thumbs/14092026-194038p9140624work-and-moss.jpg",
@@ -7282,6 +7594,80 @@
     "sample_of": "14092026_194038P9140624work and moss messy 100stack.jpg"
   },
   {
+    "thumb": "images/thumbs/14092026-194042p9140652work-and-moss-50-stacked.jpg",
+    "medium": "images/medium/14092026-194042p9140652work-and-moss-50-stacked.jpg",
+    "full": "images/full/14092026-194042p9140652work-and-moss-50-stacked.jpg",
+    "original_filename": "14092026_194042P9140652work and moss 50 stacked.jpg",
+    "caption": "work and moss 50 stacked",
+    "title": "Moss V",
+    "description": "50-frame stack",
+    "category": "Gladesville",
+    "subcategory": "Moss",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:14 19:40:42",
+      "focal": "180mm",
+      "iso": 200,
+      "lens": "OM 90mm F3.5 + MC-20",
+      "shutter": "1/100s"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": [
+      0.004462,
+      0.103106,
+      0.991075,
+      0.880956
+    ],
+    "medium_frame": [
+      0.028110599078341014,
+      0.03733170134638923,
+      0.943778801843318,
+      0.8347613219094248
+    ]
+  },
+  {
+    "thumb": "images/thumbs/p9150707-20-stacked.jpg",
+    "medium": "images/medium/p9150707-20-stacked.jpg",
+    "full": "images/full/p9150707-20-stacked.jpg",
+    "original_filename": "P9150707 20 stacked.jpg",
+    "caption": "P9150707 20 stacked",
+    "title": "Wasp Nest II",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/7.1",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:15 09:19:07",
+      "focal": "180mm",
+      "iso": 200,
+      "lens": "OM 90mm F3.5 + MC-20",
+      "shutter": "1/100s"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": [
+      0.119287,
+      0.0,
+      0.75,
+      1
+    ],
+    "medium_frame": [
+      0.028110599078341014,
+      0.02631578947368421,
+      0.943778801843318,
+      0.8835202761000863
+    ]
+  },
+  {
     "thumb": "images/thumbs/15092026-140105p9150003-fluids-redux.jpg",
     "medium": "images/medium/15092026-140105p9150003-fluids-redux.jpg",
     "full": "images/full/15092026-140105p9150003-fluids-redux.jpg",
@@ -7310,6 +7696,80 @@
       0.104113,
       0.90139,
       0.801235
+    ],
+    "medium_frame": [
+      0.028110599078341014,
+      0.03728606356968215,
+      0.943778801843318,
+      0.8349633251833741
+    ]
+  },
+  {
+    "thumb": "images/thumbs/15092026-140211p9150010-fluids-redux-12stacked.jpg",
+    "medium": "images/medium/15092026-140211p9150010-fluids-redux-12stacked.jpg",
+    "full": "images/full/15092026-140211p9150010-fluids-redux-12stacked.jpg",
+    "original_filename": "15092026_140211P9150010 fluids redux 12stacked.jpg",
+    "caption": "fluids redux 12stacked",
+    "title": "Experiment #25",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Experiments in Liquids",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/8",
+      "camera": "OM-1MarkII",
+      "datetime": "2026-09",
+      "focal": "180mm",
+      "iso": 200,
+      "lens": "OM 90mm F3.5 + MC-20",
+      "shutter": "1/100s"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": [
+      0.088436,
+      0.073127,
+      0.695155,
+      0.926873
+    ],
+    "medium_frame": [
+      0.028110599078341014,
+      0.02631578947368421,
+      0.943778801843318,
+      0.8835202761000863
+    ]
+  },
+  {
+    "thumb": "images/thumbs/15092026-140325p9150080-fluids-redux-12-stack.jpg",
+    "medium": "images/medium/15092026-140325p9150080-fluids-redux-12-stack.jpg",
+    "full": "images/full/15092026-140325p9150080-fluids-redux-12-stack.jpg",
+    "original_filename": "15092026_140325P9150080 fluids redux 12 stack.jpg",
+    "caption": "fluids redux 12 stack",
+    "title": "Experiment #26",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Experiments in Liquids",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/8",
+      "camera": "OM-1MarkII",
+      "datetime": "2026-09",
+      "focal": "180mm",
+      "iso": 200,
+      "lens": "OM 90mm F3.5 + MC-20",
+      "shutter": "1/100s"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": [
+      0.0,
+      0.015945,
+      1.0,
+      0.888889
     ],
     "medium_frame": [
       0.028110599078341014,
@@ -7354,7 +7814,9 @@
       0.943778801843318,
       0.8835202761000863
     ],
-    "sample": "15092026_140445P9150300 fluids redux.jpg"
+    "samples": [
+      "15092026_140445P9150300 fluids redux.jpg"
+    ]
   },
   {
     "thumb": "images/thumbs/15092026-140445p9150300-fluids-redux.jpg",
@@ -7425,7 +7887,9 @@
       0.943778801843318,
       0.8349633251833741
     ],
-    "sample": "15092026_141441P9150645 fluids redux.jpg"
+    "samples": [
+      "15092026_141441P9150645 fluids redux.jpg"
+    ]
   },
   {
     "thumb": "images/thumbs/15092026-141441p9150645-fluids-redux.jpg",
@@ -7496,7 +7960,9 @@
       0.943778801843318,
       0.8349633251833741
     ],
-    "sample": "15092026_141528P9150748 fluids redux.jpg"
+    "samples": [
+      "15092026_141528P9150748 fluids redux.jpg"
+    ]
   },
   {
     "thumb": "images/thumbs/15092026-141528p9150748-fluids-redux.jpg",
@@ -7567,7 +8033,9 @@
       0.943778801843318,
       0.8349633251833741
     ],
-    "sample": "15092026_170642P9150014_01 mickaels flowers.jpg"
+    "samples": [
+      "15092026_170642P9150014_01 mickaels flowers.jpg"
+    ]
   },
   {
     "thumb": "images/thumbs/15092026-170642p9150014-01-mickaels-flowers.jpg",
@@ -7638,7 +8106,9 @@
       0.943778801843318,
       0.8349633251833741
     ],
-    "sample": "15092026_170801P9150100 mickaels flowers.jpg"
+    "samples": [
+      "15092026_170801P9150100 mickaels flowers.jpg"
+    ]
   },
   {
     "thumb": "images/thumbs/15092026-170801p9150100-mickaels-flowers.jpg",
@@ -7864,7 +8334,9 @@
       0.943778801843318,
       0.8504983388704319
     ],
-    "sample": "15092026_190107P9150185 mirror.jpg"
+    "samples": [
+      "15092026_190107P9150185 mirror.jpg"
+    ]
   },
   {
     "thumb": "images/thumbs/15092026-190107p9150185-mirror.jpg",
@@ -7935,7 +8407,9 @@
       0.943778801843318,
       0.8349633251833741
     ],
-    "sample": "16092026_184141P9160208 indoor macro.jpg"
+    "samples": [
+      "16092026_184141P9160208 indoor macro.jpg"
+    ]
   },
   {
     "thumb": "images/thumbs/16092026-184141p9160208-indoor-macro.jpg",
@@ -8006,7 +8480,9 @@
       0.943778801843318,
       0.8349633251833741
     ],
-    "sample": "16092026_184614P9160360 indoor macro.jpg"
+    "samples": [
+      "16092026_184614P9160360 indoor macro.jpg"
+    ]
   },
   {
     "thumb": "images/thumbs/16092026-184614p9160360-indoor-macro.jpg",
@@ -8077,7 +8553,9 @@
       0.943778801843318,
       0.8349633251833741
     ],
-    "sample": "16092026_184801P9160518 indoor macro.jpg"
+    "samples": [
+      "16092026_184801P9160518 indoor macro.jpg"
+    ]
   },
   {
     "thumb": "images/thumbs/16092026-184801p9160518-indoor-macro.jpg",
@@ -8909,7 +9387,9 @@
       0.943778801843318,
       0.8349633251833741
     ],
-    "sample": "19092026_123136P9190262 whelk.jpg"
+    "samples": [
+      "19092026_123136P9190262 whelk.jpg"
+    ]
   },
   {
     "thumb": "images/thumbs/19092026-123136p9190262-whelk.jpg",
@@ -8980,7 +9460,9 @@
       0.943778801843318,
       0.8835202761000863
     ],
-    "sample": "19092026_123302P9190280 barnicles 1.jpg"
+    "samples": [
+      "19092026_123302P9190280 barnicles 1.jpg"
+    ]
   },
   {
     "thumb": "images/thumbs/19092026-123302p9190280-barnicles-1.jpg",
@@ -9051,7 +9533,9 @@
       0.943778801843318,
       0.8349633251833741
     ],
-    "sample": "19092026_123346P9190370 barnicles 2.jpg"
+    "samples": [
+      "19092026_123346P9190370 barnicles 2.jpg"
+    ]
   },
   {
     "thumb": "images/thumbs/19092026-123346p9190370-barnicles-2.jpg",
@@ -9826,340 +10310,5 @@
       0.943778801843318,
       0.8504983388704319
     ]
-  },
-  {
-    "thumb": "images/thumbs/12092026-131947p9120308sydney-cbd-8stack.jpg",
-    "medium": "images/medium/12092026-131947p9120308sydney-cbd-8stack.jpg",
-    "full": "images/full/12092026-131947p9120308sydney-cbd-8stack.jpg",
-    "original_filename": "12092026_131947P9120308Sydney CBD 8stack.jpg",
-    "caption": "Sydney CBD 8stack",
-    "title": "Water Dragon by the Tree",
-    "description": "",
-    "category": "Chinese Garden of Friendship",
-    "subcategory": null,
-    "location": "Darling Harbour, Sydney (water dragons & waterfall)",
-    "settings": null,
-    "size": [
-      5184,
-      3888
-    ],
-    "medium_crop": null,
-    "medium_frame": [
-      0,
-      0,
-      1,
-      1
-    ]
-  },
-  {
-    "thumb": "images/thumbs/12092026-132044p9120399-01sydney-cbd-8stack.jpg",
-    "medium": "images/medium/12092026-132044p9120399-01sydney-cbd-8stack.jpg",
-    "full": "images/full/12092026-132044p9120399-01sydney-cbd-8stack.jpg",
-    "original_filename": "12092026_132044P9120399_01Sydney CBD 8stack.jpg",
-    "caption": "Sydney CBD 8stack",
-    "title": "Water Dragon by the Tree II",
-    "description": "",
-    "category": "Chinese Garden of Friendship",
-    "subcategory": null,
-    "location": "Darling Harbour, Sydney (water dragons & waterfall)",
-    "settings": null,
-    "size": [
-      5184,
-      3888
-    ],
-    "medium_crop": null,
-    "medium_frame": [
-      0,
-      0,
-      1,
-      1
-    ]
-  },
-  {
-    "thumb": "images/thumbs/13092026-095951p9130128glitter-oil-40stacked.jpg",
-    "medium": "images/medium/13092026-095951p9130128glitter-oil-40stacked.jpg",
-    "full": "images/full/13092026-095951p9130128glitter-oil-40stacked.jpg",
-    "original_filename": "13092026_095951P9130128glitter oil 40Stacked.jpg",
-    "caption": "glitter oil 40Stacked",
-    "title": "Experiment #1",
-    "description": "",
-    "category": "Gladesville",
-    "subcategory": "Experiments in Liquids",
-    "location": "Home",
-    "settings": null,
-    "size": [
-      5184,
-      3888
-    ],
-    "medium_crop": [
-      0.013789,
-      0.067813,
-      0.972421,
-      0.864374
-    ],
-    "medium_frame": [
-      0,
-      0,
-      1,
-      1
-    ]
-  },
-  {
-    "thumb": "images/thumbs/13092026-100420p9130288glitter-oil-16stacked.jpg",
-    "medium": "images/medium/13092026-100420p9130288glitter-oil-16stacked.jpg",
-    "full": "images/full/13092026-100420p9130288glitter-oil-16stacked.jpg",
-    "original_filename": "13092026_100420P9130288glitter oil 16Stacked.jpg",
-    "caption": "glitter oil 16Stacked",
-    "title": "Experiment #2",
-    "description": "",
-    "category": "Gladesville",
-    "subcategory": "Experiments in Liquids",
-    "location": "Home",
-    "settings": null,
-    "size": [
-      5184,
-      3888
-    ],
-    "medium_crop": [
-      0.002285,
-      0.005105,
-      0.993144,
-      0.882795
-    ],
-    "medium_frame": [
-      0,
-      0,
-      1,
-      1
-    ]
-  },
-  {
-    "thumb": "images/thumbs/13092026-105840p9130459glitter-oi-9stackedl.jpg",
-    "medium": "images/medium/13092026-105840p9130459glitter-oi-9stackedl.jpg",
-    "full": "images/full/13092026-105840p9130459glitter-oi-9stackedl.jpg",
-    "original_filename": "13092026_105840P9130459glitter oi 9Stackedl.jpg",
-    "caption": "glitter oi 9Stackedl",
-    "title": "Experiment #11",
-    "description": "",
-    "category": "Gladesville",
-    "subcategory": "Experiments in Liquids",
-    "location": "Home",
-    "settings": null,
-    "size": [
-      5184,
-      3888
-    ],
-    "medium_crop": [
-      0.274682,
-      0.0,
-      0.484914,
-      0.646552
-    ],
-    "medium_frame": [
-      0,
-      0,
-      1,
-      1
-    ]
-  },
-  {
-    "thumb": "images/thumbs/13092026-131948p9130028-01glitter-oil-mc-20-32stacked.jpg",
-    "medium": "images/medium/13092026-131948p9130028-01glitter-oil-mc-20-32stacked.jpg",
-    "full": "images/full/13092026-131948p9130028-01glitter-oil-mc-20-32stacked.jpg",
-    "original_filename": "13092026_131948P9130028_01glitter oil mc-20 32Stacked.jpg",
-    "caption": "glitter oil mc-20 32Stacked",
-    "title": "Experiment #14",
-    "description": "",
-    "category": "Gladesville",
-    "subcategory": "Experiments in Liquids",
-    "location": "Home",
-    "settings": null,
-    "size": [
-      5184,
-      3888
-    ],
-    "medium_crop": [
-      0.0,
-      0.046415,
-      1.0,
-      0.888889
-    ],
-    "medium_frame": [
-      0,
-      0,
-      1,
-      1
-    ]
-  },
-  {
-    "thumb": "images/thumbs/14092026-194042p9140652work-and-moss-50-stacked.jpg",
-    "medium": "images/medium/14092026-194042p9140652work-and-moss-50-stacked.jpg",
-    "full": "images/full/14092026-194042p9140652work-and-moss-50-stacked.jpg",
-    "original_filename": "14092026_194042P9140652work and moss 50 stacked.jpg",
-    "caption": "work and moss 50 stacked",
-    "title": "Moss V",
-    "description": "50-frame stack",
-    "category": "Gladesville",
-    "subcategory": "Moss",
-    "location": "Home",
-    "settings": null,
-    "size": [
-      5184,
-      3888
-    ],
-    "medium_crop": [
-      0.004462,
-      0.103106,
-      0.991075,
-      0.880956
-    ],
-    "medium_frame": [
-      0,
-      0,
-      1,
-      1
-    ]
-  },
-  {
-    "thumb": "images/thumbs/15092026-140211p9150010-fluids-redux-12stacked.jpg",
-    "medium": "images/medium/15092026-140211p9150010-fluids-redux-12stacked.jpg",
-    "full": "images/full/15092026-140211p9150010-fluids-redux-12stacked.jpg",
-    "original_filename": "15092026_140211P9150010 fluids redux 12stacked.jpg",
-    "caption": "fluids redux 12stacked",
-    "title": "Experiment #25",
-    "description": "",
-    "category": "Gladesville",
-    "subcategory": "Experiments in Liquids",
-    "location": "Home",
-    "settings": null,
-    "size": [
-      5184,
-      3888
-    ],
-    "medium_crop": [
-      0.088436,
-      0.073127,
-      0.695155,
-      0.926873
-    ],
-    "medium_frame": [
-      0,
-      0,
-      1,
-      1
-    ]
-  },
-  {
-    "thumb": "images/thumbs/15092026-140325p9150080-fluids-redux-12-stack.jpg",
-    "medium": "images/medium/15092026-140325p9150080-fluids-redux-12-stack.jpg",
-    "full": "images/full/15092026-140325p9150080-fluids-redux-12-stack.jpg",
-    "original_filename": "15092026_140325P9150080 fluids redux 12 stack.jpg",
-    "caption": "fluids redux 12 stack",
-    "title": "Experiment #26",
-    "description": "",
-    "category": "Gladesville",
-    "subcategory": "Experiments in Liquids",
-    "location": "Home",
-    "settings": null,
-    "size": [
-      5184,
-      3888
-    ],
-    "medium_crop": [
-      0.0,
-      0.015945,
-      1.0,
-      0.888889
-    ],
-    "medium_frame": [
-      0,
-      0,
-      1,
-      1
-    ]
-  },
-  {
-    "thumb": "images/thumbs/p9150707-20-stacked.jpg",
-    "medium": "images/medium/p9150707-20-stacked.jpg",
-    "full": "images/full/p9150707-20-stacked.jpg",
-    "original_filename": "P9150707 20 stacked.jpg",
-    "caption": "P9150707 20 stacked",
-    "title": "Wasp Nest II",
-    "description": "",
-    "category": "Gladesville",
-    "subcategory": "Garden",
-    "location": "Home",
-    "settings": null,
-    "size": [
-      5184,
-      3888
-    ],
-    "medium_crop": [
-      0.119287,
-      0.0,
-      0.75,
-      1
-    ],
-    "medium_frame": [
-      0,
-      0,
-      1,
-      1
-    ]
-  },
-  {
-    "thumb": "images/thumbs/stack-2-spider.jpg",
-    "medium": "images/medium/stack-2-spider.jpg",
-    "full": "images/full/stack-2-spider.jpg",
-    "original_filename": "STACK-2-Spider.jpg",
-    "caption": "STACK 2 Spider",
-    "title": "Garden Orb Weaver One Stack",
-    "description": "Stacked photo",
-    "category": "Gladesville",
-    "subcategory": "Garden",
-    "location": "Home",
-    "settings": null,
-    "size": [
-      3499,
-      2799
-    ],
-    "medium_crop": [
-      0.179565,
-      0.035161,
-      0.592933,
-      0.926524
-    ],
-    "medium_frame": [
-      0,
-      0,
-      1,
-      1
-    ],
-    "sample": "STACK-P9040321.jpg"
-  },
-  {
-    "thumb": "images/thumbs/stack-dandelion-zs-pmax.jpg",
-    "medium": "images/medium/stack-dandelion-zs-pmax.jpg",
-    "full": "images/full/stack-dandelion-zs-pmax.jpg",
-    "original_filename": "STACK-DANDELION-ZS-PMax.jpg",
-    "caption": "STACK DANDELION ZS PMax",
-    "title": "Dandelion Stack",
-    "description": "36-frame stack",
-    "category": "Gladesville",
-    "subcategory": "Garden",
-    "location": "Home",
-    "settings": null,
-    "size": [
-      5184,
-      3888
-    ],
-    "medium_crop": null,
-    "medium_frame": [
-      0,
-      0,
-      1,
-      1
-    ],
-    "sample": "STACK-DANDELIONP9040361_01.jpg"
   }
 ]

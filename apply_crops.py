@@ -60,9 +60,9 @@ def main():
     todo = []  # (item, want)
     for item in items:
         name = item["original_filename"]
-        if item.get("sample_of"):          # example slices never carry crops
-            continue
-        entry = crops.get(name, {})
+        # Example slices never carry crops -- and one that used to (before it
+        # became a slice) is put back to its whole frame.
+        entry = {} if item.get("sample_of") else crops.get(name, {})
         nw, nh = item["size"]
         final = entry.get("final")
         final_rect = rounded(rect_from_spec(final, nw, nh)) if final and not final.get("full") else None

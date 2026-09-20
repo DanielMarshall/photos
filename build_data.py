@@ -57,6 +57,14 @@ SOURCE_MAP = {
 }
 UNRESOLVED = set()
 
+# Camera settings for photos whose source frame can no longer be found (the
+# Camera Roll's older date folders have since been moved away), recovered from
+# earlier commits. Without these, rebuilding images.json silently drops their
+# settings, pushes them to the end of their grids, and makes the border
+# pipeline think they never had a border.
+_fallback_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "settings_fallback.json")
+FALLBACK_SETTINGS = json.load(open(_fallback_path, encoding="utf-8")) if os.path.exists(_fallback_path) else {}
+
 def rat(x):
     if x is None:
         return None
@@ -345,7 +353,7 @@ TITLES = {
     "11092026_200832P9111074.jpg": ("Garden Orb Weaver Four", "Just a couple of quick snaps"),
     "11092026_201904P9111337 stack.jpg": ("Garden Orb Weaver Five Stack", "Quick 4-photo stack"),
     "11092026_201904P9111337.jpg": ("Garden Orb Weaver Five Example Slice", "Sample slice"),
-    "12092026_081712P9120050wasp.jpg": ("Wasp nest just starting", "Eggs just laid"),
+    "12092026_081712P9120050wasp.jpg": ("Wasp nest just starting Example Slice II", "Eggs just laid"),
     "12092026_081712P9120052wasp stack.jpg": ("Wasp nest just starting Stack", "4-photo stack"),
     "12092026_081712P9120052wasp.jpg": ("Wasp nest just starting Example Slice", "Sample slice photo"),
     "12092026_185356P9120006UV Spider 2stack.jpg": ("Garden Orb Weaver Five", "2-photo stack taken under UV light. Pretty terrible due to wind, but I will try again."),
@@ -482,8 +490,8 @@ TITLES = {
     "12092026_123301P9120055_01Sydney CBD - Copy.jpg": ("Darling Harbour Playground", ""),
     "12092026_123606P9120061_01Sydney CBD - Copy.jpg": ("Glass Reflections", ""),
     "12092026_123631P9120067_01Sydney CBD - Copy.jpg": ("Glass Reflections II", ""),
-    "12092026_124003P9120074Sydney CBD - Copy.jpg": ("Spiral Balconies", ""),
-    "12092026_124436P9120089Sydney CBD - Copy.jpg": ("Spiral Balconies II", ""),
+    "12092026_124003P9120074Sydney CBD - Copy.jpg": ("Spiral Balconies", "The Exchange at Darling Square, a six-storey civic hub designed by Japanese architecture firm Kengo Kuma & Associates, wrapped in spiralling balconies of Accoya timber."),
+    "12092026_124436P9120089Sydney CBD - Copy.jpg": ("Spiral Balconies II", "The Exchange again: Kengo Kuma & Associates' spiral of Accoya timber balconies."),
     "12092026_124523P9120095Sydney CBD - Copy.jpg": ("Bin Chicken", ""),
     "12092026_124543P9120101Sydney CBD - Copy.jpg": ("Bin Chicken II", ""),
     "12092026_124552P9120107Sydney CBD - Copy.jpg": ("Bin Chicken III", ""),
@@ -658,6 +666,11 @@ SAMPLE_EXTRA = {
     "STACK-DANDELION-ZS-PMax.jpg": "STACK-DANDELIONP9040361_01.jpg",
     "Grub Stack PMax.jpg": "Grub Single Sample.jpg",
 }
+# A stack can have more than one example slice; these are the extras, shown
+# after the primary one above.
+SAMPLE_MORE = {
+    "12092026_081712P9120052wasp stack.jpg": ["12092026_081712P9120050wasp.jpg"],
+}
 
 # Border geometry, mirrored from exifborder.Geometry (side margin and bottom
 # band as fractions of the photo's long edge; the photo is pasted at
@@ -700,20 +713,25 @@ def load_crop_state():
     return {}
 
 def link_samples(items):
-    """Tag each stack with `sample` and each of its slices with `sample_of`
-    (both hold the partner's original_filename). The site hides slices from
-    the grids and reaches them through their stack's lightbox instead."""
+    """Tag each stack with `samples` (a list) and each of its slices with
+    `sample_of` -- all hold original_filenames. The site hides slices from the
+    grids and reaches them through their stack's lightbox instead."""
     by_name = {i["original_filename"]: i for i in items}
-    pairs = dict(SAMPLE_EXTRA)
+    pairs = {stack: [slice_name] for stack, slice_name in SAMPLE_EXTRA.items()}
     for stack, src in SOURCE_MAP.items():
         slice_name = os.path.basename(src)
         if (stack in by_name and slice_name in by_name
                 and by_name[slice_name]["title"].endswith("Example Slice")):
-            pairs[stack] = slice_name
-    for stack, slice_name in pairs.items():
-        if stack in by_name and slice_name in by_name:
-            by_name[stack]["sample"] = slice_name
-            by_name[slice_name]["sample_of"] = stack
+            pairs[stack] = [slice_name]
+    for stack, more in SAMPLE_MORE.items():
+        pairs.setdefault(stack, []).extend(more)
+    for stack, slice_names in pairs.items():
+        linked = [n for n in slice_names if stack in by_name and n in by_name]
+        if not linked:
+            continue
+        by_name[stack]["samples"] = linked
+        for n in linked:
+            by_name[n]["sample_of"] = stack
     return [i["original_filename"] for i in items
             if i["title"].endswith("Example Slice") and "sample_of" not in i]
 
@@ -731,6 +749,8 @@ def main():
         settings = get_settings(own_path)
         if settings is None and original in SOURCE_MAP:
             settings = get_settings(SOURCE_MAP[original])
+        if settings is None and original in FALLBACK_SETTINGS:
+            settings = dict(FALLBACK_SETTINGS[original])
         if settings is None and original in UNRESOLVED:
             unresolved_report.append(original)
 
