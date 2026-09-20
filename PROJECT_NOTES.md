@@ -281,3 +281,26 @@ just not ready to publish.
   Town Hall, Queen Victoria Building, Darling Harbour Piano sections.
 - Whether to split "Michael" vs the unnamed second QVB piano player apart in
   the data (currently both just show their filenames).
+
+## Curated crops (Final Frame / Detail)
+
+Crops live in `CROPS` in `script.js` (set in the browser's hidden crop editor,
+ctrl+click a Final Frame / Detail button, then Export and merge -- see
+`make_crop_review.py` for naming details). They drive the *images*, not just the
+lightbox:
+
+- A photo with a **cropped Final Frame** gets a medium image that IS that crop
+  (with its border); an uncropped one keeps its whole frame. "Full image" in the
+  editor means uncropped.
+- Its **thumbnail** is the first **Detail** if there is one, else the Final Frame.
+- Full-resolution view opens on the Final Frame, with "Original image" and the
+  detail buttons in the crop bar; the medium view gets a "View detail" button
+  whose hover dims everything except where the detail sits.
+
+**After baking new crops into `CROPS`, run `python apply_crops.py`.** It is
+incremental (`images/crop_state.json` records which crop each medium/thumb
+currently shows) and it re-borders what it regenerates and rebuilds
+`images.json`. `build_data.py` adds `size`, `medium_crop` and `medium_frame`
+(where the photo sits inside its border, derived from exifborder's geometry --
+3.0% side / 10.2% bottom of the long edge) which the hover highlight needs.
+Example slices never carry crops.

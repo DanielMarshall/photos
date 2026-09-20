@@ -8,6 +8,8 @@
   const lbMeta = document.getElementById('lb-meta');
   const lbZoom = document.getElementById('lb-zoom');
   const lbSample = document.getElementById('lb-sample');
+  const lbDetailBtns = document.getElementById('lb-detail-btns');
+  const lbDetailHi = document.getElementById('lb-detail-hi');
   const lbSampleThumb = document.getElementById('lb-sample-thumb');
   const lbSampleLabel = document.getElementById('lb-sample-label');
   const cropBar = document.getElementById('crop-bar');
@@ -352,7 +354,12 @@
   let fullObjectURL = null;
   let loadToken = 0;
 
+  // Set by a "View detail" button so that, once the full-resolution image
+  // has loaded, the lightbox lands on that detail rather than the Final Frame.
+  let pendingView = null;
+
   function releaseFullObjectURL() {
+    pendingView = null;
     loadToken++;
     if (fullObjectURL) {
       URL.revokeObjectURL(fullObjectURL);
@@ -1124,6 +1131,11 @@
     saveCropEdits();
     buildCropBar(item);
     startEditing(item, 'detail', index, spec);
+    // buildCropBar ran while the previous crop was still the one being edited
+    // and highlighted that one; the new detail is what's being edited now.
+    cropBar.querySelectorAll('.crop-btn').forEach((b) => b.classList.remove('active'));
+    const newBtn = cropBarButton('detail', index);
+    if (newBtn) newBtn.classList.add('active');
   });
 
   // Dragging the box body moves it; dragging a corner handle resizes it
@@ -1201,6 +1213,19 @@
     return (cfg && cfg.details && cfg.details[index]) || null;
   }
 
+  // The Final Frame as fractions of the ORIGINAL image, or null when the
+  // final frame is the whole image (uncropped).
+  function finalCropRect(item) {
+    const spec = resolveSpec(item.original_filename, 'final');
+    if (!spec || spec.full) return null;
+    const [nw, nh] = item.size || [lbImg.naturalWidth, lbImg.naturalHeight];
+    return rectFromSpec(spec, nw, nh);
+  }
+
+  function cropBarButton(kind, index) {
+    return cropBar.querySelector(`[data-kind="${kind}"]` + (kind === 'detail' ? `[data-index="${index}"]` : ''));
+  }
+
   function buildCropBar(item) {
     cropBar.innerHTML = '';
     const config = getEffectiveConfig(item.original_filename);
@@ -1209,6 +1234,8 @@
       const btn = document.createElement('button');
       btn.className = 'crop-btn';
       btn.textContent = label;
+      btn.dataset.kind = kind;
+      if (index !== undefined) btn.dataset.index = index;
       btn.addEventListener('click', (e) => {
         const spec = resolveSpec(item.original_filename, kind, index);
         if (e.ctrlKey || e.metaKey) {
@@ -1230,6 +1257,23 @@
 
     addButton('Final Frame', 'final', undefined);
 
+    // The full-resolution view opens on the Final Frame, so when that's a
+    // crop, offer a way back to the whole photo.
+    if (finalCropRect(item)) {
+      const orig = document.createElement('button');
+      orig.className = 'crop-btn';
+      orig.textContent = 'Original image';
+      orig.dataset.kind = 'original';
+      orig.addEventListener('click', () => {
+        if (editing) stopEditing();
+        hideSpotlight();
+        cropBar.querySelectorAll('.crop-btn').forEach((b) => b.classList.remove('active'));
+        orig.classList.add('active');
+        setZoom('fit');
+      });
+      cropBar.appendChild(orig);
+    }
+
     if (config && config.details) {
       config.details.forEach((spec, index) => {
         addButton(spec.label, 'detail', index);
@@ -1242,15 +1286,68 @@
       cropEditorControls.hidden = false;
       highlightRatioButton();
       renderEditorBox();
-      const editingBtn = cropBar.querySelectorAll('.crop-btn')[editing.kind === 'final' ? 0 : 1 + editing.index];
+      const editingBtn = cropBarButton(editing.kind, editing.index);
       if (editingBtn) editingBtn.classList.add('active');
     } else {
       stopEditing();
     }
   }
 
+  // ---- "View detail" buttons (medium view) and the hover highlight ----
+  function hideDetailHighlight() {
+    lbDetailHi.classList.remove('on');
+  }
+
+  // Dims everything in the medium image except where the detail sits. The
+  // medium shows the Final Frame inside a border, so the detail's rectangle
+  // (a fraction of the ORIGINAL) is mapped through the crop the medium was
+  // made from, then through where the photo sits inside its border.
+  function showDetailHighlight(item, index) {
+    const spec = resolveSpec(item.original_filename, 'detail', index);
+    if (!spec || !item.size || !lbImg.naturalWidth || zoomed) return;
+    const d = rectFromSpec(spec, item.size[0], item.size[1]);
+    const c = item.medium_crop || [0, 0, 1, 1];
+    const f = item.medium_frame || [0, 0, 1, 1];
+    const x0 = Math.max(0, (d.x - c[0]) / c[2]);
+    const y0 = Math.max(0, (d.y - c[1]) / c[3]);
+    const x1 = Math.min(1, (d.x + d.w - c[0]) / c[2]);
+    const y1 = Math.min(1, (d.y + d.h - c[1]) / c[3]);
+    if (x1 <= x0 || y1 <= y0) return;          // the detail lies outside this frame
+    const w = lbImg.offsetWidth;
+    const h = lbImg.offsetHeight;
+    lbDetailHi.style.left = `${lbImg.offsetLeft + (f[0] + x0 * f[2]) * w}px`;
+    lbDetailHi.style.top = `${lbImg.offsetTop + (f[1] + y0 * f[3]) * h}px`;
+    lbDetailHi.style.width = `${(x1 - x0) * f[2] * w}px`;
+    lbDetailHi.style.height = `${(y1 - y0) * f[3] * h}px`;
+    lbDetailHi.classList.add('on');
+  }
+
+  function buildDetailButtons(item) {
+    lbDetailBtns.innerHTML = '';
+    if (zoomed || isSlice(item)) return;
+    const cfg = getEffectiveConfig(item.original_filename);
+    const details = (cfg && cfg.details) || [];
+    details.forEach((spec, index) => {
+      const btn = document.createElement('button');
+      btn.className = 'lb-zoom';
+      btn.textContent = details.length === 1 ? 'View detail' : `View ${spec.label}`;
+      btn.addEventListener('mouseenter', () => showDetailHighlight(item, index));
+      btn.addEventListener('focus', () => showDetailHighlight(item, index));
+      btn.addEventListener('mouseleave', hideDetailHighlight);
+      btn.addEventListener('blur', hideDetailHighlight);
+      btn.addEventListener('click', () => {
+        hideDetailHighlight();
+        pendingView = { kind: 'detail', index };
+        goFullRes();
+      });
+      lbDetailBtns.appendChild(btn);
+    });
+  }
+
   function render() {
     const item = items[current];
+    hideDetailHighlight();
+    buildDetailButtons(item);
     fullLoaded = false;
     zoomScale = 'fit';
     zoomBar.hidden = !zoomed;
@@ -1579,12 +1676,33 @@
     if (zoomed) {
       fullLoaded = true;
       setZoom(zoomScale, { instant: true });
+      openDefaultFullView();
     }
   });
+
+  // Full resolution opens on the Final Frame (or the detail that was asked
+  // for), not the whole original -- that's what the crop bar's "Original
+  // image" button is for. An uncropped photo just opens whole.
+  function openDefaultFullView() {
+    const item = items[current];
+    const want = pendingView;
+    pendingView = null;
+    if (isSlice(item)) return;
+    if (want && want.kind === 'detail') {
+      const spec = resolveSpec(item.original_filename, 'detail', want.index);
+      if (spec) {
+        showCropView(rectFromSpec(spec, lbImg.naturalWidth, lbImg.naturalHeight), cropBarButton('detail', want.index));
+        return;
+      }
+    }
+    const rect = finalCropRect(item);
+    if (rect) showCropView(rect, cropBarButton('final'));
+  }
 
   zoomButtons.forEach((btn) => {
     btn.addEventListener('click', () => {
       hideSpotlight();
+      cropBar.querySelectorAll('.crop-btn').forEach((b) => b.classList.remove('active'));
       const z = btn.dataset.zoom;
       setZoom(z === 'fit' ? 'fit' : Number(z));
     });

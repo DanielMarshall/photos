@@ -3,6 +3,8 @@ import json
 import os
 import re
 
+from PIL import Image
+
 EXPORTS = "C:/Users/dashi/Pictures/Camera Roll/exports"
 CAMROLL = "C:/Users/dashi/Pictures/Camera Roll"
 SAVED = "C:/Users/dashi/Pictures/Saved Pictures"
@@ -657,6 +659,46 @@ SAMPLE_EXTRA = {
     "Grub Stack PMax.jpg": "Grub Single Sample.jpg",
 }
 
+# Border geometry, mirrored from exifborder.Geometry (side margin and bottom
+# band as fractions of the photo's long edge; the photo is pasted at
+# (side, side)). Used to work out where the photo sits inside a bordered image.
+BORDER_SIDE_FRAC = 0.030
+BORDER_BOTTOM_FRAC = 0.102
+
+def medium_frame(medium_path, bordered):
+    """[x, y, w, h] (fractions of the medium image) of the photo area inside
+    its baked-in border -- [0, 0, 1, 1] for the few mediums with no border."""
+    if not bordered:
+        return [0, 0, 1, 1]
+    with Image.open(medium_path) as im:
+        bw, bh = im.size
+    for w in range(bw - 2, 0, -1):            # landscape / square: long edge is the width
+        side = round(w * BORDER_SIDE_FRAC)
+        if w + 2 * side == bw:
+            h = bh - side - round(w * BORDER_BOTTOM_FRAC)
+            if 0 < h <= w:
+                return [side / bw, side / bh, w / bw, h / bh]
+    for h in range(bh - 2, 0, -1):            # portrait: long edge is the height
+        side = round(h * BORDER_SIDE_FRAC)
+        if side + h + round(h * BORDER_BOTTOM_FRAC) == bh:
+            w = bw - 2 * side
+            if 0 < w < h:
+                return [side / bw, side / bh, w / bw, h / bh]
+    print(f"  ! could not work out the border layout of {medium_path}")
+    return [0, 0, 1, 1]
+
+def image_size(path):
+    with Image.open(path) as im:
+        return list(im.size)
+
+def load_crop_state():
+    """Which crop each medium/thumbnail currently shows (written by apply_crops.py)."""
+    path = os.path.join(PHOTOS, "images", "crop_state.json")
+    if os.path.exists(path):
+        with open(path, encoding="utf-8") as f:
+            return json.load(f)
+    return {}
+
 def link_samples(items):
     """Tag each stack with `sample` and each of its slices with `sample_of`
     (both hold the partner's original_filename). The site hides slices from
@@ -681,6 +723,7 @@ def main():
 
     items = []
     unresolved_report = []
+    crop_state = load_crop_state()
 
     for line in lines:
         slug, original = line.split("\t")
@@ -708,6 +751,12 @@ def main():
             "subcategory": subcategory,
             "location": location,
             "settings": settings,
+            # original photo size, the crop the medium shows (null = whole
+            # frame) and where the photo sits inside the medium's border --
+            # the lightbox needs these to highlight a detail on hover.
+            "size": image_size(os.path.join(PHOTOS, "images", "full", f"{slug}.jpg")),
+            "medium_crop": crop_state.get(original, {}).get("medium"),
+            "medium_frame": medium_frame(os.path.join(PHOTOS, "images", "medium", f"{slug}.jpg"), settings is not None),
         })
 
     # sort by datetime when available (with manual overrides), falling back to filename

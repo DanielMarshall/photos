@@ -584,6 +584,28 @@ main {
   border-color: #fff;
 }
 
+/* "View detail" buttons sit in the same row as the other pills. */
+.lb-detail-btns {
+  display: contents;
+}
+
+/* Hover highlight for a detail: everything outside its rectangle is dimmed
+   (a huge spread shadow, clipped by the viewport's overflow), plus a hairline
+   round the detail itself. Fades in and out. */
+.lb-detail-hi {
+  position: absolute;
+  z-index: 4;
+  pointer-events: none;
+  opacity: 0;
+  box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.42);
+  outline: 1px solid rgba(255, 255, 255, 0.55);
+  outline-offset: -1px;
+  transition: opacity 0.18s ease;
+}
+.lb-detail-hi.on {
+  opacity: 1;
+}
+
 /* Link between a stack and its example slice: a pill with the partner's
    thumbnail, so the slice stays out of the grids but is one click away. */
 .lb-sample {
