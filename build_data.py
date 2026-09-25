@@ -14,6 +14,7 @@ PHOTOS = "C:/Users/dashi/photos"
 SOURCE_MAP = {
     "11092026_200012P9111035 under spider stack.jpg": os.path.join(EXPORTS, "11092026_200012P9111035.jpg"),
     "11092026_201904P9111337 stack.jpg": os.path.join(EXPORTS, "11092026_201904P9111337.jpg"),
+    "25092026_175348P9250067 10stacked.jpg": os.path.join(EXPORTS, "25092026_175348P9250067.jpg"),
     "12092026_081712P9120052wasp stack.jpg": os.path.join(EXPORTS, "12092026_081712P9120052wasp.jpg"),
     "12092026_131947P9120308Sydney CBD 8stack.jpg": os.path.join(CAMROLL, "12092026_131947P9120308Sydney CBD.jpg"),
     "12092026_132044P9120399_01Sydney CBD 8stack.jpg": os.path.join(CAMROLL, "12092026_132044P9120399_01Sydney CBD.jpg"),
@@ -194,6 +195,27 @@ FLUIDS_REDUX = {
     "15092026_141528P9150748 fluids redux 40stacked.jpg",
     "15092026_141528P9150748 fluids redux.jpg",
 }
+FLUIDS_3 = {
+    "20092026_114444P9200084 fluids 3.jpg",
+    "20092026_114701P9200120 fluids 3.jpg",
+    "20092026_114703P9200140 fluids 3.jpg",
+    "20092026_114703P9200144 fluids 3.jpg",
+    "20092026_114703P9200145 fluids 3.jpg",
+    "20092026_114703P9200148 fluids 3.jpg",
+    "20092026_114704P9200152 fluids 3.jpg",
+    "20092026_114807P9200179 fluids 3.jpg",
+    "20092026_114807P9200181 fluids 3.jpg",
+    "20092026_114808P9200185 fluids 3.jpg",
+    "20092026_114808P9200191 fluids 3.jpg",
+    "20092026_114826P9200193 fluids 3.jpg",
+    "20092026_114829P9200203 fluids 3.jpg",
+    "20092026_114848P9200226 fluids 3.jpg",
+    "20092026_114850P9200244 fluids 3.jpg",
+    "20092026_115620P9200305 fluids 3.jpg",
+    "20092026_115637P9200307 fluids 3.jpg",
+    "20092026_120040P9200313 fluids 3.jpg",
+    "24092026_185400P9240322 drops on polariser.jpg",
+}
 MICHAELS_FLOWERS = {
     "15092026_170642P9150014_01 mickaels flowers 25stacked.jpg",
     "15092026_170642P9150014_01 mickaels flowers.jpg",
@@ -357,6 +379,9 @@ TITLES = {
     "12092026_081712P9120052wasp stack.jpg": ("Wasp nest just starting Stack", "4-photo stack"),
     "12092026_081712P9120052wasp.jpg": ("Wasp nest just starting Example Slice", "Sample slice photo"),
     "12092026_185356P9120006UV Spider 2stack.jpg": ("Garden Orb Weaver Five", "2-photo stack taken under UV light. Pretty terrible due to wind, but I will try again."),
+    "25092026_174459P9250013.jpg": ("Garden Orb Weaver Six", ""),
+    "25092026_175348P9250067 10stacked.jpg": ("Garden Orb Weaver Six Stack", "10-photo stack"),
+    "25092026_175348P9250067.jpg": ("Garden Orb Weaver Six Example Slice", "Sample slice"),
     "STACK-DANDELION-ZS-PMax.jpg": ("Dandelion Stack", "36-frame stack"),
     "STACK-DANDELIONP9040361_01.jpg": ("Dandelion Example Slice", "Sample stack slice"),
     "Grub Stack PMax.jpg": ("Grub Stack", "Stacked photo"),
@@ -417,6 +442,25 @@ TITLES = {
     "15092026_141441P9150645 fluids redux.jpg": ("Experiment #28 Example Slice", ""),
     "15092026_141528P9150748 fluids redux 40stacked.jpg": ("Experiment #29 Stack", ""),
     "15092026_141528P9150748 fluids redux.jpg": ("Experiment #29 Example Slice", ""),
+    "20092026_114444P9200084 fluids 3.jpg": ("Experiment #30", ""),
+    "20092026_114701P9200120 fluids 3.jpg": ("Experiment #31", ""),
+    "20092026_114703P9200140 fluids 3.jpg": ("Experiment #32", ""),
+    "20092026_114703P9200144 fluids 3.jpg": ("Experiment #33", ""),
+    "20092026_114703P9200145 fluids 3.jpg": ("Experiment #34", ""),
+    "20092026_114703P9200148 fluids 3.jpg": ("Experiment #35", ""),
+    "20092026_114704P9200152 fluids 3.jpg": ("Experiment #36", ""),
+    "20092026_114807P9200179 fluids 3.jpg": ("Experiment #37", ""),
+    "20092026_114807P9200181 fluids 3.jpg": ("Experiment #38", ""),
+    "20092026_114808P9200185 fluids 3.jpg": ("Experiment #39", ""),
+    "20092026_114808P9200191 fluids 3.jpg": ("Experiment #40", ""),
+    "20092026_114826P9200193 fluids 3.jpg": ("Experiment #41", ""),
+    "20092026_114829P9200203 fluids 3.jpg": ("Experiment #42", ""),
+    "20092026_114848P9200226 fluids 3.jpg": ("Experiment #43", ""),
+    "20092026_114850P9200244 fluids 3.jpg": ("Experiment #44", ""),
+    "20092026_115620P9200305 fluids 3.jpg": ("Experiment #45", ""),
+    "20092026_115637P9200307 fluids 3.jpg": ("Experiment #46", ""),
+    "20092026_120040P9200313 fluids 3.jpg": ("Experiment #47", ""),
+    "24092026_185400P9240322 drops on polariser.jpg": ("Experiment #48", "Water droplets on a polarising filter."),
     "15092026_170642P9150014_01 mickaels flowers 25stacked.jpg": ("Michael's Flowers Stack", "Stacked photo"),
     "15092026_170642P9150014_01 mickaels flowers.jpg": ("Michael's Flowers Example Slice", "Sample stack slice"),
     "15092026_170801P9150100 mickaels flowers 25 stacked.jpg": ("Michael's Flowers II Stack", "Stacked photo"),
@@ -628,6 +672,8 @@ def classify(original, dt):
     if original in KITCHEN_MOSS:
         return "Gladesville", "Moss", "Home"
     if original in FLUIDS_REDUX:
+        return "Gladesville", "Experiments in Liquids", "Home"
+    if original in FLUIDS_3:
         return "Gladesville", "Experiments in Liquids", "Home"
     if original in MICHAELS_FLOWERS:
         return "Gladesville", "Michael's Flowers", "Home"

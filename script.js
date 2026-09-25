@@ -326,6 +326,20 @@
       section.appendChild(videoBlock);
     }
 
+    if (cat === 'Gladesville' && sub === 'Garden') {
+      const videoBlock = document.createElement('div');
+      videoBlock.className = 'section-video';
+      videoBlock.innerHTML = `
+        <h3>Why not every macro shot is a stack</h3>
+        <video controls loop playsinline preload="metadata" poster="video/spider-poster.jpg">
+          <source src="video/spider-focus-stack-audio.mp4" type="video/mp4">
+          Your browser doesn't support embedded video.
+        </video>
+        <p class="video-caption">A focus-stack attempt derailed by the spider's own movement, played back at half speed. Most bursts above are single frames or small stacks rather than the full sequence for exactly this reason. Music generated with Gemini.</p>
+      `;
+      section.appendChild(videoBlock);
+    }
+
     main.appendChild(section);
     window.scrollTo(0, 0);
   }
