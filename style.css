@@ -667,6 +667,17 @@ main {
   border-color: #fff;
 }
 
+.crop-btn.danger {
+  color: #e88;
+  border-color: rgba(255, 100, 100, 0.35);
+}
+
+.crop-btn.danger:hover {
+  background: rgba(255, 80, 80, 0.15);
+  color: #fff;
+  border-color: #f66;
+}
+
 .lb-viewport.framed {
   overflow: hidden;
   cursor: default;

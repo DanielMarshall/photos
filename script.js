@@ -15,6 +15,7 @@
   const cropEditorControls = document.getElementById('crop-editor-controls');
   const ratioPicker = document.getElementById('ratio-picker');
   const addDetailBtn = document.getElementById('add-detail-btn');
+  const removeDetailBtn = document.getElementById('remove-detail-btn');
   const exportCropsBtn = document.getElementById('export-crops-btn');
   const exportCountEl = document.getElementById('export-count');
   const lbClose = document.getElementById('lb-close');
@@ -811,6 +812,18 @@
         { label: "Detail #1", ratio: [1, 1], center: [0.46844014723234884, 0.33768932722789713], size: 0.3885170834800987 },
       ],
     },
+    '25092026_174459P9250013.jpg': {
+      final: { ratio: [3, 2], center: [0.5075735873672672, 0.4113302806152401], size: 0.4584041976548738 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.47520297282541696, 0.4519079488082658], size: 0.15857696371961955 },
+      ],
+    },
+    '25092026_175348P9250067 10stacked.jpg': {
+      final: { ratio: [3, 2], center: [0.5, 0.5], size: 0.8096527659712269 },
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.5034973951692229, 0.5450780851528914], size: 0.20757535277973438 },
+      ],
+    },
   };
   // Photos with no curated crop show the whole image as their Final Frame.
   const DEFAULT_FINAL_CROP = { x: 0, y: 0, w: 1, h: 1 };
@@ -1067,6 +1080,9 @@
   }
 
   function highlightRatioButton() {
+    // Only a Detail can be removed -- the Final Frame always has to exist
+    // (as either a crop or the full image), so it never gets this button.
+    removeDetailBtn.hidden = !editing || editing.kind !== 'detail';
     const buttons = ratioPicker.querySelectorAll('.ratio-btn');
     buttons.forEach((b) => {
       if (b.dataset.full) {
@@ -1195,6 +1211,24 @@
     cropBar.querySelectorAll('.crop-btn').forEach((b) => b.classList.remove('active'));
     const newBtn = cropBarButton('detail', index);
     if (newBtn) newBtn.classList.add('active');
+  });
+
+  removeDetailBtn.addEventListener('click', () => {
+    if (!editing || editing.kind !== 'detail') return;
+    const item = items[current];
+    const filename = editing.filename;
+    const details = editableDetails(filename);
+    details.splice(editing.index, 1);
+    // An empty override list only needs to be kept around if the baked-in
+    // config actually has details to override -- if both are empty it's a
+    // no-op, so drop it rather than leave clutter in cropEdits.
+    const entry = cropEdits[filename];
+    const bakedDetails = (CROPS[filename] && CROPS[filename].details) || [];
+    if (details.length === 0 && bakedDetails.length === 0) delete entry.details;
+    if (entry && !entry.final && !entry.details) delete cropEdits[filename];
+    saveCropEdits();
+    stopEditing();
+    buildCropBar(item);
   });
 
   // Dragging the box body moves it; dragging a corner handle resizes it
