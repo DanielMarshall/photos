@@ -22,6 +22,8 @@ Last updated 2026-09-26 (cloud session, branch `claude/great-brahmagupta-iznd4n`
   all titled (the 11 Boronia singles were named 2026-09-26: Cup Fungus, Crab
   Spider III-VIII, Wandering Trad Flower, Millipede I-III -- species IDs were
   Claude's suggestions, accepted by the photographer).
+- Titles + pin below are in PR https://github.com/DanielMarshall/photos/pull/2
+  (the photographer merges PRs and does all live-site testing themselves).
 - Boronia map pin moved to -33.8250, 151.1417 (published coords for Boronia
   Park, Hunters Hill -- ~500m north of the first guess). Photographer's
   description: park sits across the bay, water on one side and Princes St /
@@ -30,8 +32,7 @@ Last updated 2026-09-26 (cloud session, branch `claude/great-brahmagupta-iznd4n`
 - `images.json` was hand-edited for those 11 titles (build_data.py can't run
   in a cloud session -- it needs the Windows EXIF sources). `TITLES` in
   build_data.py has the same entries, so the next local build agrees.
-- Fixed on the branch above, PR https://github.com/DanielMarshall/photos/pull/1
-  (not yet merged to `main` at time of writing):
+- Merged to `main` via PR https://github.com/DanielMarshall/photos/pull/1:
   Timeline overview not fitting after the zoom-rate change; last day always
   off-screen in the overview; Map side panel ignoring `hidden`.
 - Cloud sessions can't reach unpkg.com (Leaflet) or the Windows paths, so
