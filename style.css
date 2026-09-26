@@ -1360,26 +1360,222 @@ main {
   inset: 0;
 }
 
+.ss-stage {
+  overflow: hidden;
+}
+
 .ss-img {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: contain;
-  opacity: 0;
-  transition: opacity 1.1s ease;
 }
 
-.ss-img.visible {
-  opacity: 1;
-  z-index: 1;
+/* The "light cut off" layer: its opacity tracks how far the shutter is shut
+   (set per frame from script.js, never CSS-transitioned). */
+.ss-dim {
+  position: absolute;
+  inset: 0;
+  background: #000;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Shutter blades: each covers half the screen and is slid in from its own
+   edge with translateY (keeps the leading edge crisp, unlike scaleY). A faint
+   lit edge and soft shadow make the blade readable over dark photos. */
+.ss-shutter {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 50.5%;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.ss-shutter-top {
+  top: 0;
+  transform: translateY(-100%);
+  background: linear-gradient(to bottom, #050505 0%, #0d0d0d 85%, #1c1c1c 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+}
+
+.ss-shutter-bottom {
+  bottom: 0;
+  transform: translateY(100%);
+  background: linear-gradient(to top, #050505 0%, #0d0d0d 85%, #1c1c1c 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.7);
+}
+
+/* ---- Slideshow controls: speed panel, side arrows, close ---- */
+.ss-panel,
+.ss-arrow,
+.ss-close {
+  transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ss-panel {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  z-index: 4;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.6rem 0.9rem 0.75rem;
+  border-radius: 14px;
+  background: rgba(18, 18, 16, 0.72);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
+  color: #f2f2ef;
+  overflow: hidden;
+  max-width: calc(100vw - 2rem);
+}
+
+.ss-panel-row {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.ss-status {
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.ss-play {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: transparent;
+  color: #fff;
+  font-size: 0.72rem;
+  line-height: 1;
+  padding: 0;
+  cursor: pointer;
+}
+
+.ss-play:hover { border-color: #fff; }
+
+.ss-panel-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #a9a9a3;
+}
+
+.ss-speeds {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.ss-speed {
+  min-width: 2.6rem;
+  padding: 0.3rem 0.5rem;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  color: #ddd;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.ss-speed:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+  color: #fff;
+}
+
+.ss-speed.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.ss-progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.ss-progress-bar {
+  height: 100%;
+  width: 0;
+  background: var(--accent);
+}
+
+.ss-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 4;
+  width: 56px;
+  height: 56px;
+  margin-top: -28px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.ss-arrow:hover { background: rgba(0, 0, 0, 0.72); }
+.ss-prev { left: 1.2rem; }
+.ss-next { right: 1.2rem; }
+
+/* Idle: everything eases off its nearest edge and the cursor hides. */
+.slideshow.ss-ui-hidden { cursor: none; }
+
+.slideshow.ss-ui-hidden .ss-panel {
+  opacity: 0;
+  transform: translate(-50%, -140%);
+  pointer-events: none;
+}
+
+.slideshow.ss-ui-hidden .ss-prev {
+  opacity: 0;
+  transform: translateX(-140%);
+  pointer-events: none;
+}
+
+.slideshow.ss-ui-hidden .ss-next {
+  opacity: 0;
+  transform: translateX(140%);
+  pointer-events: none;
+}
+
+.slideshow.ss-ui-hidden .ss-close {
+  opacity: 0;
+  transform: translateY(-140%);
+  pointer-events: none;
+}
+
+@media (max-width: 560px) {
+  .ss-panel { top: 0.6rem; padding: 0.5rem 0.6rem 0.65rem; }
+  .ss-panel-label { display: none; }
+  .ss-speed { min-width: 2.3rem; padding: 0.28rem 0.35rem; }
+  .ss-arrow { width: 44px; height: 44px; margin-top: -22px; font-size: 1.3rem; }
+  .ss-prev { left: 0.5rem; }
+  .ss-next { right: 0.5rem; }
 }
 
 .ss-close {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  z-index: 3;
+  z-index: 5;
   background: rgba(0,0,0,0.45);
   border: none;
   color: #fff;

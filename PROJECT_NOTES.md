@@ -270,9 +270,29 @@ needing to dig through Camera Roll himself.
 ## Slideshow (script.js)
 
 Fullscreen (Fullscreen API where available), cycles **medium**-resolution
-images in the same order as the grid, 10s/slide with a 1.1s crossfade,
-preloads every image in the background as soon as it opens. Click/Space to
-pause, arrow keys to step, X or Escape to exit.
+images, preloads every image in the background as soon as it opens.
+Click/Space to pause, arrow keys to step, X or Escape to exit.
+
+**Controls and shutter (2026-09-26, photographer's spec after his mum
+wasn't sure the slideshow was running):**
+- Top panel: "Playing/Paused · Ns per photo", a play/pause button, speed
+  buttons 20s 15s **10s** 7s 5s (Slower on the left, Faster on the right),
+  and a thin progress bar to the next photo. Speed is saved in
+  `localStorage` (`slideshowSpeed`); picking one restarts the current
+  photo's count at that speed.
+- Side arrows (prev/next) and the close button share the panel's
+  visibility: all slide off their nearest edge after 3s without the mouse
+  moving (`SS_UI_IDLE_MS`), cursor hides, any mouse move brings them back.
+  On touch, a tap while hidden only brings them back. They stay up while
+  paused.
+- Transition (`ssGoTo`): black blades close top+bottom in 150ms
+  (`SS_CLOSE_MS`, 3x the thumbnail hover shutter), hold shut 500ms
+  (`SS_HOLD_MS`, longer if the next image is still loading, max 4s), photo
+  and caption swap, open in 150ms. A black `#ss-dim` layer and the caption
+  fade in lock-step with the blades, all set per frame from one closure
+  value (`ssSetClosure`) so they can't drift apart. Stepping mid-transition
+  retargets it rather than queueing. `prefers-reduced-motion` drops the
+  blades and keeps only a 250ms fade.
 
 **What it plays follows the current view** (`slideshowOrder()`, photographer's
 spec 2026-09-26): Categories home = every photo; a category page = that
