@@ -249,12 +249,16 @@ open/close never touching `location.hash` or `#sections`.
   **Single-row squeeze**: once the ordinary lane fan would only ever need one
   lane per side *for whatever's currently on screen* (`maxVisibleRank <= 1` in
   `layoutIndividualItems`, checked only within the visible x-range plus a
-  viewport-width margin either side -- deliberately not the whole dataset,
+  `thumbPx * 4` margin either side -- deliberately not the whole dataset,
   since a real library almost always has some tight burst *somewhere* and
   requiring the entire multi-week span to fit one lane before ever condensing
   would mean it could never happen just because of a cluster you've since
   zoomed/panned away from), photos condense onto a single shared row instead
-  of keeping two. Ones still too close in time to sit at their exact x are
+  of keeping two. **The margin was originally a full viewport width and that
+  was too generous**: at any normal zoom level it was wide enough to still
+  reach a neighboring shoot day, so squeeze mode almost never triggered even
+  when the actually-visible area was already sparse -- narrowed to a few
+  thumbnail-widths so the decision tracks what's genuinely on screen. Ones still too close in time to sit at their exact x are
   nudged right just enough to clear their neighbor (their real position never
   changes, only where this draws them); the connecting stem then angles from
   the nudged thumbnail back down to its true spot on the axis via
@@ -299,44 +303,43 @@ open/close never touching `location.hash` or `#sections`.
   shared "Darling Harbour" blob -- their `location` text alone doesn't
   distinguish them (the Piano's is literally identical to a generic CBD walk),
   so `placeKey()` checks `item.category` first for those four. Below Leaflet
-  zoom `MAP_CLUSTER_ZOOM` (13) a place is one cluster marker (count + name);
-  at/above it, the marker becomes a custom `L.divIcon` containing a small
-  thumbnail grid (same growing-labels idea as the timeline, but 2 tiers not 4
-  since the place name is already the grid's header: title, then settings).
-  Marker click handling hit-tests `e.originalEvent.target` for `.map-tile` vs.
-  the marker background, since Leaflet only gives one `click` event per
-  marker regardless of which inner tile was hit.
+  zoom `MAP_CLUSTER_ZOOM` (13) a place is one plain cluster marker (count +
+  name, `clusterIconHtml`); at/above it, `stackIconHtml` renders one
+  representative thumbnail with real photos from the same place peeking out
+  behind it (capped at `MAP_STACK_DEPTH` = 12 layers purely for how it looks
+  -- Gladesville's 169 photos as 169 offset layers would just be noise) plus
+  a count badge with the real total. An earlier version grew an actual NxN
+  grid on the map itself, capped at 3x3 unless a place was alone on screen --
+  replaced entirely by the single-thumbnail stack: a 3x3 grid of 9 separate
+  thumbnails still read as visual clutter, and "alone on screen" made one
+  place behave differently from every other for no reason a viewer could see.
+  Every stack (regardless of photo count) now behaves identically: click it
+  and its full set opens in the side panel (below) -- no on-map grid at all
+  any more, so `isolated`/`getBounds()`-based place-counting is gone too.
   If any hand-geocoded pin turns out to be off, or a new named place shows up,
   it's a two-line fix: add/adjust an entry in `PLACES` and a branch in
   `placeKey()`.
-  **Grid capping**: a place's full photo grid can be large enough (Gladesville
-  has 169) to visually overlap a neighboring place's grid once several are on
-  screen at once, so by default a grid caps at 3x3 (`MAP_GRID_CAP` = 9) with a
-  "stacked cards" look (`.map-grid.capped`'s layered `box-shadow`, no extra
-  DOM) and a "+N more" tag. It only shows every photo when this place is the
-  only one inside the map's current `getBounds()` (`isolated` in
-  `layoutMapMarkers`, recomputed every `zoomend`/`moveend` -- zooming or
-  panning until nothing else is nearby naturally reveals the rest).
-  **Width footgun**: a grid's column width must be set on `.map-grid-tiles`
-  (the flex container) directly, not on the padded `.map-grid` wrapper --
-  sizing the wrapper and expecting the same column count to fit inside its
-  padding silently drops a column (3 columns wrapped to 2 the first time this
-  was built).
-  **Opening a place's full set (`mapSelectedKey`)**: rather than growing a big
-  grid in place (which could still overlap neighbors even alone, and moves the
-  pin itself), clicking a capped grid's "+N more" opens **all** of that
-  place's photos in a fixed 2-column side panel (`#map-side-panel`, overlays
-  the map on the left, own scrollbar) and collapses the marker itself to a
-  small, highlighted "active" pin (`buildActiveIcon` / `.map-cluster.map-active`
-  -- glowing ring + filled label) so its real location stays visible and
-  unobscured instead of disappearing under a grid. Only one place is ever
-  selected at a time by construction (`mapSelectedKey` is a single value, not
-  a set) -- opening a different place's panel automatically reverts the
-  previous one to its normal capped/cluster icon on the next
-  `layoutMapMarkers()` pass, nothing to explicitly "close" first. Leaflet's
-  zoom control was moved to `topright` (`zoomControl: false` +
+  **Opening a place's full set (`mapSelectedKey`)**: clicking a stack opens
+  **all** of that place's photos in a fixed 2-column side panel
+  (`#map-side-panel`, overlays the map on the left) and collapses the marker
+  itself to a small, highlighted "active" pin (`buildActiveIcon` /
+  `.map-cluster.map-active` -- glowing ring + filled label) so its real
+  location stays visible and unobscured instead of disappearing under a grid.
+  Only one place is ever selected at a time by construction (`mapSelectedKey`
+  is a single value, not a set) -- opening a different place's panel
+  automatically reverts the previous one to its normal stack/cluster icon on
+  the next `layoutMapMarkers()` pass, nothing to explicitly "close" first.
+  Leaflet's zoom control was moved to `topright` (`zoomControl: false` +
   `L.control.zoom({position:'topright'})`) since the panel occupies the
-  default top-left corner.
+  default top-left corner. **The header/close button must live outside the
+  scrolling element**: they were briefly direct children of the same
+  `overflow-y: auto` container as the photo grid, and scrolled away with it --
+  an absolutely-positioned child still scrolls with its scrolling positioned
+  ancestor's content, `position: absolute` only takes it out of normal *flow*,
+  not out of that ancestor's scroll. Fixed with `.map-side-panel` as a
+  `display: flex; flex-direction: column` with `overflow: hidden`, the
+  header/close as normal (non-scrolling) flex children, and only
+  `.map-panel-scroll` (wrapping `.map-panel-grid`) scrolling.
   **Click hit-testing bug (real one, not a test-tool artifact)**: marker
   content used to be centered on its lat/lng with CSS
   `transform: translate(-50%, -50%)`. A transform only moves where an element
@@ -354,7 +357,7 @@ open/close never touching `location.hash` or `#sections`.
   explicit `iconAnchor: [w/2, h/2]` -- Leaflet's own positioning then keeps
   the wrapper's real hit box and the visual content in the same place, always.
   Costs a second `setIcon()` per marker per layout pass to measure; irrelevant
-  at ~10 markers. `clusterIconHtml`/`activeIconHtml`/`gridIconHtml` return
+  at ~10 markers. `clusterIconHtml`/`activeIconHtml`/`stackIconHtml` return
   plain HTML strings now (not `L.divIcon` objects) for exactly this reason --
   don't reintroduce a wrapping `L.divIcon()` inside them or the anchor-fixup
   in `upsertMarker` has nothing to correct.

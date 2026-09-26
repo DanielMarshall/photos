@@ -674,9 +674,15 @@
     // (a few frames a second apart), and requiring the entire dataset to fit
     // one lane before ever condensing would mean it could never happen at
     // all just because of one cluster you've since zoomed/panned away from.
+    // The margin is a handful of thumbnail-widths, not a whole viewport --
+    // large enough to avoid flicker right at the edge, but small enough that
+    // a dense day just outside the current view doesn't reach in and block
+    // squeeze mode for an already-sparse visible area (a full viewport-width
+    // margin was tried first and did exactly that: at any normal zoom level
+    // it's wide enough to still catch a neighboring shoot day).
     const viewLeft = -tlPanPx;
     const viewRight = viewLeft + tlViewportEl.clientWidth;
-    const viewMargin = tlViewportEl.clientWidth;
+    const viewMargin = thumbPx * 4;
     const positioned = [];
     let maxVisibleRank = 0;
     chronoOrder.forEach((idx) => {
@@ -918,19 +924,13 @@
   function mapThumbPx(zoom) {
     return Math.min(160, Math.max(36, (zoom - MAP_CLUSTER_ZOOM) * 42 + 36));
   }
-  function mapLabelLines(thumbPx) {
-    if (thumbPx < 70) return 0;
-    if (thumbPx < 115) return 1;
-    return 2;
-  }
-
   let mapInstance = null;
   const mapMarkers = new Map(); // place key -> L.Marker
   // The one place currently browsed in the side panel -- only one at a time
   // by construction (there's a single panel), cleared on deselect (clicking
   // empty map or the panel's close button) or leaving/re-entering the view.
   let mapSelectedKey = null;
-  const MAP_GRID_CAP = 9; // 3x3
+  const MAP_STACK_DEPTH = 12; // visual layers max -- the count badge still shows the real total
   let mapPanelEl = null;
   let mapPanelHeaderEl = null;
   let mapPanelGridEl = null;
@@ -965,38 +965,32 @@
     </div>`;
   }
 
-  // Showing every photo at a place in one grid works fine in isolation, but
-  // with several places visible at once their grids can grow large enough to
-  // overlap each other -- so unless this place is alone on screen, it's
-  // capped at a 3x3 preview with a "stacked photos" look and a "+N more" tag
-  // that opens the side panel instead of growing further in place.
-  function gridIconHtml(group, thumbPx, labelLines, showFull) {
+  // A place with more than one photo: a single representative thumbnail with
+  // real photos from the same place peeking out behind it (capped at
+  // MAP_STACK_DEPTH layers purely for how it looks -- a stack of 169 offset
+  // photos would just be noise), plus a count badge with the real total.
+  // Replaces the old on-map grid entirely -- every place, capped or not,
+  // reads as "here's a stack, click it" and opens the side panel; growing a
+  // full grid in place (even when alone in view) always risked being its own
+  // kind of visual mess at 100+ photos.
+  function stackIconHtml(group, thumbPx) {
     const n = group.indices.length;
-    const capped = !showFull && n > MAP_GRID_CAP;
-    const shown = capped ? group.indices.slice(0, MAP_GRID_CAP) : group.indices;
-    const columns = showFull
-      ? Math.max(1, Math.min(6, Math.round(Math.sqrt(n))))
-      : Math.min(3, shown.length);
-    const tiles = shown.map((idx) => {
-      const item = items[idx];
-      const lines = [item.title || item.caption || '', settingsLine(item.settings)];
-      const labelHtml = lines.slice(0, labelLines)
-        .map((t) => `<div class="tl-item-line">${escapeHtml(t)}</div>`).join('');
-      return `<figure class="tl-item map-tile" data-idx="${idx}" style="width:${thumbPx}px">
-        <img src="${item.thumb}" style="width:${thumbPx}px;height:${thumbPx}px" loading="lazy" alt="">
-        ${labelHtml}
-      </figure>`;
-    }).join('');
+    const depth = Math.min(n, MAP_STACK_DEPTH);
+    const step = 4;
+    const boxSize = thumbPx + (depth - 1) * step;
+    let layers = '';
+    for (let i = depth - 1; i >= 0; i--) {
+      const item = items[group.indices[i]];
+      const off = i * step;
+      layers += `<img class="map-stack-layer" style="width:${thumbPx}px;height:${thumbPx}px;left:${off}px;top:${off}px;z-index:${depth - i}" src="${item.thumb}" loading="lazy" alt="">`;
+    }
     const maskNote = group.place.mask ? ' <span class="map-mask-note">(approx.)</span>' : '';
-    const moreBadge = capped ? `<div class="map-grid-more">+${n - MAP_GRID_CAP} more</div>` : '';
-    // Width belongs on .map-grid-tiles itself (not the padded .map-grid
-    // wrapper) -- sizing the outer element and expecting the inner flex
-    // container to wrap at the same column count silently loses a few
-    // pixels to the wrapper's own padding and drops a column.
-    return `<div class="map-grid${capped ? ' capped' : ''}">
-      <div class="map-grid-label">${escapeHtml(group.place.label)}${maskNote} &middot; ${n} photo${n === 1 ? '' : 's'}</div>
-      <div class="map-grid-tiles" style="width:${columns * thumbPx + (columns - 1) * 4}px">${tiles}</div>
-      ${moreBadge}
+    return `<div class="map-cluster map-stack${group.place.mask ? ' masked' : ''}">
+      <div class="map-stack-photos" style="width:${boxSize}px;height:${boxSize}px">
+        ${layers}
+        <div class="map-stack-count${group.place.mask ? ' masked' : ''}">${n}</div>
+      </div>
+      <div class="map-cluster-label">${escapeHtml(group.place.label)}${maskNote}</div>
     </div>`;
   }
 
@@ -1067,35 +1061,21 @@
     const zoom = mapInstance.getZoom();
     const clustered = zoom < MAP_CLUSTER_ZOOM;
     const thumbPx = mapThumbPx(zoom);
-    const labelLines = mapLabelLines(thumbPx);
     const groups = getPlaceGroups();
-    // "Alone on screen" is judged geographically (this place's pin is the
-    // only one within the current view), matching how a viewer would
-    // actually experience it -- zoom or pan until nothing else is nearby and
-    // every photo lays out, no cap needed.
-    const bounds = mapInstance.getBounds();
-    const visibleCount = groups.filter((g) => bounds.contains([g.place.lat, g.place.lng])).length;
-    const isolated = visibleCount <= 1;
     groups.forEach((group) => {
       const active = group.key === mapSelectedKey;
       const html = active ? activeIconHtml(group)
         : clustered ? clusterIconHtml(group)
-        : gridIconHtml(group, thumbPx, labelLines, isolated);
+        : stackIconHtml(group, thumbPx);
       upsertMarker(group, html, (marker) => {
         marker.on('click', (e) => {
-          const tile = e.originalEvent.target.closest('.map-tile');
-          if (tile) {
-            currentOrder = chronoOrder;
-            open(Number(tile.dataset.idx));
-            return;
-          }
           if (e.originalEvent.target.closest('.map-active')) {
             closeMapPanel();
             return;
           }
-          // A capped grid's background/"+N more" tag opens the side panel
-          // instead of growing in place.
-          if (e.originalEvent.target.closest('.map-grid.capped')) {
+          // Any stack (capped preview or not) opens the side panel rather
+          // than ever growing a grid in place.
+          if (e.originalEvent.target.closest('.map-stack')) {
             openMapPanel(group);
             layoutMapMarkers();
             return;
@@ -1123,7 +1103,9 @@
         <div class="map-side-panel" id="map-side-panel" hidden>
           <button class="map-panel-close" id="map-panel-close" aria-label="Close">&times;</button>
           <div class="map-panel-header" id="map-panel-header"></div>
-          <div class="map-panel-grid" id="map-panel-grid"></div>
+          <div class="map-panel-scroll">
+            <div class="map-panel-grid" id="map-panel-grid"></div>
+          </div>
         </div>
       </div>
     `;
