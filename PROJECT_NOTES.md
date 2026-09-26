@@ -52,7 +52,9 @@ Last updated 2026-09-26 (cloud session, branch `claude/project-thread-8exgki`).
 
 - Latest photos on `main`: Boronia Park Reserve (26 Sep morning, 25 photos)
   and the 26 Sep afternoon Garden macro batch (10 photos). All processed,
-  all titled (the 11 Boronia singles were named 2026-09-26: Cup Fungus, Crab
+  all titled (the 11 Boronia singles were named 2026-09-26: Cup Fungus (renamed
+  Hairy Wood Ear with a caption, 26 Sep, after the photographer ID'd it as
+  wood ear), Crab
   Spider III-VIII, Wandering Trad Flower, Millipede I-III -- species IDs were
   Claude's suggestions, accepted by the photographer).
 - Titles + pin below are in PR https://github.com/DanielMarshall/photos/pull/2
