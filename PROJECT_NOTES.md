@@ -89,14 +89,18 @@ plain-JPG sibling with EXIF.
 
 ## Site structure / key files
 
-- `index.html` — shell markup: header, `#sections` (populated by JS),
-  video-feature block, footer, lightbox markup, slideshow markup.
+- `index.html` — shell markup: the view-switcher nav, header, `#sections`
+  (populated by JS with whichever of Categories/Timeline/Map is active),
+  footer, lightbox markup, slideshow markup. Also loads Leaflet from unpkg
+  (map view) -- see "View switcher" below for why that script tag must not be
+  `defer`red.
 - `style.css` — all styling. Dark/light theme via `prefers-color-scheme` +
   `data-theme` override, though this site doesn't currently expose a toggle.
-- `script.js` — single IIFE, no dependencies. Renders sections from
-  `images.json`, plus the lightbox and slideshow. See "Known gotchas" below
-  for two CSS-specificity bugs already fixed here — the pattern is worth
-  remembering before adding new `hidden`-attribute elements.
+- `script.js` — single IIFE; Leaflet (global `L`) is its only external
+  dependency, used solely by the Map view. Renders Categories/Timeline/Map,
+  plus the lightbox and slideshow. See "Known gotchas" below for two
+  CSS-specificity bugs already fixed here — the pattern is worth remembering
+  before adding new `hidden`-attribute elements.
 - `images.json` — generated, don't hand-edit (edit `build_data.py`'s dicts
   and regenerate instead, or edits will be lost on the next build).
 - `manifest.tsv` — generated append-only log of `slug → original filename`.
@@ -172,6 +176,67 @@ Fullscreen (Fullscreen API where available), cycles **medium**-resolution
 images in the same order as the grid, 10s/slide with a 1.1s crossfade,
 preloads every image in the background as soon as it opens. Click/Space to
 pause, arrow keys to step, X or Escape to exit.
+
+## View switcher: Categories / Timeline / Map (script.js)
+
+Three interchangeable top-level views, switched via the always-visible pill
+nav fixed at the top of the page (`#view-switcher`, z-index 1100 -- above the
+lightbox, deliberately, so the interface can be switched without closing
+whatever photo is open). Routed via `location.hash`: `#`/`#/c/<key>` (existing
+Categories home/detail), `#/timeline`, `#/map`. All three render into the same
+`#sections` container the Categories view already used, and none of them
+touch the lightbox's own `hidden` state -- opening a photo from any view, then
+switching views while it's open, then closing the lightbox, lands back on
+whichever view is now selected rather than the one the photo was opened from.
+This is not special-cased anywhere; it falls out for free from lightbox
+open/close never touching `location.hash` or `#sections`.
+
+- **Timeline**: a hand-rolled pannable/zoomable horizontal strip
+  (`renderTimeline`), grouped by calendar day. One zoom axis (`tlThumbPx`,
+  8-220px) drives everything: below `TL_CLUSTER_BELOW` (22px) each day is a
+  single cluster dot (count + date); above it, days break into their own
+  thumbnail grid (columns chosen to keep each day's block within the viewport
+  height, growing wider rather than taller for a big day), which then picks up
+  more label detail as thumbnails grow -- date/time, then title, then the full
+  EXIF settings line, at the same size breakpoints as `tlLabelLines()`. Days
+  are positioned by real elapsed time (`dayOffset * pxPerDay`) but pushed right
+  of the previous day's block if it would otherwise overlap it (a packed
+  timeline, not a strictly physical one) -- see `computeTlLayout`.
+  Pan/zoom is custom: Pointer Events for drag-to-pan and two-finger
+  pinch-to-zoom (tracked via a `Map` of active pointers), `wheel` for
+  mouse-wheel zoom, both zooming around the cursor/pinch-midpoint. Layout
+  recomputation is throttled to one pass per animation frame
+  (`scheduleTlLayout`). Item/cluster DOM nodes are created once and reused
+  across zoom levels (`tlItemNodes`/`tlClusterNodes`), not rebuilt every frame,
+  to avoid thumbnail flicker.
+  **Tap vs. drag**: the viewport holds pointer capture for the whole gesture
+  (needed for pinch), which can leave the browser's own synthesized `click`
+  un-fired on a nested `.tl-item`/`.tl-cluster`. Taps are therefore resolved
+  manually in `pointerup` via `document.elementFromPoint` + a `__tlTap`
+  expando on the element, not a `click` listener -- don't reintroduce one, it
+  silently doesn't fire under capture in this exact setup (cost a debugging
+  round already).
+- **Map**: Leaflet (loaded from unpkg, non-deferred script tag in `<head>` --
+  it must execute before `script.js`, which loads via `document.write` further
+  down and would otherwise sometimes win the race against a `defer`red
+  Leaflet). Real GPS was stripped from every photo for privacy and the site's
+  rule is never to reveal an exact address, so the map does **not** plot
+  per-photo coordinates -- there aren't any in `images.json` to plot. Instead
+  `PLACES` (in script.js) hand-maps each of the photos' existing free-text
+  `location` strings (already shown in every photo's own caption/metadata) to
+  one approximate suburb/landmark centroid via `placeKey()`; all photos at a
+  place share its one pin. Below Leaflet zoom `MAP_CLUSTER_ZOOM` (13) a place
+  is one cluster marker (count + name); at/above it, the marker becomes a
+  custom `L.divIcon` containing a small thumbnail grid (same growing-labels
+  idea as the timeline, but 2 tiers not 4 since the place name is already the
+  grid's header: title, then settings). Marker click handling hit-tests
+  `e.originalEvent.target` for `.map-tile` vs. the marker background, since
+  Leaflet only gives one `click` event per marker regardless of which inner
+  tile was hit.
+- **Lightbox z-index**: bumped from 100 to 1000 when Map was added --
+  Leaflet's own panes (tiles/markers/popups) run up to ~700 and were showing
+  *through* the lightbox overlay at the old value. If a future addition uses
+  another library with its own high-z-index panes, check this again.
 
 ## Cache-busting
 

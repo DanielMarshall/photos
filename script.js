@@ -29,6 +29,7 @@
   const lbLoading = document.getElementById('lb-loading');
   const lbProgressBar = document.getElementById('lb-progress-bar');
   const lbLoadingLabel = document.getElementById('lb-loading-label');
+  const viewSwitcher = document.getElementById('view-switcher');
 
   const res = await fetch('images.json?v=' + Date.now());
   const items = await res.json();
@@ -156,6 +157,11 @@
   // Lightbox prev/next steps through whichever category grid is currently
   // open -- set each time a category detail view is rendered.
   let currentOrder = globalOrder;
+
+  // Chronological order (all non-slice items) -- items.json is already
+  // datetime-sorted overall, so this is just "every real photo, in the order
+  // it already comes in". Used by the Timeline view.
+  const chronoOrder = items.map((item) => item._index).filter((i) => !isSlice(items[i]));
 
   function renderHome() {
     document.body.classList.add('home-view');
@@ -345,13 +351,530 @@
     window.scrollTo(0, 0);
   }
 
+  // ---------------- Timeline view ----------------
+  // A horizontally pannable/zoomable strip, grouped by calendar day. Zoomed
+  // all the way out, each day is one small cluster marker (count + date).
+  // Zooming in breaks a day open into its own individual thumbnails, which
+  // then grow and pick up more label detail (date -> title -> full EXIF
+  // settings) the larger they get -- one continuous zoom axis (thumbnail
+  // pixel size) drives both the day-vs-item switch and the label detail.
+  const TL_MIN_PX = 8;
+  const TL_MAX_PX = 220;
+  const TL_CLUSTER_BELOW = 22; // thumb px below this: show day clusters, not items
+  const TL_GAP = 4;
+
+  function parseDt(s) {
+    if (!s) return null;
+    // "YYYY:MM:DD HH:MM:SS", parsed as naive wall-clock time so every viewer
+    // (regardless of their own timezone) sees the same date/time components
+    // the camera recorded.
+    const d = new Date(s.replace(':', '-').replace(':', '-').replace(' ', 'T'));
+    return isNaN(d) ? null : d;
+  }
+
+  function fmtShortDate(d) {
+    return d.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
+  }
+  function fmtDateTime(d) {
+    return d.toLocaleString(undefined, { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
+  }
+  function settingsLine(s) {
+    if (!s) return '';
+    const bits = [];
+    if (s.aperture) bits.push(s.aperture);
+    if (s.shutter) bits.push(s.shutter);
+    if (s.iso) bits.push(`ISO ${s.iso}`);
+    if (s.focal) bits.push(s.focal);
+    return bits.join(' · ');
+  }
+
+  let tlDayGroups = null;
+  function getDayGroups() {
+    if (tlDayGroups) return tlDayGroups;
+    const map = new Map();
+    chronoOrder.forEach((idx) => {
+      const item = items[idx];
+      const dt = parseDt(item.settings && item.settings.datetime);
+      if (!dt) return;
+      const key = `${dt.getFullYear()}-${dt.getMonth()}-${dt.getDate()}`;
+      if (!map.has(key)) {
+        map.set(key, { key, date: new Date(dt.getFullYear(), dt.getMonth(), dt.getDate()), indices: [] });
+      }
+      map.get(key).indices.push(idx);
+    });
+    tlDayGroups = Array.from(map.values()).sort((a, b) => a.date - b.date);
+    const epoch = tlDayGroups.length ? tlDayGroups[0].date.getTime() : 0;
+    tlDayGroups.forEach((g) => { g.dayOffset = (g.date.getTime() - epoch) / 86400000; });
+    return tlDayGroups;
+  }
+
+  // ---------------- Map view ----------------
+  // Real GPS was stripped from every photo for privacy (see PROJECT_NOTES.md)
+  // and the site's own rule is never to reveal an exact address -- home,
+  // workplace and the parents' house are all named only at suburb level even
+  // in the photo captions already on site. So the map plots one approximate
+  // pin per named place (suburb/landmark centroid, looked up by hand below),
+  // not per-photo GPS: it visualizes exactly the place names already printed
+  // in each photo's own metadata, at the same or coarser precision.
+  const PLACES = {
+    gladesville: { label: 'Gladesville (home)', lat: -33.8367, lng: 151.1275 },
+    banjo: { label: 'Banjo Paterson Park', lat: -33.8339, lng: 151.1296 },
+    artarmon: { label: 'Artarmon (work)', lat: -33.8113, lng: 151.1852 },
+    ashfield: { label: 'Ashfield', lat: -33.8886, lng: 151.1256 },
+    hornsby: { label: "Hornsby Heights (mum & dad's)", lat: -33.6698, lng: 151.0989 },
+    darling: { label: 'Darling Harbour', lat: -33.8697, lng: 151.2003 },
+    townhall: { label: 'Sydney Town Hall', lat: -33.8734, lng: 151.2065 },
+    qvb: { label: 'Queen Victoria Building', lat: -33.8715, lng: 151.2067 },
+  };
+
+  function placeKey(location) {
+    const l = (location || '').toLowerCase();
+    if (l.includes('banjo paterson')) return 'banjo';
+    if (l.includes('town hall')) return 'townhall';
+    if (l.includes('qvb')) return 'qvb';
+    if (l.includes('darling harbour')) return 'darling';
+    if (l.includes('hornsby heights')) return 'hornsby';
+    if (l === 'artarmon') return 'artarmon';
+    if (l === 'ashfield') return 'ashfield';
+    return 'gladesville';
+  }
+
+  let mapPlaceGroups = null;
+  function getPlaceGroups() {
+    if (mapPlaceGroups) return mapPlaceGroups;
+    const map = new Map();
+    chronoOrder.forEach((idx) => {
+      const key = placeKey(items[idx].location);
+      if (!map.has(key)) map.set(key, { key, place: PLACES[key], indices: [] });
+      map.get(key).indices.push(idx);
+    });
+    mapPlaceGroups = Array.from(map.values());
+    return mapPlaceGroups;
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  }
+
+  function tlPxPerDay(thumbPx) {
+    return Math.max(thumbPx * 1.3, 26);
+  }
+  function tlLabelLines(thumbPx) {
+    if (thumbPx < 55) return 0;
+    if (thumbPx < 95) return 1;
+    if (thumbPx < 150) return 2;
+    return 3;
+  }
+
+  let tlThumbPx = 60;
+  let tlPanPx = 0;
+  let tlViewportEl = null;
+  let tlTrackEl = null;
+  let tlClusterLayer = null;
+  let tlItemLayer = null;
+  let tlItemNodes = new Map(); // item index -> { wrap, img, lines: [el,el,el] }
+  let tlClusterNodes = new Map(); // day key -> element
+  let tlLayoutScheduled = false;
+
+  function scheduleTlLayout() {
+    if (tlLayoutScheduled) return;
+    tlLayoutScheduled = true;
+    requestAnimationFrame(() => { tlLayoutScheduled = false; layoutTimeline(); });
+  }
+
+  function tlZoomTo(newThumbPx, cursorX) {
+    newThumbPx = Math.min(TL_MAX_PX, Math.max(TL_MIN_PX, newThumbPx));
+    if (newThumbPx === tlThumbPx) return;
+    const oldPxPerDay = tlPxPerDay(tlThumbPx);
+    const newPxPerDay = tlPxPerDay(newThumbPx);
+    const trackX = cursorX - tlPanPx;
+    tlPanPx = cursorX - trackX * (newPxPerDay / oldPxPerDay);
+    tlThumbPx = newThumbPx;
+    scheduleTlLayout();
+  }
+
+  function computeTlLayout(groupsList, thumbPx, viewportHeight) {
+    const clustered = thumbPx < TL_CLUSTER_BELOW;
+    const pxPerDay = tlPxPerDay(thumbPx);
+    const labelLines = tlLabelLines(thumbPx);
+    const dayHeaderH = 18;
+    let runningRight = -Infinity;
+    const blocks = [];
+    groupsList.forEach((g) => {
+      const idealX = g.dayOffset * pxPerDay;
+      let width, height, columns, rows;
+      if (clustered) {
+        const dot = Math.max(14, Math.min(34, 10 + Math.sqrt(g.indices.length) * 6));
+        width = dot; height = dot; columns = 1; rows = 1;
+      } else {
+        const n = g.indices.length;
+        const tileH = thumbPx + (labelLines > 0 ? labelLines * 13 + 4 : 0);
+        const maxRows = Math.max(1, Math.floor((viewportHeight - dayHeaderH) / (tileH + TL_GAP)));
+        columns = Math.max(1, Math.round(Math.sqrt(n)));
+        if (Math.ceil(n / columns) > maxRows) columns = Math.max(columns, Math.ceil(n / maxRows));
+        rows = Math.ceil(n / columns);
+        width = columns * thumbPx + (columns - 1) * TL_GAP;
+        height = dayHeaderH + rows * tileH + (rows - 1) * TL_GAP;
+      }
+      const x = Math.max(idealX, runningRight + TL_GAP * 4);
+      blocks.push({ group: g, x, width, height, columns, rows });
+      runningRight = x + width;
+    });
+    return { blocks, clustered, labelLines, totalWidth: runningRight + 400 };
+  }
+
+  function ensureClusterNode(key) {
+    let el = tlClusterNodes.get(key);
+    if (el) return el;
+    el = document.createElement('div');
+    el.className = 'tl-cluster';
+    el.innerHTML = '<div class="tl-cluster-dot"></div><div class="tl-cluster-label"></div>';
+    tlClusterLayer.appendChild(el);
+    tlClusterNodes.set(key, el);
+    return el;
+  }
+
+  function ensureItemNode(idx) {
+    let node = tlItemNodes.get(idx);
+    if (node) return node;
+    const item = items[idx];
+    const wrap = document.createElement('figure');
+    wrap.className = 'tl-item';
+    const img = document.createElement('img');
+    img.loading = 'lazy';
+    img.src = item.thumb;
+    img.alt = item.title || item.caption || 'Photo';
+    wrap.appendChild(img);
+    const lines = [0, 1, 2].map(() => {
+      const l = document.createElement('figcaption');
+      l.className = 'tl-item-line';
+      wrap.appendChild(l);
+      return l;
+    });
+    // The viewport captures the pointer for drag/pinch (see
+    // attachTimelineGestures), which under pointer capture can leave the
+    // browser's own synthesized "click" un-fired on this nested element --
+    // so taps are detected directly from the pointerup coordinates instead
+    // (see endPointer below), via this expando rather than a click listener.
+    wrap.__tlTap = () => {
+      currentOrder = chronoOrder;
+      open(idx);
+    };
+    tlItemLayer.appendChild(wrap);
+    node = { wrap, img, lines };
+    tlItemNodes.set(idx, node);
+    return node;
+  }
+
+  function layoutClusters(blocks) {
+    const seen = new Set();
+    blocks.forEach(({ group, x, width, height }) => {
+      seen.add(group.key);
+      const el = ensureClusterNode(group.key);
+      el.style.left = `${x}px`;
+      el.style.top = `${(tlViewportEl.clientHeight - height) / 2}px`;
+      const dot = el.querySelector('.tl-cluster-dot');
+      dot.style.width = `${width}px`;
+      dot.style.height = `${height}px`;
+      dot.textContent = group.indices.length;
+      el.querySelector('.tl-cluster-label').textContent = fmtShortDate(group.date);
+      el.__tlTap = () => {
+        tlThumbPx = 100;
+        tlPanPx = -(group.dayOffset * tlPxPerDay(tlThumbPx)) + tlViewportEl.clientWidth / 2;
+        scheduleTlLayout();
+      };
+    });
+    tlClusterNodes.forEach((el, key) => { el.style.display = seen.has(key) ? '' : 'none'; });
+  }
+
+  function layoutItems(blocks, labelLines) {
+    const seenDays = new Set();
+    const seenItems = new Set();
+    blocks.forEach(({ group, x, width, height, columns }) => {
+      seenDays.add(group.key);
+      const top = Math.max(4, (tlViewportEl.clientHeight - height) / 2);
+      group.indices.forEach((idx, i) => {
+        seenItems.add(idx);
+        const item = items[idx];
+        const node = ensureItemNode(idx);
+        const col = i % columns;
+        const row = Math.floor(i / columns);
+        const tileH = tlThumbPx + (labelLines > 0 ? labelLines * 13 + 4 : 0);
+        node.wrap.style.left = `${x + col * (tlThumbPx + TL_GAP)}px`;
+        node.wrap.style.top = `${top + 18 + row * (tileH + TL_GAP)}px`;
+        node.wrap.style.width = `${tlThumbPx}px`;
+        node.img.style.width = `${tlThumbPx}px`;
+        node.img.style.height = `${tlThumbPx}px`;
+        const dt = parseDt(item.settings && item.settings.datetime);
+        const text = [
+          dt ? fmtDateTime(dt) : '',
+          item.title || item.caption || '',
+          settingsLine(item.settings),
+        ];
+        node.lines.forEach((el, li) => {
+          el.hidden = li >= labelLines;
+          el.textContent = text[li] || '';
+        });
+        node.wrap.style.display = '';
+      });
+    });
+    tlItemNodes.forEach((node, idx) => { if (!seenItems.has(idx)) node.wrap.style.display = 'none'; });
+  }
+
+  function layoutTimeline() {
+    if (!tlViewportEl) return;
+    const groupsList = getDayGroups();
+    const { blocks, clustered, labelLines, totalWidth } = computeTlLayout(groupsList, tlThumbPx, tlViewportEl.clientHeight);
+    tlTrackEl.style.width = `${totalWidth}px`;
+    tlTrackEl.style.transform = `translateX(${tlPanPx}px)`;
+    tlClusterLayer.style.display = clustered ? '' : 'none';
+    tlItemLayer.style.display = clustered ? 'none' : '';
+    if (clustered) layoutClusters(blocks);
+    else layoutItems(blocks, labelLines);
+  }
+
+  function attachTimelineGestures(viewport) {
+    const pointers = new Map();
+    let dragLast = null;
+    let dragMoved = false;
+    let pinchStartDist = null;
+    let pinchStartPx = null;
+
+    const dist = (pts) => Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y);
+
+    viewport.addEventListener('pointerdown', (e) => {
+      viewport.setPointerCapture(e.pointerId);
+      pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      dragMoved = false;
+      if (pointers.size === 2) {
+        pinchStartDist = dist(Array.from(pointers.values()));
+        pinchStartPx = tlThumbPx;
+        dragLast = null;
+      } else {
+        dragLast = { x: e.clientX, y: e.clientY };
+      }
+    });
+    viewport.addEventListener('pointermove', (e) => {
+      if (!pointers.has(e.pointerId)) return;
+      pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      if (pointers.size === 2 && pinchStartDist) {
+        const pts = Array.from(pointers.values());
+        const scale = dist(pts) / pinchStartDist;
+        const midX = (pts[0].x + pts[1].x) / 2 - viewport.getBoundingClientRect().left;
+        tlZoomTo(pinchStartPx * scale, midX);
+        return;
+      }
+      if (dragLast) {
+        const dx = e.clientX - dragLast.x;
+        const dy = e.clientY - dragLast.y;
+        if (Math.abs(dx) + Math.abs(dy) > 3) dragMoved = true;
+        tlPanPx += dx;
+        dragLast = { x: e.clientX, y: e.clientY };
+        scheduleTlLayout();
+      }
+    });
+    const endPointer = (e) => {
+      const wasTap = pointers.size === 1 && !dragMoved;
+      pointers.delete(e.pointerId);
+      if (pointers.size < 2) pinchStartDist = null;
+      if (pointers.size === 0) dragLast = null;
+      // The viewport holds pointer capture for the drag/pinch gesture above,
+      // which can leave the browser's own "click" un-fired on the tapped
+      // child -- so a plain tap (no drag) is resolved here instead, by
+      // hit-testing whatever DOM element is actually at the release point.
+      if (wasTap) {
+        const el = document.elementFromPoint(e.clientX, e.clientY);
+        const target = el && el.closest('.tl-item, .tl-cluster');
+        if (target && target.__tlTap) target.__tlTap();
+      }
+    };
+    viewport.addEventListener('pointerup', endPointer);
+    viewport.addEventListener('pointercancel', endPointer);
+    viewport.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      const rect = viewport.getBoundingClientRect();
+      const cursorX = e.clientX - rect.left;
+      tlZoomTo(tlThumbPx * Math.pow(1.0022, -e.deltaY), cursorX);
+    }, { passive: false });
+  }
+
+  function renderTimeline() {
+    document.body.classList.remove('home-view');
+    main.innerHTML = '';
+
+    const view = document.createElement('div');
+    view.className = 'timeline-view';
+    view.innerHTML = `
+      <p class="tl-hint">Scroll or pinch to zoom &middot; drag to pan &middot; click a photo to open it</p>
+      <div class="tl-viewport" id="tl-viewport">
+        <div class="tl-track" id="tl-track">
+          <div class="tl-axis"></div>
+          <div class="tl-clusters" id="tl-clusters"></div>
+          <div class="tl-items" id="tl-items"></div>
+        </div>
+      </div>
+    `;
+    main.appendChild(view);
+
+    tlViewportEl = view.querySelector('#tl-viewport');
+    tlTrackEl = view.querySelector('#tl-track');
+    tlClusterLayer = view.querySelector('#tl-clusters');
+    tlItemLayer = view.querySelector('#tl-items');
+    tlItemNodes = new Map();
+    tlClusterNodes = new Map();
+
+    const groupsList = getDayGroups();
+    if (groupsList.length) {
+      // Default to an overview that fits the whole date range in view.
+      const span = groupsList[groupsList.length - 1].dayOffset - groupsList[0].dayOffset || 1;
+      requestAnimationFrame(() => {
+        const width = tlViewportEl.clientWidth || 1000;
+        tlThumbPx = Math.min(TL_MAX_PX, Math.max(TL_MIN_PX, (width / span) / 1.3));
+        tlPanPx = 40;
+        layoutTimeline();
+      });
+    }
+
+    attachTimelineGestures(tlViewportEl);
+    currentOrder = chronoOrder;
+  }
+
+  window.addEventListener('resize', () => { if (tlViewportEl && tlViewportEl.isConnected) scheduleTlLayout(); });
+
+  const MAP_CLUSTER_ZOOM = 13; // below this Leaflet zoom level: place clusters. At/above: individual thumbnails.
+
+  function mapThumbPx(zoom) {
+    return Math.min(160, Math.max(36, (zoom - MAP_CLUSTER_ZOOM) * 42 + 36));
+  }
+  function mapLabelLines(thumbPx) {
+    if (thumbPx < 70) return 0;
+    if (thumbPx < 115) return 1;
+    return 2;
+  }
+
+  let mapInstance = null;
+  const mapMarkers = new Map(); // place key -> L.Marker
+
+  function mapZoomToPlace(group) {
+    mapInstance.setView([group.place.lat, group.place.lng], MAP_CLUSTER_ZOOM + 1.5, { animate: true });
+  }
+
+  function buildClusterIcon(group) {
+    const html = `<div class="map-cluster">
+      <div class="map-cluster-dot">${group.indices.length}</div>
+      <div class="map-cluster-label">${escapeHtml(group.place.label)}</div>
+    </div>`;
+    return L.divIcon({ html, className: 'map-icon-wrap', iconSize: null });
+  }
+
+  function buildGridIcon(group, thumbPx, labelLines) {
+    const n = group.indices.length;
+    const columns = Math.max(1, Math.min(6, Math.round(Math.sqrt(n))));
+    const tiles = group.indices.map((idx) => {
+      const item = items[idx];
+      const lines = [item.title || item.caption || '', settingsLine(item.settings)];
+      const labelHtml = lines.slice(0, labelLines)
+        .map((t) => `<div class="tl-item-line">${escapeHtml(t)}</div>`).join('');
+      return `<figure class="tl-item map-tile" data-idx="${idx}" style="width:${thumbPx}px">
+        <img src="${item.thumb}" style="width:${thumbPx}px;height:${thumbPx}px" loading="lazy" alt="">
+        ${labelHtml}
+      </figure>`;
+    }).join('');
+    const html = `<div class="map-grid" style="width:${columns * (thumbPx + 4)}px">
+      <div class="map-grid-label">${escapeHtml(group.place.label)} &middot; ${n} photo${n === 1 ? '' : 's'}</div>
+      <div class="map-grid-tiles">${tiles}</div>
+    </div>`;
+    return L.divIcon({ html, className: 'map-icon-wrap', iconSize: null });
+  }
+
+  function layoutMapMarkers() {
+    const zoom = mapInstance.getZoom();
+    const clustered = zoom < MAP_CLUSTER_ZOOM;
+    const thumbPx = mapThumbPx(zoom);
+    const labelLines = mapLabelLines(thumbPx);
+    getPlaceGroups().forEach((group) => {
+      let marker = mapMarkers.get(group.key);
+      const icon = clustered ? buildClusterIcon(group) : buildGridIcon(group, thumbPx, labelLines);
+      if (!marker) {
+        marker = L.marker([group.place.lat, group.place.lng], { icon }).addTo(mapInstance);
+        marker.on('click', (e) => {
+          const tile = e.originalEvent.target.closest('.map-tile');
+          if (tile) {
+            currentOrder = chronoOrder;
+            open(Number(tile.dataset.idx));
+          } else {
+            mapZoomToPlace(group);
+          }
+        });
+        mapMarkers.set(group.key, marker);
+      } else {
+        marker.setIcon(icon);
+      }
+    });
+  }
+
+  function renderMap() {
+    document.body.classList.remove('home-view');
+    // Re-entering the Map view (e.g. Categories -> Map -> Categories -> Map)
+    // would otherwise leak the previous Leaflet instance and its listeners,
+    // since #sections gets wiped and a fresh #map-viewport div created each time.
+    if (mapInstance) { mapInstance.remove(); mapInstance = null; }
+    main.innerHTML = '';
+
+    const view = document.createElement('div');
+    view.className = 'timeline-view';
+    view.innerHTML = `
+      <p class="tl-hint">Scroll or pinch to zoom &middot; drag to pan &middot; click a place, then a photo</p>
+      <div class="map-viewport" id="map-viewport"></div>
+    `;
+    main.appendChild(view);
+
+    mapMarkers.clear();
+    mapInstance = L.map('map-viewport', { attributionControl: true, zoomControl: true });
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    }).addTo(mapInstance);
+
+    const groupsList = getPlaceGroups();
+    const bounds = L.latLngBounds(groupsList.map((g) => [g.place.lat, g.place.lng]));
+    mapInstance.fitBounds(bounds, { padding: [60, 60], maxZoom: MAP_CLUSTER_ZOOM - 1 });
+
+    mapInstance.on('zoomend moveend', layoutMapMarkers);
+    layoutMapMarkers();
+    currentOrder = chronoOrder;
+
+    // The view container isn't sized until it's in the layout -- Leaflet
+    // measures its container on init, so a late invalidateSize catches the
+    // case where fonts/layout shift the height slightly after that.
+    requestAnimationFrame(() => mapInstance.invalidateSize());
+  }
+
+  function setActiveView(name) {
+    viewSwitcher.querySelectorAll('.view-btn').forEach((btn) => {
+      btn.classList.toggle('active', btn.dataset.view === name);
+    });
+  }
+
   function route() {
     const m = location.hash.match(/^#\/c\/(.+)$/);
     if (m) {
       const key = decodeURIComponent(m[1]);
-      if (groups.has(key)) return renderCategory(key);
+      if (groups.has(key)) {
+        setActiveView('home');
+        return renderCategory(key);
+      }
+    }
+    if (location.hash === '#/timeline') {
+      setActiveView('timeline');
+      return renderTimeline();
+    }
+    if (location.hash === '#/map') {
+      setActiveView('map');
+      return renderMap();
     }
     currentOrder = globalOrder;
+    setActiveView('home');
     renderHome();
   }
 
