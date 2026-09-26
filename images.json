@@ -11931,8 +11931,8 @@
     "full": "images/full/20260926-145309p9260265-seed-base-20stacked.jpg",
     "original_filename": "20260926_145309P9260265 seed base 20stacked ---.jpg",
     "caption": "seed base 20stacked ---",
-    "title": "Seed Base",
-    "description": "Stacked photo",
+    "title": "Farmer's Friend Seed Head",
+    "description": "The underside of a Farmer's Friend (Bidens pilosa) seed head from the back yard, its seeds fanned out from the centre. 20-photo stack.",
     "category": "Gladesville",
     "subcategory": "Garden",
     "location": "Home",
@@ -11966,7 +11966,7 @@
     "full": "images/full/20260926-145309p9260265.jpg",
     "original_filename": "20260926_145309P9260265.jpg",
     "caption": "",
-    "title": "Seed Base: Example Slice",
+    "title": "Farmer's Friend Seed Head: Example Slice",
     "description": "Sample stack slice",
     "category": "Gladesville",
     "subcategory": "Garden",
@@ -11999,8 +11999,8 @@
     "full": "images/full/20260926-145730p9260352-seeds-18stacked.jpg",
     "original_filename": "20260926_145730P9260352 seeds 18stacked.jpg",
     "caption": "seeds 18stacked",
-    "title": "Seeds",
-    "description": "Stacked photo",
+    "title": "Farmer's Friend Seed Head II",
+    "description": "The same seed head against a warmer background. 18-photo stack.",
     "category": "Gladesville",
     "subcategory": "Garden",
     "location": "Home",
@@ -12034,7 +12034,7 @@
     "full": "images/full/20260926-145730p9260352.jpg",
     "original_filename": "20260926_145730P9260352.jpg",
     "caption": "",
-    "title": "Seeds: Example Slice",
+    "title": "Farmer's Friend Seed Head II: Example Slice",
     "description": "Sample stack slice",
     "category": "Gladesville",
     "subcategory": "Garden",
@@ -12135,8 +12135,8 @@
     "full": "images/full/20260926-150556p9260541-01-barbs-31stacked.jpg",
     "original_filename": "20260926_150556P9260541_01 barbs 31stacked ---.jpg",
     "caption": "barbs 31stacked ---",
-    "title": "Barbs",
-    "description": "Stacked photo",
+    "title": "Farmer's Friend Barbs",
+    "description": "The awns at the tip of a single seed, each lined with backward-pointing barbs. 31-photo stack.",
     "category": "Gladesville",
     "subcategory": "Garden",
     "location": "Home",
@@ -12170,7 +12170,7 @@
     "full": "images/full/20260926-150556p9260541-01.jpg",
     "original_filename": "20260926_150556P9260541_01.jpg",
     "caption": "",
-    "title": "Barbs: Example Slice",
+    "title": "Farmer's Friend Barbs: Example Slice",
     "description": "Sample stack slice",
     "category": "Gladesville",
     "subcategory": "Garden",
@@ -12223,10 +12223,10 @@
     ],
     "medium_crop": null,
     "medium_frame": [
-      0.0283203125,
-      0.037760416666666664,
-      0.943359375,
-      0.833984375
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
     ],
     "samples": [
       "20260926_183141P9260001_03.jpg"
@@ -12258,10 +12258,10 @@
     ],
     "medium_crop": null,
     "medium_frame": [
-      0.0283203125,
-      0.037760416666666664,
-      0.943359375,
-      0.833984375
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
     ],
     "sample_of": "20260926_183141P9260001_03 seed base in purple 23stacked.jpg"
   },
@@ -12291,10 +12291,10 @@
     ],
     "medium_crop": null,
     "medium_frame": [
-      0.0283203125,
-      0.037760416666666664,
-      0.943359375,
-      0.833984375
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
     ],
     "samples": [
       "20260926_183357P9260145_01.jpg"
@@ -12326,10 +12326,10 @@
     ],
     "medium_crop": null,
     "medium_frame": [
-      0.0283203125,
-      0.037760416666666664,
-      0.943359375,
-      0.833984375
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
     ],
     "sample_of": "20260926_183357P9260145_01 green light seed base 50stacked ---.jpg"
   },
@@ -12359,10 +12359,10 @@
     ],
     "medium_crop": null,
     "medium_frame": [
-      0.0283203125,
-      0.037760416666666664,
-      0.943359375,
-      0.833984375
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
     ],
     "samples": [
       "20260926_183521P9260242_01.jpg"
@@ -12394,10 +12394,10 @@
     ],
     "medium_crop": null,
     "medium_frame": [
-      0.0283203125,
-      0.037760416666666664,
-      0.943359375,
-      0.833984375
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
     ],
     "sample_of": "20260926_183521P9260242_01 seed base 70stacked ---.jpg"
   },
@@ -12427,10 +12427,10 @@
     ],
     "medium_crop": null,
     "medium_frame": [
-      0.0283203125,
-      0.037760416666666664,
-      0.943359375,
-      0.833984375
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
     ],
     "samples": [
       "20260926_183643P9260348_01.jpg"
@@ -12462,10 +12462,10 @@
     ],
     "medium_crop": null,
     "medium_frame": [
-      0.0283203125,
-      0.037760416666666664,
-      0.943359375,
-      0.833984375
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
     ],
     "sample_of": "20260926_183643P9260348_01 seed base natural light 52stacked -- .jpg"
   }

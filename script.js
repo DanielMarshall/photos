@@ -406,9 +406,42 @@
     return fig;
   }
 
+  // The 10 most recently taken photos, newest first, for the strip under the
+  // gear note on the home page. Clicking one opens it with prev/next stepping
+  // through just this strip.
+  const NEWEST_COUNT = 10;
+  const newestOrder = chronoOrder
+    .map((i) => ({ i, dt: parseDt(items[i].settings && items[i].settings.datetime) }))
+    .filter((e) => e.dt)
+    .sort((a, b) => b.dt - a.dt)
+    .slice(0, NEWEST_COUNT)
+    .map((e) => e.i);
+
+  function renderNewestStrip() {
+    const row = document.getElementById('newest-row');
+    if (!row || row.childElementCount) return;
+    newestOrder.forEach((idx) => {
+      const item = items[idx];
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'newest-item';
+      btn.title = item.title || item.original_filename;
+      const img = document.createElement('img');
+      img.src = item.thumb;
+      img.alt = item.title || item.caption || 'Photo';
+      btn.appendChild(img);
+      btn.addEventListener('click', () => {
+        currentOrder = newestOrder;
+        open(idx);
+      });
+      row.appendChild(btn);
+    });
+  }
+
   function renderHome() {
     document.body.classList.add('home-view');
     main.innerHTML = '';
+    renderNewestStrip();
     const grid = document.createElement('div');
     grid.className = 'category-grid';
 
@@ -755,6 +788,9 @@
   let tlStemNodes = new Map(); // item index -> element
   let tlDayLabelNodes = new Map(); // day key -> element
   let tlLayoutScheduled = false;
+  let tlLastSqueeze = false; // whether the last item layout was single-row
+  let tlContentRight = 0; // rightmost drawn photo edge (track px), from the last item layout
+  let tlAnim = null; // running "Current" animation's rAF id
 
   function scheduleTlLayout() {
     if (tlLayoutScheduled) return;
@@ -854,7 +890,7 @@
     blocks.forEach(({ group, x, width, height }) => {
       seen.add(group.key);
       const el = ensureClusterNode(group.key);
-      el.style.left = `${x}px`;
+      el.style.left = `${x + tlPanPx}px`;
       el.style.top = `${(tlViewportEl.clientHeight - height) / 2}px`;
       const dot = el.querySelector('.tl-cluster-dot');
       dot.style.width = `${width}px`;
@@ -889,6 +925,7 @@
 
   function layoutIndividualItems(groupsList, pxPerDay, thumbPx, labelLines) {
     const epoch = groupsList.length ? groupsList[0].date.getTime() : 0;
+    const viewW = tlViewportEl.clientWidth;
     const contentH = thumbPx + (labelLines > 0 ? labelLines * 13 + 4 : 0);
     const laneH = contentH + TL_GAP;
     const centerY = tlViewportEl.clientHeight / 2;
@@ -943,17 +980,36 @@
     });
 
     // Pass 2 (only in the single-row regime): photos too close in time to
-    // literally sit at their own x are nudged right just enough to clear
-    // their neighbor -- their real position never changes, only where this
-    // draws them -- so the connecting stem (below) ends up angled from the
-    // nudged thumbnail back down to where it really belongs on the axis.
+    // literally sit at their own x are spread out just enough to clear each
+    // other -- their real position never changes, only where this draws them
+    // -- so the connecting stem (below) ends up angled from the drawn
+    // thumbnail back down to where it really belongs on the axis.
+    // Each run of overlapping photos is laid out side by side and centered on
+    // the run's average true x, merging with the previous run whenever the
+    // two would overlap. This used to push every overlap to the right
+    // instead, and those pushes piled up across the whole library: by the
+    // time it reached what you were zoomed in on, the drawn photos were far
+    // right of their real spot, so the view seemed to jump back to the
+    // start of the timeline as soon as squeeze mode kicked in. Centering
+    // keeps every photo near its real position, so zooming stays anchored.
     const squeeze = maxVisibleRank <= 1;
+    tlLastSqueeze = squeeze;
     if (squeeze) {
-      let nextLeft = -Infinity;
-      positioned.forEach((p) => {
-        const left = Math.max(p.x - thumbPx / 2, nextLeft);
-        p.drawX = left + thumbPx / 2;
-        nextLeft = left + thumbPx + TL_GAP;
+      const slot = thumbPx + TL_GAP;
+      const runs = [];
+      const runLeft = (r) => r.sumX / r.members.length - (r.members.length * slot - TL_GAP) / 2;
+      const runRight = (r) => runLeft(r) + r.members.length * slot - TL_GAP;
+      positioned.slice().sort((a, b) => a.x - b.x).forEach((p) => {
+        let run = { members: [p], sumX: p.x };
+        while (runs.length && runRight(runs[runs.length - 1]) + TL_GAP > runLeft(run)) {
+          const prev = runs.pop();
+          run = { members: prev.members.concat(run.members), sumX: prev.sumX + run.sumX };
+        }
+        runs.push(run);
+      });
+      runs.forEach((r) => {
+        const left = runLeft(r);
+        r.members.forEach((p, k) => { p.drawX = left + k * slot + thumbPx / 2; });
       });
     }
 
@@ -972,7 +1028,7 @@
       maxRight = Math.max(maxRight, renderX + halfW, x + halfW);
 
       const node = ensureItemNode(idx);
-      node.wrap.style.left = `${renderX - thumbPx / 2}px`;
+      node.wrap.style.left = `${renderX - thumbPx / 2 + tlPanPx}px`;
       node.wrap.style.top = `${wrapTop}px`;
       node.wrap.style.width = `${thumbPx}px`;
       node.img.style.width = `${thumbPx}px`;
@@ -982,15 +1038,19 @@
         el.hidden = li >= labelLines;
         el.textContent = text[li] || '';
       });
-      node.wrap.style.display = '';
 
       // Straight when this photo sits at its real time position (the usual
       // case); angled whenever a nudge moved it, pointing from the drawn
       // thumbnail back to its true spot on the axis.
       const stem = ensureStemNode(idx);
       const nearY = side > 0 ? wrapTop + contentH : wrapTop;
-      positionStemLine(stem, x, centerY, renderX, nearY);
-      stem.style.display = '';
+      positionStemLine(stem, x + tlPanPx, centerY, renderX + tlPanPx, nearY);
+      // Nothing far outside the box is drawn at all: it can't be seen, and
+      // skipping it keeps off-screen thumbnails from loading.
+      const screenX = renderX + tlPanPx;
+      const offScreen = screenX + halfW < -viewW || screenX - halfW > 2 * viewW;
+      node.wrap.style.display = offScreen ? 'none' : '';
+      stem.style.display = offScreen ? 'none' : '';
 
       const dayKey = `${dt.getFullYear()}-${dt.getMonth()}-${dt.getDate()}`;
       const range = dayRanges.get(dayKey);
@@ -1018,10 +1078,11 @@
       el.textContent = sameTime
         ? `${fmtShortDate(range.date)} · ${fmtTimeOnly(range.minDt)}`
         : `${fmtShortDate(range.date)} · ${fmtTimeOnly(range.minDt)}–${fmtTimeOnly(range.maxDt)}`;
-      el.style.left = `${(range.minX + range.maxX) / 2}px`;
+      el.style.left = `${(range.minX + range.maxX) / 2 + tlPanPx}px`;
     });
     tlDayLabelNodes.forEach((el, key) => { el.style.display = seenDayLabels.has(key) ? '' : 'none'; });
 
+    tlContentRight = maxRight;
     return maxRight + 200;
   }
 
@@ -1046,8 +1107,13 @@
     } else {
       totalWidth = layoutIndividualItems(groupsList, pxPerDay, thumbPx, labelLines);
     }
-    tlTrackEl.style.width = `${totalWidth}px`;
-    tlTrackEl.style.transform = `translateX(${tlPanPx}px)`;
+    // Everything is positioned in on-screen coordinates (track x + pan)
+    // rather than on one long track slid sideways with a transform. Fully
+    // zoomed in, the track is hundreds of millions of px long, and browsers
+    // can't lay anything out past roughly 33 million px -- every photo
+    // beyond that got squashed onto the same spot, which showed up as the
+    // view jumping back to early photos when zoomed right in.
+    // (totalWidth is no longer needed for the track itself.)
   }
 
   function attachTimelineGestures(viewport) {
@@ -1060,6 +1126,7 @@
     const dist = (pts) => Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y);
 
     viewport.addEventListener('pointerdown', (e) => {
+      tlStopAnim();
       viewport.setPointerCapture(e.pointerId);
       pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
       dragMoved = false;
@@ -1109,6 +1176,7 @@
     viewport.addEventListener('pointercancel', endPointer);
     viewport.addEventListener('wheel', (e) => {
       e.preventDefault();
+      tlStopAnim();
       const rect = viewport.getBoundingClientRect();
       const cursorX = e.clientX - rect.left;
       tlZoomTo(tlZoom * Math.pow(1.0022, -e.deltaY), cursorX);
@@ -1122,7 +1190,10 @@
     const view = document.createElement('div');
     view.className = 'timeline-view';
     view.innerHTML = `
-      <p class="tl-hint">Scroll or pinch to zoom &middot; drag to pan &middot; click a photo to open it</p>
+      <div class="tl-bar">
+        <p class="tl-hint">Scroll or pinch to zoom &middot; drag to pan &middot; click a photo to open it</p>
+        <button type="button" class="tl-current-btn" id="tl-current">Current &rsaquo;</button>
+      </div>
       <div class="tl-viewport" id="tl-viewport">
         <div class="tl-track" id="tl-track">
           <div class="tl-axis"></div>
@@ -1162,7 +1233,81 @@
     }
 
     attachTimelineGestures(tlViewportEl);
+    view.querySelector('#tl-current').addEventListener('click', tlGoToCurrent);
     currentOrder = chronoOrder;
+  }
+
+  function tlStopAnim() {
+    if (tlAnim) cancelAnimationFrame(tlAnim);
+    tlAnim = null;
+  }
+
+  // "Current" button: glide to the newest end of the timeline, zoomed in
+  // far enough that the newest photos sit as full-size, labelled thumbnails
+  // (the Timeline's version of the home page's Newest strip), with the
+  // newest one against the right edge.
+  function tlGoToCurrent() {
+    if (!tlViewportEl || !newestOrder.length) return;
+    const groupsList = getDayGroups();
+    if (!groupsList.length) return;
+    tlStopAnim();
+    const width = tlViewportEl.clientWidth || 1000;
+    const PAD = 40;
+    const epoch = groupsList[0].date.getTime();
+    const dayX = (i) => (parseDt(items[i].settings.datetime).getTime() - epoch) / 86400000;
+
+    // Zoom that fits the newest photos' time span across the box, but never
+    // less than full thumbnail size (below that it's clusters/lanes, not a
+    // readable row of photos).
+    const newestDay = dayX(newestOrder[0]);
+    const spanDays = Math.max(newestDay - dayX(newestOrder[newestOrder.length - 1]), 1e-6);
+    let z1 = Math.min(TL_MAX_ZOOM, Math.max(TL_MAX_THUMB, tlZoomForPxPerDay((width - 2 * PAD - TL_MAX_THUMB) / spanDays)));
+
+    // Dry-run the final layout to find where the newest photo is actually
+    // drawn (single-row mode can shift it a little from its true time), then
+    // put its right edge PAD px in from the right. Two passes, since which
+    // mode applies depends on what's on screen. If the photos in view would
+    // still fan out into lanes above/below the axis, keep zooming in until
+    // they sit on one row -- a strip, like the home page's Newest.
+    const z0 = tlZoom;
+    const p0 = tlPanPx;
+    const settle = (z) => {
+      tlZoom = z;
+      tlPanPx = width - PAD - (newestDay * tlPxPerDay(z) + TL_MAX_THUMB / 2);
+      for (let k = 0; k < 2; k++) {
+        layoutTimeline();
+        tlPanPx = width - PAD - tlContentRight;
+      }
+      layoutTimeline();
+    };
+    settle(z1);
+    while (!tlLastSqueeze && z1 < TL_MAX_ZOOM) {
+      z1 = Math.min(TL_MAX_ZOOM, z1 * 1.25);
+      settle(z1);
+    }
+    const p1 = tlPanPx;
+    tlZoom = z0;
+    tlPanPx = p0;
+    layoutTimeline();
+
+    // Animate zoom in log space and the newest photo's on-screen x linearly,
+    // so it slides smoothly to its spot while the scale changes.
+    const screenOf = (z, p) => p + newestDay * tlPxPerDay(z);
+    const s0 = screenOf(z0, p0);
+    const s1 = screenOf(z1, p1);
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const DURATION = reduce ? 0 : 900;
+    const start = performance.now();
+    const ease = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+    const step = (now) => {
+      const t = DURATION ? Math.min(1, (now - start) / DURATION) : 1;
+      const e = ease(t);
+      tlZoom = Math.exp(Math.log(z0) + (Math.log(z1) - Math.log(z0)) * e);
+      tlPanPx = t < 1 ? s0 + (s1 - s0) * e - newestDay * tlPxPerDay(tlZoom) : p1;
+      layoutTimeline();
+      tlAnim = t < 1 ? requestAnimationFrame(step) : null;
+    };
+    tlAnim = requestAnimationFrame(step);
   }
 
   window.addEventListener('resize', () => { if (tlViewportEl && tlViewportEl.isConnected) scheduleTlLayout(); });

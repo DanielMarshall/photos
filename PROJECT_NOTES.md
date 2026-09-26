@@ -25,11 +25,20 @@ Last updated 2026-09-26 (cloud session, branch `claude/project-thread-8exgki`).
   Green", "Farmer's Friend" (white light), "Farmer's Friend Awns" (the file
   says "seed base natural light", but the photo shows the barbed awn end).
   The photographer found one coloured light too flat and plans to buy a
-  second. The afternoon Garden shots "Seed Base", "Seeds" and "Barbs" are
-  probably the same plant; they haven't been renamed or moved.
+  second. The afternoon Garden shots are the same plant and were renamed
+  (photographer: "Farmer's Friend" is the local name): "Farmer's Friend
+  Seed Head", "... Seed Head II", "Farmer's Friend Barbs", with descriptions,
+  and their medium images re-bordered. They stay in Garden. "Awns" confirmed
+  by the photographer. Boronia's "Seed Pod" looks more like a spider egg sac
+  (not yet raised with the photographer).
 - Five `19092026_* bay landscape.jpg` files in `exports/` (P9190439, 466, 471,
-  473, 492) aren't in `manifest.tsv`. They were left out on purpose or missed;
-  ask before adding.
+  473, 492) aren't in `manifest.tsv`. Photographer: leave them skipped for
+  now.
+- **Newest strip (2026-09-26)**: home page only, between the gear note and
+  the Slideshow button. It shows the 10 most recent photos by capture time
+  (`newestOrder` in `script.js`, newest first, slices excluded); clicking
+  opens the lightbox with prev/next limited to those 10. The row scrolls
+  sideways on narrow screens.
 
 - **Slideshow follows the view (2026-09-26, second PR from
   `claude/project-thread-8exgki`)**: see "Slideshow" below.
@@ -143,6 +152,14 @@ plain-JPG sibling with EXIF.
 6. **Run `python build_data.py`** — regenerates `images.json` from
    `manifest.tsv` + the dicts above. Prints a category/subcategory count
    summary and flags anything with unresolved settings — should always be 0.
+   **Run it again after step 8** (borders): `medium_frame` is measured from
+   the medium image, so a build before bordering records the wrong frame.
+   **Renaming an already-bordered photo**: the title is baked into its medium
+   image. Regenerate that medium from the export with ffmpeg (step 2 settings),
+   then run `apply_borders.py` on just those files and rebuild. Running
+   `apply_borders.py` on an already-bordered medium double-borders it.
+   Check `images/crop_state.json` first; cropped photos go through
+   `apply_crops.py` instead.
 7. **Update `script.js`** if a new category/subcategory was introduced: add it
    to both `SECTION_ORDER` and `SECTION_LABELS` near the top of the IIFE.
 8. **Bake borders into the new medium images only**:
@@ -376,6 +393,21 @@ open/close never touching `location.hash` or `#sections`.
   Chromium at 1400px, zooming on Sep 12: old `*1.3` = no angled stems within
   60 wheel notches, `*13` = 49 notches (and overview broken), piecewise = 39
   notches with the overview fitting (0 items off-screen).
+  **Screen-coordinate positioning (2026-09-26)**: every timeline node's
+  `left` is written as track x + `tlPanPx`, and `.tl-track` is no longer
+  translated or sized. Fully zoomed in the track is ~240 million px long.
+  Browsers can't lay anything out beyond ~33.5 million px (Chromium's
+  LayoutUnit limit), so everything past that got clamped onto one spot. At max
+  zoom the view "jumped back to the start" (showed Sep 9 planes while
+  zoomed on Sep 12 koi). Nodes more than a viewport-width off-screen are set
+  to `display: none`. **Never reintroduce a long translated track.**
+  **"Current ›" button** (`tlGoToCurrent`, right of the hint, flush with
+  the box's right edge): animates (900 ms, log-space zoom) to the newest
+  end. It uses the zoom that fits `newestOrder` (the same 10 photos as the
+  home page's Newest strip) at full thumbnail size, then keeps zooming in
+  until the on-screen photos form a single row. A dry run of the layout
+  (`tlContentRight`) puts the newest photo's right edge 40px from the box
+  edge. Pointer-down or wheel cancels it.
   **Single-row squeeze**: once the ordinary lane fan would only ever need one
   lane per side *for whatever's currently on screen* (`maxVisibleRank <= 1` in
   `layoutIndividualItems`, checked only within the visible x-range plus a
@@ -389,9 +421,13 @@ open/close never touching `location.hash` or `#sections`.
   reach a neighboring shoot day, so squeeze mode almost never triggered even
   when the actually-visible area was already sparse -- narrowed to a few
   thumbnail-widths so the decision tracks what's genuinely on screen. Ones still too close in time to sit at their exact x are
-  nudged right just enough to clear their neighbor (their real position never
-  changes, only where this draws them); the connecting stem then angles from
-  the nudged thumbnail back down to its true spot on the axis via
+  spread out just enough to clear each other (their real position never
+  changes, only where this draws them): each run of overlapping photos sits
+  side by side, centred on the run's average true x, merging with the
+  previous run if they'd overlap. (Until 2026-09-26 every overlap was pushed
+  right instead; the pushes added up across the whole library, so drawn
+  photos drifted far from their real time.) The connecting stem then angles
+  from the drawn thumbnail back down to its true spot on the axis via
   `positionStemLine` (draws a horizontal bar of the right length and rotates
   it -- a plain vertical stem is just the unrotated/+-90deg case of the same
   routine, so there's one drawing path for both instead of two).
