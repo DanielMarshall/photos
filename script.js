@@ -631,6 +631,17 @@
   // fan out into "lanes" above/below the axis instead of ever moving off
   // their true time position horizontally (a classic timeline/Gantt lane
   // assignment: greedy first-fit, alternating sides so it grows evenly).
+  // A straight line is just this at 0/180 degrees -- one drawing routine for
+  // both the ordinary vertical stem and a nudged, angled one.
+  function positionStemLine(el, x1, y1, x2, y2) {
+    const dx = x2 - x1;
+    const dy = y2 - y1;
+    el.style.left = `${x1}px`;
+    el.style.top = `${y1}px`;
+    el.style.width = `${Math.hypot(dx, dy)}px`;
+    el.style.transform = `rotate(${(Math.atan2(dy, dx) * 180) / Math.PI}deg)`;
+  }
+
   function layoutIndividualItems(groupsList, pxPerDay, thumbPx, labelLines) {
     const epoch = groupsList.length ? groupsList[0].date.getTime() : 0;
     const contentH = thumbPx + (labelLines > 0 ? labelLines * 13 + 4 : 0);
@@ -653,26 +664,64 @@
       return 1; // pathological fallback; practically unreachable
     }
 
-    const seenItems = new Set();
-    const dayRanges = new Map(); // day key -> {minX, maxX, minDt, maxDt, date}
-    let maxRight = 0;
-
+    // Pass 1: true time position + the lane the ordinary above/below fan
+    // would need. Once that never needs more than one lane per side *for
+    // whatever's actually on screen*, further zooming condenses it onto a
+    // single shared row instead of keeping two -- "pushing all images along
+    // the same timeline". Judged only over the visible range (with a little
+    // margin either side, so it doesn't flicker right at the viewport edge):
+    // a real photo library almost always has some tight burst *somewhere*
+    // (a few frames a second apart), and requiring the entire dataset to fit
+    // one lane before ever condensing would mean it could never happen at
+    // all just because of one cluster you've since zoomed/panned away from.
+    const viewLeft = -tlPanPx;
+    const viewRight = viewLeft + tlViewportEl.clientWidth;
+    const viewMargin = tlViewportEl.clientWidth;
+    const positioned = [];
+    let maxVisibleRank = 0;
     chronoOrder.forEach((idx) => {
       const item = items[idx];
       const dt = parseDt(item.settings && item.settings.datetime);
       if (!dt) return;
       const x = ((dt.getTime() - epoch) / 86400000) * pxPerDay;
       const lane = assignLane(x);
-      const side = lane > 0 ? 1 : -1;
-      const rank = Math.abs(lane);
+      if (x >= viewLeft - viewMargin && x <= viewRight + viewMargin) {
+        maxVisibleRank = Math.max(maxVisibleRank, Math.abs(lane));
+      }
+      positioned.push({ idx, item, dt, x, lane });
+    });
+
+    // Pass 2 (only in the single-row regime): photos too close in time to
+    // literally sit at their own x are nudged right just enough to clear
+    // their neighbor -- their real position never changes, only where this
+    // draws them -- so the connecting stem (below) ends up angled from the
+    // nudged thumbnail back down to where it really belongs on the axis.
+    const squeeze = maxVisibleRank <= 1;
+    if (squeeze) {
+      let nextLeft = -Infinity;
+      positioned.forEach((p) => {
+        const left = Math.max(p.x - thumbPx / 2, nextLeft);
+        p.drawX = left + thumbPx / 2;
+        nextLeft = left + thumbPx + TL_GAP;
+      });
+    }
+
+    const seenItems = new Set();
+    const dayRanges = new Map(); // day key -> {minX, maxX, minDt, maxDt, date}
+    let maxRight = 0;
+
+    positioned.forEach(({ idx, item, dt, x, lane, drawX }) => {
+      const side = squeeze ? 1 : lane > 0 ? 1 : -1;
+      const rank = squeeze ? 1 : Math.abs(lane);
+      const renderX = squeeze ? drawX : x;
       const anchorDist = TL_LANE_GAP + (rank - 1) * laneH;
       const wrapTop = side > 0 ? centerY - anchorDist - contentH : centerY + anchorDist;
 
       seenItems.add(idx);
-      maxRight = Math.max(maxRight, x + halfW);
+      maxRight = Math.max(maxRight, renderX + halfW, x + halfW);
 
       const node = ensureItemNode(idx);
-      node.wrap.style.left = `${x - thumbPx / 2}px`;
+      node.wrap.style.left = `${renderX - thumbPx / 2}px`;
       node.wrap.style.top = `${wrapTop}px`;
       node.wrap.style.width = `${thumbPx}px`;
       node.img.style.width = `${thumbPx}px`;
@@ -684,10 +733,12 @@
       });
       node.wrap.style.display = '';
 
+      // Straight when this photo sits at its real time position (the usual
+      // case); angled whenever a nudge moved it, pointing from the drawn
+      // thumbnail back to its true spot on the axis.
       const stem = ensureStemNode(idx);
-      stem.style.left = `${x}px`;
-      stem.style.top = `${side > 0 ? wrapTop + contentH : centerY}px`;
-      stem.style.height = `${Math.max(0, side > 0 ? centerY - (wrapTop + contentH) : wrapTop - centerY)}px`;
+      const nearY = side > 0 ? wrapTop + contentH : wrapTop;
+      positionStemLine(stem, x, centerY, renderX, nearY);
       stem.style.display = '';
 
       const dayKey = `${dt.getFullYear()}-${dt.getMonth()}-${dt.getDate()}`;
@@ -875,32 +926,51 @@
 
   let mapInstance = null;
   const mapMarkers = new Map(); // place key -> L.Marker
-  // Explicitly expanded past the 3x3 cap by clicking its "+N more" -- cleared
-  // on deselect (clicking empty map) or leaving/re-entering the Map view.
+  // The one place currently browsed in the side panel -- only one at a time
+  // by construction (there's a single panel), cleared on deselect (clicking
+  // empty map or the panel's close button) or leaving/re-entering the view.
   let mapSelectedKey = null;
   const MAP_GRID_CAP = 9; // 3x3
+  let mapPanelEl = null;
+  let mapPanelHeaderEl = null;
+  let mapPanelGridEl = null;
 
   function mapZoomToPlace(group) {
     mapInstance.setView([group.place.lat, group.place.lng], MAP_CLUSTER_ZOOM + 1.5, { animate: true });
   }
 
-  function buildClusterIcon(group) {
+  // These build plain HTML strings, not L.divIcon objects -- see
+  // upsertMarker() for why: a divIcon has to be centered via a real
+  // `iconAnchor` (measured from this HTML once it's actually in the DOM),
+  // never via a CSS transform on the content, or the marker's visual
+  // position and its actual clickable area quietly drift apart.
+  function clusterIconHtml(group) {
     // Masked places (home/work/parents) get a visibly different (muted)
     // dot -- an honest signal that this pin is a deliberate generalization,
     // not this photo's real spot, the way the precise ones are.
-    const html = `<div class="map-cluster">
+    return `<div class="map-cluster">
       <div class="map-cluster-dot${group.place.mask ? ' masked' : ''}">${group.indices.length}</div>
       <div class="map-cluster-label">${escapeHtml(group.place.label)}${group.place.mask ? ' <span class="map-mask-note">(approx.)</span>' : ''}</div>
     </div>`;
-    return L.divIcon({ html, className: 'map-icon-wrap', iconSize: null });
+  }
+
+  // The place currently open in the side panel: collapses back to a compact,
+  // highlighted pin instead of growing a grid on the map itself, so the
+  // panel is the only place its photos are browsed and the pin's real
+  // location stays visible and unobscured.
+  function activeIconHtml(group) {
+    return `<div class="map-cluster map-active">
+      <div class="map-cluster-dot active">${group.indices.length}</div>
+      <div class="map-cluster-label active">${escapeHtml(group.place.label)}${group.place.mask ? ' <span class="map-mask-note">(approx.)</span>' : ''}</div>
+    </div>`;
   }
 
   // Showing every photo at a place in one grid works fine in isolation, but
   // with several places visible at once their grids can grow large enough to
-  // overlap each other -- so unless this place is alone on screen (or the
-  // viewer explicitly expanded it), it's capped at a 3x3 preview with a
-  // "stacked photos" look and a "+N more" tag hinting there's more behind it.
-  function buildGridIcon(group, thumbPx, labelLines, showFull) {
+  // overlap each other -- so unless this place is alone on screen, it's
+  // capped at a 3x3 preview with a "stacked photos" look and a "+N more" tag
+  // that opens the side panel instead of growing further in place.
+  function gridIconHtml(group, thumbPx, labelLines, showFull) {
     const n = group.indices.length;
     const capped = !showFull && n > MAP_GRID_CAP;
     const shown = capped ? group.indices.slice(0, MAP_GRID_CAP) : group.indices;
@@ -923,12 +993,74 @@
     // wrapper) -- sizing the outer element and expecting the inner flex
     // container to wrap at the same column count silently loses a few
     // pixels to the wrapper's own padding and drops a column.
-    const html = `<div class="map-grid${capped ? ' capped' : ''}">
+    return `<div class="map-grid${capped ? ' capped' : ''}">
       <div class="map-grid-label">${escapeHtml(group.place.label)}${maskNote} &middot; ${n} photo${n === 1 ? '' : 's'}</div>
       <div class="map-grid-tiles" style="width:${columns * thumbPx + (columns - 1) * 4}px">${tiles}</div>
       ${moreBadge}
     </div>`;
-    return L.divIcon({ html, className: 'map-icon-wrap', iconSize: null });
+  }
+
+  // Centers a divIcon on its marker's lat/lng via a real Leaflet `iconAnchor`
+  // (measured from the actual rendered content) rather than a CSS transform.
+  // A transform only moves where the content *paints* -- Leaflet's own click
+  // handling is bound to the icon wrapper's untransformed layout box, so a
+  // transform-centered marker's clickable area silently only overlaps a
+  // quarter of what's visible (whichever corner the shift happens to leave
+  // behind), making clicks work "at random" depending on exactly where within
+  // the marker you click. Costs a second layout pass to measure, but these
+  // are simple divs and there are only a handful of markers.
+  function upsertMarker(group, html, attachClick) {
+    let marker = mapMarkers.get(group.key);
+    const provisional = L.divIcon({ html, className: 'map-icon-wrap', iconSize: null });
+    if (!marker) {
+      marker = L.marker([group.place.lat, group.place.lng], { icon: provisional }).addTo(mapInstance);
+      attachClick(marker);
+      mapMarkers.set(group.key, marker);
+    } else {
+      marker.setIcon(provisional);
+    }
+    const el = marker.getElement();
+    const w = el && el.offsetWidth;
+    const h = el && el.offsetHeight;
+    if (w && h) {
+      marker.setIcon(L.divIcon({ html, className: 'map-icon-wrap', iconSize: [w, h], iconAnchor: [w / 2, h / 2] }));
+    }
+    return marker;
+  }
+
+  // All of a place's photos, 2 columns wide, scrolling if they don't fit --
+  // opened by clicking a capped grid's "+N more" instead of expanding it in
+  // place, so only one place is ever "open" at a time and its pin can stay a
+  // small, unobscured, highlighted marker rather than growing into a big grid
+  // that might overlap its neighbors.
+  function openMapPanel(group) {
+    mapSelectedKey = group.key;
+    mapPanelHeaderEl.textContent = `${group.place.label} · ${group.indices.length} photo${group.indices.length === 1 ? '' : 's'}`;
+    mapPanelGridEl.innerHTML = '';
+    group.indices.forEach((idx) => {
+      const item = items[idx];
+      const fig = document.createElement('figure');
+      fig.className = 'map-panel-item';
+      const img = document.createElement('img');
+      img.src = item.thumb;
+      img.loading = 'lazy';
+      img.alt = '';
+      const cap = document.createElement('figcaption');
+      cap.textContent = item.title || item.caption || '';
+      fig.append(img, cap);
+      fig.addEventListener('click', () => {
+        currentOrder = chronoOrder;
+        open(idx);
+      });
+      mapPanelGridEl.appendChild(fig);
+    });
+    mapPanelEl.hidden = false;
+  }
+
+  function closeMapPanel() {
+    mapPanelEl.hidden = true;
+    mapSelectedKey = null;
+    layoutMapMarkers();
   }
 
   function layoutMapMarkers() {
@@ -945,11 +1077,11 @@
     const visibleCount = groups.filter((g) => bounds.contains([g.place.lat, g.place.lng])).length;
     const isolated = visibleCount <= 1;
     groups.forEach((group) => {
-      let marker = mapMarkers.get(group.key);
-      const showFull = isolated || group.key === mapSelectedKey;
-      const icon = clustered ? buildClusterIcon(group) : buildGridIcon(group, thumbPx, labelLines, showFull);
-      if (!marker) {
-        marker = L.marker([group.place.lat, group.place.lng], { icon }).addTo(mapInstance);
+      const active = group.key === mapSelectedKey;
+      const html = active ? activeIconHtml(group)
+        : clustered ? clusterIconHtml(group)
+        : gridIconHtml(group, thumbPx, labelLines, isolated);
+      upsertMarker(group, html, (marker) => {
         marker.on('click', (e) => {
           const tile = e.originalEvent.target.closest('.map-tile');
           if (tile) {
@@ -957,19 +1089,20 @@
             open(Number(tile.dataset.idx));
             return;
           }
-          // A capped grid's background/"+N more" tag expands it in place
-          // instead of the usual zoom-toward-this-place behavior.
+          if (e.originalEvent.target.closest('.map-active')) {
+            closeMapPanel();
+            return;
+          }
+          // A capped grid's background/"+N more" tag opens the side panel
+          // instead of growing in place.
           if (e.originalEvent.target.closest('.map-grid.capped')) {
-            mapSelectedKey = group.key;
+            openMapPanel(group);
             layoutMapMarkers();
             return;
           }
           mapZoomToPlace(group);
         });
-        mapMarkers.set(group.key, marker);
-      } else {
-        marker.setIcon(icon);
-      }
+      });
     });
   }
 
@@ -985,13 +1118,28 @@
     view.className = 'timeline-view';
     view.innerHTML = `
       <p class="tl-hint">Scroll or pinch to zoom &middot; drag to pan &middot; click a place, then a photo</p>
-      <div class="map-viewport" id="map-viewport"></div>
+      <div class="map-view-wrap">
+        <div class="map-viewport" id="map-viewport"></div>
+        <div class="map-side-panel" id="map-side-panel" hidden>
+          <button class="map-panel-close" id="map-panel-close" aria-label="Close">&times;</button>
+          <div class="map-panel-header" id="map-panel-header"></div>
+          <div class="map-panel-grid" id="map-panel-grid"></div>
+        </div>
+      </div>
     `;
     main.appendChild(view);
 
+    mapPanelEl = view.querySelector('#map-side-panel');
+    mapPanelHeaderEl = view.querySelector('#map-panel-header');
+    mapPanelGridEl = view.querySelector('#map-panel-grid');
+    mapPanelEl.querySelector('#map-panel-close').addEventListener('click', closeMapPanel);
+
     mapMarkers.clear();
     mapSelectedKey = null;
-    mapInstance = L.map('map-viewport', { attributionControl: true, zoomControl: true });
+    // Zoom control moved off the default top-left, which the side panel
+    // occupies once a place is open.
+    mapInstance = L.map('map-viewport', { attributionControl: true, zoomControl: false });
+    L.control.zoom({ position: 'topright' }).addTo(mapInstance);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 18,
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
@@ -1003,10 +1151,9 @@
 
     mapInstance.on('zoomend moveend', layoutMapMarkers);
     // Clicking empty map (not a marker -- Leaflet markers don't bubble their
-    // clicks up to the map by default) backs out of an explicitly expanded
-    // grid.
+    // clicks up to the map by default) closes the side panel.
     mapInstance.on('click', () => {
-      if (mapSelectedKey) { mapSelectedKey = null; layoutMapMarkers(); }
+      if (mapSelectedKey) closeMapPanel();
     });
     layoutMapMarkers();
     currentOrder = chronoOrder;

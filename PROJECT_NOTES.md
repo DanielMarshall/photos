@@ -246,6 +246,21 @@ open/close never touching `location.hash` or `#sections`.
   pixels a burst actually needs to lay out one-after-another. A gap of a
   minute or more between shots resolves to a single row at max zoom; truly
   same-second bursts still fan (an inherent limit of any timeline, not a bug).
+  **Single-row squeeze**: once the ordinary lane fan would only ever need one
+  lane per side *for whatever's currently on screen* (`maxVisibleRank <= 1` in
+  `layoutIndividualItems`, checked only within the visible x-range plus a
+  viewport-width margin either side -- deliberately not the whole dataset,
+  since a real library almost always has some tight burst *somewhere* and
+  requiring the entire multi-week span to fit one lane before ever condensing
+  would mean it could never happen just because of a cluster you've since
+  zoomed/panned away from), photos condense onto a single shared row instead
+  of keeping two. Ones still too close in time to sit at their exact x are
+  nudged right just enough to clear their neighbor (their real position never
+  changes, only where this draws them); the connecting stem then angles from
+  the nudged thumbnail back down to its true spot on the axis via
+  `positionStemLine` (draws a horizontal bar of the right length and rotates
+  it -- a plain vertical stem is just the unrotated/+-90deg case of the same
+  routine, so there's one drawing path for both instead of two).
   Pan/zoom is custom: Pointer Events for drag-to-pan and two-finger
   pinch-to-zoom (tracked via a `Map` of active pointers), `wheel` for
   mouse-wheel zoom, both zooming around the cursor/pinch-midpoint. Layout
@@ -298,21 +313,64 @@ open/close never touching `location.hash` or `#sections`.
   has 169) to visually overlap a neighboring place's grid once several are on
   screen at once, so by default a grid caps at 3x3 (`MAP_GRID_CAP` = 9) with a
   "stacked cards" look (`.map-grid.capped`'s layered `box-shadow`, no extra
-  DOM) and a "+N more" tag. It only shows every photo when there's no reason
-  to expect overlap: either this is the only place inside the map's current
-  `getBounds()` (`isolated` in `layoutMapMarkers`, recomputed every
-  `zoomend`/`moveend` -- so zooming or panning until nothing else is nearby
-  naturally reveals the rest), or the viewer explicitly expanded it by
-  clicking the "+N more" tag (`mapSelectedKey`, cleared by clicking empty map
-  or leaving/re-entering the view). **Width footgun**: a grid's column width
-  must be set on `.map-grid-tiles` (the flex container) directly, not on the
-  padded `.map-grid` wrapper -- sizing the wrapper and expecting the same
-  column count to fit inside its padding silently drops a column (3 columns
-  wrapped to 2 the first time this was built). Verified the 3x3 wrap math in
-  isolation with a throwaway DOM node; live-clicking a Leaflet marker to
-  confirm the isolate/expand/deselect interactions specifically was unreliable
-  in the Claude Browser pane's automation (same class of issue as the
-  Fullscreen API restriction noted above) -- worth a manual click-through.
+  DOM) and a "+N more" tag. It only shows every photo when this place is the
+  only one inside the map's current `getBounds()` (`isolated` in
+  `layoutMapMarkers`, recomputed every `zoomend`/`moveend` -- zooming or
+  panning until nothing else is nearby naturally reveals the rest).
+  **Width footgun**: a grid's column width must be set on `.map-grid-tiles`
+  (the flex container) directly, not on the padded `.map-grid` wrapper --
+  sizing the wrapper and expecting the same column count to fit inside its
+  padding silently drops a column (3 columns wrapped to 2 the first time this
+  was built).
+  **Opening a place's full set (`mapSelectedKey`)**: rather than growing a big
+  grid in place (which could still overlap neighbors even alone, and moves the
+  pin itself), clicking a capped grid's "+N more" opens **all** of that
+  place's photos in a fixed 2-column side panel (`#map-side-panel`, overlays
+  the map on the left, own scrollbar) and collapses the marker itself to a
+  small, highlighted "active" pin (`buildActiveIcon` / `.map-cluster.map-active`
+  -- glowing ring + filled label) so its real location stays visible and
+  unobscured instead of disappearing under a grid. Only one place is ever
+  selected at a time by construction (`mapSelectedKey` is a single value, not
+  a set) -- opening a different place's panel automatically reverts the
+  previous one to its normal capped/cluster icon on the next
+  `layoutMapMarkers()` pass, nothing to explicitly "close" first. Leaflet's
+  zoom control was moved to `topright` (`zoomControl: false` +
+  `L.control.zoom({position:'topright'})`) since the panel occupies the
+  default top-left corner.
+  **Click hit-testing bug (real one, not a test-tool artifact)**: marker
+  content used to be centered on its lat/lng with CSS
+  `transform: translate(-50%, -50%)`. A transform only moves where an element
+  *paints* -- it does not move the parent `.leaflet-marker-icon` wrapper's own
+  layout box, which is what Leaflet's click handling is actually bound to. The
+  visual content and the real clickable area silently drifted apart by half
+  the content's own size, so a click only registered in whichever quarter of
+  the marker happened to still overlap both boxes -- maddeningly close to
+  "clicking sometimes works." Confirmed by comparing
+  `marker.getElement().getBoundingClientRect()` (unmoved) against its first
+  child's rect (visually shifted) -- they matched exactly what a -50%/-50%
+  transform predicts. Fixed by never transform-centering marker content at
+  all: `upsertMarker()` builds the icon HTML with `iconSize: null` once to
+  measure its natural rendered size, then rebuilds the divIcon with an
+  explicit `iconAnchor: [w/2, h/2]` -- Leaflet's own positioning then keeps
+  the wrapper's real hit box and the visual content in the same place, always.
+  Costs a second `setIcon()` per marker per layout pass to measure; irrelevant
+  at ~10 markers. `clusterIconHtml`/`activeIconHtml`/`gridIconHtml` return
+  plain HTML strings now (not `L.divIcon` objects) for exactly this reason --
+  don't reintroduce a wrapping `L.divIcon()` inside them or the anchor-fixup
+  in `upsertMarker` has nothing to correct.
+  **Testing note**: confirming this took an unusually long detour through
+  believing it was another Claude-Browser-pane automation quirk (per the
+  Fullscreen API note above) before the real, in-app bug was found by
+  comparing element rects directly -- worth checking actual DOM geometry
+  before writing off a flaky-seeming interaction as "just the test tool" next
+  time. Separately, this same pane was also observed to stop firing
+  `requestAnimationFrame` entirely mid-session (a bare
+  `requestAnimationFrame(() => {...})` never called back even after a full
+  second) while still reporting `document.visibilityState === "visible"` --
+  but a real synthetic input event dispatched through the `computer` tool
+  (not a bare `element.dispatchEvent(...)` from a script) still got one layout
+  pass through. If a future session sees state changing but the DOM never
+  updating, check for this before assuming the app code is broken.
 - **Lightbox z-index**: bumped from 100 to 1000 when Map was added --
   Leaflet's own panes (tiles/markers/popups) run up to ~700 and were showing
   *through* the lightbox overlay at the old value. If a future addition uses

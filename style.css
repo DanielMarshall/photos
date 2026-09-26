@@ -442,11 +442,14 @@ main {
   opacity: 0.55;
 }
 
+/* Drawn as a horizontal bar of the right length then rotated to point from
+   (left,top) at whatever angle it needs -- a plain vertical connector is just
+   the +/-90deg case, an angled one (nudged photo, single-row zoom) any other. */
 .tl-stem {
   position: absolute;
-  width: 2px;
-  margin-left: -1px;
+  height: 2px;
   background: var(--border);
+  transform-origin: 0 50%;
   pointer-events: none;
 }
 
@@ -539,6 +542,10 @@ main {
 }
 
 /* Map view (Leaflet) */
+.map-view-wrap {
+  position: relative;
+}
+
 .map-viewport {
   width: 100%;
   height: 68vh;
@@ -546,6 +553,105 @@ main {
   border: 1px solid var(--border);
   border-radius: 10px;
   background: var(--card-bg);
+}
+
+/* All of one place's photos, opened by its "+N more" -- overlays the map on
+   the left rather than resizing it, so only the panel (not a big on-map grid)
+   ever competes for space with other pins. */
+.map-side-panel {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 210px;
+  max-width: 60%;
+  background: color-mix(in srgb, var(--card-bg) 96%, transparent);
+  backdrop-filter: blur(6px);
+  border-right: 1px solid var(--border);
+  border-radius: 10px 0 0 10px;
+  padding: 0.7rem;
+  overflow-y: auto;
+  z-index: 450;
+  box-shadow: 4px 0 16px rgba(0, 0, 0, 0.25);
+}
+
+.map-panel-close {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.5rem;
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.map-panel-close:hover {
+  color: var(--fg);
+}
+
+.map-panel-header {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--fg);
+  padding-right: 1.4rem;
+  margin-bottom: 0.6rem;
+}
+
+.map-panel-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.map-panel-item {
+  margin: 0;
+  cursor: pointer;
+}
+
+.map-panel-item img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: var(--border);
+}
+
+.map-panel-item:hover img {
+  border-color: var(--accent);
+}
+
+.map-panel-item figcaption {
+  margin: 2px 0 0;
+  font-size: 0.62rem;
+  line-height: 1.2;
+  color: var(--muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* The place currently open in the panel: a bigger, glowing pin so its real
+   spot on the map stays obvious and unobscured while its photos live in the
+   panel instead of a grid drawn here. */
+.map-cluster.map-active {
+  z-index: 1000;
+}
+
+.map-cluster-dot.active {
+  width: 46px;
+  height: 46px;
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 35%, transparent), 0 2px 12px rgba(0, 0, 0, 0.45);
+}
+
+.map-cluster-label.active {
+  background: var(--accent);
+  color: #fff;
 }
 
 .map-icon-wrap {
@@ -559,7 +665,6 @@ main {
   align-items: center;
   gap: 0.3rem;
   cursor: pointer;
-  transform: translate(-50%, -50%);
 }
 
 .map-cluster-dot {
@@ -590,7 +695,6 @@ main {
 
 .map-grid {
   position: relative;
-  transform: translate(-50%, -50%);
   background: color-mix(in srgb, var(--card-bg) 92%, transparent);
   border: 1px solid var(--border);
   border-radius: 8px;
