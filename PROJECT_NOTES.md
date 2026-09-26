@@ -15,7 +15,22 @@ that read from the photographer's local Camera Roll.
 
 ## Current status (keep this updated -- read first in a new session)
 
-Last updated 2026-09-26 (cloud session, branch `claude/project-thread-i9mxki`).
+Last updated 2026-09-26 (cloud session, branch `claude/project-thread-8exgki`).
+
+- **Visitor hearts (2026-09-26, PR from `claude/project-thread-8exgki`)**:
+  any visitor can heart photos (heart on each grid tile, map-panel tile and
+  a "Heart" button in the lightbox; the Timeline has no tile hearts, use the
+  lightbox). Saved only in their browser (`localStorage` key `photoHearts`,
+  a list of photo slugs = thumbnail filename without extension). New
+  **My Hearts** tab (`#/hearts`, count badge on the nav) with a name box,
+  "Copy my list" (clipboard, falls back to a select-and-copy box) and
+  "Email my list" (`mailto:` with subject + body, deliberately NO address).
+  The list gives each photo's title, section and a `#/p/<slug>` link; that
+  route opens the photo in its category. Purpose: friends build their own
+  lists and send them to the photographer, who pastes them into a Claude
+  session to tally. **Next (not built yet):** the photographer's own
+  curated favourites set, visible to everyone, picked with help from those
+  lists.
 
 - Name tidy-up (2026-09-26, photographer picked each one from a suggestion
   list): section labels now "Gladesville: Timmy" (was People), "Gladesville:
@@ -132,7 +147,8 @@ plain-JPG sibling with EXIF.
 
 - `index.html` — shell markup: the view-switcher nav, header, `#sections`
   (populated by JS with whichever of Categories/Timeline/Map is active),
-  footer, lightbox markup, slideshow markup. Also loads Leaflet from unpkg
+  footer, lightbox markup, slideshow markup. Nav has a fourth tab, My Hearts
+  (see "Visitor hearts" in Current status). Also loads Leaflet from unpkg
   (map view) -- see "View switcher" below for why that script tag must not be
   `defer`red.
 - `style.css` — all styling. Dark/light theme via `prefers-color-scheme` +

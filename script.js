@@ -31,6 +31,8 @@
   const lbProgressBar = document.getElementById('lb-progress-bar');
   const lbLoadingLabel = document.getElementById('lb-loading-label');
   const viewSwitcher = document.getElementById('view-switcher');
+  const lbHeart = document.getElementById('lb-heart');
+  const heartCountEl = document.getElementById('heart-count');
 
   const res = await fetch('images.json?v=' + Date.now());
   const items = await res.json();
@@ -167,6 +169,233 @@
   // it already comes in". Used by the Timeline view.
   const chronoOrder = items.map((item) => item._index).filter((i) => !isSlice(items[i]));
 
+  // ---------------- Visitor hearts ----------------
+  // Any visitor can heart photos; the set lives only in their own browser
+  // (localStorage), keyed by each photo's slug (its thumbnail filename, which
+  // is stable across rebuilds). The My Hearts view lets them copy or email
+  // the list so friends can send the photographer their picks.
+  const HEARTS_KEY = 'photoHearts';
+  const HEART_NAME_KEY = 'photoHeartsName';
+  const indexBySlug = new Map();
+  items.forEach((item, i) => indexBySlug.set(slugOf(item), i));
+
+  function slugOf(item) {
+    return item.thumb.split('/').pop().replace(/\.[^.]+$/, '');
+  }
+
+  function storageGet(key) {
+    try { return localStorage.getItem(key); } catch (e) { return null; }
+  }
+
+  function storageSet(key, value) {
+    try { localStorage.setItem(key, value); } catch (e) { /* private mode etc. */ }
+  }
+
+  // Kept in the order they were hearted, so the sent list reads the way the
+  // visitor built it.
+  let hearts = [];
+  try {
+    const saved = JSON.parse(storageGet(HEARTS_KEY) || '[]');
+    if (Array.isArray(saved)) hearts = saved.filter((slug) => indexBySlug.has(slug));
+  } catch (e) { hearts = []; }
+
+  function isHearted(item) {
+    return hearts.includes(slugOf(item));
+  }
+
+  function toggleHeart(item) {
+    const slug = slugOf(item);
+    hearts = isHearted(item) ? hearts.filter((s) => s !== slug) : hearts.concat(slug);
+    storageSet(HEARTS_KEY, JSON.stringify(hearts));
+    syncHearts();
+  }
+
+  // Every heart on the page (grid buttons, the lightbox button, the nav
+  // count) reflects the same list, so update them all after any change.
+  function syncHearts() {
+    document.querySelectorAll('.heart-btn').forEach((btn) => {
+      const on = hearts.includes(btn.dataset.slug);
+      btn.classList.toggle('on', on);
+      btn.setAttribute('aria-pressed', on);
+      btn.innerHTML = on ? '&#9829;' : '&#9825;';
+    });
+    syncLbHeart();
+    heartCountEl.hidden = !hearts.length;
+    heartCountEl.textContent = hearts.length;
+    // The My Hearts grid itself changes when a heart is removed, but not
+    // while a photo is open over it -- close() redraws it instead.
+    if (location.hash === '#/hearts' && lightbox.hidden) renderHearts(true);
+  }
+
+  function syncLbHeart() {
+    if (current < 0) return;
+    const on = isHearted(items[current]);
+    lbHeart.classList.toggle('on', on);
+    lbHeart.setAttribute('aria-pressed', on);
+    lbHeart.innerHTML = on ? '&#9829; Hearted' : '&#9825; Heart';
+  }
+
+  function makeHeartBtn(item) {
+    const btn = document.createElement('button');
+    btn.className = 'heart-btn';
+    btn.dataset.slug = slugOf(item);
+    btn.setAttribute('aria-label', 'Heart this photo');
+    const on = isHearted(item);
+    btn.classList.toggle('on', on);
+    btn.setAttribute('aria-pressed', on);
+    btn.innerHTML = on ? '&#9829;' : '&#9825;';
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleHeart(item);
+    });
+    return btn;
+  }
+
+  function sectionLabelOf(item) {
+    return SECTION_LABELS[groupKey(item)] || item.category;
+  }
+
+  function photoLink(item) {
+    return `${location.origin}${location.pathname}#/p/${slugOf(item)}`;
+  }
+
+  function heartsListText(name) {
+    const who = name ? ` from ${name}` : '';
+    const lines = [`Photo hearts${who} (${hearts.length} photo${hearts.length === 1 ? '' : 's'})`, ''];
+    hearts.forEach((slug, n) => {
+      const item = items[indexBySlug.get(slug)];
+      lines.push(`${n + 1}. ${item.title || item.original_filename} (${sectionLabelOf(item)})`);
+      lines.push(`   ${photoLink(item)}`);
+    });
+    return lines.join('\n');
+  }
+
+  async function copyText(text) {
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch (e) {
+      // Older browsers / non-secure contexts: fall back to a hidden textarea.
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      let ok = false;
+      try { ok = document.execCommand('copy'); } catch (e2) { ok = false; }
+      ta.remove();
+      return ok;
+    }
+  }
+
+  function renderHearts(keepScroll) {
+    document.body.classList.remove('home-view');
+    const scrollY = window.scrollY;
+    main.innerHTML = '';
+
+    const section = document.createElement('section');
+    section.className = 'photo-section hearts-view';
+
+    const heading = document.createElement('h2');
+    heading.textContent = 'My Hearts';
+    section.appendChild(heading);
+
+    const intro = document.createElement('p');
+    intro.className = 'section-intro';
+    intro.textContent = 'Tap the heart on any photo you think is one of the best. Your hearts are saved in this browser only. When you are happy with your list, copy it or email it to Dan to help pick the favourites.';
+    section.appendChild(intro);
+
+    if (!hearts.length) {
+      const empty = document.createElement('p');
+      empty.className = 'hearts-empty';
+      empty.textContent = 'No hearts yet. Open Categories, Timeline or Map and tap the heart on a photo.';
+      section.appendChild(empty);
+      main.appendChild(section);
+      if (!keepScroll) window.scrollTo(0, 0);
+      return;
+    }
+
+    const send = document.createElement('div');
+    send.className = 'hearts-send';
+    send.innerHTML = `
+      <label class="hearts-name-label">Your name
+        <input type="text" class="hearts-name" id="hearts-name" placeholder="So Dan knows who sent it" autocomplete="name">
+      </label>
+      <div class="hearts-send-btns">
+        <button class="hearts-btn primary" id="hearts-copy">Copy my list</button>
+        <a class="hearts-btn" id="hearts-email" href="#">Email my list</a>
+      </div>
+      <p class="hearts-status" id="hearts-status" aria-live="polite"></p>
+      <textarea class="hearts-fallback" id="hearts-fallback" readonly hidden></textarea>
+    `;
+    section.appendChild(send);
+
+    const nameInput = send.querySelector('#hearts-name');
+    const copyBtn = send.querySelector('#hearts-copy');
+    const emailLink = send.querySelector('#hearts-email');
+    const statusEl = send.querySelector('#hearts-status');
+    const fallback = send.querySelector('#hearts-fallback');
+    nameInput.value = storageGet(HEART_NAME_KEY) || '';
+
+    // No address filled in: friends who send it already know where to.
+    function updateEmailLink() {
+      const name = nameInput.value.trim();
+      const subject = `Photo hearts${name ? ` from ${name}` : ''}`;
+      emailLink.href = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(heartsListText(name))}`;
+    }
+    updateEmailLink();
+    nameInput.addEventListener('input', () => {
+      storageSet(HEART_NAME_KEY, nameInput.value.trim());
+      updateEmailLink();
+    });
+
+    copyBtn.addEventListener('click', async () => {
+      const text = heartsListText(nameInput.value.trim());
+      const ok = await copyText(text);
+      if (ok) {
+        fallback.hidden = true;
+        statusEl.textContent = 'Copied! Paste it into a message to Dan.';
+      } else {
+        fallback.value = text;
+        fallback.hidden = false;
+        fallback.select();
+        statusEl.textContent = "Couldn't copy automatically. Select the text below and copy it.";
+      }
+    });
+
+    const grid = document.createElement('div');
+    grid.className = 'grid';
+    currentOrder = hearts.map((slug) => indexBySlug.get(slug));
+    currentOrder.forEach((idx) => grid.appendChild(makeGridFigure(items[idx])));
+    section.appendChild(grid);
+
+    main.appendChild(section);
+    if (keepScroll) window.scrollTo(0, scrollY);
+    else window.scrollTo(0, 0);
+  }
+
+  // One photo tile for a .grid (category pages and My Hearts).
+  function makeGridFigure(item) {
+    const fig = document.createElement('figure');
+    const img = document.createElement('img');
+    img.src = item.thumb;
+    img.loading = 'lazy';
+    img.alt = item.title || item.caption || 'Photo';
+    fig.appendChild(img);
+
+    const label = item.title || item.original_filename;
+    if (label) {
+      const cap = document.createElement('figcaption');
+      cap.textContent = label;
+      if (!item.title) cap.classList.add('filename');
+      fig.appendChild(cap);
+    }
+    fig.appendChild(makeHeartBtn(item));
+    fig.addEventListener('click', () => open(item._index));
+    return fig;
+  }
+
   function renderHome() {
     document.body.classList.add('home-view');
     main.innerHTML = '';
@@ -302,24 +531,7 @@
 
     currentOrder = groupItems.map((item) => item._index);
 
-    groupItems.forEach((item) => {
-      const fig = document.createElement('figure');
-      const img = document.createElement('img');
-      img.src = item.thumb;
-      img.loading = 'lazy';
-      img.alt = item.title || item.caption || 'Photo';
-      fig.appendChild(img);
-
-      const label = item.title || item.original_filename;
-      if (label) {
-        const cap = document.createElement('figcaption');
-        cap.textContent = label;
-        if (!item.title) cap.classList.add('filename');
-        fig.appendChild(cap);
-      }
-      fig.addEventListener('click', () => open(item._index));
-      grid.appendChild(fig);
-    });
+    groupItems.forEach((item) => grid.appendChild(makeGridFigure(item)));
 
     section.appendChild(grid);
 
@@ -1067,7 +1279,7 @@
       img.alt = '';
       const cap = document.createElement('figcaption');
       cap.textContent = item.title || item.caption || '';
-      fig.append(img, cap);
+      fig.append(img, cap, makeHeartBtn(item));
       fig.addEventListener('click', () => {
         currentOrder = chronoOrder;
         open(idx);
@@ -1195,12 +1407,33 @@
       setActiveView('map');
       return renderMap();
     }
+    if (location.hash === '#/hearts') {
+      setActiveView('hearts');
+      return renderHearts();
+    }
+    // A shared photo link (from a sent hearts list): show its category with
+    // the photo open, then swap the address to the category so closing the
+    // photo and re-opening the same link both behave normally.
+    const p = location.hash.match(/^#\/p\/(.+)$/);
+    if (p && indexBySlug.has(decodeURIComponent(p[1]))) {
+      const item = items[indexBySlug.get(decodeURIComponent(p[1]))];
+      const key = groupKey(isSlice(item) ? items[indexByOriginal.get(item.sample_of)] : item);
+      history.replaceState(null, '', `#/c/${encodeURIComponent(key)}`);
+      setActiveView('home');
+      renderCategory(key);
+      // Deferred: on first load route() runs before the lightbox code below
+      // has been set up.
+      setTimeout(() => open(item._index));
+      return;
+    }
     currentOrder = globalOrder;
     setActiveView('home');
     renderHome();
   }
 
   window.addEventListener('hashchange', route);
+  heartCountEl.hidden = !hearts.length;
+  heartCountEl.textContent = hearts.length;
   route();
 
   let current = -1;
@@ -2319,6 +2552,7 @@
     lbImg.src = zoomed ? fullObjectURL : item.medium;
     lbImg.alt = item.title || item.caption || 'Photo';
     lbZoom.textContent = zoomed ? 'Back to normal size' : 'View full resolution';
+    syncLbHeart();
 
     // Stack <-> example slice links: a thumbnail pill per partner photo.
     lbSampleBtns.innerHTML = '';
@@ -2385,6 +2619,7 @@
 
   function close() {
     lightbox.hidden = true;
+    if (location.hash === '#/hearts') renderHearts(true);
     document.body.style.overflow = '';
     resetZoomState();
     releaseFullObjectURL();
@@ -2857,6 +3092,10 @@
       cleanup();
     }
   }
+
+  lbHeart.addEventListener('click', () => {
+    if (current >= 0) toggleHeart(items[current]);
+  });
 
   lbZoom.addEventListener('click', () => {
     if (zoomed) {

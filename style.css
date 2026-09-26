@@ -1416,3 +1416,162 @@ main {
   color: #aaa;
   font-size: 0.78rem;
 }
+
+/* ---------------- Visitor hearts ---------------- */
+/* Heart button on each photo tile (category grids, My Hearts, map panel).
+   Hidden until hover on mouse devices unless already hearted; always shown
+   on touch screens, where there's no hover. */
+.heart-btn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  z-index: 2;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  font-size: 1.1rem;
+  line-height: 32px;
+  padding: 0;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.grid figure:hover .heart-btn,
+.map-panel-item:hover .heart-btn,
+.heart-btn:focus-visible,
+.heart-btn.on {
+  opacity: 1;
+}
+
+.heart-btn.on {
+  color: #ff5a7a;
+}
+
+.heart-btn:hover {
+  transform: scale(1.12);
+}
+
+@media (hover: none) {
+  .heart-btn { opacity: 1; }
+}
+
+.map-panel-item {
+  position: relative;
+}
+
+.map-panel-item .heart-btn {
+  top: 3px;
+  right: 3px;
+  width: 26px;
+  height: 26px;
+  line-height: 26px;
+  font-size: 0.9rem;
+}
+
+.lb-heart.on {
+  color: #ff5a7a;
+  border-color: #ff5a7a;
+}
+
+.heart-count {
+  display: inline-block;
+  margin-left: 0.35rem;
+  min-width: 1.3em;
+  padding: 0 0.3em;
+  border-radius: 10px;
+  background: #ff5a7a;
+  color: #fff;
+  font-size: 0.7em;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.heart-count[hidden] {
+  display: none;
+}
+
+.hearts-empty {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.hearts-send {
+  max-width: 640px;
+  margin: 0 0 1.2rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--card-bg);
+}
+
+.hearts-name-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.hearts-name {
+  font: inherit;
+  font-weight: 400;
+  font-size: 0.95rem;
+  color: var(--fg);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.45rem 0.6rem;
+}
+
+.hearts-send-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.8rem;
+}
+
+.hearts-btn {
+  display: inline-block;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.45rem 1rem;
+  border-radius: 20px;
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.hearts-btn.primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.hearts-status {
+  margin: 0.6rem 0 0;
+  min-height: 1.2em;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.hearts-fallback {
+  width: 100%;
+  min-height: 8rem;
+  margin-top: 0.5rem;
+  font: 0.78rem ui-monospace, "SF Mono", Consolas, monospace;
+  color: var(--fg);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.hearts-fallback[hidden] {
+  display: none;
+}
