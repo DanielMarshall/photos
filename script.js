@@ -101,7 +101,7 @@
     "Gladesville|Michael's Fender": "Michael dialling in the tone on his Fender bass amp.",
     "Gladesville|Michael's Studio": "Michael's new home studio, freshly set up in the living room — the same setup as his Fender amp session.",
     'Gladesville|Moss': 'Macro shots of a moss sample on the kitchen counter.',
-    'Gladesville|Indoor Macro': 'Macro shots of curious objects found around the house — an old hard drive, a mandarin peel, and a wine cork.',
+    'Gladesville|Indoor Macro': "Macro shots of curious objects found around the house — an old hard drive, a mandarin peel, and a wine cork — plus a Farmer's Friend seed from the back yard, brought inside for tripod and coloured-light experiments.",
     'Gladesville|Planes': 'Planes photographed from the yard, some with the MC-20 teleconverter for extra reach.',
     'Gladesville|People': 'Timmy the dog, at home.',
     'Gladesville|Uncategorized': "A few photos that don't fit anywhere else yet.",

@@ -67,6 +67,10 @@ SOURCE_MAP = {
     "20260926_145730P9260352 seeds 18stacked.jpg": os.path.join(EXPORTS, "20260926_145730P9260352.jpg"),
     "20260926_150310P9260463_01 flower 60stacked --- .jpg": os.path.join(EXPORTS, "20260926_150310P9260463_01.jpg"),
     "20260926_150556P9260541_01 barbs 31stacked ---.jpg": os.path.join(EXPORTS, "20260926_150556P9260541_01.jpg"),
+    "20260926_183141P9260001_03 seed base in purple 23stacked.jpg": os.path.join(EXPORTS, "20260926_183141P9260001_03.jpg"),
+    "20260926_183357P9260145_01 green light seed base 50stacked ---.jpg": os.path.join(EXPORTS, "20260926_183357P9260145_01.jpg"),
+    "20260926_183521P9260242_01 seed base 70stacked ---.jpg": os.path.join(EXPORTS, "20260926_183521P9260242_01.jpg"),
+    "20260926_183643P9260348_01 seed base natural light 52stacked -- .jpg": os.path.join(EXPORTS, "20260926_183643P9260348_01.jpg"),
 }
 UNRESOLVED = set()
 
@@ -342,6 +346,16 @@ INDOOR_MACRO = {
     "16092026_184614P9160360 indoor macro.jpg",
     "16092026_184801P9160518 indoor macro 50stacked.jpg",
     "16092026_184801P9160518 indoor macro.jpg",
+    # Farmer's Friend (Bidens pilosa) seed, 26 Sep evening: living-room
+    # tripod + coloured-light experiments
+    "20260926_183141P9260001_03 seed base in purple 23stacked.jpg",
+    "20260926_183141P9260001_03.jpg",
+    "20260926_183357P9260145_01 green light seed base 50stacked ---.jpg",
+    "20260926_183357P9260145_01.jpg",
+    "20260926_183521P9260242_01 seed base 70stacked ---.jpg",
+    "20260926_183521P9260242_01.jpg",
+    "20260926_183643P9260348_01 seed base natural light 52stacked -- .jpg",
+    "20260926_183643P9260348_01.jpg",
 }
 
 # (title, description) supplied by the photographer, keyed by original filename.
@@ -584,6 +598,15 @@ TITLES = {
     "20260926_150310P9260463_01.jpg": ("Flower II: Example Slice", "Sample stack slice"),
     "20260926_150556P9260541_01 barbs 31stacked ---.jpg": ("Barbs", "Stacked photo"),
     "20260926_150556P9260541_01.jpg": ("Barbs: Example Slice", "Sample stack slice"),
+    # Farmer's Friend lighting experiments, 26 Sep evening (Indoor Macro)
+    "20260926_183141P9260001_03 seed base in purple 23stacked.jpg": ("Farmer's Friend in Magenta", "A single Bidens pilosa (Farmer's Friend) seed from the back yard, lit with one magenta light. 23-photo stack."),
+    "20260926_183141P9260001_03.jpg": ("Farmer's Friend in Magenta: Example Slice", "Sample stack slice"),
+    "20260926_183357P9260145_01 green light seed base 50stacked ---.jpg": ("Farmer's Friend in Green", "The same Bidens pilosa seed under green light, which brings out the fine ridged texture along its body. 50-photo stack."),
+    "20260926_183357P9260145_01.jpg": ("Farmer's Friend in Green: Example Slice", "Sample stack slice"),
+    "20260926_183521P9260242_01 seed base 70stacked ---.jpg": ("Farmer's Friend", "The seed's torn-off base under plain white light, where it broke away from the seed head. 70-photo stack."),
+    "20260926_183521P9260242_01.jpg": ("Farmer's Friend: Example Slice", "Sample stack slice"),
+    "20260926_183643P9260348_01 seed base natural light 52stacked -- .jpg": ("Farmer's Friend Awns", "The other end of the seed in natural light: the awns, each lined with backward-pointing barbs that hook onto socks and fur. 52-photo stack."),
+    "20260926_183643P9260348_01.jpg": ("Farmer's Friend Awns: Example Slice", "Sample stack slice"),
     "19092026_123821P9190438 bay landscape.jpg": ("Yachts at Anchor", ""),
     "19092026_123845P9190465 bay landscape.jpg": ("Moored Yacht", ""),
     "19092026_124002P9190470 bay landscape.jpg": ("Moored Yacht II", ""),

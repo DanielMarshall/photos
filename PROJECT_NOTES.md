@@ -17,6 +17,20 @@ that read from the photographer's local Camera Roll.
 
 Last updated 2026-09-26 (cloud session, branch `claude/project-thread-8exgki`).
 
+- **Farmer's Friend lighting experiments (2026-09-26 evening, local
+  session, pushed to `main`)**: 4 focus stacks + 4 example slices of one
+  Bidens pilosa seed, shot in the living room on a tripod with MC-20, added to
+  **Gladesville: Indoor Macro** (`INDOOR_MACRO` set; section blurb extended).
+  Titles were Claude's suggestions: "Farmer's Friend in Magenta", "... in
+  Green", "Farmer's Friend" (white light), "Farmer's Friend Awns" (the file
+  says "seed base natural light", but the photo shows the barbed awn end).
+  The photographer found one coloured light too flat and plans to buy a
+  second. The afternoon Garden shots "Seed Base", "Seeds" and "Barbs" are
+  probably the same plant; they haven't been renamed or moved.
+- Five `19092026_* bay landscape.jpg` files in `exports/` (P9190439, 466, 471,
+  473, 492) aren't in `manifest.tsv`. They were left out on purpose or missed;
+  ask before adding.
+
 - **Slideshow follows the view (2026-09-26, second PR from
   `claude/project-thread-8exgki`)**: see "Slideshow" below.
 
