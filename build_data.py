@@ -562,7 +562,7 @@ TITLES = {
     "26092026_101803P9260821 Boronia Park Reserve.jpg": ("Snail Shell II: Example Slice", "Sample stack slice"),
     "26092026_102753P9261010 Boronia Park Reserve 10stacked ---.jpg": ("Flower Spider", "Stacked photo"),
     "26092026_102753P9261010 Boronia Park Reserve.jpg": ("Flower Spider: Example Slice", "Sample stack slice"),
-    "26092026_093849P9260136 Boronia Park Reserve.jpg": ("Cup Fungus", ""),
+    "26092026_093849P9260136 Boronia Park Reserve.jpg": ("Hairy Wood Ear", "A cluster of wood ear fungus on a fallen branch, each cup a few centimetres across. Fuzzy on the outside, smooth on the inside."),
     "26092026_095000P9260226 Boronia Park Reserve.jpg": ("Crab Spider III", ""),
     "26092026_095012P9260261 Boronia Park Reserve.jpg": ("Crab Spider IV", ""),
     "26092026_095032P9260263 Boronia Park Reserve.jpg": ("Crab Spider V", ""),
