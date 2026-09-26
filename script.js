@@ -45,6 +45,7 @@
     ["Gladesville", "Michael's Fender"],
     ["Gladesville", "Michael's Studio"],
     ['Gladesville', 'Banjo Paterson Park'],
+    ['Gladesville', 'Boronia Park Reserve'],
     ['Gladesville', 'Planes'],
     ['Gladesville', 'People'],
     ['Gladesville', 'Uncategorized'],
@@ -63,6 +64,7 @@
     'Gladesville|Garden': 'Gladesville: Garden',
     'Gladesville|Ants': 'Gladesville: Ants',
     'Gladesville|Banjo Paterson Park': 'Gladesville: Banjo Paterson Park',
+    'Gladesville|Boronia Park Reserve': 'Gladesville: Boronia Park Reserve',
     'Gladesville|Experiments in Liquids': 'Gladesville: Experiments in Liquids',
     'Gladesville|Dinosaurs': 'The Last of the Dinosaurs',
     'Gladesville|Frank photos of Frankie': 'Frank photos of Frankie',
@@ -88,6 +90,7 @@
   const SECTION_DESCRIPTIONS = {
     'Gladesville|Ants': "Ants rushing madly around a weed in the back yard. A narrow aperture let the flash freeze them as best it could; a lower flash power and wider aperture might still beat the sunlight for sharper shots, but it's a good idea of what to expect from ants in motion.",
     'Gladesville|Banjo Paterson Park': 'Shoreline macro and telephoto views across the bay to Abbotsford, where the Sydney Rowing Club and Abbotsford Rowing Club sit side by side.',
+    'Gladesville|Boronia Park Reserve': 'A macro walk at Boronia Park Reserve -- spiders, a snail shell, seed pods and other finds.',
     'Gladesville|Garden': 'Backyard macro photography — spiders, insects, and other garden life, including focus-stacked composites.',
     'Gladesville|Experiments in Liquids': 'Macro tests of oil and glitter in liquid, exploring focus and lighting technique.',
     'Gladesville|Dinosaurs': "They like roasted almonds enough that they will fight each other off to see who gets to almost take off one of my fingers, and hang around for some photos afterwards, until Timmy came to investigate, and their extinction paranoia kicked in and they went to their next stop.",
@@ -442,6 +445,7 @@
     hornsby: { label: "Hornsby Heights (mum & dad's)", lat: -33.6698, lng: 151.0989, mask: true },
     ashfield: { label: 'Ashfield', lat: -33.8886, lng: 151.1256 },
     banjo: { label: 'Banjo Paterson Park, Gladesville', lat: -33.8341, lng: 151.1301 },
+    boronia: { label: 'Boronia Park Reserve, Hunters Hill', lat: -33.8305, lng: 151.1476 },
     darling: { label: 'Darling Harbour', lat: -33.8688, lng: 151.2005 },
     chinesegarden: { label: 'Chinese Garden of Friendship', lat: -33.8756, lng: 151.2038 },
     townhall: { label: 'Sydney Town Hall', lat: -33.8734, lng: 151.2064 },
@@ -461,6 +465,7 @@
     if (item.category === 'Darling Harbour Piano') return 'dhpiano';
     const l = (item.location || '').toLowerCase();
     if (l.includes('banjo paterson')) return 'banjo';
+    if (l.includes('boronia park')) return 'boronia';
     if (l.includes('darling harbour')) return 'darling';
     if (l.includes('hornsby heights')) return 'hornsby';
     if (l === 'artarmon') return 'artarmon';
@@ -485,8 +490,16 @@
     return String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   }
 
+  // The time axis's scale grows much faster than thumbnail size once
+  // thumbnails have already saturated at TL_MAX_THUMB (see thumbPxFor) --
+  // *13, not *1.3. With the old rate, separating a two-minute gap between
+  // shots needed close to the full zoom range (thumbPx saturates at a tiny
+  // fraction of TL_MAX_ZOOM, so nearly the whole remaining range was spent
+  // just growing pxPerDay linearly) -- an order of magnitude more scrolling
+  // than it should have taken. This makes the same real-world separation
+  // reachable an order of magnitude sooner.
   function tlPxPerDay(zoom) {
-    return Math.max(zoom * 1.3, 26);
+    return Math.max(zoom * 13, 26);
   }
   function tlLabelLines(thumbPx) {
     if (thumbPx < 55) return 0;
@@ -907,7 +920,7 @@
       const span = groupsList[groupsList.length - 1].dayOffset - groupsList[0].dayOffset || 1;
       requestAnimationFrame(() => {
         const width = tlViewportEl.clientWidth || 1000;
-        tlZoom = Math.min(TL_MAX_ZOOM, Math.max(TL_MIN_ZOOM, (width / span) / 1.3));
+        tlZoom = Math.min(TL_MAX_ZOOM, Math.max(TL_MIN_ZOOM, (width / span) / 13));
         tlPanPx = 40;
         layoutTimeline();
       });

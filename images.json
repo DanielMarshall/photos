@@ -11028,5 +11028,1173 @@
     "samples": [
       "25092026_175348P9250067.jpg"
     ]
+  },
+  {
+    "thumb": "images/thumbs/26092026-082303p9260062-boronia-park-reserve-23-stacked.jpg",
+    "medium": "images/medium/26092026-082303p9260062-boronia-park-reserve-23-stacked.jpg",
+    "full": "images/full/26092026-082303p9260062-boronia-park-reserve-23-stacked.jpg",
+    "original_filename": "26092026_082303P9260062 Boronia Park Reserve 23 stacked --- .jpg",
+    "caption": "Boronia Park Reserve 23 stacked ---",
+    "title": "Garden Orb Weaver Seven Stack",
+    "description": "23-photo stack",
+    "category": "Gladesville",
+    "subcategory": "Boronia Park Reserve",
+    "location": "Boronia Park Reserve, Hunters Hill",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/640s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:26 08:23:03"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "samples": [
+      "26092026_082303P9260062 Boronia Park Reserve.jpg"
+    ]
+  },
+  {
+    "thumb": "images/thumbs/26092026-082303p9260062-boronia-park-reserve.jpg",
+    "medium": "images/medium/26092026-082303p9260062-boronia-park-reserve.jpg",
+    "full": "images/full/26092026-082303p9260062-boronia-park-reserve.jpg",
+    "original_filename": "26092026_082303P9260062 Boronia Park Reserve.jpg",
+    "caption": "Boronia Park Reserve",
+    "title": "Garden Orb Weaver Seven Example Slice",
+    "description": "Sample slice",
+    "category": "Gladesville",
+    "subcategory": "Boronia Park Reserve",
+    "location": "Boronia Park Reserve, Hunters Hill",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/640s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:26 08:23:03"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "sample_of": "26092026_082303P9260062 Boronia Park Reserve 23 stacked --- .jpg"
+  },
+  {
+    "thumb": "images/thumbs/26092026-093849p9260136-boronia-park-reserve.jpg",
+    "medium": "images/medium/26092026-093849p9260136-boronia-park-reserve.jpg",
+    "full": "images/full/26092026-093849p9260136-boronia-park-reserve.jpg",
+    "original_filename": "26092026_093849P9260136 Boronia Park Reserve.jpg",
+    "caption": "Boronia Park Reserve",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Boronia Park Reserve",
+    "location": "Boronia Park Reserve, Hunters Hill",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:26 09:38:49"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ]
+  },
+  {
+    "thumb": "images/thumbs/26092026-094554p9260195-boronia-park-reserve-40stacked.jpg",
+    "medium": "images/medium/26092026-094554p9260195-boronia-park-reserve-40stacked.jpg",
+    "full": "images/full/26092026-094554p9260195-boronia-park-reserve-40stacked.jpg",
+    "original_filename": "26092026_094554P9260195 Boronia Park Reserve 40stacked --- .jpg",
+    "caption": "Boronia Park Reserve 40stacked ---",
+    "title": "Crab Spider",
+    "description": "Stacked photo",
+    "category": "Gladesville",
+    "subcategory": "Boronia Park Reserve",
+    "location": "Boronia Park Reserve, Hunters Hill",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:26 09:45:54"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "samples": [
+      "26092026_094554P9260195 Boronia Park Reserve.jpg"
+    ]
+  },
+  {
+    "thumb": "images/thumbs/26092026-094554p9260195-boronia-park-reserve.jpg",
+    "medium": "images/medium/26092026-094554p9260195-boronia-park-reserve.jpg",
+    "full": "images/full/26092026-094554p9260195-boronia-park-reserve.jpg",
+    "original_filename": "26092026_094554P9260195 Boronia Park Reserve.jpg",
+    "caption": "Boronia Park Reserve",
+    "title": "Crab Spider: Example Slice",
+    "description": "Sample stack slice",
+    "category": "Gladesville",
+    "subcategory": "Boronia Park Reserve",
+    "location": "Boronia Park Reserve, Hunters Hill",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:26 09:45:54"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "sample_of": "26092026_094554P9260195 Boronia Park Reserve 40stacked --- .jpg"
+  },
+  {
+    "thumb": "images/thumbs/26092026-095000p9260226-boronia-park-reserve.jpg",
+    "medium": "images/medium/26092026-095000p9260226-boronia-park-reserve.jpg",
+    "full": "images/full/26092026-095000p9260226-boronia-park-reserve.jpg",
+    "original_filename": "26092026_095000P9260226 Boronia Park Reserve.jpg",
+    "caption": "Boronia Park Reserve",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Boronia Park Reserve",
+    "location": "Boronia Park Reserve, Hunters Hill",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:26 09:50:00"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ]
+  },
+  {
+    "thumb": "images/thumbs/26092026-095012p9260261-boronia-park-reserve.jpg",
+    "medium": "images/medium/26092026-095012p9260261-boronia-park-reserve.jpg",
+    "full": "images/full/26092026-095012p9260261-boronia-park-reserve.jpg",
+    "original_filename": "26092026_095012P9260261 Boronia Park Reserve.jpg",
+    "caption": "Boronia Park Reserve",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Boronia Park Reserve",
+    "location": "Boronia Park Reserve, Hunters Hill",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:26 09:50:12"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ]
+  },
+  {
+    "thumb": "images/thumbs/26092026-095032p9260263-boronia-park-reserve.jpg",
+    "medium": "images/medium/26092026-095032p9260263-boronia-park-reserve.jpg",
+    "full": "images/full/26092026-095032p9260263-boronia-park-reserve.jpg",
+    "original_filename": "26092026_095032P9260263 Boronia Park Reserve.jpg",
+    "caption": "Boronia Park Reserve",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Boronia Park Reserve",
+    "location": "Boronia Park Reserve, Hunters Hill",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:26 09:50:32"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ]
+  },
+  {
+    "thumb": "images/thumbs/26092026-095531p9260330-boronia-park-reserve-50stacked.jpg",
+    "medium": "images/medium/26092026-095531p9260330-boronia-park-reserve-50stacked.jpg",
+    "full": "images/full/26092026-095531p9260330-boronia-park-reserve-50stacked.jpg",
+    "original_filename": "26092026_095531P9260330 Boronia Park Reserve 50stacked --- .jpg",
+    "caption": "Boronia Park Reserve 50stacked ---",
+    "title": "Crab Spider II",
+    "description": "Stacked photo",
+    "category": "Gladesville",
+    "subcategory": "Boronia Park Reserve",
+    "location": "Boronia Park Reserve, Hunters Hill",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:26 09:55:31"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "samples": [
+      "26092026_095531P9260330 Boronia Park Reserve.jpg"
+    ]
+  },
+  {
+    "thumb": "images/thumbs/26092026-095531p9260330-boronia-park-reserve.jpg",
+    "medium": "images/medium/26092026-095531p9260330-boronia-park-reserve.jpg",
+    "full": "images/full/26092026-095531p9260330-boronia-park-reserve.jpg",
+    "original_filename": "26092026_095531P9260330 Boronia Park Reserve.jpg",
+    "caption": "Boronia Park Reserve",
+    "title": "Crab Spider II: Example Slice",
+    "description": "Sample stack slice",
+    "category": "Gladesville",
+    "subcategory": "Boronia Park Reserve",
+    "location": "Boronia Park Reserve, Hunters Hill",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:26 09:55:31"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "sample_of": "26092026_095531P9260330 Boronia Park Reserve 50stacked --- .jpg"
+  },
+  {
+    "thumb": "images/thumbs/26092026-095539p9260343-boronia-park-reserve.jpg",
+    "medium": "images/medium/26092026-095539p9260343-boronia-park-reserve.jpg",
+    "full": "images/full/26092026-095539p9260343-boronia-park-reserve.jpg",
+    "original_filename": "26092026_095539P9260343 Boronia Park Reserve.jpg",
+    "caption": "Boronia Park Reserve",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Boronia Park Reserve",
+    "location": "Boronia Park Reserve, Hunters Hill",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:26 09:55:39"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ]
+  },
+  {
+    "thumb": "images/thumbs/26092026-095617p9260351-boronia-park-reserve.jpg",
+    "medium": "images/medium/26092026-095617p9260351-boronia-park-reserve.jpg",
+    "full": "images/full/26092026-095617p9260351-boronia-park-reserve.jpg",
+    "original_filename": "26092026_095617P9260351 Boronia Park Reserve.jpg",
+    "caption": "Boronia Park Reserve",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Boronia Park Reserve",
+    "location": "Boronia Park Reserve, Hunters Hill",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:26 09:56:17"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ]
+  },
+  {
+    "thumb": "images/thumbs/26092026-095628p9260353-boronia-park-reserve.jpg",
+    "medium": "images/medium/26092026-095628p9260353-boronia-park-reserve.jpg",
+    "full": "images/full/26092026-095628p9260353-boronia-park-reserve.jpg",
+    "original_filename": "26092026_095628P9260353 Boronia Park Reserve.jpg",
+    "caption": "Boronia Park Reserve",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Boronia Park Reserve",
+    "location": "Boronia Park Reserve, Hunters Hill",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:26 09:56:28"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ]
+  },
+  {
+    "thumb": "images/thumbs/26092026-100049p9260375-boronia-park-reserve.jpg",
+    "medium": "images/medium/26092026-100049p9260375-boronia-park-reserve.jpg",
+    "full": "images/full/26092026-100049p9260375-boronia-park-reserve.jpg",
+    "original_filename": "26092026_100049P9260375 Boronia Park Reserve.jpg",
+    "caption": "Boronia Park Reserve",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Boronia Park Reserve",
+    "location": "Boronia Park Reserve, Hunters Hill",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:26 10:00:49"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ]
+  },
+  {
+    "thumb": "images/thumbs/26092026-100456p9260521-boronia-park-reserve.jpg",
+    "medium": "images/medium/26092026-100456p9260521-boronia-park-reserve.jpg",
+    "full": "images/full/26092026-100456p9260521-boronia-park-reserve.jpg",
+    "original_filename": "26092026_100456P9260521 Boronia Park Reserve.jpg",
+    "caption": "Boronia Park Reserve",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Boronia Park Reserve",
+    "location": "Boronia Park Reserve, Hunters Hill",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:26 10:04:56"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ]
+  },
+  {
+    "thumb": "images/thumbs/26092026-100510p9260527-boronia-park-reserve.jpg",
+    "medium": "images/medium/26092026-100510p9260527-boronia-park-reserve.jpg",
+    "full": "images/full/26092026-100510p9260527-boronia-park-reserve.jpg",
+    "original_filename": "26092026_100510P9260527 Boronia Park Reserve.jpg",
+    "caption": "Boronia Park Reserve",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Boronia Park Reserve",
+    "location": "Boronia Park Reserve, Hunters Hill",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:26 10:05:10"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ]
+  },
+  {
+    "thumb": "images/thumbs/26092026-100517p9260528-boronia-park-reserve.jpg",
+    "medium": "images/medium/26092026-100517p9260528-boronia-park-reserve.jpg",
+    "full": "images/full/26092026-100517p9260528-boronia-park-reserve.jpg",
+    "original_filename": "26092026_100517P9260528 Boronia Park Reserve.jpg",
+    "caption": "Boronia Park Reserve",
+    "title": "",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Boronia Park Reserve",
+    "location": "Boronia Park Reserve, Hunters Hill",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:26 10:05:17"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ]
+  },
+  {
+    "thumb": "images/thumbs/26092026-101617p9260670-boronia-park-reserve-seed-pod-31stacked.jpg",
+    "medium": "images/medium/26092026-101617p9260670-boronia-park-reserve-seed-pod-31stacked.jpg",
+    "full": "images/full/26092026-101617p9260670-boronia-park-reserve-seed-pod-31stacked.jpg",
+    "original_filename": "26092026_101617P9260670 Boronia Park Reserve seed pod 31stacked --- .jpg",
+    "caption": "Boronia Park Reserve seed pod 31stacked ---",
+    "title": "Seed Pod",
+    "description": "Stacked photo",
+    "category": "Gladesville",
+    "subcategory": "Boronia Park Reserve",
+    "location": "Boronia Park Reserve, Hunters Hill",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:26 10:16:17"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "samples": [
+      "26092026_101617P9260670 Boronia Park Reserve.jpg"
+    ]
+  },
+  {
+    "thumb": "images/thumbs/26092026-101617p9260670-boronia-park-reserve.jpg",
+    "medium": "images/medium/26092026-101617p9260670-boronia-park-reserve.jpg",
+    "full": "images/full/26092026-101617p9260670-boronia-park-reserve.jpg",
+    "original_filename": "26092026_101617P9260670 Boronia Park Reserve.jpg",
+    "caption": "Boronia Park Reserve",
+    "title": "Seed Pod: Example Slice",
+    "description": "Sample stack slice",
+    "category": "Gladesville",
+    "subcategory": "Boronia Park Reserve",
+    "location": "Boronia Park Reserve, Hunters Hill",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:26 10:16:17"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "sample_of": "26092026_101617P9260670 Boronia Park Reserve seed pod 31stacked --- .jpg"
+  },
+  {
+    "thumb": "images/thumbs/26092026-101723p9260730-boronia-park-reserve-snail-shell-22stacked.jpg",
+    "medium": "images/medium/26092026-101723p9260730-boronia-park-reserve-snail-shell-22stacked.jpg",
+    "full": "images/full/26092026-101723p9260730-boronia-park-reserve-snail-shell-22stacked.jpg",
+    "original_filename": "26092026_101723P9260730 Boronia Park Reserve snail shell 22stacked ---.jpg",
+    "caption": "Boronia Park Reserve snail shell 22stacked ---",
+    "title": "Snail Shell",
+    "description": "Stacked photo",
+    "category": "Gladesville",
+    "subcategory": "Boronia Park Reserve",
+    "location": "Boronia Park Reserve, Hunters Hill",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:26 10:17:23"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "samples": [
+      "26092026_101723P9260730 Boronia Park Reserve.jpg"
+    ]
+  },
+  {
+    "thumb": "images/thumbs/26092026-101723p9260730-boronia-park-reserve.jpg",
+    "medium": "images/medium/26092026-101723p9260730-boronia-park-reserve.jpg",
+    "full": "images/full/26092026-101723p9260730-boronia-park-reserve.jpg",
+    "original_filename": "26092026_101723P9260730 Boronia Park Reserve.jpg",
+    "caption": "Boronia Park Reserve",
+    "title": "Snail Shell: Example Slice",
+    "description": "Sample stack slice",
+    "category": "Gladesville",
+    "subcategory": "Boronia Park Reserve",
+    "location": "Boronia Park Reserve, Hunters Hill",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:26 10:17:23"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "sample_of": "26092026_101723P9260730 Boronia Park Reserve snail shell 22stacked ---.jpg"
+  },
+  {
+    "thumb": "images/thumbs/26092026-101803p9260821-boronia-park-reserve-snail-shell-42stacked.jpg",
+    "medium": "images/medium/26092026-101803p9260821-boronia-park-reserve-snail-shell-42stacked.jpg",
+    "full": "images/full/26092026-101803p9260821-boronia-park-reserve-snail-shell-42stacked.jpg",
+    "original_filename": "26092026_101803P9260821 Boronia Park Reserve snail shell 42stacked ---.jpg",
+    "caption": "Boronia Park Reserve snail shell 42stacked ---",
+    "title": "Snail Shell II",
+    "description": "Stacked photo",
+    "category": "Gladesville",
+    "subcategory": "Boronia Park Reserve",
+    "location": "Boronia Park Reserve, Hunters Hill",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:26 10:18:03"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "samples": [
+      "26092026_101803P9260821 Boronia Park Reserve.jpg"
+    ]
+  },
+  {
+    "thumb": "images/thumbs/26092026-101803p9260821-boronia-park-reserve.jpg",
+    "medium": "images/medium/26092026-101803p9260821-boronia-park-reserve.jpg",
+    "full": "images/full/26092026-101803p9260821-boronia-park-reserve.jpg",
+    "original_filename": "26092026_101803P9260821 Boronia Park Reserve.jpg",
+    "caption": "Boronia Park Reserve",
+    "title": "Snail Shell II: Example Slice",
+    "description": "Sample stack slice",
+    "category": "Gladesville",
+    "subcategory": "Boronia Park Reserve",
+    "location": "Boronia Park Reserve, Hunters Hill",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:26 10:18:03"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "sample_of": "26092026_101803P9260821 Boronia Park Reserve snail shell 42stacked ---.jpg"
+  },
+  {
+    "thumb": "images/thumbs/26092026-102753p9261010-boronia-park-reserve-10stacked.jpg",
+    "medium": "images/medium/26092026-102753p9261010-boronia-park-reserve-10stacked.jpg",
+    "full": "images/full/26092026-102753p9261010-boronia-park-reserve-10stacked.jpg",
+    "original_filename": "26092026_102753P9261010 Boronia Park Reserve 10stacked ---.jpg",
+    "caption": "Boronia Park Reserve 10stacked ---",
+    "title": "Flower Spider",
+    "description": "Stacked photo",
+    "category": "Gladesville",
+    "subcategory": "Boronia Park Reserve",
+    "location": "Boronia Park Reserve, Hunters Hill",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:26 10:27:53"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "samples": [
+      "26092026_102753P9261010 Boronia Park Reserve.jpg"
+    ]
+  },
+  {
+    "thumb": "images/thumbs/26092026-102753p9261010-boronia-park-reserve.jpg",
+    "medium": "images/medium/26092026-102753p9261010-boronia-park-reserve.jpg",
+    "full": "images/full/26092026-102753p9261010-boronia-park-reserve.jpg",
+    "original_filename": "26092026_102753P9261010 Boronia Park Reserve.jpg",
+    "caption": "Boronia Park Reserve",
+    "title": "Flower Spider: Example Slice",
+    "description": "Sample stack slice",
+    "category": "Gladesville",
+    "subcategory": "Boronia Park Reserve",
+    "location": "Boronia Park Reserve, Hunters Hill",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:26 10:27:53"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "sample_of": "26092026_102753P9261010 Boronia Park Reserve 10stacked ---.jpg"
+  },
+  {
+    "thumb": "images/thumbs/20260926-143832p9260094-flower-33stacked.jpg",
+    "medium": "images/medium/20260926-143832p9260094-flower-33stacked.jpg",
+    "full": "images/full/20260926-143832p9260094-flower-33stacked.jpg",
+    "original_filename": "20260926_143832P9260094 flower 33stacked ---.jpg",
+    "caption": "flower 33stacked ---",
+    "title": "Flower",
+    "description": "Stacked photo",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:26 14:38:32"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "samples": [
+      "20260926_143832P9260094.jpg"
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20260926-143832p9260094.jpg",
+    "medium": "images/medium/20260926-143832p9260094.jpg",
+    "full": "images/full/20260926-143832p9260094.jpg",
+    "original_filename": "20260926_143832P9260094.jpg",
+    "caption": "",
+    "title": "Flower: Example Slice",
+    "description": "Sample stack slice",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:26 14:38:32"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "sample_of": "20260926_143832P9260094 flower 33stacked ---.jpg"
+  },
+  {
+    "thumb": "images/thumbs/20260926-145309p9260265-seed-base-20stacked.jpg",
+    "medium": "images/medium/20260926-145309p9260265-seed-base-20stacked.jpg",
+    "full": "images/full/20260926-145309p9260265-seed-base-20stacked.jpg",
+    "original_filename": "20260926_145309P9260265 seed base 20stacked ---.jpg",
+    "caption": "seed base 20stacked ---",
+    "title": "Seed Base",
+    "description": "Stacked photo",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:26 14:53:09"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "samples": [
+      "20260926_145309P9260265.jpg"
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20260926-145309p9260265.jpg",
+    "medium": "images/medium/20260926-145309p9260265.jpg",
+    "full": "images/full/20260926-145309p9260265.jpg",
+    "original_filename": "20260926_145309P9260265.jpg",
+    "caption": "",
+    "title": "Seed Base: Example Slice",
+    "description": "Sample stack slice",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:26 14:53:09"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "sample_of": "20260926_145309P9260265 seed base 20stacked ---.jpg"
+  },
+  {
+    "thumb": "images/thumbs/20260926-145730p9260352-seeds-18stacked.jpg",
+    "medium": "images/medium/20260926-145730p9260352-seeds-18stacked.jpg",
+    "full": "images/full/20260926-145730p9260352-seeds-18stacked.jpg",
+    "original_filename": "20260926_145730P9260352 seeds 18stacked.jpg",
+    "caption": "seeds 18stacked",
+    "title": "Seeds",
+    "description": "Stacked photo",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:26 14:57:30"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "samples": [
+      "20260926_145730P9260352.jpg"
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20260926-145730p9260352.jpg",
+    "medium": "images/medium/20260926-145730p9260352.jpg",
+    "full": "images/full/20260926-145730p9260352.jpg",
+    "original_filename": "20260926_145730P9260352.jpg",
+    "caption": "",
+    "title": "Seeds: Example Slice",
+    "description": "Sample stack slice",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:26 14:57:30"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "sample_of": "20260926_145730P9260352 seeds 18stacked.jpg"
+  },
+  {
+    "thumb": "images/thumbs/20260926-150310p9260463-01-flower-60stacked.jpg",
+    "medium": "images/medium/20260926-150310p9260463-01-flower-60stacked.jpg",
+    "full": "images/full/20260926-150310p9260463-01-flower-60stacked.jpg",
+    "original_filename": "20260926_150310P9260463_01 flower 60stacked --- .jpg",
+    "caption": "flower 60stacked ---",
+    "title": "Flower II",
+    "description": "Stacked photo",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:26 15:03:10"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "samples": [
+      "20260926_150310P9260463_01.jpg"
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20260926-150310p9260463-01.jpg",
+    "medium": "images/medium/20260926-150310p9260463-01.jpg",
+    "full": "images/full/20260926-150310p9260463-01.jpg",
+    "original_filename": "20260926_150310P9260463_01.jpg",
+    "caption": "",
+    "title": "Flower II: Example Slice",
+    "description": "Sample stack slice",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:26 15:03:10"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "sample_of": "20260926_150310P9260463_01 flower 60stacked --- .jpg"
+  },
+  {
+    "thumb": "images/thumbs/20260926-150556p9260541-01-barbs-31stacked.jpg",
+    "medium": "images/medium/20260926-150556p9260541-01-barbs-31stacked.jpg",
+    "full": "images/full/20260926-150556p9260541-01-barbs-31stacked.jpg",
+    "original_filename": "20260926_150556P9260541_01 barbs 31stacked ---.jpg",
+    "caption": "barbs 31stacked ---",
+    "title": "Barbs",
+    "description": "Stacked photo",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:26 15:05:56"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "samples": [
+      "20260926_150556P9260541_01.jpg"
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20260926-150556p9260541-01.jpg",
+    "medium": "images/medium/20260926-150556p9260541-01.jpg",
+    "full": "images/full/20260926-150556p9260541-01.jpg",
+    "original_filename": "20260926_150556P9260541_01.jpg",
+    "caption": "",
+    "title": "Barbs: Example Slice",
+    "description": "Sample stack slice",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:26 15:05:56"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "sample_of": "20260926_150556P9260541_01 barbs 31stacked ---.jpg"
   }
 ]

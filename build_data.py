@@ -55,6 +55,18 @@ SOURCE_MAP = {
     "19092026_123136P9190262 whelk 28stacked ----.jpg": os.path.join(EXPORTS, "19092026_123136P9190262 whelk.jpg"),
     "19092026_123302P9190280 barnicles 1 10stacked ------.jpg": os.path.join(EXPORTS, "19092026_123302P9190280 barnicles 1.jpg"),
     "19092026_123346P9190370 barnicles 2 40stacked ----.jpg": os.path.join(EXPORTS, "19092026_123346P9190370 barnicles 2.jpg"),
+    "26092026_082303P9260062 Boronia Park Reserve 23 stacked --- .jpg": os.path.join(EXPORTS, "26092026_082303P9260062 Boronia Park Reserve.jpg"),
+    "26092026_094554P9260195 Boronia Park Reserve 40stacked --- .jpg": os.path.join(EXPORTS, "26092026_094554P9260195 Boronia Park Reserve.jpg"),
+    "26092026_095531P9260330 Boronia Park Reserve 50stacked --- .jpg": os.path.join(EXPORTS, "26092026_095531P9260330 Boronia Park Reserve.jpg"),
+    "26092026_101617P9260670 Boronia Park Reserve seed pod 31stacked --- .jpg": os.path.join(EXPORTS, "26092026_101617P9260670 Boronia Park Reserve.jpg"),
+    "26092026_101723P9260730 Boronia Park Reserve snail shell 22stacked ---.jpg": os.path.join(EXPORTS, "26092026_101723P9260730 Boronia Park Reserve.jpg"),
+    "26092026_101803P9260821 Boronia Park Reserve snail shell 42stacked ---.jpg": os.path.join(EXPORTS, "26092026_101803P9260821 Boronia Park Reserve.jpg"),
+    "26092026_102753P9261010 Boronia Park Reserve 10stacked ---.jpg": os.path.join(EXPORTS, "26092026_102753P9261010 Boronia Park Reserve.jpg"),
+    "20260926_143832P9260094 flower 33stacked ---.jpg": os.path.join(EXPORTS, "20260926_143832P9260094.jpg"),
+    "20260926_145309P9260265 seed base 20stacked ---.jpg": os.path.join(EXPORTS, "20260926_145309P9260265.jpg"),
+    "20260926_145730P9260352 seeds 18stacked.jpg": os.path.join(EXPORTS, "20260926_145730P9260352.jpg"),
+    "20260926_150310P9260463_01 flower 60stacked --- .jpg": os.path.join(EXPORTS, "20260926_150310P9260463_01.jpg"),
+    "20260926_150556P9260541_01 barbs 31stacked ---.jpg": os.path.join(EXPORTS, "20260926_150556P9260541_01.jpg"),
 }
 UNRESOLVED = set()
 
@@ -276,6 +288,36 @@ BANJO_PATERSON = {
     "19092026_124357P9190535 bay landscape.jpg",
     "19092026_124517P9190537 bay landscape.jpg",
     "19092026_124549P9190540 bay landscape.jpg",
+}
+# Boronia Park Reserve, Hunters Hill (26 Sep morning): macro of spiders,
+# a snail shell and various finds on a walk. Location is a best-guess
+# suburb-level placement, not confirmed -- nudge PLACES in script.js if wrong.
+BORONIA_PARK = {
+    "26092026_082303P9260062 Boronia Park Reserve 23 stacked --- .jpg",
+    "26092026_082303P9260062 Boronia Park Reserve.jpg",
+    "26092026_093849P9260136 Boronia Park Reserve.jpg",
+    "26092026_094554P9260195 Boronia Park Reserve 40stacked --- .jpg",
+    "26092026_094554P9260195 Boronia Park Reserve.jpg",
+    "26092026_095000P9260226 Boronia Park Reserve.jpg",
+    "26092026_095012P9260261 Boronia Park Reserve.jpg",
+    "26092026_095032P9260263 Boronia Park Reserve.jpg",
+    "26092026_095531P9260330 Boronia Park Reserve 50stacked --- .jpg",
+    "26092026_095531P9260330 Boronia Park Reserve.jpg",
+    "26092026_095539P9260343 Boronia Park Reserve.jpg",
+    "26092026_095617P9260351 Boronia Park Reserve.jpg",
+    "26092026_095628P9260353 Boronia Park Reserve.jpg",
+    "26092026_100049P9260375 Boronia Park Reserve.jpg",
+    "26092026_100456P9260521 Boronia Park Reserve.jpg",
+    "26092026_100510P9260527 Boronia Park Reserve.jpg",
+    "26092026_100517P9260528 Boronia Park Reserve.jpg",
+    "26092026_101617P9260670 Boronia Park Reserve seed pod 31stacked --- .jpg",
+    "26092026_101617P9260670 Boronia Park Reserve.jpg",
+    "26092026_101723P9260730 Boronia Park Reserve snail shell 22stacked ---.jpg",
+    "26092026_101723P9260730 Boronia Park Reserve.jpg",
+    "26092026_101803P9260821 Boronia Park Reserve snail shell 42stacked ---.jpg",
+    "26092026_101803P9260821 Boronia Park Reserve.jpg",
+    "26092026_102753P9261010 Boronia Park Reserve 10stacked ---.jpg",
+    "26092026_102753P9261010 Boronia Park Reserve.jpg",
 }
 ANTS = {
     "19092026_140734P9190560 ants.jpg",
@@ -505,6 +547,32 @@ TITLES = {
     "19092026_123302P9190280 barnicles 1.jpg": ("Barnacles: Example Slice", "Sample stack slice"),
     "19092026_123346P9190370 barnicles 2 40stacked ----.jpg": ("Barnacles II", "Stacked photo"),
     "19092026_123346P9190370 barnicles 2.jpg": ("Barnacles II: Example Slice", "Sample stack slice"),
+    # Boronia Park Reserve, 26 Sep morning
+    "26092026_082303P9260062 Boronia Park Reserve 23 stacked --- .jpg": ("Garden Orb Weaver Seven Stack", "23-photo stack"),
+    "26092026_082303P9260062 Boronia Park Reserve.jpg": ("Garden Orb Weaver Seven Example Slice", "Sample slice"),
+    "26092026_094554P9260195 Boronia Park Reserve 40stacked --- .jpg": ("Crab Spider", "Stacked photo"),
+    "26092026_094554P9260195 Boronia Park Reserve.jpg": ("Crab Spider: Example Slice", "Sample stack slice"),
+    "26092026_095531P9260330 Boronia Park Reserve 50stacked --- .jpg": ("Crab Spider II", "Stacked photo"),
+    "26092026_095531P9260330 Boronia Park Reserve.jpg": ("Crab Spider II: Example Slice", "Sample stack slice"),
+    "26092026_101617P9260670 Boronia Park Reserve seed pod 31stacked --- .jpg": ("Seed Pod", "Stacked photo"),
+    "26092026_101617P9260670 Boronia Park Reserve.jpg": ("Seed Pod: Example Slice", "Sample stack slice"),
+    "26092026_101723P9260730 Boronia Park Reserve snail shell 22stacked ---.jpg": ("Snail Shell", "Stacked photo"),
+    "26092026_101723P9260730 Boronia Park Reserve.jpg": ("Snail Shell: Example Slice", "Sample stack slice"),
+    "26092026_101803P9260821 Boronia Park Reserve snail shell 42stacked ---.jpg": ("Snail Shell II", "Stacked photo"),
+    "26092026_101803P9260821 Boronia Park Reserve.jpg": ("Snail Shell II: Example Slice", "Sample stack slice"),
+    "26092026_102753P9261010 Boronia Park Reserve 10stacked ---.jpg": ("Flower Spider", "Stacked photo"),
+    "26092026_102753P9261010 Boronia Park Reserve.jpg": ("Flower Spider: Example Slice", "Sample stack slice"),
+    # Afternoon macro at home, same day
+    "20260926_143832P9260094 flower 33stacked ---.jpg": ("Flower", "Stacked photo"),
+    "20260926_143832P9260094.jpg": ("Flower: Example Slice", "Sample stack slice"),
+    "20260926_145309P9260265 seed base 20stacked ---.jpg": ("Seed Base", "Stacked photo"),
+    "20260926_145309P9260265.jpg": ("Seed Base: Example Slice", "Sample stack slice"),
+    "20260926_145730P9260352 seeds 18stacked.jpg": ("Seeds", "Stacked photo"),
+    "20260926_145730P9260352.jpg": ("Seeds: Example Slice", "Sample stack slice"),
+    "20260926_150310P9260463_01 flower 60stacked --- .jpg": ("Flower II", "Stacked photo"),
+    "20260926_150310P9260463_01.jpg": ("Flower II: Example Slice", "Sample stack slice"),
+    "20260926_150556P9260541_01 barbs 31stacked ---.jpg": ("Barbs", "Stacked photo"),
+    "20260926_150556P9260541_01.jpg": ("Barbs: Example Slice", "Sample stack slice"),
     "19092026_123821P9190438 bay landscape.jpg": ("Yachts at Anchor", ""),
     "19092026_123845P9190465 bay landscape.jpg": ("Moored Yacht", ""),
     "19092026_124002P9190470 bay landscape.jpg": ("Moored Yacht II", ""),
@@ -685,6 +753,8 @@ def classify(original, dt):
         return "Gladesville", "Indoor Macro", "Home"
     if original in BANJO_PATERSON:
         return "Gladesville", "Banjo Paterson Park", "Banjo Paterson Park, Gladesville"
+    if original in BORONIA_PARK:
+        return "Gladesville", "Boronia Park Reserve", "Boronia Park Reserve, Hunters Hill"
     if original in ANTS:
         return "Gladesville", "Ants", "Home"
     if original in HORNSBY_HEIGHTS:

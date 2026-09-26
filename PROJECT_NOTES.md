@@ -123,6 +123,15 @@ CBD**, **Chinese Garden of Friendship**, **Sydney Town Hall**, **Queen
 Victoria Building**, **Darling Harbour Piano** (all carved out of one Sydney
 day by timestamp after visually confirming each cluster's content).
 
+(This list predates several later additions — `SECTION_ORDER` in `script.js`
+is the authoritative list.) Most recent: **Boronia Park Reserve** (Gladesville
+subcategory, 26 Sep 2026 morning walk — 25 photos: orb weaver, crab spiders,
+flower spider, seed pod, snail shells; classified via the `BORONIA_PARK` set
+in `build_data.py`, map marker `boronia` in `PLACES`). The same day's
+afternoon home macro batch (Flower, Seed Base, Seeds, Flower II, Barbs — 10
+photos, `20260926_*` filenames) falls through to the default **Garden**
+bucket.
+
 ## Privacy decisions already made (don't relitigate without asking)
 
 - GPS/EXIF stripped from every published `images/full/*` file.
@@ -246,6 +255,14 @@ open/close never touching `location.hash` or `#sections`.
   pixels a burst actually needs to lay out one-after-another. A gap of a
   minute or more between shots resolves to a single row at max zoom; truly
   same-second bursts still fan (an inherent limit of any timeline, not a bug).
+  **Time-axis rate**: `tlPxPerDay(zoom) = max(zoom * 13, 26)` (was `* 1.3`
+  until 2026-09-26; the photographer asked for the angled stems to kick in at
+  least an order of magnitude sooner). Past thumbnail saturation, whether
+  squeeze/angled stems trigger depends only on `pxPerDay` vs a fixed thumb
+  size, so 10x the rate = 10x less zoom needed (~10 fewer wheel notches at
+  ~1.25x per notch). The initial auto-fit in `renderTimeline` divides by the
+  same constant — keep the two in sync if it changes again. Verified: from
+  the auto-fit view, angled stems appear after ~20 wheel notches.
   **Single-row squeeze**: once the ordinary lane fan would only ever need one
   lane per side *for whatever's currently on screen* (`maxVisibleRank <= 1` in
   `layoutIndividualItems`, checked only within the visible x-range plus a
@@ -495,6 +512,11 @@ without the photographer asking — they may be duplicates, failed attempts, or
 just not ready to publish.
 
 ## Open questions the photographer hasn't answered yet
+
+- Exact map position for Boronia Park Reserve: `PLACES.boronia` in
+  `script.js` (-33.8305, 151.1476) is a best-guess placement, not confirmed.
+- Titles for the Boronia Park unstacked singles (e.g. `093849P9260136`,
+  `095000P9260226`, ...) — currently untitled, so they show raw filenames.
 
 - Whether the mural/street-art photo near the end of the Sydney CBD walk
   (~15:12, "#___ASSANGE" mural) is in a different suburb (Newtown has a
