@@ -14,6 +14,7 @@
   <a href="#" data-view="home" class="view-btn">Categories</a>
   <a href="#/timeline" data-view="timeline" class="view-btn">Timeline</a>
   <a href="#/map" data-view="map" class="view-btn">Map</a>
+  <a href="#/hearts" data-view="hearts" class="view-btn">My Hearts<span class="heart-count" id="heart-count" hidden></span></a>
 </nav>
 <header class="site-header">
   <p class="site-kicker">Test Shoot Gallery — not a curated portfolio</p>
@@ -68,6 +69,7 @@
       <h3 id="lb-title"></h3>
       <div class="lb-meta" id="lb-meta"></div>
       <div class="lb-zoom-row">
+        <button class="lb-zoom lb-heart" id="lb-heart" aria-pressed="false">&#9825; Heart</button>
         <button class="lb-zoom" id="lb-zoom">View full resolution</button>
         <button class="lb-zoom" id="lb-fullscreen-btn" hidden>Fullscreen</button>
         <span class="lb-detail-btns" id="lb-detail-btns"></span>
