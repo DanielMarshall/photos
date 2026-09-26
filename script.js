@@ -7,6 +7,7 @@
   const lbTitle = document.getElementById('lb-title');
   const lbMeta = document.getElementById('lb-meta');
   const lbZoom = document.getElementById('lb-zoom');
+  const lbFullscreenBtn = document.getElementById('lb-fullscreen-btn');
   const lbSampleBtns = document.getElementById('lb-sample-btns');
   const lbDetailBtns = document.getElementById('lb-detail-btns');
   const lbDetailHi = document.getElementById('lb-detail-hi');
@@ -409,29 +410,42 @@
   }
 
   // ---------------- Map view ----------------
-  // Real GPS was stripped from every photo for privacy (see PROJECT_NOTES.md)
-  // and the site's own rule is never to reveal an exact address -- home,
-  // workplace and the parents' house are all named only at suburb level even
-  // in the photo captions already on site. So the map plots one approximate
-  // pin per named place (suburb/landmark centroid, looked up by hand below),
-  // not per-photo GPS: it visualizes exactly the place names already printed
-  // in each photo's own metadata, at the same or coarser precision.
+  // Checked: none of the source photos (including still-available raw .ORF
+  // files from recent sessions) carry real GPS EXIF -- the camera never
+  // recorded it, so there's no per-photo coordinate to plot even though the
+  // published copies also had GPS stripped as a belt-and-braces privacy step.
+  // Per the photographer: home, workplace and the parents' house should stay
+  // masked to generic suburb-level pins (already all any of them are named as
+  // in the photo captions); every public spot should be as precise as
+  // possible instead, so a viewer could go find the same location. These
+  // pins are hand-geocoded to the specific named landmark/park (not measured
+  // GPS) -- a real improvement over a suburb blur, but still only as accurate
+  // as general map knowledge; nudge lat/lng below if any look off.
   const PLACES = {
-    gladesville: { label: 'Gladesville (home)', lat: -33.8367, lng: 151.1275 },
-    banjo: { label: 'Banjo Paterson Park', lat: -33.8339, lng: 151.1296 },
-    artarmon: { label: 'Artarmon (work)', lat: -33.8113, lng: 151.1852 },
+    gladesville: { label: 'Gladesville (home)', lat: -33.8367, lng: 151.1275, mask: true },
+    artarmon: { label: 'Artarmon (work)', lat: -33.8113, lng: 151.1852, mask: true },
+    hornsby: { label: "Hornsby Heights (mum & dad's)", lat: -33.6698, lng: 151.0989, mask: true },
     ashfield: { label: 'Ashfield', lat: -33.8886, lng: 151.1256 },
-    hornsby: { label: "Hornsby Heights (mum & dad's)", lat: -33.6698, lng: 151.0989 },
-    darling: { label: 'Darling Harbour', lat: -33.8697, lng: 151.2003 },
-    townhall: { label: 'Sydney Town Hall', lat: -33.8734, lng: 151.2065 },
+    banjo: { label: 'Banjo Paterson Park, Gladesville', lat: -33.8341, lng: 151.1301 },
+    darling: { label: 'Darling Harbour', lat: -33.8688, lng: 151.2005 },
+    chinesegarden: { label: 'Chinese Garden of Friendship', lat: -33.8756, lng: 151.2038 },
+    townhall: { label: 'Sydney Town Hall', lat: -33.8734, lng: 151.2064 },
     qvb: { label: 'Queen Victoria Building', lat: -33.8715, lng: 151.2067 },
+    dhpiano: { label: 'Darling Harbour Piano', lat: -33.8709, lng: 151.2013 },
   };
 
-  function placeKey(location) {
-    const l = (location || '').toLowerCase();
+  function placeKey(item) {
+    // The 4 Darling Harbour-area landmarks share overlapping/identical
+    // `location` text with each other and with plain Sydney CBD wandering
+    // shots (e.g. the Piano's location is just "Darling Harbour, Sydney",
+    // same as a generic CBD walk) -- category is what actually distinguishes
+    // them.
+    if (item.category === 'Chinese Garden of Friendship') return 'chinesegarden';
+    if (item.category === 'Sydney Town Hall') return 'townhall';
+    if (item.category === 'Queen Victoria Building') return 'qvb';
+    if (item.category === 'Darling Harbour Piano') return 'dhpiano';
+    const l = (item.location || '').toLowerCase();
     if (l.includes('banjo paterson')) return 'banjo';
-    if (l.includes('town hall')) return 'townhall';
-    if (l.includes('qvb')) return 'qvb';
     if (l.includes('darling harbour')) return 'darling';
     if (l.includes('hornsby heights')) return 'hornsby';
     if (l === 'artarmon') return 'artarmon';
@@ -444,7 +458,7 @@
     if (mapPlaceGroups) return mapPlaceGroups;
     const map = new Map();
     chronoOrder.forEach((idx) => {
-      const key = placeKey(items[idx].location);
+      const key = placeKey(items[idx]);
       if (!map.has(key)) map.set(key, { key, place: PLACES[key], indices: [] });
       map.get(key).indices.push(idx);
     });
@@ -760,9 +774,12 @@
   }
 
   function buildClusterIcon(group) {
+    // Masked places (home/work/parents) get a visibly different (muted)
+    // dot -- an honest signal that this pin is a deliberate generalization,
+    // not this photo's real spot, the way the precise ones are.
     const html = `<div class="map-cluster">
-      <div class="map-cluster-dot">${group.indices.length}</div>
-      <div class="map-cluster-label">${escapeHtml(group.place.label)}</div>
+      <div class="map-cluster-dot${group.place.mask ? ' masked' : ''}">${group.indices.length}</div>
+      <div class="map-cluster-label">${escapeHtml(group.place.label)}${group.place.mask ? ' <span class="map-mask-note">(approx.)</span>' : ''}</div>
     </div>`;
     return L.divIcon({ html, className: 'map-icon-wrap', iconSize: null });
   }
@@ -780,8 +797,9 @@
         ${labelHtml}
       </figure>`;
     }).join('');
+    const maskNote = group.place.mask ? ' <span class="map-mask-note">(approx.)</span>' : '';
     const html = `<div class="map-grid" style="width:${columns * (thumbPx + 4)}px">
-      <div class="map-grid-label">${escapeHtml(group.place.label)} &middot; ${n} photo${n === 1 ? '' : 's'}</div>
+      <div class="map-grid-label">${escapeHtml(group.place.label)}${maskNote} &middot; ${n} photo${n === 1 ? '' : 's'}</div>
       <div class="map-grid-tiles">${tiles}</div>
     </div>`;
     return L.divIcon({ html, className: 'map-icon-wrap', iconSize: null });
@@ -1971,6 +1989,9 @@
     fullLoaded = false;
     zoomScale = 'fit';
     zoomBar.hidden = !zoomed;
+    lbFullscreenBtn.hidden = !zoomed;
+    lbFullscreenBtn.textContent = document.fullscreenElement === document.documentElement ? 'Exit fullscreen' : 'Fullscreen';
+    updateLbFullscreenClass();
     // No Final Frame/Detail buttons on an example slice -- only its stack has them.
     const hasCrops = zoomed && !isSlice(item);
     cropBar.hidden = !hasCrops;
@@ -2065,7 +2086,35 @@
     releaseFullObjectURL();
     lbLoading.hidden = true;
     stopEditing();
+    if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
   }
+
+  // The fullscreen CSS treatment is derived state, not something toggled
+  // directly: it's on exactly when both true fullscreen is active AND the
+  // full-resolution view is showing. Re-run after any change to either (the
+  // fullscreen button, a fullscreenchange event, or render() switching photos
+  // and always dropping back to medium view) so it self-corrects rather than
+  // needing every call site to remember to update it.
+  function updateLbFullscreenClass() {
+    lightbox.classList.toggle('lb-fullscreen', zoomed && document.fullscreenElement === document.documentElement);
+  }
+
+  lbFullscreenBtn.addEventListener('click', () => {
+    if (document.fullscreenElement) {
+      document.exitFullscreen().catch(() => {});
+    } else {
+      document.documentElement.requestFullscreen().catch(() => {});
+    }
+  });
+
+  document.addEventListener('fullscreenchange', () => {
+    lbFullscreenBtn.textContent = document.fullscreenElement === document.documentElement ? 'Exit fullscreen' : 'Fullscreen';
+    updateLbFullscreenClass();
+    // The viewport just changed size -- Fit needs recomputing, and a numeric
+    // zoom level should re-center rather than leave stale scroll/framing from
+    // the old (windowed) dimensions.
+    if (zoomed && fullLoaded) setZoom(zoomScale, { instant: true });
+  });
 
   function step(delta) {
     releaseFullObjectURL();

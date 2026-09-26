@@ -832,14 +832,6 @@ def main():
         return (dt is None, dt or item["thumb"])
     items.sort(key=sort_key)
 
-    # Experiments in Liquids / Dinosaurs: show year-month only, not the exact
-    # day/time -- applied after sorting so ordering still uses full precision.
-    TRUNCATE_DATE_SUBCATEGORIES = {"Experiments in Liquids", "Dinosaurs", "Frank photos of Frankie"}
-    for item in items:
-        if item["category"] == "Gladesville" and item["subcategory"] in TRUNCATE_DATE_SUBCATEGORIES:
-            if item["settings"] and item["settings"].get("datetime"):
-                item["settings"]["datetime"] = item["settings"]["datetime"][:7].replace(":", "-")
-
     unpaired_slices = link_samples(items)
 
     with open(os.path.join(PHOTOS, "images.json"), "w", encoding="utf-8") as f:

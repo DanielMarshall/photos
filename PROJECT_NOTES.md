@@ -169,6 +169,36 @@ needing to dig through Camera Roll himself.
 - Medium view hides the whole metadata panel (title/settings/etc.) since
   that's baked into the image's border already; full-res view shows a
   compact 1-2 line summary instead of the old multi-row table.
+- **Fullscreen (beyond full-res)**: a "Fullscreen" button next to "View full
+  resolution" (only shown while `zoomed`) requests real browser Fullscreen on
+  `document.documentElement` -- deliberately the whole page, not just
+  `.lightbox`, so `#view-switcher` (z-index 1100) stays usable on top of it,
+  consistent with switching views being allowed from anywhere. The
+  `.lightbox.lb-fullscreen` CSS then makes `.lb-viewport` fill the screen and
+  turns the title/meta/zoom-bar/crop-bar into a floating footer over the
+  bottom of the image (`.lb-content` becomes a full-screen flex column with
+  `justify-content: flex-end`; the viewport escapes that flow via
+  `position: absolute; inset: 0` so the footer just stacks at the bottom by
+  itself, no hardcoded offsets). Reuses the existing Fit/1:1/1:2/1:4 zoom
+  system unchanged -- it already reads `lbViewport`'s live size on every
+  call, so it automatically fills the bigger fullscreen viewport, including
+  the existing never-exceed-1:1 cap.
+  The `.lb-fullscreen` class is **derived state**, recomputed by
+  `updateLbFullscreenClass()` (true iff `zoomed` AND really in fullscreen),
+  not toggled directly -- called from `render()` too, not just the fullscreen
+  button/`fullscreenchange`. This matters because `step()`/prev-next always
+  resets `zoomed` to false (existing behavior, unchanged): without deriving
+  the class, moving to the next photo while fullscreen would leave a stale
+  `.lb-fullscreen` applied to the now-medium view. As implemented, it
+  gracefully drops to the normal windowed layout (still real OS fullscreen,
+  just visually windowed-looking) and reapplies automatically the moment
+  full-res is reopened for the new photo.
+  **Testing note**: the Claude Browser pane's embedded frame denies the
+  Fullscreen API (`Permissions check failed`) -- this is a sandbox
+  restriction of that tool, not a site bug. Verified the CSS/layout side by
+  toggling the class directly via `classList.add('lb-fullscreen')` instead;
+  a real browser tab should be used to confirm the actual `requestFullscreen`
+  call.
 
 ## Slideshow (script.js)
 
@@ -219,20 +249,34 @@ open/close never touching `location.hash` or `#sections`.
 - **Map**: Leaflet (loaded from unpkg, non-deferred script tag in `<head>` --
   it must execute before `script.js`, which loads via `document.write` further
   down and would otherwise sometimes win the race against a `defer`red
-  Leaflet). Real GPS was stripped from every photo for privacy and the site's
-  rule is never to reveal an exact address, so the map does **not** plot
-  per-photo coordinates -- there aren't any in `images.json` to plot. Instead
-  `PLACES` (in script.js) hand-maps each of the photos' existing free-text
-  `location` strings (already shown in every photo's own caption/metadata) to
-  one approximate suburb/landmark centroid via `placeKey()`; all photos at a
-  place share its one pin. Below Leaflet zoom `MAP_CLUSTER_ZOOM` (13) a place
-  is one cluster marker (count + name); at/above it, the marker becomes a
-  custom `L.divIcon` containing a small thumbnail grid (same growing-labels
-  idea as the timeline, but 2 tiers not 4 since the place name is already the
-  grid's header: title, then settings). Marker click handling hit-tests
-  `e.originalEvent.target` for `.map-tile` vs. the marker background, since
-  Leaflet only gives one `click` event per marker regardless of which inner
-  tile was hit.
+  Leaflet). Checked both current exports and still-available raw `.ORF` files
+  (a recent session, since the older Sep 12-15 raws are gone from Camera Roll
+  now) -- the camera never records GPS on any file, published or original, so
+  there is no real per-photo coordinate to plot regardless of the stripping
+  step. `PLACES` (in script.js) instead hand-geocodes each named place (looked
+  up by the photographer's actual location text/category, via `placeKey()`)
+  to its real landmark/suburb coordinates from general map knowledge, not
+  measured GPS -- accurate to "which building/park", not surveyed. Per the
+  photographer: home (Gladesville), workplace (Artarmon) and the parents'
+  house (Hornsby Heights) stay deliberately generalized to suburb level
+  (`PLACES[key].mask = true`, rendered as a muted-grey dot + "(approx.)" in
+  the label -- an honest signal, not just a visual choice); every other place
+  is as precise as this hand-geocoding can manage, including giving the 4
+  Darling Harbour-area attractions (Chinese Garden of Friendship, Sydney Town
+  Hall, QVB, Darling Harbour Piano) their own distinct pins instead of one
+  shared "Darling Harbour" blob -- their `location` text alone doesn't
+  distinguish them (the Piano's is literally identical to a generic CBD walk),
+  so `placeKey()` checks `item.category` first for those four. Below Leaflet
+  zoom `MAP_CLUSTER_ZOOM` (13) a place is one cluster marker (count + name);
+  at/above it, the marker becomes a custom `L.divIcon` containing a small
+  thumbnail grid (same growing-labels idea as the timeline, but 2 tiers not 4
+  since the place name is already the grid's header: title, then settings).
+  Marker click handling hit-tests `e.originalEvent.target` for `.map-tile` vs.
+  the marker background, since Leaflet only gives one `click` event per
+  marker regardless of which inner tile was hit.
+  If any hand-geocoded pin turns out to be off, or a new named place shows up,
+  it's a two-line fix: add/adjust an entry in `PLACES` and a branch in
+  `placeKey()`.
 - **Lightbox z-index**: bumped from 100 to 1000 when Map was added --
   Leaflet's own panes (tiles/markers/popups) run up to ~700 and were showing
   *through* the lightbox overlay at the old value. If a future addition uses
@@ -250,6 +294,22 @@ normal browser caching is kept for those.
 
 ## Known gotchas (already hit, don't re-discover the hard way)
 
+- **Never mutate `settings.datetime` in place for a display-only tweak**:
+  `build_data.py` used to have a step truncating it to `"YYYY-MM"` for three
+  subcategories (Experiments in Liquids, Dinosaurs, Frank photos of Frankie)
+  so the site wouldn't show an exact day/time for those -- applied *after*
+  sorting, so ordering was never affected, but it permanently overwrote the
+  stored value for 78 photos. Sorting still worked, but anything else reading
+  `settings.datetime` (the lightbox's own meta line, and later the Timeline
+  view) got a lossy stub -- `new Date("2026-09")` parses as UTC midnight
+  Sep 1, which then displays as a wrong time in whatever the viewer's own
+  timezone is (showed as "Sep 1, 10:00 AM" here). Removed entirely; full
+  precision is restored for every photo (the real value was always computed
+  correctly earlier in `main()`, just clobbered right before writing). If a
+  future request wants to *display* a coarser date for some category again,
+  compute that separately at render time in script.js -- never overwrite the
+  stored `settings.datetime` itself, since anything added later may need the
+  real value.
 - **`[hidden]` + a `display` rule with equal specificity**: any element with
   both `hidden` in HTML and a plain `.foo { display: flex/block/... }` rule
   will ignore the `hidden` attribute, because the class selector and the

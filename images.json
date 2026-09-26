@@ -5385,7 +5385,7 @@
     "settings": {
       "aperture": "f/8",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09",
+      "datetime": "2026:09:13 09:59:51",
       "focal": "90mm",
       "iso": 200,
       "lens": "OM 90mm F3.5",
@@ -5422,7 +5422,7 @@
     "settings": {
       "aperture": "f/6.3",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09",
+      "datetime": "2026:09:13 10:04:20",
       "focal": "90mm",
       "iso": 200,
       "lens": "OM 90mm F3.5",
@@ -5463,7 +5463,7 @@
       "focal": "90mm",
       "lens": "OM 90mm F3.5",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:13 10:05:30"
     },
     "size": [
       5184,
@@ -5500,7 +5500,7 @@
       "focal": "90mm",
       "lens": "OM 90mm F3.5",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:13 10:23:22"
     },
     "size": [
       5184,
@@ -5537,7 +5537,7 @@
       "focal": "90mm",
       "lens": "OM 90mm F3.5",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:13 10:23:44"
     },
     "size": [
       5184,
@@ -5574,7 +5574,7 @@
       "focal": "90mm",
       "lens": "OM 90mm F3.5",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:13 10:39:07"
     },
     "size": [
       5184,
@@ -5611,7 +5611,7 @@
       "focal": "90mm",
       "lens": "OM 90mm F3.5",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:13 10:40:26"
     },
     "size": [
       5184,
@@ -5648,7 +5648,7 @@
       "focal": "90mm",
       "lens": "OM 90mm F3.5",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:13 10:42:10"
     },
     "size": [
       5184,
@@ -5685,7 +5685,7 @@
       "focal": "90mm",
       "lens": "OM 90mm F3.5",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:13 10:42:33"
     },
     "size": [
       5184,
@@ -5722,7 +5722,7 @@
       "focal": "90mm",
       "lens": "OM 90mm F3.5",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:13 10:46:46"
     },
     "size": [
       5184,
@@ -5759,7 +5759,7 @@
       "focal": "90mm",
       "lens": "OM 90mm F3.5",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:13 10:49:23"
     },
     "size": [
       5184,
@@ -5792,7 +5792,7 @@
     "settings": {
       "aperture": "f/8",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09",
+      "datetime": "2026:09:13 10:58:40",
       "focal": "90mm",
       "iso": 200,
       "lens": "OM 90mm F3.5",
@@ -5833,7 +5833,7 @@
       "focal": "90mm",
       "lens": "OM 90mm F3.5",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:13 10:59:30"
     },
     "size": [
       5184,
@@ -5870,7 +5870,7 @@
       "focal": "180mm",
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:13 13:17:50"
     },
     "size": [
       5184,
@@ -5903,7 +5903,7 @@
     "settings": {
       "aperture": "f/10",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09",
+      "datetime": "2026:09:13 13:19:48",
       "focal": "180mm",
       "iso": 200,
       "lens": "OM 90mm F3.5 + MC-20",
@@ -5944,7 +5944,7 @@
       "focal": "180mm",
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:13 13:20:32"
     },
     "size": [
       5184,
@@ -5981,7 +5981,7 @@
       "focal": "180mm",
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:13 13:22:19"
     },
     "size": [
       5184,
@@ -6021,7 +6021,7 @@
       "focal": "180mm",
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:13 13:22:19"
     },
     "size": [
       5184,
@@ -6054,7 +6054,7 @@
       "focal": "180mm",
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:13 13:26:15"
     },
     "size": [
       5184,
@@ -6094,7 +6094,7 @@
       "focal": "180mm",
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:13 13:26:15"
     },
     "size": [
       5184,
@@ -6127,7 +6127,7 @@
       "focal": "180mm",
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:13 13:27:25"
     },
     "size": [
       5184,
@@ -6159,7 +6159,7 @@
       "focal": "180mm",
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:13 13:28:31"
     },
     "size": [
       5184,
@@ -6196,7 +6196,7 @@
       "focal": "180mm",
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:13 13:28:58"
     },
     "size": [
       5184,
@@ -6233,7 +6233,7 @@
       "focal": "180mm",
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:13 13:30:11"
     },
     "size": [
       5184,
@@ -6270,7 +6270,7 @@
       "focal": "180mm",
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:13 13:31:07"
     },
     "size": [
       5184,
@@ -6307,7 +6307,7 @@
       "focal": "180mm",
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:13 13:34:45"
     },
     "size": [
       5184,
@@ -6344,7 +6344,7 @@
       "focal": "180mm",
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:13 16:15:32"
     },
     "size": [
       5184,
@@ -6376,7 +6376,7 @@
       "focal": "180mm",
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:13 16:18:23"
     },
     "size": [
       5184,
@@ -6408,7 +6408,7 @@
       "focal": "180mm",
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:13 16:19:04"
     },
     "size": [
       5184,
@@ -6440,7 +6440,7 @@
       "focal": "180mm",
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:13 16:19:19"
     },
     "size": [
       5184,
@@ -6472,7 +6472,7 @@
       "focal": "180mm",
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:13 16:20:48"
     },
     "size": [
       5184,
@@ -6504,7 +6504,7 @@
       "focal": "180mm",
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:13 16:20:51"
     },
     "size": [
       5184,
@@ -6536,7 +6536,7 @@
       "focal": "180mm",
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:13 16:22:16"
     },
     "size": [
       5184,
@@ -6568,7 +6568,7 @@
       "focal": "180mm",
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:13 16:22:21"
     },
     "size": [
       5184,
@@ -6600,7 +6600,7 @@
       "focal": "180mm",
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:13 16:22:30"
     },
     "size": [
       5184,
@@ -6632,7 +6632,7 @@
       "focal": "180mm",
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:13 16:22:39"
     },
     "size": [
       5184,
@@ -6664,7 +6664,7 @@
       "focal": "180mm",
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:13 16:23:41"
     },
     "size": [
       5184,
@@ -6696,7 +6696,7 @@
       "focal": "180mm",
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:13 16:23:44"
     },
     "size": [
       5184,
@@ -6728,7 +6728,7 @@
       "focal": "180mm",
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:13 16:24:06"
     },
     "size": [
       5184,
@@ -6760,7 +6760,7 @@
       "focal": "180mm",
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:13 16:24:33"
     },
     "size": [
       5184,
@@ -6792,7 +6792,7 @@
       "focal": "180mm",
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:13 16:24:37"
     },
     "size": [
       5184,
@@ -6824,7 +6824,7 @@
       "focal": "180mm",
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:13 16:24:54"
     },
     "size": [
       5184,
@@ -6856,7 +6856,7 @@
       "focal": "180mm",
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:13 16:24:59"
     },
     "size": [
       5184,
@@ -6888,7 +6888,7 @@
       "focal": "180mm",
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:13 16:25:16"
     },
     "size": [
       5184,
@@ -6920,7 +6920,7 @@
       "focal": "180mm",
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:13 16:25:23"
     },
     "size": [
       5184,
@@ -6952,7 +6952,7 @@
       "focal": "180mm",
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:13 16:25:33"
     },
     "size": [
       5184,
@@ -6984,7 +6984,7 @@
       "focal": "180mm",
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:13 16:25:44"
     },
     "size": [
       5184,
@@ -7016,7 +7016,7 @@
       "focal": "180mm",
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:13 18:05:38"
     },
     "size": [
       5184,
@@ -7053,7 +7053,7 @@
       "focal": "180mm",
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:13 18:31:35"
     },
     "size": [
       5184,
@@ -7090,7 +7090,7 @@
       "focal": "180mm",
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:13 18:32:06"
     },
     "size": [
       5184,
@@ -7685,7 +7685,7 @@
       "focal": "180mm",
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:15 14:01:05"
     },
     "size": [
       5184,
@@ -7718,7 +7718,7 @@
     "settings": {
       "aperture": "f/8",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09",
+      "datetime": "2026:09:15 14:02:11",
       "focal": "180mm",
       "iso": 200,
       "lens": "OM 90mm F3.5 + MC-20",
@@ -7755,7 +7755,7 @@
     "settings": {
       "aperture": "f/8",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09",
+      "datetime": "2026:09:15 14:03:25",
       "focal": "180mm",
       "iso": 200,
       "lens": "OM 90mm F3.5 + MC-20",
@@ -7796,7 +7796,7 @@
       "focal": "180mm",
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:15 14:04:45"
     },
     "size": [
       5184,
@@ -7836,7 +7836,7 @@
       "focal": "180mm",
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:15 14:04:45"
     },
     "size": [
       5184,
@@ -7869,7 +7869,7 @@
       "focal": "180mm",
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:15 14:14:41"
     },
     "size": [
       5184,
@@ -7909,7 +7909,7 @@
       "focal": "180mm",
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:15 14:14:41"
     },
     "size": [
       5184,
@@ -7942,7 +7942,7 @@
       "focal": "180mm",
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:15 14:15:28"
     },
     "size": [
       5184,
@@ -7982,7 +7982,7 @@
       "focal": "180mm",
       "lens": "OM 90mm F3.5 + MC-20",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:15 14:15:28"
     },
     "size": [
       5184,
@@ -10329,7 +10329,7 @@
       "focal": "90mm",
       "lens": "OM 90mm F3.5",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:20 11:44:44"
     },
     "size": [
       5184,
@@ -10361,7 +10361,7 @@
       "focal": "90mm",
       "lens": "OM 90mm F3.5",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:20 11:47:01"
     },
     "size": [
       5184,
@@ -10393,7 +10393,7 @@
       "focal": "90mm",
       "lens": "OM 90mm F3.5",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:20 11:47:03"
     },
     "size": [
       5184,
@@ -10425,7 +10425,7 @@
       "focal": "90mm",
       "lens": "OM 90mm F3.5",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:20 11:47:03"
     },
     "size": [
       5184,
@@ -10457,7 +10457,7 @@
       "focal": "90mm",
       "lens": "OM 90mm F3.5",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:20 11:47:03"
     },
     "size": [
       5184,
@@ -10489,7 +10489,7 @@
       "focal": "90mm",
       "lens": "OM 90mm F3.5",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:20 11:47:03"
     },
     "size": [
       5184,
@@ -10521,7 +10521,7 @@
       "focal": "90mm",
       "lens": "OM 90mm F3.5",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:20 11:47:04"
     },
     "size": [
       5184,
@@ -10553,7 +10553,7 @@
       "focal": "90mm",
       "lens": "OM 90mm F3.5",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:20 11:48:07"
     },
     "size": [
       5184,
@@ -10585,7 +10585,7 @@
       "focal": "90mm",
       "lens": "OM 90mm F3.5",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:20 11:48:07"
     },
     "size": [
       5184,
@@ -10617,7 +10617,7 @@
       "focal": "90mm",
       "lens": "OM 90mm F3.5",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:20 11:48:08"
     },
     "size": [
       5184,
@@ -10649,7 +10649,7 @@
       "focal": "90mm",
       "lens": "OM 90mm F3.5",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:20 11:48:08"
     },
     "size": [
       5184,
@@ -10681,7 +10681,7 @@
       "focal": "90mm",
       "lens": "OM 90mm F3.5",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:20 11:48:26"
     },
     "size": [
       5184,
@@ -10713,7 +10713,7 @@
       "focal": "90mm",
       "lens": "OM 90mm F3.5",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:20 11:48:29"
     },
     "size": [
       5184,
@@ -10745,7 +10745,7 @@
       "focal": "90mm",
       "lens": "OM 90mm F3.5",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:20 11:48:48"
     },
     "size": [
       5184,
@@ -10777,7 +10777,7 @@
       "focal": "90mm",
       "lens": "OM 90mm F3.5",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:20 11:48:50"
     },
     "size": [
       5184,
@@ -10809,7 +10809,7 @@
       "focal": "90mm",
       "lens": "OM 90mm F3.5",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:20 11:56:20"
     },
     "size": [
       5184,
@@ -10841,7 +10841,7 @@
       "focal": "90mm",
       "lens": "OM 90mm F3.5",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:20 11:56:37"
     },
     "size": [
       5184,
@@ -10873,7 +10873,7 @@
       "focal": "90mm",
       "lens": "OM 90mm F3.5",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:20 12:00:40"
     },
     "size": [
       5184,
@@ -10905,7 +10905,7 @@
       "focal": "90mm",
       "lens": "OM 90mm F3.5",
       "camera": "OM-1MarkII",
-      "datetime": "2026-09"
+      "datetime": "2026:09:24 18:54:00"
     },
     "size": [
       5184,
