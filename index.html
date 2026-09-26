@@ -86,11 +86,27 @@
 </div>
 
 <div class="slideshow" id="slideshow" hidden>
-  <button class="ss-close" id="ss-close" aria-label="Close slideshow">&times;</button>
   <div class="ss-stage" id="ss-stage">
-    <img class="ss-img" id="ss-img-a" alt="">
-    <img class="ss-img" id="ss-img-b" alt="">
+    <img class="ss-img" id="ss-img" alt="">
+    <div class="ss-dim" id="ss-dim"></div>
+    <div class="ss-shutter ss-shutter-top" id="ss-shutter-top"></div>
+    <div class="ss-shutter ss-shutter-bottom" id="ss-shutter-bottom"></div>
   </div>
+  <div class="ss-panel" id="ss-panel">
+    <div class="ss-panel-row">
+      <button class="ss-play" id="ss-play" aria-label="Pause">&#10074;&#10074;</button>
+      <span class="ss-status" id="ss-status">Playing</span>
+    </div>
+    <div class="ss-panel-row">
+      <span class="ss-panel-label">Slower</span>
+      <div class="ss-speeds" id="ss-speeds"></div>
+      <span class="ss-panel-label">Faster</span>
+    </div>
+    <div class="ss-progress"><div class="ss-progress-bar" id="ss-progress-bar"></div></div>
+  </div>
+  <button class="ss-arrow ss-prev" id="ss-prev" aria-label="Previous photo">&#10094;</button>
+  <button class="ss-arrow ss-next" id="ss-next" aria-label="Next photo">&#10095;</button>
+  <button class="ss-close" id="ss-close" aria-label="Close slideshow">&times;</button>
   <div class="ss-bar">
     <h3 id="ss-title"></h3>
     <p id="ss-location"></p>

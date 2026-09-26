@@ -3144,22 +3144,50 @@
   });
 
   // ---- Slideshow ----
+  // Photos change behind a camera shutter: two blades close from the top and
+  // bottom (3x the thumbnail hover shutter's 50ms), stay shut ~half a second
+  // while the photo swaps, then open. A black layer fades in lock-step with
+  // how far the blades are closed, like the light being cut off. Controls
+  // (speed panel, side arrows, close) slide away after 3s without the mouse
+  // moving and come back on any movement or tap.
   const ssStartBtn = document.getElementById('slideshow-start');
   const ssEl = document.getElementById('slideshow');
   const ssClose = document.getElementById('ss-close');
   const ssStage = document.getElementById('ss-stage');
-  const ssImgA = document.getElementById('ss-img-a');
-  const ssImgB = document.getElementById('ss-img-b');
+  const ssImg = document.getElementById('ss-img');
+  const ssShutterTop = document.getElementById('ss-shutter-top');
+  const ssShutterBottom = document.getElementById('ss-shutter-bottom');
+  const ssDim = document.getElementById('ss-dim');
   const ssTitle = document.getElementById('ss-title');
   const ssLocation = document.getElementById('ss-location');
   const ssDesc = document.getElementById('ss-desc');
+  const ssBar = document.querySelector('.ss-bar');
+  const ssStatus = document.getElementById('ss-status');
+  const ssPlayBtn = document.getElementById('ss-play');
+  const ssSpeedsEl = document.getElementById('ss-speeds');
+  const ssProgressBar = document.getElementById('ss-progress-bar');
+  const ssPrevBtn = document.getElementById('ss-prev');
+  const ssNextBtn = document.getElementById('ss-next');
 
-  const SLIDE_DURATION = 10000;
+  const SS_SPEEDS = [20, 15, 10, 7, 5]; // seconds per photo, slowest first
+  const SS_SPEED_KEY = 'slideshowSpeed';
+  const SS_CLOSE_MS = 150;
+  const SS_HOLD_MS = 500;
+  const SS_OPEN_MS = 150;
+  const SS_UI_IDLE_MS = 3000;
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  let ssSpeed = Number(storageGet(SS_SPEED_KEY)) || 10;
+  if (!SS_SPEEDS.includes(ssSpeed)) ssSpeed = 10;
   let ssOrder = [];
   let ssPos = 0;
-  let ssTimer = null;
-  let ssShowingA = false;
   let ssPaused = false;
+  let ssTimer = null;
+  let ssRemaining = 0; // ms left on the current photo (while paused)
+  let ssDeadline = 0; // when the current photo's time runs out (while playing)
+  let ssUiTimer = null;
+  let ssAnim = null; // { frame, token } of the running shutter transition
+  let ssClosure = 0; // 0 = shutter open, 1 = fully shut
 
   function ssPreloadAll() {
     ssOrder.forEach((idx) => {
@@ -3175,40 +3203,169 @@
     ssDesc.textContent = item.description || '';
   }
 
-  function ssShow(pos) {
-    ssPos = pos;
-    const item = items[ssOrder[pos]];
-    const incoming = ssShowingA ? ssImgB : ssImgA;
-    const outgoing = ssShowingA ? ssImgA : ssImgB;
-    ssShowingA = !ssShowingA;
-
-    const reveal = () => {
-      incoming.classList.add('visible');
-      outgoing.classList.remove('visible');
-      ssRenderInfo(item);
-    };
-    incoming.onload = reveal;
-    incoming.src = item.medium;
-    incoming.alt = item.title || item.caption || 'Photo';
-    if (incoming.complete) reveal();
+  // Blades and the black layer are both driven from one number so they can
+  // never drift apart.
+  function ssSetClosure(c) {
+    ssClosure = c;
+    const blade = reduceMotion ? 0 : c;
+    ssShutterTop.style.transform = `translateY(${(blade - 1) * 100}%)`;
+    ssShutterBottom.style.transform = `translateY(${(1 - blade) * 100}%)`;
+    ssDim.style.opacity = c;
+    // The caption goes dark with the photo, so the new title arrives with it.
+    ssBar.style.opacity = 1 - c;
   }
 
-  function ssScheduleNext() {
+  const easeIn = (t) => t * t * t;
+  const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+
+  function ssAnimate(from, to, ms, ease, token) {
+    return new Promise((resolve) => {
+      const start = performance.now();
+      const tick = (now) => {
+        if (!ssAnim || ssAnim.token !== token) return resolve(false);
+        const t = ms ? Math.min(1, (now - start) / ms) : 1;
+        ssSetClosure(from + (to - from) * ease(t));
+        if (t < 1) ssAnim.frame = requestAnimationFrame(tick);
+        else resolve(true);
+      };
+      ssAnim.frame = requestAnimationFrame(tick);
+    });
+  }
+
+  function ssWaitForImage(img, maxMs) {
+    return new Promise((resolve) => {
+      if (img.complete && img.naturalWidth) return resolve();
+      const done = () => { clearTimeout(t); img.onload = img.onerror = null; resolve(); };
+      const t = setTimeout(done, maxMs);
+      img.onload = done;
+      img.onerror = done;
+    });
+  }
+
+  // Close the shutter (from wherever it is), hold, swap to ssOrder[pos], open.
+  // Stepping again mid-transition just retargets it: the newest photo wins.
+  async function ssGoTo(pos, { first = false } = {}) {
+    ssPos = pos;
     clearTimeout(ssTimer);
+    ssProgressReset();
+    if (ssAnim && ssAnim.running) return; // the running transition picks up the new ssPos
+    const token = {};
+    if (ssAnim) cancelAnimationFrame(ssAnim.frame);
+    ssAnim = { token, frame: 0, running: true };
+    const closeMs = reduceMotion ? 250 : SS_CLOSE_MS;
+    const openMs = reduceMotion ? 250 : SS_OPEN_MS;
+    if (!first) {
+      if (!(await ssAnimate(ssClosure, 1, closeMs * (1 - ssClosure), easeIn, token))) return;
+    }
+    const holdStart = performance.now();
+    let shown = -1;
+    // Keep swapping while shut in case the target moved during the hold.
+    while (shown !== ssPos) {
+      shown = ssPos;
+      const item = items[ssOrder[shown]];
+      ssImg.src = item.medium;
+      ssImg.alt = item.title || item.caption || 'Photo';
+      ssRenderInfo(item);
+      await ssWaitForImage(ssImg, 4000);
+      const left = SS_HOLD_MS - (performance.now() - holdStart);
+      if (left > 0) await new Promise((r) => setTimeout(r, left));
+      if (!ssAnim || ssAnim.token !== token) return;
+    }
+    if (!(await ssAnimate(1, 0, openMs, easeOut, token))) return;
+    ssAnim.running = false;
+    if (shown !== ssPos) return ssGoTo(ssPos);
+    ssStartTimer(ssSpeed * 1000);
+  }
+
+  function ssStartTimer(ms) {
+    clearTimeout(ssTimer);
+    ssRemaining = ms;
+    ssProgressStart(ms, ssSpeed * 1000);
     if (ssPaused) return;
-    ssTimer = setTimeout(() => ssStep(1), SLIDE_DURATION);
+    ssDeadline = performance.now() + ms;
+    ssTimer = setTimeout(() => ssStep(1), ms);
+  }
+
+  // Thin bar along the bottom of the panel filling up to the next photo --
+  // the at-a-glance "yes, it's running" sign.
+  function ssProgressReset() {
+    ssProgressBar.style.transition = 'none';
+    ssProgressBar.style.width = '0%';
+  }
+
+  function ssProgressStart(msLeft, msTotal) {
+    ssProgressBar.style.transition = 'none';
+    ssProgressBar.style.width = `${(1 - msLeft / msTotal) * 100}%`;
+    void ssProgressBar.offsetWidth;
+    if (ssPaused) return;
+    ssProgressBar.style.transition = `width ${msLeft}ms linear`;
+    ssProgressBar.style.width = '100%';
+  }
+
+  function ssProgressFreeze() {
+    const w = ssProgressBar.getBoundingClientRect().width;
+    const total = ssProgressBar.parentElement.getBoundingClientRect().width || 1;
+    ssProgressBar.style.transition = 'none';
+    ssProgressBar.style.width = `${(w / total) * 100}%`;
   }
 
   function ssStep(delta) {
-    const next = (ssPos + delta + ssOrder.length) % ssOrder.length;
-    ssShow(next);
-    ssScheduleNext();
+    if (!ssOrder.length) return;
+    ssGoTo((ssPos + delta + ssOrder.length) % ssOrder.length);
+  }
+
+  function ssTransitioning() {
+    return !!(ssAnim && ssAnim.running);
   }
 
   function ssTogglePause() {
     ssPaused = !ssPaused;
-    if (ssPaused) clearTimeout(ssTimer);
-    else ssScheduleNext();
+    if (ssPaused) {
+      if (!ssTransitioning()) {
+        clearTimeout(ssTimer);
+        ssRemaining = Math.max(0, ssDeadline - performance.now());
+        ssProgressFreeze();
+      }
+    } else if (!ssTransitioning()) {
+      ssStartTimer(ssRemaining || ssSpeed * 1000);
+    }
+    ssRenderControls();
+    ssShowUi();
+  }
+
+  function ssSetSpeed(sec) {
+    ssSpeed = sec;
+    storageSet(SS_SPEED_KEY, String(sec));
+    // A new speed starts the current photo's count again at that speed.
+    if (!ssTransitioning()) ssStartTimer(sec * 1000);
+    ssRenderControls();
+  }
+
+  function ssRenderControls() {
+    ssStatus.textContent = ssPaused ? `Paused · ${ssSpeed}s per photo` : `Playing · ${ssSpeed}s per photo`;
+    ssPlayBtn.innerHTML = ssPaused ? '&#9654;' : '&#10074;&#10074;';
+    ssPlayBtn.setAttribute('aria-label', ssPaused ? 'Play' : 'Pause');
+    ssSpeedsEl.querySelectorAll('button').forEach((btn) => {
+      btn.classList.toggle('active', Number(btn.dataset.speed) === ssSpeed);
+    });
+  }
+
+  SS_SPEEDS.forEach((sec) => {
+    const btn = document.createElement('button');
+    btn.className = 'ss-speed';
+    btn.dataset.speed = sec;
+    btn.textContent = `${sec}s`;
+    btn.addEventListener('click', (e) => { e.stopPropagation(); ssSetSpeed(sec); ssShowUi(); });
+    ssSpeedsEl.appendChild(btn);
+  });
+
+  // Controls stay up while paused, so it's obvious nothing is moving.
+  function ssShowUi() {
+    ssEl.classList.remove('ss-ui-hidden');
+    clearTimeout(ssUiTimer);
+    ssUiTimer = setTimeout(() => {
+      if (!ssPaused) ssEl.classList.add('ss-ui-hidden');
+    }, SS_UI_IDLE_MS);
   }
 
   // The slideshow plays whatever the current view is showing: all photos on
@@ -3264,14 +3421,13 @@
     ssOrder = slideshowOrder();
     if (!ssOrder.length) return;
     ssPaused = false;
-    ssShowingA = false;
-    ssImgA.classList.remove('visible');
-    ssImgB.classList.remove('visible');
     ssEl.hidden = false;
     document.body.style.overflow = 'hidden';
-    ssShow(0);
-    ssScheduleNext();
+    ssSetClosure(1);
+    ssRenderControls();
+    ssShowUi();
     ssPreloadAll();
+    ssGoTo(0, { first: true });
     if (ssEl.requestFullscreen) {
       ssEl.requestFullscreen().catch(() => {});
     }
@@ -3279,7 +3435,11 @@
 
   function ssCloseFn() {
     clearTimeout(ssTimer);
+    clearTimeout(ssUiTimer);
+    if (ssAnim) cancelAnimationFrame(ssAnim.frame);
+    ssAnim = null;
     ssEl.hidden = true;
+    ssEl.classList.remove('ss-ui-hidden');
     document.body.style.overflow = '';
     if (document.fullscreenElement) {
       document.exitFullscreen().catch(() => {});
@@ -3288,7 +3448,23 @@
 
   ssStartBtn.addEventListener('click', ssOpen);
   ssClose.addEventListener('click', ssCloseFn);
-  ssStage.addEventListener('click', ssTogglePause);
+  ssPlayBtn.addEventListener('click', (e) => { e.stopPropagation(); ssTogglePause(); });
+  ssPrevBtn.addEventListener('click', (e) => { e.stopPropagation(); ssStep(-1); ssShowUi(); });
+  ssNextBtn.addEventListener('click', (e) => { e.stopPropagation(); ssStep(1); ssShowUi(); });
+
+  // Mouse: any movement brings the controls back. Touch: a tap while they're
+  // hidden only brings them back; a tap while they're showing pauses/plays,
+  // the same as a mouse click on the photo.
+  ssEl.addEventListener('mousemove', () => { if (!ssEl.hidden) ssShowUi(); });
+  ssStage.addEventListener('click', (e) => {
+    if (e.pointerType === 'touch' || ssLastPointerTouch) {
+      ssLastPointerTouch = false;
+      if (ssEl.classList.contains('ss-ui-hidden')) return ssShowUi();
+    }
+    ssTogglePause();
+  });
+  let ssLastPointerTouch = false;
+  ssStage.addEventListener('pointerdown', (e) => { ssLastPointerTouch = e.pointerType === 'touch'; });
 
   document.addEventListener('fullscreenchange', () => {
     if (!document.fullscreenElement && !ssEl.hidden) ssCloseFn();
@@ -3297,8 +3473,8 @@
   document.addEventListener('keydown', (e) => {
     if (ssEl.hidden) return;
     if (e.key === 'Escape') return ssCloseFn();
-    if (e.key === 'ArrowRight') return ssStep(1);
-    if (e.key === 'ArrowLeft') return ssStep(-1);
+    if (e.key === 'ArrowRight') { ssShowUi(); return ssStep(1); }
+    if (e.key === 'ArrowLeft') { ssShowUi(); return ssStep(-1); }
     if (e.key === ' ') { e.preventDefault(); ssTogglePause(); }
   });
 
