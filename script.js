@@ -222,9 +222,19 @@
     syncLbHeart();
     heartCountEl.hidden = !hearts.length;
     heartCountEl.textContent = hearts.length;
+    updateSlideshowBtn();
     // The My Hearts grid itself changes when a heart is removed, but not
     // while a photo is open over it -- close() redraws it instead.
     if (location.hash === '#/hearts' && lightbox.hidden) renderHearts(true);
+  }
+
+  // Called on every route change and heart change. Looked up here rather than
+  // via the slideshow's own const, since route() first runs before that code.
+  function updateSlideshowBtn() {
+    const btn = document.getElementById('slideshow-start');
+    const inHearts = location.hash === '#/hearts';
+    btn.innerHTML = inHearts ? '&#9654; Hearted slideshow' : '&#9654; Slideshow';
+    btn.disabled = inHearts && !hearts.length;
   }
 
   function syncLbHeart() {
@@ -1391,6 +1401,7 @@
   }
 
   function route() {
+    updateSlideshowBtn();
     const m = location.hash.match(/^#\/c\/(.+)$/);
     if (m) {
       const key = decodeURIComponent(m[1]);
@@ -3200,9 +3211,58 @@
     else ssScheduleNext();
   }
 
+  // The slideshow plays whatever the current view is showing: all photos on
+  // the Categories home, one section on a category page, the hearted photos
+  // on My Hearts, and on the Timeline / Map only what is on screen right now
+  // (so the zoomed-all-the-way-out overview is still every photo).
+  // Timeline "on screen" is judged by time (left/right) only: in the
+  // overview, busy days fan out into more lanes than fit vertically, and
+  // those photos still count as part of the range being looked at.
+  function inTimeRange(el, box) {
+    const r = el.getBoundingClientRect();
+    return r.width > 0 && r.right > box.left && r.left < box.right;
+  }
+
+  function timelineVisibleOrder() {
+    if (!tlViewportEl || !tlViewportEl.isConnected) return chronoOrder;
+    const box = tlViewportEl.getBoundingClientRect();
+    const shown = new Set();
+    tlClusterNodes.forEach((el, key) => {
+      if (!inTimeRange(el, box)) return;
+      const group = getDayGroups().find((g) => g.key === key);
+      if (group) group.indices.forEach((i) => shown.add(i));
+    });
+    tlItemNodes.forEach((node, idx) => { if (inTimeRange(node.wrap, box)) shown.add(idx); });
+    return chronoOrder.filter((i) => shown.has(i));
+  }
+
+  function mapVisibleOrder() {
+    if (!mapInstance) return chronoOrder;
+    const placeGroups = getPlaceGroups();
+    const open = mapSelectedKey && placeGroups.find((g) => g.key === mapSelectedKey);
+    if (open) return open.indices.slice();
+    const bounds = mapInstance.getBounds();
+    const shown = new Set();
+    placeGroups.forEach((g) => {
+      if (g.place && bounds.contains([g.place.lat, g.place.lng])) g.indices.forEach((i) => shown.add(i));
+    });
+    return chronoOrder.filter((i) => shown.has(i));
+  }
+
+  function slideshowOrder() {
+    const hash = location.hash;
+    if (hash === '#/hearts') return hearts.map((slug) => indexBySlug.get(slug));
+    if (hash === '#/timeline') return timelineVisibleOrder();
+    if (hash === '#/map') return mapVisibleOrder();
+    const m = hash.match(/^#\/c\/(.+)$/);
+    const groupItems = m && groups.get(decodeURIComponent(m[1]));
+    if (groupItems) return groupItems.map((item) => item._index);
+    return globalOrder;
+  }
+
   function ssOpen() {
-    if (!globalOrder.length) return;
-    ssOrder = globalOrder.slice();
+    ssOrder = slideshowOrder();
+    if (!ssOrder.length) return;
     ssPaused = false;
     ssShowingA = false;
     ssImgA.classList.remove('visible');

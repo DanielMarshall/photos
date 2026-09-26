@@ -17,7 +17,10 @@ that read from the photographer's local Camera Roll.
 
 Last updated 2026-09-26 (cloud session, branch `claude/project-thread-8exgki`).
 
-- **Visitor hearts (2026-09-26, PR from `claude/project-thread-8exgki`)**:
+- **Slideshow follows the view (2026-09-26, second PR from
+  `claude/project-thread-8exgki`)**: see "Slideshow" below.
+
+- **Visitor hearts (2026-09-26, PR #4, merged)**:
   any visitor can heart photos (heart on each grid tile, map-panel tile and
   a "Heart" button in the lightbox; the Timeline has no tile hearts, use the
   lightbox). Saved only in their browser (`localStorage` key `photoHearts`,
@@ -270,6 +273,16 @@ Fullscreen (Fullscreen API where available), cycles **medium**-resolution
 images in the same order as the grid, 10s/slide with a 1.1s crossfade,
 preloads every image in the background as soon as it opens. Click/Space to
 pause, arrow keys to step, X or Escape to exit.
+
+**What it plays follows the current view** (`slideshowOrder()`, photographer's
+spec 2026-09-26): Categories home = every photo; a category page = that
+section only; My Hearts = hearted photos only, and the button reads
+"Hearted slideshow" (disabled with no hearts); Timeline = only photos in the
+visible time range (judged left/right only, so the zoomed-out overview is
+every photo even though busy days' lanes overflow vertically); Map = the
+open place panel's photos, else every place inside the visible map area.
+An empty stretch of Timeline or Map gives nothing to play, so the button
+does nothing there.
 
 ## View switcher: Categories / Timeline / Map (script.js)
 

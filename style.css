@@ -151,6 +151,14 @@ body.home-view {
   color: var(--accent);
 }
 
+/* My Hearts with nothing hearted yet: nothing to play. */
+.slideshow-btn:disabled {
+  opacity: 0.45;
+  cursor: default;
+  border-color: var(--border);
+  color: var(--fg);
+}
+
 main {
   max-width: 1400px;
   margin: 0 auto;
