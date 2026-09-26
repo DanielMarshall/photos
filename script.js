@@ -490,16 +490,26 @@
     return String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   }
 
-  // The time axis's scale grows much faster than thumbnail size once
-  // thumbnails have already saturated at TL_MAX_THUMB (see thumbPxFor) --
-  // *13, not *1.3. With the old rate, separating a two-minute gap between
-  // shots needed close to the full zoom range (thumbPx saturates at a tiny
-  // fraction of TL_MAX_ZOOM, so nearly the whole remaining range was spent
-  // just growing pxPerDay linearly) -- an order of magnitude more scrolling
-  // than it should have taken. This makes the same real-world separation
-  // reachable an order of magnitude sooner.
+  // The time axis's scale grows at 1.3px/day per zoom unit while thumbnails
+  // are still growing (zoom <= TL_MAX_THUMB), then 10x faster -- 13 -- once
+  // they have saturated (see thumbPxFor). A single *13 everywhere made the
+  // angled stems / single-row squeeze arrive an order of magnitude sooner,
+  // but it also pushed the minimum zoom's scale to 104px/day, so the
+  // opening "whole date range" overview no longer fit on screen (Sep 17-26
+  // started off the right-hand edge). Splitting the rate keeps the overview
+  // and thumbnail growth exactly as they were, and only speeds up the part
+  // past saturation, which is where all the extra scrolling was spent.
+  // tlZoomForPxPerDay is the exact inverse, used by the initial auto-fit.
+  const TL_SLOW_RATE = 1.3;
+  const TL_FAST_RATE = 13;
+  const TL_KNEE_PX = TL_MAX_THUMB * TL_SLOW_RATE;
   function tlPxPerDay(zoom) {
-    return Math.max(zoom * 13, 26);
+    if (zoom <= TL_MAX_THUMB) return Math.max(zoom * TL_SLOW_RATE, 26);
+    return TL_KNEE_PX + (zoom - TL_MAX_THUMB) * TL_FAST_RATE;
+  }
+  function tlZoomForPxPerDay(px) {
+    if (px <= TL_KNEE_PX) return px / TL_SLOW_RATE;
+    return TL_MAX_THUMB + (px - TL_KNEE_PX) / TL_FAST_RATE;
   }
   function tlLabelLines(thumbPx) {
     if (thumbPx < 55) return 0;
@@ -920,7 +930,10 @@
       const span = groupsList[groupsList.length - 1].dayOffset - groupsList[0].dayOffset || 1;
       requestAnimationFrame(() => {
         const width = tlViewportEl.clientWidth || 1000;
-        tlZoom = Math.min(TL_MAX_ZOOM, Math.max(TL_MIN_ZOOM, (width / span) / 13));
+        // span is start-of-first-day to start-of-last-day, so the last day's
+        // own photos need one more day of room, plus the 40px pan inset on
+        // both sides -- plain width / span put that whole day off the right.
+        tlZoom = Math.min(TL_MAX_ZOOM, Math.max(TL_MIN_ZOOM, tlZoomForPxPerDay((width - 80) / (span + 1))));
         tlPanPx = 40;
         layoutTimeline();
       });

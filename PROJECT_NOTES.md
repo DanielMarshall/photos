@@ -13,6 +13,20 @@ that read from the photographer's local Camera Roll.
 - Site currently labeled "Test Shoot Gallery — not a curated portfolio" — these
   are test/practice shots, not a finished body of work.
 
+## Current status (keep this updated -- read first in a new session)
+
+Last updated 2026-09-26 (cloud session, branch `claude/great-brahmagupta-iznd4n`).
+
+- Latest photos on `main`: Boronia Park Reserve (26 Sep morning, 25 photos)
+  and the 26 Sep afternoon Garden macro batch (10 photos). All processed,
+  titled except 11 Boronia singles (see open questions).
+- Fixed on the branch above (not yet merged to `main` at time of writing):
+  Timeline overview not fitting after the zoom-rate change; last day always
+  off-screen in the overview; Map side panel ignoring `hidden`.
+- Cloud sessions can't reach unpkg.com (Leaflet) or the Windows paths, so
+  testing there needs Leaflet served locally (Playwright `page.route` to an
+  `npm i leaflet@1.9.4` copy) and new photos must be processed locally.
+
 ## Source material
 
 Photos live in `C:\Users\dashi\Pictures\Camera Roll\exports\` — the
@@ -255,14 +269,23 @@ open/close never touching `location.hash` or `#sections`.
   pixels a burst actually needs to lay out one-after-another. A gap of a
   minute or more between shots resolves to a single row at max zoom; truly
   same-second bursts still fan (an inherent limit of any timeline, not a bug).
-  **Time-axis rate**: `tlPxPerDay(zoom) = max(zoom * 13, 26)` (was `* 1.3`
-  until 2026-09-26; the photographer asked for the angled stems to kick in at
-  least an order of magnitude sooner). Past thumbnail saturation, whether
-  squeeze/angled stems trigger depends only on `pxPerDay` vs a fixed thumb
-  size, so 10x the rate = 10x less zoom needed (~10 fewer wheel notches at
-  ~1.25x per notch). The initial auto-fit in `renderTimeline` divides by the
-  same constant — keep the two in sync if it changes again. Verified: from
-  the auto-fit view, angled stems appear after ~20 wheel notches.
+  **Time-axis rate**: piecewise -- `tlPxPerDay(zoom)` is `max(zoom * 1.3, 26)`
+  up to `TL_MAX_THUMB` (220, where thumbnails stop growing), then
+  `286 + (zoom - 220) * 13` past it (`TL_SLOW_RATE` / `TL_FAST_RATE`).
+  History: the photographer asked (2026-09-26) for the angled stems to kick in
+  at least an order of magnitude sooner, and a first attempt used `* 13`
+  everywhere. That also multiplied the minimum zoom's scale by 10
+  (`TL_MIN_ZOOM` 8 -> 104px/day), so the opening "fit everything" overview no
+  longer fit -- Sep 17-26 started off the right edge. The piecewise version
+  keeps the overview and thumbnail growth exactly as before and only speeds
+  up the part past saturation, which is where the extra scrolling was spent.
+  `tlZoomForPxPerDay` is its exact inverse; the auto-fit in `renderTimeline`
+  uses it -- keep them in sync. The auto-fit also sizes for `span + 1` days
+  and a 40px inset on both sides (plain `width / span` always left the whole
+  last day off-screen, even before the rate change). Measured in headless
+  Chromium at 1400px, zooming on Sep 12: old `*1.3` = no angled stems within
+  60 wheel notches, `*13` = 49 notches (and overview broken), piecewise = 39
+  notches with the overview fitting (0 items off-screen).
   **Single-row squeeze**: once the ordinary lane fan would only ever need one
   lane per side *for whatever's currently on screen* (`maxVisibleRank <= 1` in
   `layoutIndividualItems`, checked only within the visible x-range plus a
@@ -428,7 +451,9 @@ normal browser caching is kept for those.
   both `hidden` in HTML and a plain `.foo { display: flex/block/... }` rule
   will ignore the `hidden` attribute, because the class selector and the
   `[hidden]` UA-stylesheet rule have equal specificity and the later one in
-  cascade order wins. Fixed twice already (`.zoom-bar`, `.lb-loading`) by
+  cascade order wins. Fixed three times already (`.zoom-bar`, `.lb-loading`,
+  `.map-side-panel` -- that one left an invisible-but-present empty panel over
+  the map's left edge that swallowed marker clicks) by
   adding an explicit `.foo[hidden] { display: none; }` override. **Any new
   `hidden`-toggled element needs this from the start.**
 - **Windows path colons break ffmpeg filtergraph args**: a filter option like
