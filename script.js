@@ -359,10 +359,22 @@
   // then grow and pick up more label detail (date -> title -> full EXIF
   // settings) the larger they get -- one continuous zoom axis (thumbnail
   // pixel size) drives both the day-vs-item switch and the label detail.
-  const TL_MIN_PX = 8;
-  const TL_MAX_PX = 220;
+  // `tlZoom` is the single value the wheel/pinch/drag controls, but it drives
+  // two things at different rates: visual thumbnail size (thumbPxFor), which
+  // saturates at TL_MAX_THUMB early, and the time axis's scale (tlPxPerDay),
+  // which keeps growing well past that -- otherwise photos taken minutes or
+  // seconds apart could never be pulled apart horizontally no matter how far
+  // in you zoomed, since thumbnail size alone runs out of room fast relative
+  // to how many pixels a burst actually needs to lay out one-after-another.
+  const TL_MIN_ZOOM = 8;
+  const TL_MAX_ZOOM = 800000;
+  const TL_MAX_THUMB = 220;
   const TL_CLUSTER_BELOW = 22; // thumb px below this: show day clusters, not items
   const TL_GAP = 4;
+
+  function thumbPxFor(zoom) {
+    return Math.min(TL_MAX_THUMB, zoom);
+  }
 
   function parseDt(s) {
     if (!s) return null;
@@ -378,6 +390,9 @@
   }
   function fmtDateTime(d) {
     return d.toLocaleString(undefined, { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
+  }
+  function fmtTimeOnly(d) {
+    return d.toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' });
   }
   function settingsLine(s) {
     if (!s) return '';
@@ -470,8 +485,8 @@
     return String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   }
 
-  function tlPxPerDay(thumbPx) {
-    return Math.max(thumbPx * 1.3, 26);
+  function tlPxPerDay(zoom) {
+    return Math.max(zoom * 1.3, 26);
   }
   function tlLabelLines(thumbPx) {
     if (thumbPx < 55) return 0;
@@ -480,14 +495,20 @@
     return 3;
   }
 
-  let tlThumbPx = 60;
+  const TL_LANE_GAP = 10; // distance from the axis to the nearest lane's near edge
+
+  let tlZoom = 60;
   let tlPanPx = 0;
   let tlViewportEl = null;
   let tlTrackEl = null;
   let tlClusterLayer = null;
   let tlItemLayer = null;
+  let tlStemLayer = null;
+  let tlDayLabelLayer = null;
   let tlItemNodes = new Map(); // item index -> { wrap, img, lines: [el,el,el] }
   let tlClusterNodes = new Map(); // day key -> element
+  let tlStemNodes = new Map(); // item index -> element
+  let tlDayLabelNodes = new Map(); // day key -> element
   let tlLayoutScheduled = false;
 
   function scheduleTlLayout() {
@@ -496,45 +517,28 @@
     requestAnimationFrame(() => { tlLayoutScheduled = false; layoutTimeline(); });
   }
 
-  function tlZoomTo(newThumbPx, cursorX) {
-    newThumbPx = Math.min(TL_MAX_PX, Math.max(TL_MIN_PX, newThumbPx));
-    if (newThumbPx === tlThumbPx) return;
-    const oldPxPerDay = tlPxPerDay(tlThumbPx);
-    const newPxPerDay = tlPxPerDay(newThumbPx);
+  function tlZoomTo(newZoom, cursorX) {
+    newZoom = Math.min(TL_MAX_ZOOM, Math.max(TL_MIN_ZOOM, newZoom));
+    if (newZoom === tlZoom) return;
+    const oldPxPerDay = tlPxPerDay(tlZoom);
+    const newPxPerDay = tlPxPerDay(newZoom);
     const trackX = cursorX - tlPanPx;
     tlPanPx = cursorX - trackX * (newPxPerDay / oldPxPerDay);
-    tlThumbPx = newThumbPx;
+    tlZoom = newZoom;
     scheduleTlLayout();
   }
 
-  function computeTlLayout(groupsList, thumbPx, viewportHeight) {
-    const clustered = thumbPx < TL_CLUSTER_BELOW;
-    const pxPerDay = tlPxPerDay(thumbPx);
-    const labelLines = tlLabelLines(thumbPx);
-    const dayHeaderH = 18;
+  function computeClusterLayout(groupsList, pxPerDay) {
     let runningRight = -Infinity;
     const blocks = [];
     groupsList.forEach((g) => {
       const idealX = g.dayOffset * pxPerDay;
-      let width, height, columns, rows;
-      if (clustered) {
-        const dot = Math.max(14, Math.min(34, 10 + Math.sqrt(g.indices.length) * 6));
-        width = dot; height = dot; columns = 1; rows = 1;
-      } else {
-        const n = g.indices.length;
-        const tileH = thumbPx + (labelLines > 0 ? labelLines * 13 + 4 : 0);
-        const maxRows = Math.max(1, Math.floor((viewportHeight - dayHeaderH) / (tileH + TL_GAP)));
-        columns = Math.max(1, Math.round(Math.sqrt(n)));
-        if (Math.ceil(n / columns) > maxRows) columns = Math.max(columns, Math.ceil(n / maxRows));
-        rows = Math.ceil(n / columns);
-        width = columns * thumbPx + (columns - 1) * TL_GAP;
-        height = dayHeaderH + rows * tileH + (rows - 1) * TL_GAP;
-      }
+      const dot = Math.max(14, Math.min(34, 10 + Math.sqrt(g.indices.length) * 6));
       const x = Math.max(idealX, runningRight + TL_GAP * 4);
-      blocks.push({ group: g, x, width, height, columns, rows });
-      runningRight = x + width;
+      blocks.push({ group: g, x, width: dot, height: dot });
+      runningRight = x + dot;
     });
-    return { blocks, clustered, labelLines, totalWidth: runningRight + 400 };
+    return { blocks, totalWidth: runningRight + 400 };
   }
 
   function ensureClusterNode(key) {
@@ -580,6 +584,26 @@
     return node;
   }
 
+  function ensureStemNode(idx) {
+    let el = tlStemNodes.get(idx);
+    if (el) return el;
+    el = document.createElement('div');
+    el.className = 'tl-stem';
+    tlStemLayer.appendChild(el);
+    tlStemNodes.set(idx, el);
+    return el;
+  }
+
+  function ensureDayLabelNode(key) {
+    let el = tlDayLabelNodes.get(key);
+    if (el) return el;
+    el = document.createElement('div');
+    el.className = 'tl-day-label';
+    tlDayLabelLayer.appendChild(el);
+    tlDayLabelNodes.set(key, el);
+    return el;
+  }
+
   function layoutClusters(blocks) {
     const seen = new Set();
     blocks.forEach(({ group, x, width, height }) => {
@@ -593,58 +617,135 @@
       dot.textContent = group.indices.length;
       el.querySelector('.tl-cluster-label').textContent = fmtShortDate(group.date);
       el.__tlTap = () => {
-        tlThumbPx = 100;
-        tlPanPx = -(group.dayOffset * tlPxPerDay(tlThumbPx)) + tlViewportEl.clientWidth / 2;
+        tlZoom = 100;
+        tlPanPx = -(group.dayOffset * tlPxPerDay(tlZoom)) + tlViewportEl.clientWidth / 2;
         scheduleTlLayout();
       };
     });
     tlClusterNodes.forEach((el, key) => { el.style.display = seen.has(key) ? '' : 'none'; });
   }
 
-  function layoutItems(blocks, labelLines) {
-    const seenDays = new Set();
+  // Every photo sits at its own exact-timestamp x position, one row deep on
+  // the center axis whenever there's room; when photos are close enough in
+  // time that their thumbnails would overlap at the current zoom, later ones
+  // fan out into "lanes" above/below the axis instead of ever moving off
+  // their true time position horizontally (a classic timeline/Gantt lane
+  // assignment: greedy first-fit, alternating sides so it grows evenly).
+  function layoutIndividualItems(groupsList, pxPerDay, thumbPx, labelLines) {
+    const epoch = groupsList.length ? groupsList[0].date.getTime() : 0;
+    const contentH = thumbPx + (labelLines > 0 ? labelLines * 13 + 4 : 0);
+    const laneH = contentH + TL_GAP;
+    const centerY = tlViewportEl.clientHeight / 2;
+    const halfW = thumbPx / 2 + TL_GAP / 2;
+
+    const laneEndX = new Map(); // signed lane key -> rightmost occupied x in that lane
+    function assignLane(x) {
+      for (let r = 1; r < 200; r++) {
+        for (const side of [1, -1]) {
+          const key = side * r;
+          const end = laneEndX.get(key);
+          if (end === undefined || x - halfW >= end) {
+            laneEndX.set(key, x + halfW);
+            return key;
+          }
+        }
+      }
+      return 1; // pathological fallback; practically unreachable
+    }
+
     const seenItems = new Set();
-    blocks.forEach(({ group, x, width, height, columns }) => {
-      seenDays.add(group.key);
-      const top = Math.max(4, (tlViewportEl.clientHeight - height) / 2);
-      group.indices.forEach((idx, i) => {
-        seenItems.add(idx);
-        const item = items[idx];
-        const node = ensureItemNode(idx);
-        const col = i % columns;
-        const row = Math.floor(i / columns);
-        const tileH = tlThumbPx + (labelLines > 0 ? labelLines * 13 + 4 : 0);
-        node.wrap.style.left = `${x + col * (tlThumbPx + TL_GAP)}px`;
-        node.wrap.style.top = `${top + 18 + row * (tileH + TL_GAP)}px`;
-        node.wrap.style.width = `${tlThumbPx}px`;
-        node.img.style.width = `${tlThumbPx}px`;
-        node.img.style.height = `${tlThumbPx}px`;
-        const dt = parseDt(item.settings && item.settings.datetime);
-        const text = [
-          dt ? fmtDateTime(dt) : '',
-          item.title || item.caption || '',
-          settingsLine(item.settings),
-        ];
-        node.lines.forEach((el, li) => {
-          el.hidden = li >= labelLines;
-          el.textContent = text[li] || '';
-        });
-        node.wrap.style.display = '';
+    const dayRanges = new Map(); // day key -> {minX, maxX, minDt, maxDt, date}
+    let maxRight = 0;
+
+    chronoOrder.forEach((idx) => {
+      const item = items[idx];
+      const dt = parseDt(item.settings && item.settings.datetime);
+      if (!dt) return;
+      const x = ((dt.getTime() - epoch) / 86400000) * pxPerDay;
+      const lane = assignLane(x);
+      const side = lane > 0 ? 1 : -1;
+      const rank = Math.abs(lane);
+      const anchorDist = TL_LANE_GAP + (rank - 1) * laneH;
+      const wrapTop = side > 0 ? centerY - anchorDist - contentH : centerY + anchorDist;
+
+      seenItems.add(idx);
+      maxRight = Math.max(maxRight, x + halfW);
+
+      const node = ensureItemNode(idx);
+      node.wrap.style.left = `${x - thumbPx / 2}px`;
+      node.wrap.style.top = `${wrapTop}px`;
+      node.wrap.style.width = `${thumbPx}px`;
+      node.img.style.width = `${thumbPx}px`;
+      node.img.style.height = `${thumbPx}px`;
+      const text = [fmtDateTime(dt), item.title || item.caption || '', settingsLine(item.settings)];
+      node.lines.forEach((el, li) => {
+        el.hidden = li >= labelLines;
+        el.textContent = text[li] || '';
       });
+      node.wrap.style.display = '';
+
+      const stem = ensureStemNode(idx);
+      stem.style.left = `${x}px`;
+      stem.style.top = `${side > 0 ? wrapTop + contentH : centerY}px`;
+      stem.style.height = `${Math.max(0, side > 0 ? centerY - (wrapTop + contentH) : wrapTop - centerY)}px`;
+      stem.style.display = '';
+
+      const dayKey = `${dt.getFullYear()}-${dt.getMonth()}-${dt.getDate()}`;
+      const range = dayRanges.get(dayKey);
+      if (!range) {
+        dayRanges.set(dayKey, { minX: x, maxX: x, minDt: dt, maxDt: dt, date: new Date(dt.getFullYear(), dt.getMonth(), dt.getDate()) });
+      } else {
+        range.minX = Math.min(range.minX, x);
+        range.maxX = Math.max(range.maxX, x);
+        if (dt < range.minDt) range.minDt = dt;
+        if (dt > range.maxDt) range.maxDt = dt;
+      }
     });
+
     tlItemNodes.forEach((node, idx) => { if (!seenItems.has(idx)) node.wrap.style.display = 'none'; });
+    tlStemNodes.forEach((el, idx) => { if (!seenItems.has(idx)) el.style.display = 'none'; });
+
+    // Shared per-day date/time label, standing in for individual labels
+    // until photos are large enough to carry their own -- so the timeline
+    // never goes from "day, N photos" straight to bare unlabeled thumbnails.
+    const seenDayLabels = new Set();
+    dayRanges.forEach((range, key) => {
+      seenDayLabels.add(key);
+      const el = ensureDayLabelNode(key);
+      const sameTime = range.maxDt - range.minDt < 2 * 60 * 1000;
+      el.textContent = sameTime
+        ? `${fmtShortDate(range.date)} · ${fmtTimeOnly(range.minDt)}`
+        : `${fmtShortDate(range.date)} · ${fmtTimeOnly(range.minDt)}–${fmtTimeOnly(range.maxDt)}`;
+      el.style.left = `${(range.minX + range.maxX) / 2}px`;
+    });
+    tlDayLabelNodes.forEach((el, key) => { el.style.display = seenDayLabels.has(key) ? '' : 'none'; });
+
+    return maxRight + 200;
   }
 
   function layoutTimeline() {
     if (!tlViewportEl) return;
     const groupsList = getDayGroups();
-    const { blocks, clustered, labelLines, totalWidth } = computeTlLayout(groupsList, tlThumbPx, tlViewportEl.clientHeight);
-    tlTrackEl.style.width = `${totalWidth}px`;
-    tlTrackEl.style.transform = `translateX(${tlPanPx}px)`;
+    const thumbPx = thumbPxFor(tlZoom);
+    const clustered = thumbPx < TL_CLUSTER_BELOW;
+    const pxPerDay = tlPxPerDay(tlZoom);
+    const labelLines = tlLabelLines(thumbPx);
+
     tlClusterLayer.style.display = clustered ? '' : 'none';
     tlItemLayer.style.display = clustered ? 'none' : '';
-    if (clustered) layoutClusters(blocks);
-    else layoutItems(blocks, labelLines);
+    tlStemLayer.style.display = clustered ? 'none' : '';
+    tlDayLabelLayer.style.display = !clustered && labelLines === 0 ? '' : 'none';
+
+    let totalWidth;
+    if (clustered) {
+      const layout = computeClusterLayout(groupsList, pxPerDay);
+      totalWidth = layout.totalWidth;
+      layoutClusters(layout.blocks);
+    } else {
+      totalWidth = layoutIndividualItems(groupsList, pxPerDay, thumbPx, labelLines);
+    }
+    tlTrackEl.style.width = `${totalWidth}px`;
+    tlTrackEl.style.transform = `translateX(${tlPanPx}px)`;
   }
 
   function attachTimelineGestures(viewport) {
@@ -662,7 +763,7 @@
       dragMoved = false;
       if (pointers.size === 2) {
         pinchStartDist = dist(Array.from(pointers.values()));
-        pinchStartPx = tlThumbPx;
+        pinchStartPx = tlZoom;
         dragLast = null;
       } else {
         dragLast = { x: e.clientX, y: e.clientY };
@@ -708,7 +809,7 @@
       e.preventDefault();
       const rect = viewport.getBoundingClientRect();
       const cursorX = e.clientX - rect.left;
-      tlZoomTo(tlThumbPx * Math.pow(1.0022, -e.deltaY), cursorX);
+      tlZoomTo(tlZoom * Math.pow(1.0022, -e.deltaY), cursorX);
     }, { passive: false });
   }
 
@@ -723,7 +824,9 @@
       <div class="tl-viewport" id="tl-viewport">
         <div class="tl-track" id="tl-track">
           <div class="tl-axis"></div>
+          <div class="tl-stems" id="tl-stems"></div>
           <div class="tl-clusters" id="tl-clusters"></div>
+          <div class="tl-day-labels" id="tl-day-labels"></div>
           <div class="tl-items" id="tl-items"></div>
         </div>
       </div>
@@ -734,8 +837,12 @@
     tlTrackEl = view.querySelector('#tl-track');
     tlClusterLayer = view.querySelector('#tl-clusters');
     tlItemLayer = view.querySelector('#tl-items');
+    tlStemLayer = view.querySelector('#tl-stems');
+    tlDayLabelLayer = view.querySelector('#tl-day-labels');
     tlItemNodes = new Map();
     tlClusterNodes = new Map();
+    tlStemNodes = new Map();
+    tlDayLabelNodes = new Map();
 
     const groupsList = getDayGroups();
     if (groupsList.length) {
@@ -743,7 +850,7 @@
       const span = groupsList[groupsList.length - 1].dayOffset - groupsList[0].dayOffset || 1;
       requestAnimationFrame(() => {
         const width = tlViewportEl.clientWidth || 1000;
-        tlThumbPx = Math.min(TL_MAX_PX, Math.max(TL_MIN_PX, (width / span) / 1.3));
+        tlZoom = Math.min(TL_MAX_ZOOM, Math.max(TL_MIN_ZOOM, (width / span) / 1.3));
         tlPanPx = 40;
         layoutTimeline();
       });
@@ -768,6 +875,10 @@
 
   let mapInstance = null;
   const mapMarkers = new Map(); // place key -> L.Marker
+  // Explicitly expanded past the 3x3 cap by clicking its "+N more" -- cleared
+  // on deselect (clicking empty map) or leaving/re-entering the Map view.
+  let mapSelectedKey = null;
+  const MAP_GRID_CAP = 9; // 3x3
 
   function mapZoomToPlace(group) {
     mapInstance.setView([group.place.lat, group.place.lng], MAP_CLUSTER_ZOOM + 1.5, { animate: true });
@@ -784,10 +895,19 @@
     return L.divIcon({ html, className: 'map-icon-wrap', iconSize: null });
   }
 
-  function buildGridIcon(group, thumbPx, labelLines) {
+  // Showing every photo at a place in one grid works fine in isolation, but
+  // with several places visible at once their grids can grow large enough to
+  // overlap each other -- so unless this place is alone on screen (or the
+  // viewer explicitly expanded it), it's capped at a 3x3 preview with a
+  // "stacked photos" look and a "+N more" tag hinting there's more behind it.
+  function buildGridIcon(group, thumbPx, labelLines, showFull) {
     const n = group.indices.length;
-    const columns = Math.max(1, Math.min(6, Math.round(Math.sqrt(n))));
-    const tiles = group.indices.map((idx) => {
+    const capped = !showFull && n > MAP_GRID_CAP;
+    const shown = capped ? group.indices.slice(0, MAP_GRID_CAP) : group.indices;
+    const columns = showFull
+      ? Math.max(1, Math.min(6, Math.round(Math.sqrt(n))))
+      : Math.min(3, shown.length);
+    const tiles = shown.map((idx) => {
       const item = items[idx];
       const lines = [item.title || item.caption || '', settingsLine(item.settings)];
       const labelHtml = lines.slice(0, labelLines)
@@ -798,9 +918,15 @@
       </figure>`;
     }).join('');
     const maskNote = group.place.mask ? ' <span class="map-mask-note">(approx.)</span>' : '';
-    const html = `<div class="map-grid" style="width:${columns * (thumbPx + 4)}px">
+    const moreBadge = capped ? `<div class="map-grid-more">+${n - MAP_GRID_CAP} more</div>` : '';
+    // Width belongs on .map-grid-tiles itself (not the padded .map-grid
+    // wrapper) -- sizing the outer element and expecting the inner flex
+    // container to wrap at the same column count silently loses a few
+    // pixels to the wrapper's own padding and drops a column.
+    const html = `<div class="map-grid${capped ? ' capped' : ''}">
       <div class="map-grid-label">${escapeHtml(group.place.label)}${maskNote} &middot; ${n} photo${n === 1 ? '' : 's'}</div>
-      <div class="map-grid-tiles">${tiles}</div>
+      <div class="map-grid-tiles" style="width:${columns * thumbPx + (columns - 1) * 4}px">${tiles}</div>
+      ${moreBadge}
     </div>`;
     return L.divIcon({ html, className: 'map-icon-wrap', iconSize: null });
   }
@@ -810,9 +936,18 @@
     const clustered = zoom < MAP_CLUSTER_ZOOM;
     const thumbPx = mapThumbPx(zoom);
     const labelLines = mapLabelLines(thumbPx);
-    getPlaceGroups().forEach((group) => {
+    const groups = getPlaceGroups();
+    // "Alone on screen" is judged geographically (this place's pin is the
+    // only one within the current view), matching how a viewer would
+    // actually experience it -- zoom or pan until nothing else is nearby and
+    // every photo lays out, no cap needed.
+    const bounds = mapInstance.getBounds();
+    const visibleCount = groups.filter((g) => bounds.contains([g.place.lat, g.place.lng])).length;
+    const isolated = visibleCount <= 1;
+    groups.forEach((group) => {
       let marker = mapMarkers.get(group.key);
-      const icon = clustered ? buildClusterIcon(group) : buildGridIcon(group, thumbPx, labelLines);
+      const showFull = isolated || group.key === mapSelectedKey;
+      const icon = clustered ? buildClusterIcon(group) : buildGridIcon(group, thumbPx, labelLines, showFull);
       if (!marker) {
         marker = L.marker([group.place.lat, group.place.lng], { icon }).addTo(mapInstance);
         marker.on('click', (e) => {
@@ -820,9 +955,16 @@
           if (tile) {
             currentOrder = chronoOrder;
             open(Number(tile.dataset.idx));
-          } else {
-            mapZoomToPlace(group);
+            return;
           }
+          // A capped grid's background/"+N more" tag expands it in place
+          // instead of the usual zoom-toward-this-place behavior.
+          if (e.originalEvent.target.closest('.map-grid.capped')) {
+            mapSelectedKey = group.key;
+            layoutMapMarkers();
+            return;
+          }
+          mapZoomToPlace(group);
         });
         mapMarkers.set(group.key, marker);
       } else {
@@ -848,6 +990,7 @@
     main.appendChild(view);
 
     mapMarkers.clear();
+    mapSelectedKey = null;
     mapInstance = L.map('map-viewport', { attributionControl: true, zoomControl: true });
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 18,
@@ -859,6 +1002,12 @@
     mapInstance.fitBounds(bounds, { padding: [60, 60], maxZoom: MAP_CLUSTER_ZOOM - 1 });
 
     mapInstance.on('zoomend moveend', layoutMapMarkers);
+    // Clicking empty map (not a marker -- Leaflet markers don't bubble their
+    // clicks up to the map by default) backs out of an explicitly expanded
+    // grid.
+    mapInstance.on('click', () => {
+      if (mapSelectedKey) { mapSelectedKey = null; layoutMapMarkers(); }
+    });
     layoutMapMarkers();
     currentOrder = chronoOrder;
 

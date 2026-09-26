@@ -222,23 +222,40 @@ This is not special-cased anywhere; it falls out for free from lightbox
 open/close never touching `location.hash` or `#sections`.
 
 - **Timeline**: a hand-rolled pannable/zoomable horizontal strip
-  (`renderTimeline`), grouped by calendar day. One zoom axis (`tlThumbPx`,
-  8-220px) drives everything: below `TL_CLUSTER_BELOW` (22px) each day is a
-  single cluster dot (count + date); above it, days break into their own
-  thumbnail grid (columns chosen to keep each day's block within the viewport
-  height, growing wider rather than taller for a big day), which then picks up
-  more label detail as thumbnails grow -- date/time, then title, then the full
-  EXIF settings line, at the same size breakpoints as `tlLabelLines()`. Days
-  are positioned by real elapsed time (`dayOffset * pxPerDay`) but pushed right
-  of the previous day's block if it would otherwise overlap it (a packed
-  timeline, not a strictly physical one) -- see `computeTlLayout`.
+  (`renderTimeline`) built around a literal center axis line (`.tl-axis`).
+  Below `TL_CLUSTER_BELOW` (22px thumb) each day is a single cluster dot
+  (count + date) -- unchanged from the first version. Above it, **every photo
+  gets its own thumbnail at its exact timestamp** (`layoutIndividualItems`),
+  never grouped into a rigid grid block; when photos are close enough in time
+  that their thumbnails would overlap at the current zoom, later ones fan out
+  into "lanes" above/below the axis instead of ever moving off their true time
+  position horizontally -- a classic greedy timeline/Gantt lane assignment
+  (`assignLane`: first-fit, trying rank 1 above then rank 1 below then rank 2
+  above, etc., so it grows evenly on both sides). A thin `.tl-stem` connects
+  each thumbnail back to the axis. Until thumbnails are large enough to carry
+  their own label, a shared per-day date/time tag (`.tl-day-label`, computed
+  from that day's actual item x-range) sits on the axis instead -- so the
+  strip never goes from "day, N photos" straight to bare unlabeled thumbnails
+  the way the original grid-block version did.
+  **The zoom variable (`tlZoom`) is decoupled from visual thumbnail size**:
+  `thumbPxFor(zoom)` saturates at `TL_MAX_THUMB` (220) early, but the time
+  axis's scale (`tlPxPerDay`) keeps growing with the raw zoom value all the
+  way to `TL_MAX_ZOOM` (800000) -- otherwise, once thumbnails hit their max
+  size, no further zooming could ever separate photos taken minutes apart,
+  since thumbnail size alone runs out of headroom fast relative to how many
+  pixels a burst actually needs to lay out one-after-another. A gap of a
+  minute or more between shots resolves to a single row at max zoom; truly
+  same-second bursts still fan (an inherent limit of any timeline, not a bug).
   Pan/zoom is custom: Pointer Events for drag-to-pan and two-finger
   pinch-to-zoom (tracked via a `Map` of active pointers), `wheel` for
   mouse-wheel zoom, both zooming around the cursor/pinch-midpoint. Layout
   recomputation is throttled to one pass per animation frame
-  (`scheduleTlLayout`). Item/cluster DOM nodes are created once and reused
-  across zoom levels (`tlItemNodes`/`tlClusterNodes`), not rebuilt every frame,
-  to avoid thumbnail flicker.
+  (`scheduleTlLayout`). Item/cluster/stem/day-label DOM nodes are created once
+  and reused across zoom levels, not rebuilt every frame, to avoid thumbnail
+  flicker. `.tl-viewport` uses `overflow-x: hidden; overflow-y: visible` --
+  panning still clips horizontally, but a dense burst needing more lanes than
+  the box is tall spills visibly outside it rather than clipping real photos
+  out of view.
   **Tap vs. drag**: the viewport holds pointer capture for the whole gesture
   (needed for pinch), which can leave the browser's own synthesized `click`
   un-fired on a nested `.tl-item`/`.tl-cluster`. Taps are therefore resolved
@@ -277,6 +294,25 @@ open/close never touching `location.hash` or `#sections`.
   If any hand-geocoded pin turns out to be off, or a new named place shows up,
   it's a two-line fix: add/adjust an entry in `PLACES` and a branch in
   `placeKey()`.
+  **Grid capping**: a place's full photo grid can be large enough (Gladesville
+  has 169) to visually overlap a neighboring place's grid once several are on
+  screen at once, so by default a grid caps at 3x3 (`MAP_GRID_CAP` = 9) with a
+  "stacked cards" look (`.map-grid.capped`'s layered `box-shadow`, no extra
+  DOM) and a "+N more" tag. It only shows every photo when there's no reason
+  to expect overlap: either this is the only place inside the map's current
+  `getBounds()` (`isolated` in `layoutMapMarkers`, recomputed every
+  `zoomend`/`moveend` -- so zooming or panning until nothing else is nearby
+  naturally reveals the rest), or the viewer explicitly expanded it by
+  clicking the "+N more" tag (`mapSelectedKey`, cleared by clicking empty map
+  or leaving/re-entering the view). **Width footgun**: a grid's column width
+  must be set on `.map-grid-tiles` (the flex container) directly, not on the
+  padded `.map-grid` wrapper -- sizing the wrapper and expecting the same
+  column count to fit inside its padding silently drops a column (3 columns
+  wrapped to 2 the first time this was built). Verified the 3x3 wrap math in
+  isolation with a throwaway DOM node; live-clicking a Leaflet marker to
+  confirm the isolate/expand/deselect interactions specifically was unreliable
+  in the Claude Browser pane's automation (same class of issue as the
+  Fullscreen API restriction noted above) -- worth a manual click-through.
 - **Lightbox z-index**: bumped from 100 to 1000 when Map was added --
   Leaflet's own panes (tiles/markers/popups) run up to ~700 and were showing
   *through* the lightbox overlay at the old value. If a future addition uses
