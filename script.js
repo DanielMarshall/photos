@@ -445,7 +445,7 @@
     hornsby: { label: "Hornsby Heights (mum & dad's)", lat: -33.6698, lng: 151.0989, mask: true },
     ashfield: { label: 'Ashfield', lat: -33.8886, lng: 151.1256 },
     banjo: { label: 'Banjo Paterson Park, Gladesville', lat: -33.8341, lng: 151.1301 },
-    boronia: { label: 'Boronia Park Reserve, Hunters Hill', lat: -33.8305, lng: 151.1476 },
+    boronia: { label: 'Boronia Park Reserve, Hunters Hill', lat: -33.8250, lng: 151.1417 },
     darling: { label: 'Darling Harbour', lat: -33.8688, lng: 151.2005 },
     chinesegarden: { label: 'Chinese Garden of Friendship', lat: -33.8756, lng: 151.2038 },
     townhall: { label: 'Sydney Town Hall', lat: -33.8734, lng: 151.2064 },

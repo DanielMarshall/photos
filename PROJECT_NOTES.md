@@ -19,8 +19,20 @@ Last updated 2026-09-26 (cloud session, branch `claude/great-brahmagupta-iznd4n`
 
 - Latest photos on `main`: Boronia Park Reserve (26 Sep morning, 25 photos)
   and the 26 Sep afternoon Garden macro batch (10 photos). All processed,
-  titled except 11 Boronia singles (see open questions).
-- Fixed on the branch above (not yet merged to `main` at time of writing):
+  all titled (the 11 Boronia singles were named 2026-09-26: Cup Fungus, Crab
+  Spider III-VIII, Wandering Trad Flower, Millipede I-III -- species IDs were
+  Claude's suggestions, accepted by the photographer).
+- Titles + pin below are in PR https://github.com/DanielMarshall/photos/pull/2
+  (the photographer merges PRs and does all live-site testing themselves).
+- Boronia map pin moved to -33.8250, 151.1417 (published coords for Boronia
+  Park, Hunters Hill -- ~500m north of the first guess). Photographer's
+  description: park sits across the bay, water on one side and Princes St /
+  Park Rd / High St on the other three, Tipperary Falls inside. Still worth a
+  visual check on the live map; nudge `PLACES.boronia` if off.
+- `images.json` was hand-edited for those 11 titles (build_data.py can't run
+  in a cloud session -- it needs the Windows EXIF sources). `TITLES` in
+  build_data.py has the same entries, so the next local build agrees.
+- Merged to `main` via PR https://github.com/DanielMarshall/photos/pull/1:
   Timeline overview not fitting after the zoom-rate change; last day always
   off-screen in the overview; Map side panel ignoring `hidden`.
 - Cloud sessions can't reach unpkg.com (Leaflet) or the Windows paths, so
@@ -537,11 +549,6 @@ without the photographer asking — they may be duplicates, failed attempts, or
 just not ready to publish.
 
 ## Open questions the photographer hasn't answered yet
-
-- Exact map position for Boronia Park Reserve: `PLACES.boronia` in
-  `script.js` (-33.8305, 151.1476) is a best-guess placement, not confirmed.
-- Titles for the Boronia Park unstacked singles (e.g. `093849P9260136`,
-  `095000P9260226`, ...) — currently untitled, so they show raw filenames.
 
 - Whether the mural/street-art photo near the end of the Sydney CBD walk
   (~15:12, "#___ASSANGE" mural) is in a different suburb (Newtown has a
