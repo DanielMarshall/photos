@@ -15,7 +15,22 @@ that read from the photographer's local Camera Roll.
 
 ## Current status (keep this updated -- read first in a new session)
 
-Last updated 2026-09-26 (cloud session, branch `claude/great-brahmagupta-iznd4n`).
+Last updated 2026-09-26 (cloud session, branch `claude/project-thread-i9mxki`).
+
+- Name tidy-up (2026-09-26, photographer picked each one from a suggestion
+  list): section labels now "Gladesville: Timmy" (was People), "Gladesville:
+  Night and Odd Shots" (was Other), "Sydney CBD and Darling Harbour",
+  "Darling Harbour: Street Piano" (new blurb, still no name for the student).
+  45 photo titles changed in both `TITLES`/`images.json`: all stack slices now
+  use "<name>: Example Slice"; II/III numbering instead of 1/2 or #2 (planes,
+  Golden Orb Weaver, Frankie: Detail); "Alex: Chin/Eye"; "Dialling" (AU
+  spelling); "Young Wasp Nest" (+ "Fresh Eggs" slice); "Garden Orb Weaver Five
+  Under UV"; "Plane Light Trail"; "Are You Feeling Tipsy?"; video "Focus?
+  What's That Again?". Deliberately KEPT: "Freed Assange" (the word "Free" on
+  the mural is blacked out because he has been freed -- photographer
+  verified) and "Brussels Sprout" (Sprout is a name; the pun is intended).
+- Tipperary Falls (inside Boronia Park) is ~100m northeast of the Boronia pin.
+  No photos from there yet, so no separate pin; the park pin covers it.
 
 - Latest photos on `main`: Boronia Park Reserve (26 Sep morning, 25 photos)
   and the 26 Sep afternoon Garden macro batch (10 photos). All processed,
@@ -173,9 +188,7 @@ bucket.
 
 ## The "identify via filename" workflow
 
-Several sections have no `TITLES` entries yet: **Sydney CBD, Chinese Garden of
-Friendship, Sydney Town Hall, Queen Victoria Building, Darling Harbour
-Piano**. For any photo with no title, the grid shows the raw original filename
+All sections are titled now (the Sydney ones were done earlier). For any photo with no title, the grid shows the raw original filename
 as an always-visible caption (monospace, `.filename` class) instead of the
 usual hover-only caption, and the lightbox's "File" metadata row also shows
 it — both are deliberate, so the photographer can browse the live site and
@@ -551,10 +564,9 @@ just not ready to publish.
 ## Open questions the photographer hasn't answered yet
 
 - Whether the mural/street-art photo near the end of the Sydney CBD walk
-  (~15:12, "#___ASSANGE" mural) is in a different suburb (Newtown has a
-  similar well-known mural, but this was never confirmed — don't assert it).
-- Names/descriptions for: Sydney CBD, Chinese Garden of Friendship, Sydney
-  Town Hall, Queen Victoria Building, Darling Harbour Piano sections.
+  (~15:12, "Freed Assange" -- "Free" is blacked out on the mural) is in a
+  different suburb (Newtown has a similar well-known mural, but this was
+  never confirmed — don't assert it).
 - Whether to split "Michael" vs the unnamed second QVB piano player apart in
   the data (currently both just show their filenames).
 

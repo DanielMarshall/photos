@@ -74,15 +74,15 @@
     'Gladesville|Moss': 'Gladesville: Moss',
     'Gladesville|Indoor Macro': 'Gladesville: Indoor Macro',
     'Gladesville|Planes': 'Gladesville: Planes',
-    'Gladesville|People': 'Gladesville: People',
-    'Gladesville|Uncategorized': 'Gladesville: Other',
+    'Gladesville|People': 'Gladesville: Timmy',
+    'Gladesville|Uncategorized': 'Gladesville: Night and Odd Shots',
     'Hornsby Heights|null': 'Hornsby Heights',
     'Artarmon|null': 'Artarmon',
-    'Sydney CBD|null': 'Sydney CBD (Darling Harbour)',
+    'Sydney CBD|null': 'Sydney CBD and Darling Harbour',
     'Sydney Town Hall|null': 'Sydney Town Hall: Ukraine Solidarity Protest',
     'Queen Victoria Building|null': 'Queen Victoria Building: Public Piano',
     'Chinese Garden of Friendship|null': 'Chinese Garden of Friendship',
-    'Darling Harbour Piano|null': 'Darling Harbour Piano',
+    'Darling Harbour Piano|null': 'Darling Harbour: Street Piano',
   };
 
   // Shown on each category's card on the home view, and again as an intro
@@ -101,7 +101,7 @@
     'Gladesville|Moss': 'Macro shots of a moss sample on the kitchen counter.',
     'Gladesville|Indoor Macro': 'Macro shots of curious objects found around the house — an old hard drive, a mandarin peel, and a wine cork.',
     'Gladesville|Planes': 'Planes photographed from the yard, some with the MC-20 teleconverter for extra reach.',
-    'Gladesville|People': 'Family and friends around home.',
+    'Gladesville|People': 'Timmy the dog, at home.',
     'Gladesville|Uncategorized': "A few photos that don't fit anywhere else yet.",
     'Hornsby Heights|null': "Family photos at mum and dad's house in Hornsby Heights.",
     'Artarmon|null': 'Portraits of colleagues at work in Artarmon.',
@@ -109,7 +109,7 @@
     'Chinese Garden of Friendship|null': 'Water dragons and the waterfall at the Chinese Garden of Friendship, Darling Harbour.',
     'Sydney Town Hall|null': 'A Ukraine solidarity protest at Sydney Town Hall.',
     'Queen Victoria Building|null': 'The public piano, clock, and mall interior at the QVB.',
-    'Darling Harbour Piano|null': 'A public piano at Darling Harbour.',
+    'Darling Harbour Piano|null': 'A student playing the public piano at Darling Harbour.',
   };
 
   function groupKey(item) {
@@ -327,7 +327,7 @@
       const videoBlock = document.createElement('div');
       videoBlock.className = 'section-video';
       videoBlock.innerHTML = `
-        <h3>Focus? what's that again?</h3>
+        <h3>Focus? What's That Again?</h3>
         <video controls playsinline preload="metadata" poster="video/glitter-oil-poster.jpg">
           <source src="video/glitter-oil-focus-attempts.mp4" type="video/mp4">
           Your browser doesn't support embedded video.
