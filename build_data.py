@@ -941,6 +941,10 @@ def main():
     with open(os.path.join(PHOTOS, "images.json"), "w", encoding="utf-8") as f:
         json.dump(items, f, indent=2)
 
+    # New photo list -> new cache version, so visitors pick it up.
+    import bump_version
+    bump_version.bump()
+
     print(f"Wrote {len(items)} items")
     print(f"Example slices with no stack to hang off (will show in the grid): {unpaired_slices}")
     from collections import Counter

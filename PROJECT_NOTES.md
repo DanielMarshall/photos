@@ -15,7 +15,27 @@ that read from the photographer's local Camera Roll.
 
 ## Current status (keep this updated -- read first in a new session)
 
-Last updated 2026-09-26 (cloud session, branch `claude/project-thread-8exgki`).
+Last updated 2026-09-27 (cloud session, branch `claude/project-thread-0mh669`).
+
+- **Cache versions, full-res cache offer, swipe (2026-09-27, PR from
+  `claude/project-thread-0mh669`)**: `style.css`, `script.js` and
+  `images.json` now share one version stamp instead of `Date.now()` (see
+  "Cache-busting"). `build_data.py` bumps it automatically; after any other
+  change to those files run `python bump_version.py` before pushing. The
+  background cache now has a third opt-in step: after the medium step, it
+  offers to cache all full-res images (fetched the same way "View full
+  resolution" fetches them), on phones too, as the photographer uses 1:1
+  zoom on a Fold. Each offer shows its approximate size (`AVG_MEDIUM_MB` /
+  `AVG_FULL_MB` in `script.js`). Swipe left/right changes photo in the
+  lightbox (not while zoomed into full-res, where a drag pans) and in the
+  slideshow. Site review with the remaining findings:
+  `/mnt/project-files/site-review/site-review-2026-09-27.md` (project shared
+  files). The photographer's plan for when the site nears GitHub Pages' 1 GB
+  limit (717 MB on 2026-09-27): remove the video first, then downsize
+  image size/quality. Not yet.
+- **"Pro site" ideas on hold (2026-09-27)**: a Best Of front page, an
+  About/Contact page, dropping the "Test Shoot" label, link previews and a
+  custom domain wait until the photographer has picked their best photos.
 
 - **Farmer's Friend lighting experiments (2026-09-26 evening, local
   session, pushed to `main`)**: 4 focus stacks + 4 example slices of one
@@ -547,11 +567,14 @@ open/close never touching `location.hash` or `#sections`.
 
 ## Cache-busting
 
-`style.css`, `script.js`, and `images.json` are all loaded with a
-`Date.now()` query string (`index.html` injects the CSS/JS tags via a tiny
-inline `document.write`; `script.js` appends the timestamp itself when
-fetching `images.json`). This means every page load gets the current version
-with no hard-refresh needed. **Actual photo image URLs are deliberately NOT
+`style.css`, `script.js`, and `images.json` are all loaded with the same
+`?v=<version>` query string (changed 2026-09-27; it used to be `Date.now()`,
+which stopped browsers caching them at all). The version is written into
+the two plain `<link>`/`<script>` tags in `index.html` by `bump_version.py`
+(a timestamp like `20260927-085127`); `script.js` reads it from its own
+`src` and uses it for `images.json`. `build_data.py` calls it after writing
+`images.json`; **run `python bump_version.py` yourself after editing
+`style.css` or `script.js`**, or returning visitors may keep the old copy. **Actual photo image URLs are deliberately NOT
 cache-busted** — they're numerous/large and rarely change once published, so
 normal browser caching is kept for those.
 
