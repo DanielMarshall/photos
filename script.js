@@ -1,4 +1,8 @@
 (async function () {
+  // index.html loads this file as script.js?v=<version> (stamped by
+  // bump_version.py); the photo list shares that version so all three stay
+  // cached until the next deploy changes it.
+  const SITE_VERSION = (document.currentScript && new URL(document.currentScript.src).searchParams.get('v')) || '';
   const main = document.getElementById('sections');
   const lightbox = document.getElementById('lightbox');
   const lbViewport = document.getElementById('lb-viewport');
@@ -34,7 +38,7 @@
   const lbHeart = document.getElementById('lb-heart');
   const heartCountEl = document.getElementById('heart-count');
 
-  const res = await fetch('images.json?v=' + Date.now());
+  const res = await fetch('images.json?v=' + encodeURIComponent(SITE_VERSION));
   const items = await res.json();
 
   const SECTION_ORDER = [
@@ -2165,7 +2169,7 @@
 
   let cropEdits = {};
   try {
-    cropEdits = JSON.parse(localStorage.getItem(CROP_EDITS_KEY) || '{}');
+    cropEdits = JSON.parse(storageGet(CROP_EDITS_KEY) || '{}');
   } catch (e) {
     cropEdits = {};
   }
@@ -2202,7 +2206,7 @@
   updateExportButton();
 
   function saveCropEdits() {
-    localStorage.setItem(CROP_EDITS_KEY, JSON.stringify(cropEdits));
+    storageSet(CROP_EDITS_KEY, JSON.stringify(cropEdits));
     updateExportButton();
   }
 
@@ -3288,6 +3292,40 @@
     if (e.key === 'ArrowRight') step(1);
   });
 
+  // ---- Swipe on touch screens ----
+  // A quick, mostly-sideways one-finger swipe calls onSwipe(1) for "next"
+  // (finger moved left) or onSwipe(-1) for "previous". canSwipe() lets the
+  // caller switch it off, e.g. while zoomed in, where a drag pans instead.
+  function addSwipe(el, onSwipe, canSwipe = () => true) {
+    const MIN_DX = 50; // px the finger must travel sideways
+    const MAX_MS = 600; // longer than this reads as a slow drag, not a swipe
+    let start = null;
+    el.addEventListener('touchstart', (e) => {
+      start = (e.touches.length === 1 && canSwipe())
+        ? { x: e.touches[0].clientX, y: e.touches[0].clientY, t: Date.now() }
+        : null;
+    }, { passive: true });
+    el.addEventListener('touchmove', (e) => {
+      if (e.touches.length > 1) start = null; // a pinch, not a swipe
+    }, { passive: true });
+    el.addEventListener('touchend', (e) => {
+      if (!start) return;
+      const t = e.changedTouches[0];
+      const dx = t.clientX - start.x;
+      const dy = t.clientY - start.y;
+      const quick = Date.now() - start.t < MAX_MS;
+      start = null;
+      if (quick && Math.abs(dx) >= MIN_DX && Math.abs(dx) > Math.abs(dy) * 1.5) {
+        onSwipe(dx < 0 ? 1 : -1);
+      }
+    });
+  }
+
+  // Swiping pages through photos only at the normal (medium) view: once
+  // zoomed into full resolution a drag pans the photo instead, and the
+  // hidden crop editor uses drags of its own.
+  addSwipe(lightbox, (dir) => step(dir), () => !zoomed && !editing && !zoomAnimFrame);
+
   // ---- Slideshow ----
   // Photos change behind a camera shutter: two blades close from the top and
   // bottom (3x the thumbnail hover shutter's 50ms), stay shut ~half a second
@@ -3623,35 +3661,55 @@
     if (e.key === ' ') { e.preventDefault(); ssTogglePause(); }
   });
 
+  addSwipe(ssEl, (dir) => { ssShowUi(); ssStep(dir); });
+
   // ---- Background caching ----
   // First warm the browser cache with every thumbnail across the whole site
   // (most aren't in the DOM yet -- they only appear once a category is
-  // opened), then, once that's done, offer to also cache every
-  // medium-resolution image so opening photos and paging through the
-  // lightbox feels instant. The medium step stays opt-in (remembered via
-  // localStorage) since it can add up to tens of MB; thumbnails are small
-  // enough to just warm proactively.
+  // opened). Then offer, one step at a time, to also cache every
+  // medium-resolution image (so opening photos and paging through the
+  // lightbox feels instant) and after that every full-resolution image (so
+  // "View full resolution" opens instantly). Both bigger steps are opt-in
+  // and each answer is remembered via localStorage; declining the medium
+  // step means the full-res offer never appears.
   const PRECACHE_CHOICE_KEY = 'gallery-precache-choice';
+  const PRECACHE_FULL_CHOICE_KEY = 'gallery-precache-full-choice';
+  // Rough average file sizes, for the size shown in each offer (measured
+  // 2026-09-27: 152 MB of mediums and 461 MB of full-res over 372 photos).
+  const AVG_MEDIUM_MB = 0.41;
+  const AVG_FULL_MB = 1.24;
 
-  function precacheAll(urlOf, onProgress) {
+  function approxMB(avg) {
+    return Math.round((items.length * avg) / 10) * 10;
+  }
+
+  // Loads every item's URL, a few at a time. Thumbs and mediums go through
+  // an Image (the same way the page shows them); full-res files are fetched
+  // the way the lightbox's "View full resolution" fetches them, so they land
+  // in the cache under the same request, without decoding each big image.
+  function precacheAll(urlOf, onProgress, { useFetch = false, concurrency = 6 } = {}) {
     const total = items.length;
     let done = 0;
     let idx = 0;
-    const CONCURRENCY = 6;
     return new Promise((resolve) => {
+      function finished() {
+        done++;
+        if (onProgress) onProgress(done, total);
+        if (idx < total) loadNext();
+        else if (done >= total) resolve();
+      }
       function loadNext() {
         if (idx >= total) return;
-        const item = items[idx++];
-        const img = new Image();
-        img.onload = img.onerror = () => {
-          done++;
-          if (onProgress) onProgress(done, total);
-          if (idx < total) loadNext();
-          else if (done >= total) resolve();
-        };
-        img.src = urlOf(item);
+        const url = urlOf(items[idx++]);
+        if (useFetch) {
+          fetch(url).then((r) => r.arrayBuffer()).catch(() => {}).then(finished);
+        } else {
+          const img = new Image();
+          img.onload = img.onerror = finished;
+          img.src = url;
+        }
       }
-      for (let i = 0; i < CONCURRENCY && i < total; i++) loadNext();
+      for (let i = 0; i < concurrency && i < total; i++) loadNext();
     });
   }
 
@@ -3663,43 +3721,65 @@
     return precacheAll((item) => item.medium, onProgress);
   }
 
-  function showPrecacheOffer() {
-    const banner = document.createElement('div');
-    banner.className = 'precache-banner';
-    banner.innerHTML = `
-      <p class="precache-msg">Cache the full gallery in the background for faster browsing?</p>
-      <div class="precache-actions">
-        <button class="precache-btn precache-yes">Yes, cache it</button>
-        <button class="precache-btn precache-no">No thanks</button>
-      </div>
-    `;
-    document.body.appendChild(banner);
-    const msg = banner.querySelector('.precache-msg');
+  function precacheFulls(onProgress) {
+    return precacheAll((item) => item.full, onProgress, { useFetch: true, concurrency: 3 });
+  }
 
-    banner.querySelector('.precache-yes').addEventListener('click', () => {
-      localStorage.setItem(PRECACHE_CHOICE_KEY, 'accepted');
-      banner.querySelector('.precache-actions').remove();
-      precacheMediums((done, total) => {
-        msg.textContent = `Caching photos… ${done}/${total}`;
-        if (done >= total) {
+  // A small banner at the bottom of the page asking whether to run one
+  // caching step. Resolves once the step has finished (true) or the visitor
+  // said no (false).
+  function showPrecacheOffer(key, question, run) {
+    return new Promise((resolve) => {
+      const banner = document.createElement('div');
+      banner.className = 'precache-banner';
+      banner.innerHTML = `
+        <p class="precache-msg"></p>
+        <div class="precache-actions">
+          <button class="precache-btn precache-yes">Yes, cache it</button>
+          <button class="precache-btn precache-no">No thanks</button>
+        </div>
+      `;
+      const msg = banner.querySelector('.precache-msg');
+      msg.textContent = question;
+      document.body.appendChild(banner);
+
+      banner.querySelector('.precache-yes').addEventListener('click', () => {
+        storageSet(key, 'accepted');
+        banner.querySelector('.precache-actions').remove();
+        run((done, total) => {
+          msg.textContent = `Caching photos… ${done}/${total}`;
+        }).then(() => {
           msg.textContent = 'All photos cached for faster browsing.';
-          setTimeout(() => banner.remove(), 2500);
-        }
+          setTimeout(() => { banner.remove(); resolve(true); }, 2500);
+        });
       });
-    });
 
-    banner.querySelector('.precache-no').addEventListener('click', () => {
-      localStorage.setItem(PRECACHE_CHOICE_KEY, 'declined');
-      banner.remove();
+      banner.querySelector('.precache-no').addEventListener('click', () => {
+        storageSet(key, 'declined');
+        banner.remove();
+        resolve(false);
+      });
     });
   }
 
-  precacheThumbs().then(() => {
-    const precacheChoice = localStorage.getItem(PRECACHE_CHOICE_KEY);
-    if (precacheChoice === 'accepted') {
-      precacheMediums();
-    } else if (precacheChoice !== 'declined') {
-      showPrecacheOffer();
-    }
-  });
+  // Runs one caching step if already accepted, asks if not yet answered.
+  // Resolves true once the step has run, false if it was declined.
+  function precacheStep(key, question, run) {
+    const choice = storageGet(key);
+    if (choice === 'accepted') return run().then(() => true);
+    if (choice === 'declined') return Promise.resolve(false);
+    return showPrecacheOffer(key, question, run);
+  }
+
+  precacheThumbs()
+    .then(() => precacheStep(
+      PRECACHE_CHOICE_KEY,
+      `Cache the full gallery in the background for faster browsing? (about ${approxMB(AVG_MEDIUM_MB)} MB)`,
+      precacheMediums,
+    ))
+    .then((mediumsDone) => mediumsDone && precacheStep(
+      PRECACHE_FULL_CHOICE_KEY,
+      `Also cache the full-resolution images, so zooming in opens instantly? (about ${approxMB(AVG_FULL_MB)} MB)`,
+      precacheFulls,
+    ));
 })();
