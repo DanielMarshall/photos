@@ -75,6 +75,11 @@ SOURCE_MAP = {
     "20260927_171711P9270310 star hologram 42stacked ---.jpg": os.path.join(EXPORTS, "20260927_171711P9270310.jpg"),
     "20260927_172009P9270403 grid holographic 40stacked ---.jpg": os.path.join(EXPORTS, "20260927_172009P9270403.jpg"),
     "20260927_172605P9270620 heart holographic 20stacked ---.jpg": os.path.join(EXPORTS, "20260927_172605P9270620.jpg"),
+    "20260927_193046P9270030 cockroach 40stacked ---.jpg": os.path.join(EXPORTS, "20260927_193046P9270030.jpg"),
+    "20260927_193054P9270124_01 cockroach 26stacked ---.jpg": os.path.join(EXPORTS, "20260927_193054P9270124_01.jpg"),
+    "20260927_193129P9270185 cockroach 12stacked ---.jpg": os.path.join(EXPORTS, "20260927_193129P9270185.jpg"),
+    "20260927_193430P9270395_01 cockroack face 40stacked.jpg": os.path.join(EXPORTS, "20260927_193430P9270395_01.jpg"),
+    "20260927_193541P9270495 cockroach profile 60stacked ---.jpg": os.path.join(EXPORTS, "20260927_193541P9270495.jpg"),
 }
 UNRESOLVED = set()
 
@@ -342,6 +347,20 @@ ANTS = {
     "19092026_140817P9190606 ants.jpg",
     "19092026_140817P9190607 ants.jpg",
     "19092026_140819P9190611 ants.jpg",
+}
+# A dying cockroach Michael found (27 Sep evening), shot with side lighting
+# and no flash. Its own section at the photographer's request.
+MICHAELS_COCKROACH = {
+    "20260927_193046P9270030 cockroach 40stacked ---.jpg",
+    "20260927_193046P9270030.jpg",
+    "20260927_193054P9270124_01 cockroach 26stacked ---.jpg",
+    "20260927_193054P9270124_01.jpg",
+    "20260927_193129P9270185 cockroach 12stacked ---.jpg",
+    "20260927_193129P9270185.jpg",
+    "20260927_193430P9270395_01 cockroack face 40stacked.jpg",
+    "20260927_193430P9270395_01.jpg",
+    "20260927_193541P9270495 cockroach profile 60stacked ---.jpg",
+    "20260927_193541P9270495.jpg",
 }
 INDOOR_MACRO = {
     "16092026_184141P9160208 indoor macro 24stacked.jpg",
@@ -627,6 +646,17 @@ TITLES = {
     "20260927_172009P9270403.jpg": ("Holographic Grid: Example Slice", "Sample stack slice"),
     "20260927_172605P9270620 heart holographic 20stacked ---.jpg": ("Holographic Hearts", "Layered hearts floating at different depths in a holographic film. 20-photo stack."),
     "20260927_172605P9270620.jpg": ("Holographic Hearts: Example Slice", "Sample stack slice"),
+    # Michael's Cockroach, 27 Sep evening
+    "20260927_193046P9270030 cockroach 40stacked ---.jpg": ("Cockroach", "Head-on against a dark background, lit from the side with no flash. 40-photo stack."),
+    "20260927_193046P9270030.jpg": ("Cockroach: Example Slice", "Sample stack slice"),
+    "20260927_193054P9270124_01 cockroach 26stacked ---.jpg": ("Cockroach II", "The same pose a few seconds later. 26-photo stack."),
+    "20260927_193054P9270124_01.jpg": ("Cockroach II: Example Slice", "Sample stack slice"),
+    "20260927_193129P9270185 cockroach 12stacked ---.jpg": ("Cockroach III", "A brighter take, with the pale edges of the wings showing on either side of the head. 12-photo stack."),
+    "20260927_193129P9270185.jpg": ("Cockroach III: Example Slice", "Sample stack slice"),
+    "20260927_193430P9270395_01 cockroack face 40stacked.jpg": ("Cockroach Face", "Close in on the face: the eyes, the antenna sockets, and flecks of crud across the head. 40-photo stack."),
+    "20260927_193430P9270395_01.jpg": ("Cockroach Face: Example Slice", "Sample stack slice"),
+    "20260927_193541P9270495 cockroach profile 60stacked ---.jpg": ("Cockroach Profile", "Side-on: the dark eye, the ringed antenna and the plates behind the head. 60-photo stack."),
+    "20260927_193541P9270495.jpg": ("Cockroach Profile: Example Slice", "Sample stack slice"),
     "19092026_123821P9190438 bay landscape.jpg": ("Yachts at Anchor", ""),
     "19092026_123845P9190465 bay landscape.jpg": ("Moored Yacht", ""),
     "19092026_124002P9190470 bay landscape.jpg": ("Moored Yacht II", ""),
@@ -797,6 +827,8 @@ def classify(original, dt):
         return "Gladesville", "Experiments in Liquids", "Home"
     if original in FLUIDS_3:
         return "Gladesville", "Experiments in Liquids", "Home"
+    if original in MICHAELS_COCKROACH:
+        return "Gladesville", "Michael's Cockroach", "Home"
     if original in MICHAELS_FLOWERS:
         return "Gladesville", "Michael's Flowers", "Home"
     if original in MICHAELS_FENDER:

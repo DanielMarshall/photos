@@ -12740,5 +12740,345 @@
       0.8504983388704319
     ],
     "sample_of": "20260927_172605P9270620 heart holographic 20stacked ---.jpg"
+  },
+  {
+    "thumb": "images/thumbs/20260927-193046p9270030-cockroach-40stacked.jpg",
+    "medium": "images/medium/20260927-193046p9270030-cockroach-40stacked.jpg",
+    "full": "images/full/20260927-193046p9270030-cockroach-40stacked.jpg",
+    "original_filename": "20260927_193046P9270030 cockroach 40stacked ---.jpg",
+    "caption": "cockroach 40stacked ---",
+    "title": "Cockroach",
+    "description": "Head-on against a dark background, lit from the side with no flash. 40-photo stack.",
+    "category": "Gladesville",
+    "subcategory": "Michael's Cockroach",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:27 19:30:46"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "samples": [
+      "20260927_193046P9270030.jpg"
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20260927-193046p9270030.jpg",
+    "medium": "images/medium/20260927-193046p9270030.jpg",
+    "full": "images/full/20260927-193046p9270030.jpg",
+    "original_filename": "20260927_193046P9270030.jpg",
+    "caption": "",
+    "title": "Cockroach: Example Slice",
+    "description": "Sample stack slice",
+    "category": "Gladesville",
+    "subcategory": "Michael's Cockroach",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:27 19:30:46"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "sample_of": "20260927_193046P9270030 cockroach 40stacked ---.jpg"
+  },
+  {
+    "thumb": "images/thumbs/20260927-193054p9270124-01-cockroach-26stacked.jpg",
+    "medium": "images/medium/20260927-193054p9270124-01-cockroach-26stacked.jpg",
+    "full": "images/full/20260927-193054p9270124-01-cockroach-26stacked.jpg",
+    "original_filename": "20260927_193054P9270124_01 cockroach 26stacked ---.jpg",
+    "caption": "cockroach 26stacked ---",
+    "title": "Cockroach II",
+    "description": "The same pose a few seconds later. 26-photo stack.",
+    "category": "Gladesville",
+    "subcategory": "Michael's Cockroach",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:27 19:30:54"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "samples": [
+      "20260927_193054P9270124_01.jpg"
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20260927-193054p9270124-01.jpg",
+    "medium": "images/medium/20260927-193054p9270124-01.jpg",
+    "full": "images/full/20260927-193054p9270124-01.jpg",
+    "original_filename": "20260927_193054P9270124_01.jpg",
+    "caption": "",
+    "title": "Cockroach II: Example Slice",
+    "description": "Sample stack slice",
+    "category": "Gladesville",
+    "subcategory": "Michael's Cockroach",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:27 19:30:54"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "sample_of": "20260927_193054P9270124_01 cockroach 26stacked ---.jpg"
+  },
+  {
+    "thumb": "images/thumbs/20260927-193129p9270185-cockroach-12stacked.jpg",
+    "medium": "images/medium/20260927-193129p9270185-cockroach-12stacked.jpg",
+    "full": "images/full/20260927-193129p9270185-cockroach-12stacked.jpg",
+    "original_filename": "20260927_193129P9270185 cockroach 12stacked ---.jpg",
+    "caption": "cockroach 12stacked ---",
+    "title": "Cockroach III",
+    "description": "A brighter take, with the pale edges of the wings showing on either side of the head. 12-photo stack.",
+    "category": "Gladesville",
+    "subcategory": "Michael's Cockroach",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 1000,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:27 19:31:29"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "samples": [
+      "20260927_193129P9270185.jpg"
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20260927-193129p9270185.jpg",
+    "medium": "images/medium/20260927-193129p9270185.jpg",
+    "full": "images/full/20260927-193129p9270185.jpg",
+    "original_filename": "20260927_193129P9270185.jpg",
+    "caption": "",
+    "title": "Cockroach III: Example Slice",
+    "description": "Sample stack slice",
+    "category": "Gladesville",
+    "subcategory": "Michael's Cockroach",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 1000,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:27 19:31:29"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "sample_of": "20260927_193129P9270185 cockroach 12stacked ---.jpg"
+  },
+  {
+    "thumb": "images/thumbs/20260927-193430p9270395-01-cockroack-face-40stacked.jpg",
+    "medium": "images/medium/20260927-193430p9270395-01-cockroack-face-40stacked.jpg",
+    "full": "images/full/20260927-193430p9270395-01-cockroack-face-40stacked.jpg",
+    "original_filename": "20260927_193430P9270395_01 cockroack face 40stacked.jpg",
+    "caption": "cockroack face 40stacked",
+    "title": "Cockroach Face",
+    "description": "Close in on the face: the eyes, the antenna sockets, and flecks of crud across the head. 40-photo stack.",
+    "category": "Gladesville",
+    "subcategory": "Michael's Cockroach",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/6.3",
+      "shutter": "1/125s",
+      "iso": 1000,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:27 19:34:30"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "samples": [
+      "20260927_193430P9270395_01.jpg"
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20260927-193430p9270395-01.jpg",
+    "medium": "images/medium/20260927-193430p9270395-01.jpg",
+    "full": "images/full/20260927-193430p9270395-01.jpg",
+    "original_filename": "20260927_193430P9270395_01.jpg",
+    "caption": "",
+    "title": "Cockroach Face: Example Slice",
+    "description": "Sample stack slice",
+    "category": "Gladesville",
+    "subcategory": "Michael's Cockroach",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/6.3",
+      "shutter": "1/125s",
+      "iso": 1000,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:27 19:34:30"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "sample_of": "20260927_193430P9270395_01 cockroack face 40stacked.jpg"
+  },
+  {
+    "thumb": "images/thumbs/20260927-193541p9270495-cockroach-profile-60stacked.jpg",
+    "medium": "images/medium/20260927-193541p9270495-cockroach-profile-60stacked.jpg",
+    "full": "images/full/20260927-193541p9270495-cockroach-profile-60stacked.jpg",
+    "original_filename": "20260927_193541P9270495 cockroach profile 60stacked ---.jpg",
+    "caption": "cockroach profile 60stacked ---",
+    "title": "Cockroach Profile",
+    "description": "Side-on: the dark eye, the ringed antenna and the plates behind the head. 60-photo stack.",
+    "category": "Gladesville",
+    "subcategory": "Michael's Cockroach",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/6.3",
+      "shutter": "1/125s",
+      "iso": 1000,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:27 19:35:41"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "samples": [
+      "20260927_193541P9270495.jpg"
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20260927-193541p9270495.jpg",
+    "medium": "images/medium/20260927-193541p9270495.jpg",
+    "full": "images/full/20260927-193541p9270495.jpg",
+    "original_filename": "20260927_193541P9270495.jpg",
+    "caption": "",
+    "title": "Cockroach Profile: Example Slice",
+    "description": "Sample stack slice",
+    "category": "Gladesville",
+    "subcategory": "Michael's Cockroach",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/6.3",
+      "shutter": "1/125s",
+      "iso": 1000,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:27 19:35:41"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "sample_of": "20260927_193541P9270495 cockroach profile 60stacked ---.jpg"
   }
 ]

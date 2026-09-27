@@ -42,6 +42,14 @@ Last updated 2026-09-27 (cloud session, branch `claude/project-thread-0mh669`).
   Gotcha: ffmpeg run from Git Bash couldn't open the export named "St
   Andrew's Cross" by its `/c/...` path (MSYS path conversion trips on the
   apostrophe). `cd` into `exports/` and pass the bare filename instead.
+- **Michael's Cockroach (27 Sep evening, local session, pushed)**: new
+  Gladesville subcategory at the photographer's request ("its own category,
+  not with the other bugs"). It's the `MICHAELS_COCKROACH` set, placed after
+  Michael's Studio in `SECTION_ORDER`, labelled like the other Michael
+  sections (no "Gladesville:" prefix). 5 stacks + slices: Cockroach, II,
+  III, Cockroach Face, Cockroach Profile. Titles are Claude's suggestions.
+  The blurb is in the photographer's voice ("told me to photograph it, so I
+  did") and notes these were the first side-lit, no-flash shots.
 - **"Pro site" ideas on hold (2026-09-27)**: a Best Of front page, an
   About/Contact page, dropping the "Test Shoot" label, link previews and a
   custom domain wait until the photographer has picked their best photos.
