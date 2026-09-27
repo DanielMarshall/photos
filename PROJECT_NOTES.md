@@ -33,6 +33,15 @@ Last updated 2026-09-27 (cloud session, branch `claude/project-thread-0mh669`).
   files). The photographer's plan for when the site nears GitHub Pages' 1 GB
   limit (717 MB on 2026-09-27): remove the video first, then downsize
   image size/quality. Not yet.
+- **27 Sep photos (local session, pushed to `main`)**: 4 stacks + slices.
+  **St Andrew's Cross Spider** (11:52, MC-20, default Garden), plus
+  **Holographic Stars / Grid / Hearts** (17:17-17:26, added to the
+  `INDOOR_MACRO` set; Indoor Macro blurb now mentions holographic film).
+  Titles and descriptions are Claude's suggestions and haven't been
+  confirmed yet.
+  Gotcha: ffmpeg run from Git Bash couldn't open the export named "St
+  Andrew's Cross" by its `/c/...` path (MSYS path conversion trips on the
+  apostrophe). `cd` into `exports/` and pass the bare filename instead.
 - **"Pro site" ideas on hold (2026-09-27)**: a Best Of front page, an
   About/Contact page, dropping the "Test Shoot" label, link previews and a
   custom domain wait until the photographer has picked their best photos.

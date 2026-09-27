@@ -12468,5 +12468,277 @@
       0.8504983388704319
     ],
     "sample_of": "20260926_183643P9260348_01 seed base natural light 52stacked -- .jpg"
+  },
+  {
+    "thumb": "images/thumbs/20260927-115255p9270115-24stacked-st-andrew-s-cross.jpg",
+    "medium": "images/medium/20260927-115255p9270115-24stacked-st-andrew-s-cross.jpg",
+    "full": "images/full/20260927-115255p9270115-24stacked-st-andrew-s-cross.jpg",
+    "original_filename": "20260927_115255P9270115 24stacked St Andrew's Cross.jpg",
+    "caption": "24stacked St Andrew's Cross",
+    "title": "St Andrew's Cross Spider",
+    "description": "A St Andrew's Cross spider in her web, holding her legs in pairs to form the X the species is named for. 24-photo stack.",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/200s",
+      "iso": 6400,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:27 11:52:55"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "samples": [
+      "20260927_115255P9270115.jpg"
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20260927-115255p9270115.jpg",
+    "medium": "images/medium/20260927-115255p9270115.jpg",
+    "full": "images/full/20260927-115255p9270115.jpg",
+    "original_filename": "20260927_115255P9270115.jpg",
+    "caption": "",
+    "title": "St Andrew's Cross Spider: Example Slice",
+    "description": "Sample stack slice",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/200s",
+      "iso": 6400,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:27 11:52:55"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "sample_of": "20260927_115255P9270115 24stacked St Andrew's Cross.jpg"
+  },
+  {
+    "thumb": "images/thumbs/20260927-171711p9270310-star-hologram-42stacked.jpg",
+    "medium": "images/medium/20260927-171711p9270310-star-hologram-42stacked.jpg",
+    "full": "images/full/20260927-171711p9270310-star-hologram-42stacked.jpg",
+    "original_filename": "20260927_171711P9270310 star hologram 42stacked ---.jpg",
+    "caption": "star hologram 42stacked ---",
+    "title": "Holographic Stars",
+    "description": "Stars on a holographic surface, each one made of a fine mesh of tiny diffraction cells. 42-photo stack.",
+    "category": "Gladesville",
+    "subcategory": "Indoor Macro",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/10s",
+      "iso": 1250,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:27 17:17:11"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "samples": [
+      "20260927_171711P9270310.jpg"
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20260927-171711p9270310.jpg",
+    "medium": "images/medium/20260927-171711p9270310.jpg",
+    "full": "images/full/20260927-171711p9270310.jpg",
+    "original_filename": "20260927_171711P9270310.jpg",
+    "caption": "",
+    "title": "Holographic Stars: Example Slice",
+    "description": "Sample stack slice",
+    "category": "Gladesville",
+    "subcategory": "Indoor Macro",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/10s",
+      "iso": 1250,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:27 17:17:11"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "sample_of": "20260927_171711P9270310 star hologram 42stacked ---.jpg"
+  },
+  {
+    "thumb": "images/thumbs/20260927-172009p9270403-grid-holographic-40stacked.jpg",
+    "medium": "images/medium/20260927-172009p9270403-grid-holographic-40stacked.jpg",
+    "full": "images/full/20260927-172009p9270403-grid-holographic-40stacked.jpg",
+    "original_filename": "20260927_172009P9270403 grid holographic 40stacked ---.jpg",
+    "caption": "grid holographic 40stacked ---",
+    "title": "Holographic Grid",
+    "description": "A holographic grid, its lines splitting into red and green depending on the angle of the light. 40-photo stack.",
+    "category": "Gladesville",
+    "subcategory": "Indoor Macro",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:27 17:20:09"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "samples": [
+      "20260927_172009P9270403.jpg"
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20260927-172009p9270403.jpg",
+    "medium": "images/medium/20260927-172009p9270403.jpg",
+    "full": "images/full/20260927-172009p9270403.jpg",
+    "original_filename": "20260927_172009P9270403.jpg",
+    "caption": "",
+    "title": "Holographic Grid: Example Slice",
+    "description": "Sample stack slice",
+    "category": "Gladesville",
+    "subcategory": "Indoor Macro",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:27 17:20:09"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "sample_of": "20260927_172009P9270403 grid holographic 40stacked ---.jpg"
+  },
+  {
+    "thumb": "images/thumbs/20260927-172605p9270620-heart-holographic-20stacked.jpg",
+    "medium": "images/medium/20260927-172605p9270620-heart-holographic-20stacked.jpg",
+    "full": "images/full/20260927-172605p9270620-heart-holographic-20stacked.jpg",
+    "original_filename": "20260927_172605P9270620 heart holographic 20stacked ---.jpg",
+    "caption": "heart holographic 20stacked ---",
+    "title": "Holographic Hearts",
+    "description": "Layered hearts floating at different depths in a holographic film. 20-photo stack.",
+    "category": "Gladesville",
+    "subcategory": "Indoor Macro",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/5",
+      "shutter": "1/100s",
+      "iso": 2500,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:27 17:26:05"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "samples": [
+      "20260927_172605P9270620.jpg"
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20260927-172605p9270620.jpg",
+    "medium": "images/medium/20260927-172605p9270620.jpg",
+    "full": "images/full/20260927-172605p9270620.jpg",
+    "original_filename": "20260927_172605P9270620.jpg",
+    "caption": "",
+    "title": "Holographic Hearts: Example Slice",
+    "description": "Sample stack slice",
+    "category": "Gladesville",
+    "subcategory": "Indoor Macro",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/5",
+      "shutter": "1/100s",
+      "iso": 2500,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:27 17:26:05"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "sample_of": "20260927_172605P9270620 heart holographic 20stacked ---.jpg"
   }
 ]

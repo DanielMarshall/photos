@@ -71,6 +71,10 @@ SOURCE_MAP = {
     "20260926_183357P9260145_01 green light seed base 50stacked ---.jpg": os.path.join(EXPORTS, "20260926_183357P9260145_01.jpg"),
     "20260926_183521P9260242_01 seed base 70stacked ---.jpg": os.path.join(EXPORTS, "20260926_183521P9260242_01.jpg"),
     "20260926_183643P9260348_01 seed base natural light 52stacked -- .jpg": os.path.join(EXPORTS, "20260926_183643P9260348_01.jpg"),
+    "20260927_115255P9270115 24stacked St Andrew's Cross.jpg": os.path.join(EXPORTS, "20260927_115255P9270115.jpg"),
+    "20260927_171711P9270310 star hologram 42stacked ---.jpg": os.path.join(EXPORTS, "20260927_171711P9270310.jpg"),
+    "20260927_172009P9270403 grid holographic 40stacked ---.jpg": os.path.join(EXPORTS, "20260927_172009P9270403.jpg"),
+    "20260927_172605P9270620 heart holographic 20stacked ---.jpg": os.path.join(EXPORTS, "20260927_172605P9270620.jpg"),
 }
 UNRESOLVED = set()
 
@@ -356,6 +360,13 @@ INDOOR_MACRO = {
     "20260926_183521P9260242_01.jpg",
     "20260926_183643P9260348_01 seed base natural light 52stacked -- .jpg",
     "20260926_183643P9260348_01.jpg",
+    # Holographic surfaces, 27 Sep evening
+    "20260927_171711P9270310 star hologram 42stacked ---.jpg",
+    "20260927_171711P9270310.jpg",
+    "20260927_172009P9270403 grid holographic 40stacked ---.jpg",
+    "20260927_172009P9270403.jpg",
+    "20260927_172605P9270620 heart holographic 20stacked ---.jpg",
+    "20260927_172605P9270620.jpg",
 }
 
 # (title, description) supplied by the photographer, keyed by original filename.
@@ -607,6 +618,15 @@ TITLES = {
     "20260926_183521P9260242_01.jpg": ("Farmer's Friend: Example Slice", "Sample stack slice"),
     "20260926_183643P9260348_01 seed base natural light 52stacked -- .jpg": ("Farmer's Friend Awns", "The other end of the seed in natural light: the awns, each lined with backward-pointing barbs that hook onto socks and fur. 52-photo stack."),
     "20260926_183643P9260348_01.jpg": ("Farmer's Friend Awns: Example Slice", "Sample stack slice"),
+    # 27 Sep: St Andrew's Cross (garden, morning) and holograms (indoor, evening)
+    "20260927_115255P9270115 24stacked St Andrew's Cross.jpg": ("St Andrew's Cross Spider", "A St Andrew's Cross spider in her web, holding her legs in pairs to form the X the species is named for. 24-photo stack."),
+    "20260927_115255P9270115.jpg": ("St Andrew's Cross Spider: Example Slice", "Sample stack slice"),
+    "20260927_171711P9270310 star hologram 42stacked ---.jpg": ("Holographic Stars", "Stars on a holographic surface, each one made of a fine mesh of tiny diffraction cells. 42-photo stack."),
+    "20260927_171711P9270310.jpg": ("Holographic Stars: Example Slice", "Sample stack slice"),
+    "20260927_172009P9270403 grid holographic 40stacked ---.jpg": ("Holographic Grid", "A holographic grid, its lines splitting into red and green depending on the angle of the light. 40-photo stack."),
+    "20260927_172009P9270403.jpg": ("Holographic Grid: Example Slice", "Sample stack slice"),
+    "20260927_172605P9270620 heart holographic 20stacked ---.jpg": ("Holographic Hearts", "Layered hearts floating at different depths in a holographic film. 20-photo stack."),
+    "20260927_172605P9270620.jpg": ("Holographic Hearts: Example Slice", "Sample stack slice"),
     "19092026_123821P9190438 bay landscape.jpg": ("Yachts at Anchor", ""),
     "19092026_123845P9190465 bay landscape.jpg": ("Moored Yacht", ""),
     "19092026_124002P9190470 bay landscape.jpg": ("Moored Yacht II", ""),
