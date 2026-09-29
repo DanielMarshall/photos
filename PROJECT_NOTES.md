@@ -50,6 +50,13 @@ Last updated 2026-09-27 (cloud session, branch `claude/project-thread-0mh669`).
   III, Cockroach Face, Cockroach Profile. Titles are Claude's suggestions.
   The blurb is in the photographer's voice ("told me to photograph it, so I
   did") and notes these were the first side-lit, no-flash shots.
+- **Artarmon macro (29 Sep, local session, pushed)**: 3 stacks + slices shot
+  at work: Green Caterpillar, Green Caterpillar II, White Flowers (titles are
+  Claude's suggestions). They're the new `ARTARMON_MACRO` set, which
+  `classify()` sends to the Artarmon section alongside the colleague
+  portraits. The Artarmon blurb now says "plus macro shots from around the
+  workplace". The location still shows only "Artarmon" (the workplace stays
+  masked).
 - **"Pro site" ideas on hold (2026-09-27)**: a Best Of front page, an
   About/Contact page, dropping the "Test Shoot" label, link previews and a
   custom domain wait until the photographer has picked their best photos.

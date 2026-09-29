@@ -113,7 +113,7 @@
     'Gladesville|People': 'Timmy the dog, at home.',
     'Gladesville|Uncategorized': "A few photos that don't fit anywhere else yet.",
     'Hornsby Heights|null': "Family photos at mum and dad's house in Hornsby Heights.",
-    'Artarmon|null': 'Portraits of colleagues at work in Artarmon.',
+    'Artarmon|null': 'Portraits of colleagues at work in Artarmon, plus macro shots from around the workplace.',
     'Sydney CBD|null': 'Snapshots around Darling Harbour and the Sydney CBD.',
     'Chinese Garden of Friendship|null': 'Water dragons and the waterfall at the Chinese Garden of Friendship, Darling Harbour.',
     'Sydney Town Hall|null': 'A Ukraine solidarity protest at Sydney Town Hall.',

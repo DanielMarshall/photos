@@ -13080,5 +13080,209 @@
       0.8504983388704319
     ],
     "sample_of": "20260927_193541P9270495 cockroach profile 60stacked ---.jpg"
+  },
+  {
+    "thumb": "images/thumbs/20260929-171118p9290218-62stacked-caterpillar.jpg",
+    "medium": "images/medium/20260929-171118p9290218-62stacked-caterpillar.jpg",
+    "full": "images/full/20260929-171118p9290218-62stacked-caterpillar.jpg",
+    "original_filename": "20260929_171118P9290218 62stacked caterpillar.jpg",
+    "caption": "62stacked caterpillar",
+    "title": "Green Caterpillar",
+    "description": "A small green caterpillar working its way along the edge of a leaf. 62-photo stack.",
+    "category": "Artarmon",
+    "subcategory": null,
+    "location": "Artarmon",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:29 17:11:18"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "samples": [
+      "20260929_171118P9290218.jpg"
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20260929-171118p9290218.jpg",
+    "medium": "images/medium/20260929-171118p9290218.jpg",
+    "full": "images/full/20260929-171118p9290218.jpg",
+    "original_filename": "20260929_171118P9290218.jpg",
+    "caption": "",
+    "title": "Green Caterpillar: Example Slice",
+    "description": "Sample stack slice",
+    "category": "Artarmon",
+    "subcategory": null,
+    "location": "Artarmon",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:29 17:11:18"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "sample_of": "20260929_171118P9290218 62stacked caterpillar.jpg"
+  },
+  {
+    "thumb": "images/thumbs/20260929-171507p9290385-caterpillar-38stacked.jpg",
+    "medium": "images/medium/20260929-171507p9290385-caterpillar-38stacked.jpg",
+    "full": "images/full/20260929-171507p9290385-caterpillar-38stacked.jpg",
+    "original_filename": "20260929_171507P9290385 caterpillar 38stacked.jpg",
+    "caption": "caterpillar 38stacked",
+    "title": "Green Caterpillar II",
+    "description": "The same caterpillar a few minutes later, arched up at the leaf tip with its fine hairs catching the light. 38-photo stack.",
+    "category": "Artarmon",
+    "subcategory": null,
+    "location": "Artarmon",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:29 17:15:07"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "samples": [
+      "20260929_171507P9290385.jpg"
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20260929-171507p9290385.jpg",
+    "medium": "images/medium/20260929-171507p9290385.jpg",
+    "full": "images/full/20260929-171507p9290385.jpg",
+    "original_filename": "20260929_171507P9290385.jpg",
+    "caption": "",
+    "title": "Green Caterpillar II: Example Slice",
+    "description": "Sample stack slice",
+    "category": "Artarmon",
+    "subcategory": null,
+    "location": "Artarmon",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:29 17:15:07"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "sample_of": "20260929_171507P9290385 caterpillar 38stacked.jpg"
+  },
+  {
+    "thumb": "images/thumbs/20260929-173229p9290474-flowers-40stacked.jpg",
+    "medium": "images/medium/20260929-173229p9290474-flowers-40stacked.jpg",
+    "full": "images/full/20260929-173229p9290474-flowers-40stacked.jpg",
+    "original_filename": "20260929_173229P9290474 flowers 40stacked ---.jpg",
+    "caption": "flowers 40stacked ---",
+    "title": "White Flowers",
+    "description": "A dense cluster of tiny white flower heads, each one a pincushion of fine threads. 40-photo stack.",
+    "category": "Artarmon",
+    "subcategory": null,
+    "location": "Artarmon",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:29 17:32:29"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "samples": [
+      "20260929_173229P9290474.jpg"
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20260929-173229p9290474.jpg",
+    "medium": "images/medium/20260929-173229p9290474.jpg",
+    "full": "images/full/20260929-173229p9290474.jpg",
+    "original_filename": "20260929_173229P9290474.jpg",
+    "caption": "",
+    "title": "White Flowers: Example Slice",
+    "description": "Sample stack slice",
+    "category": "Artarmon",
+    "subcategory": null,
+    "location": "Artarmon",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:29 17:32:29"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "sample_of": "20260929_173229P9290474 flowers 40stacked ---.jpg"
   }
 ]

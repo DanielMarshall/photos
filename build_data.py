@@ -80,6 +80,9 @@ SOURCE_MAP = {
     "20260927_193129P9270185 cockroach 12stacked ---.jpg": os.path.join(EXPORTS, "20260927_193129P9270185.jpg"),
     "20260927_193430P9270395_01 cockroack face 40stacked.jpg": os.path.join(EXPORTS, "20260927_193430P9270395_01.jpg"),
     "20260927_193541P9270495 cockroach profile 60stacked ---.jpg": os.path.join(EXPORTS, "20260927_193541P9270495.jpg"),
+    "20260929_171118P9290218 62stacked caterpillar.jpg": os.path.join(EXPORTS, "20260929_171118P9290218.jpg"),
+    "20260929_171507P9290385 caterpillar 38stacked.jpg": os.path.join(EXPORTS, "20260929_171507P9290385.jpg"),
+    "20260929_173229P9290474 flowers 40stacked ---.jpg": os.path.join(EXPORTS, "20260929_173229P9290474.jpg"),
 }
 UNRESOLVED = set()
 
@@ -189,6 +192,15 @@ ARTARMON_TITLES = {
     "Billy.JPG": "Billy",
     "Chloe-kiani.JPG": "Kiani",
     "Slava.JPG": "Slava",
+}
+# Macro shot around work in Artarmon (29 Sep afternoon)
+ARTARMON_MACRO = {
+    "20260929_171118P9290218 62stacked caterpillar.jpg",
+    "20260929_171118P9290218.jpg",
+    "20260929_171507P9290385 caterpillar 38stacked.jpg",
+    "20260929_171507P9290385.jpg",
+    "20260929_173229P9290474 flowers 40stacked ---.jpg",
+    "20260929_173229P9290474.jpg",
 }
 ARTARMON_PEOPLE = {
     "14092026_170006P9140017 Alex Chin.jpg",
@@ -657,6 +669,13 @@ TITLES = {
     "20260927_193430P9270395_01.jpg": ("Cockroach Face: Example Slice", "Sample stack slice"),
     "20260927_193541P9270495 cockroach profile 60stacked ---.jpg": ("Cockroach Profile", "Side-on: the dark eye, the ringed antenna and the plates behind the head. 60-photo stack."),
     "20260927_193541P9270495.jpg": ("Cockroach Profile: Example Slice", "Sample stack slice"),
+    # Artarmon (work), 29 Sep afternoon
+    "20260929_171118P9290218 62stacked caterpillar.jpg": ("Green Caterpillar", "A small green caterpillar working its way along the edge of a leaf. 62-photo stack."),
+    "20260929_171118P9290218.jpg": ("Green Caterpillar: Example Slice", "Sample stack slice"),
+    "20260929_171507P9290385 caterpillar 38stacked.jpg": ("Green Caterpillar II", "The same caterpillar a few minutes later, arched up at the leaf tip with its fine hairs catching the light. 38-photo stack."),
+    "20260929_171507P9290385.jpg": ("Green Caterpillar II: Example Slice", "Sample stack slice"),
+    "20260929_173229P9290474 flowers 40stacked ---.jpg": ("White Flowers", "A dense cluster of tiny white flower heads, each one a pincushion of fine threads. 40-photo stack."),
+    "20260929_173229P9290474.jpg": ("White Flowers: Example Slice", "Sample stack slice"),
     "19092026_123821P9190438 bay landscape.jpg": ("Yachts at Anchor", ""),
     "19092026_123845P9190465 bay landscape.jpg": ("Moored Yacht", ""),
     "19092026_124002P9190470 bay landscape.jpg": ("Moored Yacht II", ""),
@@ -819,7 +838,7 @@ def classify(original, dt):
         if time_code and time_code > GARDEN_END:
             return "Sydney CBD", None, "Darling Harbour to Wynyard, Sydney"
         return "Sydney CBD", None, "Darling Harbour area, Sydney"
-    if original in ARTARMON_TITLES or original in ARTARMON_PEOPLE:
+    if original in ARTARMON_TITLES or original in ARTARMON_PEOPLE or original in ARTARMON_MACRO:
         return "Artarmon", None, "Artarmon"
     if original in KITCHEN_MOSS:
         return "Gladesville", "Moss", "Home"
