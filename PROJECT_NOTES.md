@@ -57,6 +57,12 @@ Last updated 2026-09-27 (cloud session, branch `claude/project-thread-0mh669`).
   portraits. The Artarmon blurb now says "plus macro shots from around the
   workplace". The location still shows only "Artarmon" (the workplace stays
   masked).
+- **30 Sep photos (local session, pushed)**: **White Flowers II**
+  (Artarmon, added to `ARTARMON_MACRO`), plus four more droplets-on-polariser
+  stacks continuing Experiment #48: **Experiment #49-#52**, added to
+  `FLUIDS_3` (Experiments in Liquids); #52 is "cicada through drops". The
+  section blurb now mentions water droplets on a polarising filter. Next
+  number in that section is #53. Descriptions are Claude's suggestions.
 - **"Pro site" ideas on hold (2026-09-27)**: a Best Of front page, an
   About/Contact page, dropping the "Test Shoot" label, link previews and a
   custom domain wait until the photographer has picked their best photos.

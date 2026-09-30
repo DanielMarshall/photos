@@ -13284,5 +13284,345 @@
       0.8504983388704319
     ],
     "sample_of": "20260929_173229P9290474 flowers 40stacked ---.jpg"
+  },
+  {
+    "thumb": "images/thumbs/20260930-165926p9300168-flowers-at-work-50stacked.jpg",
+    "medium": "images/medium/20260930-165926p9300168-flowers-at-work-50stacked.jpg",
+    "full": "images/full/20260930-165926p9300168-flowers-at-work-50stacked.jpg",
+    "original_filename": "20260930_165926P9300168 flowers at work 50stacked.jpg",
+    "caption": "flowers at work 50stacked",
+    "title": "White Flowers II",
+    "description": "More of the same white flowers, with buds still tinged pink among the open heads. 50-photo stack.",
+    "category": "Artarmon",
+    "subcategory": null,
+    "location": "Artarmon",
+    "settings": {
+      "aperture": "f/9",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:30 16:59:26"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "samples": [
+      "20260930_165926P9300168.jpg"
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20260930-165926p9300168.jpg",
+    "medium": "images/medium/20260930-165926p9300168.jpg",
+    "full": "images/full/20260930-165926p9300168.jpg",
+    "original_filename": "20260930_165926P9300168.jpg",
+    "caption": "",
+    "title": "White Flowers II: Example Slice",
+    "description": "Sample stack slice",
+    "category": "Artarmon",
+    "subcategory": null,
+    "location": "Artarmon",
+    "settings": {
+      "aperture": "f/9",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:30 16:59:26"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "sample_of": "20260930_165926P9300168 flowers at work 50stacked.jpg"
+  },
+  {
+    "thumb": "images/thumbs/20260930-185113p9300243-droplets-45stacked.jpg",
+    "medium": "images/medium/20260930-185113p9300243-droplets-45stacked.jpg",
+    "full": "images/full/20260930-185113p9300243-droplets-45stacked.jpg",
+    "original_filename": "20260930_185113P9300243 droplets 45stacked ---.jpg",
+    "caption": "droplets 45stacked ---",
+    "title": "Experiment #49",
+    "description": "Two large water droplets on a polarising filter, their edges picking up rainbow colours. 45-photo stack.",
+    "category": "Gladesville",
+    "subcategory": "Experiments in Liquids",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:30 18:51:13"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "samples": [
+      "20260930_185113P9300243.jpg"
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20260930-185113p9300243.jpg",
+    "medium": "images/medium/20260930-185113p9300243.jpg",
+    "full": "images/full/20260930-185113p9300243.jpg",
+    "original_filename": "20260930_185113P9300243.jpg",
+    "caption": "",
+    "title": "Experiment #49: Example Slice",
+    "description": "Sample stack slice",
+    "category": "Gladesville",
+    "subcategory": "Experiments in Liquids",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:30 18:51:13"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "sample_of": "20260930_185113P9300243 droplets 45stacked ---.jpg"
+  },
+  {
+    "thumb": "images/thumbs/20260930-185519p9300383-droplets-30stacked.jpg",
+    "medium": "images/medium/20260930-185519p9300383-droplets-30stacked.jpg",
+    "full": "images/full/20260930-185519p9300383-droplets-30stacked.jpg",
+    "original_filename": "20260930_185519P9300383 droplets 30stacked ---.jpg",
+    "caption": "droplets 30stacked ---",
+    "title": "Experiment #50",
+    "description": "Smaller droplets, each one catching its own tiny rainbow from the polarised light. 30-photo stack.",
+    "category": "Gladesville",
+    "subcategory": "Experiments in Liquids",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:30 18:55:19"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "samples": [
+      "20260930_185519P9300383.jpg"
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20260930-185519p9300383.jpg",
+    "medium": "images/medium/20260930-185519p9300383.jpg",
+    "full": "images/full/20260930-185519p9300383.jpg",
+    "original_filename": "20260930_185519P9300383.jpg",
+    "caption": "",
+    "title": "Experiment #50: Example Slice",
+    "description": "Sample stack slice",
+    "category": "Gladesville",
+    "subcategory": "Experiments in Liquids",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:30 18:55:19"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "sample_of": "20260930_185519P9300383 droplets 30stacked ---.jpg"
+  },
+  {
+    "thumb": "images/thumbs/20260930-185619p9300473-drops-13stacked.jpg",
+    "medium": "images/medium/20260930-185619p9300473-drops-13stacked.jpg",
+    "full": "images/full/20260930-185619p9300473-drops-13stacked.jpg",
+    "original_filename": "20260930_185619P9300473 drops 13stacked ---.jpg",
+    "caption": "drops 13stacked ---",
+    "title": "Experiment #51",
+    "description": "Flattened droplets scattered across a wash of colour from the polariser. 13-photo stack.",
+    "category": "Gladesville",
+    "subcategory": "Experiments in Liquids",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:30 18:56:19"
+    },
+    "size": [
+      3888,
+      5184
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.037070524412296565,
+      0.026537216828478965,
+      0.9258589511754068,
+      0.883495145631068
+    ],
+    "samples": [
+      "20260930_185619P9300473.jpg"
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20260930-185619p9300473.jpg",
+    "medium": "images/medium/20260930-185619p9300473.jpg",
+    "full": "images/full/20260930-185619p9300473.jpg",
+    "original_filename": "20260930_185619P9300473.jpg",
+    "caption": "",
+    "title": "Experiment #51: Example Slice",
+    "description": "Sample stack slice",
+    "category": "Gladesville",
+    "subcategory": "Experiments in Liquids",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:30 18:56:19"
+    },
+    "size": [
+      3888,
+      5184
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.037070524412296565,
+      0.026537216828478965,
+      0.9258589511754068,
+      0.883495145631068
+    ],
+    "sample_of": "20260930_185619P9300473 drops 13stacked ---.jpg"
+  },
+  {
+    "thumb": "images/thumbs/20260930-191030p9300530-cicada-through-drops-30stacked.jpg",
+    "medium": "images/medium/20260930-191030p9300530-cicada-through-drops-30stacked.jpg",
+    "full": "images/full/20260930-191030p9300530-cicada-through-drops-30stacked.jpg",
+    "original_filename": "20260930_191030P9300530 cicada through drops 30stacked---.jpg",
+    "caption": "cicada through drops 30stacked---",
+    "title": "Experiment #52",
+    "description": "A cicada behind the droplets, with a tiny copy of it caught inside each drop. 30-photo stack.",
+    "category": "Gladesville",
+    "subcategory": "Experiments in Liquids",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:30 19:10:30"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "samples": [
+      "20260930_191030P9300530.jpg"
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20260930-191030p9300530.jpg",
+    "medium": "images/medium/20260930-191030p9300530.jpg",
+    "full": "images/full/20260930-191030p9300530.jpg",
+    "original_filename": "20260930_191030P9300530.jpg",
+    "caption": "",
+    "title": "Experiment #52: Example Slice",
+    "description": "Sample stack slice",
+    "category": "Gladesville",
+    "subcategory": "Experiments in Liquids",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:09:30 19:10:30"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "sample_of": "20260930_191030P9300530 cicada through drops 30stacked---.jpg"
   }
 ]

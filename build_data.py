@@ -83,6 +83,11 @@ SOURCE_MAP = {
     "20260929_171118P9290218 62stacked caterpillar.jpg": os.path.join(EXPORTS, "20260929_171118P9290218.jpg"),
     "20260929_171507P9290385 caterpillar 38stacked.jpg": os.path.join(EXPORTS, "20260929_171507P9290385.jpg"),
     "20260929_173229P9290474 flowers 40stacked ---.jpg": os.path.join(EXPORTS, "20260929_173229P9290474.jpg"),
+    "20260930_165926P9300168 flowers at work 50stacked.jpg": os.path.join(EXPORTS, "20260930_165926P9300168.jpg"),
+    "20260930_185113P9300243 droplets 45stacked ---.jpg": os.path.join(EXPORTS, "20260930_185113P9300243.jpg"),
+    "20260930_185519P9300383 droplets 30stacked ---.jpg": os.path.join(EXPORTS, "20260930_185519P9300383.jpg"),
+    "20260930_185619P9300473 drops 13stacked ---.jpg": os.path.join(EXPORTS, "20260930_185619P9300473.jpg"),
+    "20260930_191030P9300530 cicada through drops 30stacked---.jpg": os.path.join(EXPORTS, "20260930_191030P9300530.jpg"),
 }
 UNRESOLVED = set()
 
@@ -201,6 +206,8 @@ ARTARMON_MACRO = {
     "20260929_171507P9290385.jpg",
     "20260929_173229P9290474 flowers 40stacked ---.jpg",
     "20260929_173229P9290474.jpg",
+    "20260930_165926P9300168 flowers at work 50stacked.jpg",
+    "20260930_165926P9300168.jpg",
 }
 ARTARMON_PEOPLE = {
     "14092026_170006P9140017 Alex Chin.jpg",
@@ -252,6 +259,15 @@ FLUIDS_3 = {
     "20092026_115637P9200307 fluids 3.jpg",
     "20092026_120040P9200313 fluids 3.jpg",
     "24092026_185400P9240322 drops on polariser.jpg",
+    # More droplets on the polariser, 30 Sep evening
+    "20260930_185113P9300243 droplets 45stacked ---.jpg",
+    "20260930_185113P9300243.jpg",
+    "20260930_185519P9300383 droplets 30stacked ---.jpg",
+    "20260930_185519P9300383.jpg",
+    "20260930_185619P9300473 drops 13stacked ---.jpg",
+    "20260930_185619P9300473.jpg",
+    "20260930_191030P9300530 cicada through drops 30stacked---.jpg",
+    "20260930_191030P9300530.jpg",
 }
 MICHAELS_FLOWERS = {
     "15092026_170642P9150014_01 mickaels flowers 25stacked.jpg",
@@ -676,6 +692,17 @@ TITLES = {
     "20260929_171507P9290385.jpg": ("Green Caterpillar II: Example Slice", "Sample stack slice"),
     "20260929_173229P9290474 flowers 40stacked ---.jpg": ("White Flowers", "A dense cluster of tiny white flower heads, each one a pincushion of fine threads. 40-photo stack."),
     "20260929_173229P9290474.jpg": ("White Flowers: Example Slice", "Sample stack slice"),
+    "20260930_165926P9300168 flowers at work 50stacked.jpg": ("White Flowers II", "More of the same white flowers, with buds still tinged pink among the open heads. 50-photo stack."),
+    "20260930_165926P9300168.jpg": ("White Flowers II: Example Slice", "Sample stack slice"),
+    # Experiments in Liquids: droplets on the polariser, 30 Sep evening
+    "20260930_185113P9300243 droplets 45stacked ---.jpg": ("Experiment #49", "Two large water droplets on a polarising filter, their edges picking up rainbow colours. 45-photo stack."),
+    "20260930_185113P9300243.jpg": ("Experiment #49: Example Slice", "Sample stack slice"),
+    "20260930_185519P9300383 droplets 30stacked ---.jpg": ("Experiment #50", "Smaller droplets, each one catching its own tiny rainbow from the polarised light. 30-photo stack."),
+    "20260930_185519P9300383.jpg": ("Experiment #50: Example Slice", "Sample stack slice"),
+    "20260930_185619P9300473 drops 13stacked ---.jpg": ("Experiment #51", "Flattened droplets scattered across a wash of colour from the polariser. 13-photo stack."),
+    "20260930_185619P9300473.jpg": ("Experiment #51: Example Slice", "Sample stack slice"),
+    "20260930_191030P9300530 cicada through drops 30stacked---.jpg": ("Experiment #52", "A cicada behind the droplets, with a tiny copy of it caught inside each drop. 30-photo stack."),
+    "20260930_191030P9300530.jpg": ("Experiment #52: Example Slice", "Sample stack slice"),
     "19092026_123821P9190438 bay landscape.jpg": ("Yachts at Anchor", ""),
     "19092026_123845P9190465 bay landscape.jpg": ("Moored Yacht", ""),
     "19092026_124002P9190470 bay landscape.jpg": ("Moored Yacht II", ""),
