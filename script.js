@@ -59,6 +59,7 @@
     ['Gladesville', 'Moss'],
     ['Gladesville', 'Indoor Macro'],
     ['Hornsby Heights', null],
+    ['On the Road', null],
     ['Artarmon', null],
     ['Sydney CBD', null],
     ['Chinese Garden of Friendship', null],
@@ -85,6 +86,7 @@
     'Gladesville|People': 'Gladesville: Timmy',
     'Gladesville|Uncategorized': 'Gladesville: Night and Odd Shots',
     'Hornsby Heights|null': 'Hornsby Heights',
+    'On the Road|null': 'On the Road',
     'Artarmon|null': 'Artarmon',
     'Sydney CBD|null': 'Sydney CBD and Darling Harbour',
     'Sydney Town Hall|null': 'Sydney Town Hall: Ukraine Solidarity Protest',
@@ -112,6 +114,7 @@
     'Gladesville|Planes': 'Planes photographed from the yard, some with the MC-20 teleconverter for extra reach.',
     'Gladesville|People': 'Timmy the dog, at home.',
     'Gladesville|Uncategorized': "A few photos that don't fit anywhere else yet.",
+    'On the Road|null': 'Shots from the drive to and from the family birthday gathering in Hornsby Heights, October 2026: Macquarie Park on the way there, Pymble on the way home.',
     'Hornsby Heights|null': "Family photos at mum and dad's house in Hornsby Heights, including the annual family birthday gathering in October, with macro shots from around the garden.",
     'Artarmon|null': 'Portraits of colleagues at work in Artarmon, plus macro shots from around the workplace.',
     'Sydney CBD|null': 'Snapshots around Darling Harbour and the Sydney CBD.',
@@ -713,6 +716,8 @@
     townhall: { label: 'Sydney Town Hall', lat: -33.8734, lng: 151.2064 },
     qvb: { label: 'Queen Victoria Building', lat: -33.8715, lng: 151.2067 },
     dhpiano: { label: 'Darling Harbour Piano', lat: -33.8709, lng: 151.2013 },
+    macquarie: { label: 'Macquarie Park (Lane Cove Road)', lat: -33.7832, lng: 151.1314 },
+    pymble: { label: 'Pymble (Pacific Highway)', lat: -33.7438, lng: 151.1406 },
   };
 
   function placeKey(item) {
@@ -729,6 +734,8 @@
     if (l.includes('banjo paterson')) return 'banjo';
     if (l.includes('boronia park')) return 'boronia';
     if (l.includes('darling harbour')) return 'darling';
+    if (l.includes('macquarie park')) return 'macquarie';
+    if (l.includes('pymble')) return 'pymble';
     if (l.includes('hornsby heights')) return 'hornsby';
     if (l === 'artarmon') return 'artarmon';
     if (l === 'ashfield') return 'ashfield';

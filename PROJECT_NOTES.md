@@ -65,7 +65,7 @@ Last updated 2026-09-27 (cloud session, branch `claude/project-thread-0mh669`).
   number in that section is #53. Descriptions are Claude's suggestions.
 - **Hornsby Heights, family birthday gathering (3 Oct 2026, local session,
   pushed)**: 48 files (14 stacks + slices, 20 singles) in the `HORNSBY_OCT`
-  set, which goes to the Hornsby Heights section; that section's blurb now
+  set (44 files after the split below), which goes to the Hornsby Heights section; that section's blurb now
   mentions the October gathering and garden macro.
   - **The stacks were handheld.** At the photographer's request, every
     stack composite is cropped 10% off each edge (centred, 80% of each
@@ -74,10 +74,19 @@ Last updated 2026-09-27 (cloud session, branch `claude/project-thread-0mh669`).
     alignment smears reach 6-12% in from the edges. Slices and singles are
     not cropped. Moth III still shows a few pixels of smear at the bottom
     edge.
-  - Singles 11:10-11:28 (Concrete Pillar, Canon Building, Arm in the Sun)
-    were taken on the drive there, and "Distant City" (15:39) probably on the
-    drive home. They're filed under Hornsby Heights with the house's
-    location anyway.
+  - **The 4 drive shots were split out into a new top-level section, "On
+    the Road"** (after Hornsby Heights), using the `ON_THE_ROAD` dict in
+    `build_data.py` (filename to location text). The files have no GPS (only
+    an empty GPS version tag, in both the JPGs and the ORFs), so each was
+    placed from what's in frame plus its timestamp. Concrete Pillar (11:10)
+    and Canon Building (11:12) share the Macquarie Park pin (Canon's building,
+    Lane Cove Road, from OSM). Distant City (15:39) shows the "Pymble Hotel"
+    sign, so it has a Pymble pin (Pymble Hotel, from OSM). Arm in the Sun
+    (11:28) has nothing to place it: its location is "In the car, on the way
+    to Hornsby Heights", which `placeKey` maps to the Hornsby pin. New
+    `PLACES` entries `macquarie` and `pymble`, matched in `placeKey` before
+    the Hornsby check. Their medium images were re-bordered with the new
+    location text.
   - Titles are Claude's suggestions. "under-leaf seeds" are fern spore
     clusters, titled "Fern Spores". The Weimaraner's name is unknown, so
     those photos are titled "Weimaraner" / "Those Eyes" / "Those Eyes II".

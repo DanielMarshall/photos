@@ -185,6 +185,16 @@ HORNSBY_HEIGHTS = {
 # Annual family birthday gathering at mum & dad's, 3 Oct 2026: mostly
 # garden macro (handheld stacks, cropped 10% each edge at tier generation),
 # plus a few shots from the drive there and back.
+# Shots from the drive to and from the 3 Oct gathering. No GPS in the files;
+# placed from what's in frame (Canon's building, the Pymble Hotel sign) and
+# the timestamps. The arm shot has nothing to place it, so it keeps the
+# Hornsby Heights pin via its location text.
+ON_THE_ROAD = {
+    "20261003_111043PA030151.jpg": "Macquarie Park, under a motorway overpass near Lane Cove Road",
+    "20261003_111234PA030152.jpg": "Canon Australia, Lane Cove Road, Macquarie Park",
+    "20261003_112831PA030165.jpg": "In the car, on the way to Hornsby Heights",
+    "20261003_153927PA031432.jpg": "Pacific Highway, Pymble (by the Pymble Hotel)",
+}
 HORNSBY_OCT = {
     "20261003_124918PA030245 under-leaf seeds 30stacked ---.jpg",
     "20261003_124918PA030245.jpg",
@@ -214,9 +224,6 @@ HORNSBY_OCT = {
     "20261003_145832PA031304.jpg",
     "20261003_152343PA031418 moth 13stacked.jpg",
     "20261003_152343PA031418.jpg",
-    "20261003_111043PA030151.jpg",
-    "20261003_111234PA030152.jpg",
-    "20261003_112831PA030165.jpg",
     "20261003_125415PA030322.jpg",
     "20261003_125522PA030337.jpg",
     "20261003_130130PA030396.jpg",
@@ -233,7 +240,6 @@ HORNSBY_OCT = {
     "20261003_145217PA031184.jpg",
     "20261003_151422PA031400.jpg",
     "20261003_151446PA031402.jpg",
-    "20261003_153927PA031432.jpg",
 }
 PLANES = {
     "Plane - Quatari.jpg", "Plane - Virgin.jpg",
@@ -1005,6 +1011,8 @@ def classify(original, dt):
         return "Gladesville", "Boronia Park Reserve", "Boronia Park Reserve, Hunters Hill"
     if original in ANTS:
         return "Gladesville", "Ants", "Home"
+    if original in ON_THE_ROAD:
+        return "On the Road", None, ON_THE_ROAD[original]
     if original in HORNSBY_HEIGHTS or original in HORNSBY_OCT:
         return "Hornsby Heights", None, "Hornsby Heights, Sydney (mum & dad's house)"
     if original in PEOPLE:
