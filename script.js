@@ -112,7 +112,7 @@
     'Gladesville|Planes': 'Planes photographed from the yard, some with the MC-20 teleconverter for extra reach.',
     'Gladesville|People': 'Timmy the dog, at home.',
     'Gladesville|Uncategorized': "A few photos that don't fit anywhere else yet.",
-    'Hornsby Heights|null': "Family photos at mum and dad's house in Hornsby Heights.",
+    'Hornsby Heights|null': "Family photos at mum and dad's house in Hornsby Heights, including the annual family birthday gathering in October, with macro shots from around the garden.",
     'Artarmon|null': 'Portraits of colleagues at work in Artarmon, plus macro shots from around the workplace.',
     'Sydney CBD|null': 'Snapshots around Darling Harbour and the Sydney CBD.',
     'Chinese Garden of Friendship|null': 'Water dragons and the waterfall at the Chinese Garden of Friendship, Darling Harbour.',

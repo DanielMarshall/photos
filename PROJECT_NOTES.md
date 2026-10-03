@@ -63,6 +63,25 @@ Last updated 2026-09-27 (cloud session, branch `claude/project-thread-0mh669`).
   `FLUIDS_3` (Experiments in Liquids); #52 is "cicada through drops". The
   section blurb now mentions water droplets on a polarising filter. Next
   number in that section is #53. Descriptions are Claude's suggestions.
+- **Hornsby Heights, family birthday gathering (3 Oct 2026, local session,
+  pushed)**: 48 files (14 stacks + slices, 20 singles) in the `HORNSBY_OCT`
+  set, which goes to the Hornsby Heights section; that section's blurb now
+  mentions the October gathering and garden macro.
+  - **The stacks were handheld.** At the photographer's request, every
+    stack composite is cropped 10% off each edge (centred, 80% of each
+    dimension kept) at tier generation, before thumbs/medium/full:
+    `-vf "crop=trunc(iw*0.8/2)*2:trunc(ih*0.8/2)*2,..."`. Zerene's handheld
+    alignment smears reach 6-12% in from the edges. Slices and singles are
+    not cropped. Moth III still shows a few pixels of smear at the bottom
+    edge.
+  - Singles 11:10-11:28 (Concrete Pillar, Canon Building, Arm in the Sun)
+    were taken on the drive there, and "Distant City" (15:39) probably on the
+    drive home. They're filed under Hornsby Heights with the house's
+    location anyway.
+  - Titles are Claude's suggestions. "under-leaf seeds" are fern spore
+    clusters, titled "Fern Spores". The Weimaraner's name is unknown, so
+    those photos are titled "Weimaraner" / "Those Eyes" / "Those Eyes II".
+    Zeke (stack, 14:33) is the same Zeke as "Nathan and Zeke".
 - **"Pro site" ideas on hold (2026-09-27)**: a Best Of front page, an
   About/Contact page, dropping the "Test Shoot" label, link previews and a
   custom domain wait until the photographer has picked their best photos.
