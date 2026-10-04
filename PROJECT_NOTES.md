@@ -193,6 +193,17 @@ plain-JPG sibling with EXIF.
 
 1. **Find new files**: diff `Camera Roll/exports/` against `manifest.tsv`
    column 2 (`comm -23 <(sort exports-listing) <(sort known-filenames)`).
+1b. **Check every stack composite's edges and crop them (standing request,
+   2026-10-04).** Zerene alignment leaves streaky smear at the edges of
+   nearly every stack, and stacks shot at 1/125 with flash also get a dark
+   band along the top. Focus bracketing uses the electronic shutter, whose
+   flash sync is 1/100, and the camera doesn't stop you setting 1/125.
+   Measure each edge on a downscaled copy and crop just past the damage,
+   edges can differ, with an ffmpeg `crop=` filter in front of the scale at
+   step 2 (stacks only, never slices or singles). Record each file's crop in
+   these notes. If any edge needs more than about 12-15%, ask the
+   photographer first. Stacks they've retouched heavily to rebuild the
+   borders may need no crop.
 2. **Generate tiers** with ffmpeg for each new file (see `apply_borders.py`'s
    sibling shell commands in chat history, or re-derive):
    - `images/thumbs/<slug>.jpg` — scale to ≤480px wide, `-q:v 5`
