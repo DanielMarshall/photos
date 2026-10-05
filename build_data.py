@@ -1119,21 +1119,225 @@ def classify(original, dt):
 # export). Every other pair is derived automatically: a stack whose SOURCE_MAP
 # source is a published photo titled "... Example Slice".
 # Wikipedia links for subjects identified with confidence AND confirmed to
-# occur around Sydney (checked against the page itself). Family/genus pages
-# where the species can't be told from the photo. Shown in the lightbox as a
-# "Wikipedia" button. Added 2026-10-05 at the photographer's request.
-WIKI_ORB = ("Orb-weaver spider", "https://en.wikipedia.org/wiki/Orb-weaver_spider")
-WIKI_LYNX = ("Lynx spider (Oxyopes)", "https://en.wikipedia.org/wiki/Oxyopes")
-WIKI_JUMPING = ("Jumping spider", "https://en.wikipedia.org/wiki/Jumping_spider")
-WIKI_ARGIOPE = ("St Andrew's Cross spider (Argiope keyserlingi)", "https://en.wikipedia.org/wiki/Argiope_keyserlingi")
+# occur around Sydney (checked against each page, 2026-10-05). Family/genus
+# pages where the species can't be told from the photo. Keyed by filename so a
+# shared title can't link the wrong photo (e.g. the dragon artwork in "Water
+# Dragon on the Pavement II/III" has no link). Shown in the lightbox as a
+# "Wikipedia" button; a slice shows its stack's link.
+WIKI_ORB = ('Orb-weaver spider', 'https://en.wikipedia.org/wiki/Orb-weaver_spider')
+WIKI_ARGIOPE = ("St Andrew's Cross spider (Argiope keyserlingi)", 'https://en.wikipedia.org/wiki/Argiope_keyserlingi')
+WIKI_LYNX = ('Lynx spider (Oxyopes)', 'https://en.wikipedia.org/wiki/Oxyopes')
+WIKI_JUMPING = ('Jumping spider', 'https://en.wikipedia.org/wiki/Jumping_spider')
+WIKI_CRAB = ('Crab spider (Thomisidae)', 'https://en.wikipedia.org/wiki/Thomisidae')
+WIKI_PAPER_WASP = ('Paper wasp', 'https://en.wikipedia.org/wiki/Paper_wasp')
+WIKI_BIDENS = ("Farmer's friend (Bidens pilosa)", 'https://en.wikipedia.org/wiki/Bidens_pilosa')
+WIKI_TRANSVERSE = ('Transverse ladybird (Coccinella transversalis)', 'https://en.wikipedia.org/wiki/Coccinella_transversalis')
+WIKI_ILLEIS = ('Fungus-eating ladybird (Illeis galbula)', 'https://en.wikipedia.org/wiki/Illeis_galbula')
+WIKI_SORUS = ('Sorus (fern spore cluster)', 'https://en.wikipedia.org/wiki/Sorus')
+WIKI_SALVINIA = ('Salvinia (floating fern)', 'https://en.wikipedia.org/wiki/Salvinia')
+WIKI_WEIMARANER = ('Weimaraner', 'https://en.wikipedia.org/wiki/Weimaraner')
+WIKI_HONEY_BEE = ('Western honey bee', 'https://en.wikipedia.org/wiki/Western_honey_bee')
+WIKI_SALVIA = ('Salvia', 'https://en.wikipedia.org/wiki/Salvia')
+WIKI_LYCAENIDAE = ('Gossamer-winged butterflies (Lycaenidae)', 'https://en.wikipedia.org/wiki/Lycaenidae')
+WIKI_SHIELD_BUG = ('Shield bugs (Pentatomidae)', 'https://en.wikipedia.org/wiki/Pentatomidae')
+WIKI_CICADA = ('Cicada', 'https://en.wikipedia.org/wiki/Cicada')
+WIKI_BRUSSELS = ('Brussels sprout', 'https://en.wikipedia.org/wiki/Brussels_sprout')
+WIKI_MOSS = ('Moss', 'https://en.wikipedia.org/wiki/Moss')
+WIKI_BARNACLE = ('Barnacle', 'https://en.wikipedia.org/wiki/Barnacle')
+WIKI_WOOD_EAR = ('Wood ear fungi (Auricularia)', 'https://en.wikipedia.org/wiki/Auricularia')
+WIKI_TRAD = ('Wandering trad (Tradescantia fluminensis)', 'https://en.wikipedia.org/wiki/Tradescantia_fluminensis')
+WIKI_MILLIPEDE = ('Millipede', 'https://en.wikipedia.org/wiki/Millipede')
+WIKI_GARDEN_SNAIL = ('Garden snail (Cornu aspersum)', 'https://en.wikipedia.org/wiki/Cornu_aspersum')
+WIKI_COCKROACH = ('Cockroach', 'https://en.wikipedia.org/wiki/Cockroach')
+WIKI_IBIS = ('Australian white ibis', 'https://en.wikipedia.org/wiki/Australian_white_ibis')
+WIKI_KOI = ('Koi', 'https://en.wikipedia.org/wiki/Koi')
+WIKI_WATER_DRAGON = ('Australian water dragon', 'https://en.wikipedia.org/wiki/Australian_water_dragon')
+WIKI_COCKATOO = ('Sulphur-crested cockatoo', 'https://en.wikipedia.org/wiki/Sulphur-crested_cockatoo')
+WIKI_FLYING_FOX = ("Grey-headed flying fox", "https://en.wikipedia.org/wiki/Grey-headed_flying_fox")
 WIKI_LINKS = {
-    "2026-10-05 16-47-06 (A,R4,S2) leaf spider.tif": [WIKI_ORB],
-    "2026-10-05 17-08-06 (C,S2) garden spider.tif": [WIKI_ORB],
-    "2026-10-05 17-16-15 (A,R6,S2) wolf spider.tif": [WIKI_LYNX],
-    "2026-10-05 17-25-02 (A,R6,S2) wolf spider hanging out.tif": [WIKI_LYNX],
-    "2026-10-05 17-24-24 (A,R6,S2) wolf spider side.tif": [WIKI_JUMPING],
-    "2026-10-05 17-30-04 (A,R6,S2)st andrews cross closeup.tif": [WIKI_ARGIOPE],
+    # Orb-weaver spider
+    'STACK-2-Spider.jpg': [WIKI_ORB],
+    'Orb Weaver1.jpg': [WIKI_ORB],
+    'Orb Weaver2.jpg': [WIKI_ORB],
+    'Orb Weaver3.jpg': [WIKI_ORB],
+    'Spider back.jpg': [WIKI_ORB],
+    'Spider underside.jpg': [WIKI_ORB],
+    '11092026_200012P9111035 under spider stack.jpg': [WIKI_ORB],
+    '11092026_200200P9111040.jpg': [WIKI_ORB],
+    '11092026_200213P9111041.jpg': [WIKI_ORB],
+    '11092026_200240P9111043.jpg': [WIKI_ORB],
+    '11092026_200243P9111044.jpg': [WIKI_ORB],
+    '11092026_200244P9111045.jpg': [WIKI_ORB],
+    '11092026_200254P9111048.jpg': [WIKI_ORB],
+    '11092026_200303P9111050.jpg': [WIKI_ORB],
+    '11092026_200310P9111051.jpg': [WIKI_ORB],
+    '11092026_200341P9111055.jpg': [WIKI_ORB],
+    '11092026_200351P9111056.jpg': [WIKI_ORB],
+    '11092026_200357P9111057.jpg': [WIKI_ORB],
+    '11092026_200402P9111059.jpg': [WIKI_ORB],
+    '11092026_200404P9111060.jpg': [WIKI_ORB],
+    '11092026_200407P9111061.jpg': [WIKI_ORB],
+    '11092026_200828P9111073.jpg': [WIKI_ORB],
+    '11092026_200832P9111074.jpg': [WIKI_ORB],
+    '11092026_201904P9111337 stack.jpg': [WIKI_ORB],
+    '12092026_185356P9120006UV Spider 2stack.jpg': [WIKI_ORB],
+    '25092026_174459P9250013.jpg': [WIKI_ORB],
+    '25092026_175348P9250067 10stacked.jpg': [WIKI_ORB],
+    '26092026_082303P9260062 Boronia Park Reserve 23 stacked --- .jpg': [WIKI_ORB],
+    '2026-10-05 16-47-06 (A,R4,S2) leaf spider.tif': [WIKI_ORB],
+    '2026-10-05 17-08-06 (C,S2) garden spider.tif': [WIKI_ORB],
+    # St Andrew's Cross spider (Argiope keyserlingi)
     "20260927_115255P9270115 24stacked St Andrew's Cross.jpg": [WIKI_ARGIOPE],
+    '2026-10-05 17-30-04 (A,R6,S2)st andrews cross closeup.tif': [WIKI_ARGIOPE],
+    # Lynx spider (Oxyopes)
+    '2026-10-05 17-16-15 (A,R6,S2) wolf spider.tif': [WIKI_LYNX],
+    '2026-10-05 17-25-02 (A,R6,S2) wolf spider hanging out.tif': [WIKI_LYNX],
+    # Jumping spider
+    '2026-10-05 17-24-24 (A,R6,S2) wolf spider side.tif': [WIKI_JUMPING],
+    # Crab spider (Thomisidae)
+    '26092026_094554P9260195 Boronia Park Reserve 40stacked --- .jpg': [WIKI_CRAB],
+    '26092026_095531P9260330 Boronia Park Reserve 50stacked --- .jpg': [WIKI_CRAB],
+    '26092026_095000P9260226 Boronia Park Reserve.jpg': [WIKI_CRAB],
+    '26092026_095012P9260261 Boronia Park Reserve.jpg': [WIKI_CRAB],
+    '26092026_095032P9260263 Boronia Park Reserve.jpg': [WIKI_CRAB],
+    '26092026_095539P9260343 Boronia Park Reserve.jpg': [WIKI_CRAB],
+    '26092026_095617P9260351 Boronia Park Reserve.jpg': [WIKI_CRAB],
+    '26092026_095628P9260353 Boronia Park Reserve.jpg': [WIKI_CRAB],
+    '26092026_102753P9261010 Boronia Park Reserve 10stacked ---.jpg': [WIKI_CRAB],
+    # Paper wasp
+    '12092026_081712P9120052wasp stack.jpg': [WIKI_PAPER_WASP],
+    'P9150707 20 stacked.jpg': [WIKI_PAPER_WASP],
+    # Farmer's friend (Bidens pilosa)
+    '20260926_145309P9260265 seed base 20stacked ---.jpg': [WIKI_BIDENS],
+    '20260926_145730P9260352 seeds 18stacked.jpg': [WIKI_BIDENS],
+    '20260926_150556P9260541_01 barbs 31stacked ---.jpg': [WIKI_BIDENS],
+    '20260926_183141P9260001_03 seed base in purple 23stacked.jpg': [WIKI_BIDENS],
+    '20260926_183357P9260145_01 green light seed base 50stacked ---.jpg': [WIKI_BIDENS],
+    '20260926_183521P9260242_01 seed base 70stacked ---.jpg': [WIKI_BIDENS],
+    '20260926_183643P9260348_01 seed base natural light 52stacked -- .jpg': [WIKI_BIDENS],
+    # Transverse ladybird (Coccinella transversalis)
+    'ladybug with helicon stacker/2026-10-05 13-04-49 (A,R4,S2).tif': [WIKI_TRANSVERSE],
+    'ladybug with helicon stacker/2026-10-05 13-06-57 (B,R4,S2).tif': [WIKI_TRANSVERSE],
+    'ladybug with helicon stacker/2026-10-05 13-11-13 (C,S2).tif': [WIKI_TRANSVERSE],
+    # Fungus-eating ladybird (Illeis galbula)
+    '20261003_130050PA030372 beetle 7stacked---.jpg': [WIKI_ILLEIS],
+    # Sorus (fern spore cluster)
+    '20261003_124918PA030245 under-leaf seeds 30stacked ---.jpg': [WIKI_SORUS],
+    # Salvinia (floating fern)
+    '20261003_125048PA030274 pond surface 20stacked---.jpg': [WIKI_SALVINIA],
+    # Weimaraner
+    '20261003_125415PA030322.jpg': [WIKI_WEIMARANER],
+    '20261003_151422PA031400.jpg': [WIKI_WEIMARANER],
+    '20261003_151446PA031402.jpg': [WIKI_WEIMARANER],
+    # Western honey bee
+    '20261003_125522PA030337.jpg': [WIKI_HONEY_BEE],
+    # Salvia
+    '20261003_131549PA030682 flower 13stacked.jpg': [WIKI_SALVIA],
+    # Gossamer-winged butterflies (Lycaenidae)
+    '20261003_145115PA031180.jpg': [WIKI_LYCAENIDAE],
+    '20261003_145119PA031181.jpg': [WIKI_LYCAENIDAE],
+    '20261003_145124PA031182.jpg': [WIKI_LYCAENIDAE],
+    # Shield bugs (Pentatomidae)
+    '20261003_145404PA031210 eggs 16stacked.jpg': [WIKI_SHIELD_BUG],
+    # Cicada
+    '20261003_145832PA031304 cicada shell 36stacked.jpg': [WIKI_CICADA],
+    # Brussels sprout
+    'Sprout.jpg': [WIKI_BRUSSELS],
+    # Moss
+    '14092026_192938P9140110work and moss 20stacked.jpg': [WIKI_MOSS],
+    '14092026_193312P9140182work and moss mass stack.jpg': [WIKI_MOSS],
+    '14092026_193540P9140324work and moss 30 stack.jpg': [WIKI_MOSS],
+    '14092026_194038P9140624work and moss messy 100stack.jpg': [WIKI_MOSS],
+    '14092026_194042P9140652work and moss 50 stacked.jpg': [WIKI_MOSS],
+    # Barnacle
+    '19092026_123302P9190280 barnicles 1 10stacked ------.jpg': [WIKI_BARNACLE],
+    '19092026_123346P9190370 barnicles 2 40stacked ----.jpg': [WIKI_BARNACLE],
+    # Wood ear fungi (Auricularia)
+    '26092026_093849P9260136 Boronia Park Reserve.jpg': [WIKI_WOOD_EAR],
+    # Wandering trad (Tradescantia fluminensis)
+    '26092026_100049P9260375 Boronia Park Reserve.jpg': [WIKI_TRAD],
+    # Millipede
+    '26092026_100456P9260521 Boronia Park Reserve.jpg': [WIKI_MILLIPEDE],
+    '26092026_100510P9260527 Boronia Park Reserve.jpg': [WIKI_MILLIPEDE],
+    '26092026_100517P9260528 Boronia Park Reserve.jpg': [WIKI_MILLIPEDE],
+    # Garden snail (Cornu aspersum)
+    '26092026_101723P9260730 Boronia Park Reserve snail shell 22stacked ---.jpg': [WIKI_GARDEN_SNAIL],
+    '26092026_101803P9260821 Boronia Park Reserve snail shell 42stacked ---.jpg': [WIKI_GARDEN_SNAIL],
+    # Cockroach
+    '20260927_193046P9270030 cockroach 40stacked ---.jpg': [WIKI_COCKROACH],
+    '20260927_193054P9270124_01 cockroach 26stacked ---.jpg': [WIKI_COCKROACH],
+    '20260927_193129P9270185 cockroach 12stacked ---.jpg': [WIKI_COCKROACH],
+    '20260927_193430P9270395_01 cockroack face 40stacked.jpg': [WIKI_COCKROACH],
+    '20260927_193541P9270495 cockroach profile 60stacked ---.jpg': [WIKI_COCKROACH],
+    # Australian white ibis
+    '12092026_124523P9120095Sydney CBD - Copy.jpg': [WIKI_IBIS],
+    '12092026_124543P9120101Sydney CBD - Copy.jpg': [WIKI_IBIS],
+    '12092026_124552P9120107Sydney CBD - Copy.jpg': [WIKI_IBIS],
+    '12092026_124612P9120113Sydney CBD - Copy.jpg': [WIKI_IBIS],
+    # Koi
+    '12092026_131505P9120257Sydney CBD - Copy.jpg': [WIKI_KOI],
+    '12092026_131508P9120260Sydney CBD - Copy.jpg': [WIKI_KOI],
+    '12092026_131554P9120269Sydney CBD - Copy.jpg': [WIKI_KOI],
+    '12092026_131600P9120275Sydney CBD - Copy.jpg': [WIKI_KOI],
+    # Australian water dragon
+    '12092026_131947P9120308Sydney CBD 8stack.jpg': [WIKI_WATER_DRAGON],
+    '12092026_132044P9120399_01Sydney CBD 8stack.jpg': [WIKI_WATER_DRAGON],
+    '12092026_133616P9120781Sydney CBD - Copy.jpg': [WIKI_WATER_DRAGON],
+    '12092026_133649P9120784Sydney CBD - Copy.jpg': [WIKI_WATER_DRAGON],
+    '12092026_133656P9120786Sydney CBD - Copy.jpg': [WIKI_WATER_DRAGON],
+    '12092026_134219P9120824Sydney CBD - Copy.jpg': [WIKI_WATER_DRAGON],
+    # Sulphur-crested cockatoo
+    '13092026_161532P9130004last dinosaurs mc-20.jpg': [WIKI_COCKATOO],
+    '13092026_161823P9130015last dinosaurs mc-20.jpg': [WIKI_COCKATOO],
+    '13092026_161904P9130019last dinosaurs mc-20.jpg': [WIKI_COCKATOO],
+    '13092026_161919P9130022last dinosaurs mc-20.jpg': [WIKI_COCKATOO],
+    '13092026_162048P9130026_01last dinosaurs mc-20.jpg': [WIKI_COCKATOO],
+    '13092026_162051P9130028_02last dinosaurs mc-20.jpg': [WIKI_COCKATOO],
+    '13092026_162216P9130030_02last dinosaurs mc-20.jpg': [WIKI_COCKATOO],
+    '13092026_162221P9130031_02last dinosaurs mc-20.jpg': [WIKI_COCKATOO],
+    '13092026_162230P9130034_02last dinosaurs mc-20.jpg': [WIKI_COCKATOO],
+    '13092026_162239P9130036_02last dinosaurs mc-20.jpg': [WIKI_COCKATOO],
+    '13092026_162341P9130040_02last dinosaurs mc-20.jpg': [WIKI_COCKATOO],
+    '13092026_162344P9130042_02last dinosaurs mc-20.jpg': [WIKI_COCKATOO],
+    '13092026_162406P9130043_02last dinosaurs mc-20.jpg': [WIKI_COCKATOO],
+    '13092026_162433P9130044_02last dinosaurs mc-20.jpg': [WIKI_COCKATOO],
+    '13092026_162437P9130045_02last dinosaurs mc-20.jpg': [WIKI_COCKATOO],
+    '13092026_162454P9130047_02last dinosaurs mc-20.jpg': [WIKI_COCKATOO],
+    '13092026_162459P9130048_02last dinosaurs mc-20.jpg': [WIKI_COCKATOO],
+    '13092026_162516P9130049_02last dinosaurs mc-20.jpg': [WIKI_COCKATOO],
+    '13092026_162523P9130052_02last dinosaurs mc-20.jpg': [WIKI_COCKATOO],
+    '13092026_162533P9130054_02last dinosaurs mc-20.jpg': [WIKI_COCKATOO],
+    '13092026_162544P9130056_02last dinosaurs mc-20.jpg': [WIKI_COCKATOO],
+    # Grey-headed flying fox: every photo in the Tarban Creek section
+    'bats at tarban creek/PA040150.JPG': [WIKI_FLYING_FOX],
+    'bats at tarban creek/PA040164.JPG': [WIKI_FLYING_FOX],
+    'bats at tarban creek/PA040165.JPG': [WIKI_FLYING_FOX],
+    'bats at tarban creek/PA040173.JPG': [WIKI_FLYING_FOX],
+    'bats at tarban creek/PA040174.JPG': [WIKI_FLYING_FOX],
+    'bats at tarban creek/PA040175.JPG': [WIKI_FLYING_FOX],
+    'bats at tarban creek/PA040176.JPG': [WIKI_FLYING_FOX],
+    'bats at tarban creek/PA040179.JPG': [WIKI_FLYING_FOX],
+    'bats at tarban creek/PA040181.JPG': [WIKI_FLYING_FOX],
+    'bats at tarban creek/PA040185.JPG': [WIKI_FLYING_FOX],
+    'bats at tarban creek/PA040187.JPG': [WIKI_FLYING_FOX],
+    'bats at tarban creek/PA040190.JPG': [WIKI_FLYING_FOX],
+    'bats at tarban creek/PA040191.JPG': [WIKI_FLYING_FOX],
+    'bats at tarban creek/PA040193.JPG': [WIKI_FLYING_FOX],
+    'bats at tarban creek/PA040195.JPG': [WIKI_FLYING_FOX],
+    'bats at tarban creek/PA040199.JPG': [WIKI_FLYING_FOX],
+    'bats at tarban creek/PA040206.JPG': [WIKI_FLYING_FOX],
+    'bats at tarban creek/PA040215.JPG': [WIKI_FLYING_FOX],
+    'bats at tarban creek/PA040219.JPG': [WIKI_FLYING_FOX],
+    'bats at tarban creek/PA040230.JPG': [WIKI_FLYING_FOX],
+    'bats at tarban creek/PA040245.JPG': [WIKI_FLYING_FOX],
+    'bats at tarban creek/PA040271.JPG': [WIKI_FLYING_FOX],
+    'bats at tarban creek/PA040274.JPG': [WIKI_FLYING_FOX],
+    'bats at tarban creek/PA040275.JPG': [WIKI_FLYING_FOX],
+    'bats at tarban creek/PA040276.JPG': [WIKI_FLYING_FOX],
+    'bats at tarban creek/PA040277.JPG': [WIKI_FLYING_FOX],
+    'bats at tarban creek/PA040282.JPG': [WIKI_FLYING_FOX],
+    'bats at tarban creek/PA040285.JPG': [WIKI_FLYING_FOX],
+    'bats at tarban creek/PA040287.JPG': [WIKI_FLYING_FOX],
 }
 
 SAMPLE_EXTRA = {

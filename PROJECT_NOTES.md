@@ -164,8 +164,28 @@ Last updated 2026-09-27 (cloud session, branch `claude/project-thread-0mh669`).
   genus page lists *O. gracilipes* in NSW). Jumping Spider goes to the
   Jumping spider family page. Leaf Spider and Garden Spider go to the
   Orb-weaver family page. The 17:23 "Wolf Spider" has no link because the
-  family can't be confirmed from the photo. Older spider photos haven't been
-  reviewed for links yet.
+  family can't be confirmed from the photo.
+  **Site-wide pass (2026-10-05)**: every animal, plant and fungus photo was
+  reviewed. 153 photos are now linked across 29 subjects (the
+  `WIKI_*` constants). Each page was checked to exist, and species pages to
+  mention Australia/NSW/Sydney. Groups are linked at family or genus level
+  where the species can't be told: orb-weavers, crab spiders (Thomisidae),
+  Lycaenidae butterflies, shield-bug eggs (Pentatomidae), paper wasp, wood
+  ear (*Auricularia*), *Salvinia*, *Oxyopes*. Deliberately **not** linked,
+  because they can't be confirmed from the photo: the dandelion seed head,
+  orange flowers (Flower I/II), grub and slug, Fat Ant (possibly a wingless
+  flower wasp), the 17:23 Wolf Spider, Spiderlings, Spider Eggs, ants,
+  caterpillars, moths, the fly, beetle, orange stems and berries, bracket
+  fungus (probably *Trametes coccinea*, unconfirmed), white flowers,
+  Michael's flowers, the blossoms, Good Boy (looks like a Samoyed), Timmy,
+  Frankie, Seed Pod (possibly a spider egg sac). "Water Dragon on the
+  Pavement II/III" are dragon artwork, so no link.
+  **"Golden Orb Weaver" I-III probably aren't golden orb-weavers**
+  (*Trichonephila* are slim and long-legged). They look like hairy garden
+  orb-weavers, hence the family-level link. Not yet raised with the
+  photographer.
+  **To add links for new photos:** append filename keys to `WIKI_LINKS` using
+  an existing `WIKI_*` constant, or add a new one after checking the page.
 - **"Pro site" ideas on hold (2026-09-27)**: a Best Of front page, an
   About/Contact page, dropping the "Test Shoot" label, link previews and a
   custom domain wait until the photographer has picked their best photos.
