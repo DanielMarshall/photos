@@ -124,9 +124,21 @@ Last updated 2026-09-27 (cloud session, branch `claude/project-thread-0mh669`).
   - ffmpeg converts the TIFFs to the JPEG tiers fine.
   - Helicon already trims its alignment edges (one output is 5160x3842),
     and none of the three showed smear, so no crop.
-  - No example slices were exported. Frame counts come from the raw bursts
-    in `Camera Roll/2026_10_05` (77 / 93 / 39 frames, matched by first-frame
-    time), assuming Helicon used every frame.
+  - No example slices were exported. **Frame counts come from Helicon's
+    log**, `%LOCALAPPDATA%\HeliconFocus\HeliconFocus9.log`. Each "Rendering
+    new stack ... N files ... method X" line is followed by the full
+    source-file list, and each `save_image ... to <name>.tif` line names the
+    output. The saved output is the **latest render with the same method
+    letter** as the filename's bracket (A/B/C), not necessarily the latest
+    render overall: Helicon keeps several outputs and you save one.
+    For 5 Oct that gave A = 54 frames (PA050010-063, out of a 77-frame
+    burst), B = 93 (the whole burst), C = 39 (the whole burst). The
+    photographer normally uses well under a quarter of each burst, so
+    never assume the whole burst; read the log.
+  - The sources were OM Workspace JPG exports of every raw, in
+    `Pictures/monday orange ladybug/`, which is also where Helicon saved the
+    TIFFs before they were copied to `exports/`. That's why the TIFFs report
+    "OM Workspace" as their software.
   - Shot at 1/5 s, f/10, ISO 200 with the MC-20, natural light (no flash).
 - **"Pro site" ideas on hold (2026-09-27)**: a Best Of front page, an
   About/Contact page, dropping the "Test Shoot" label, link previews and a
