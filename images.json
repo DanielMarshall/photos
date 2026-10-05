@@ -16240,5 +16240,37 @@
       0.943778801843318,
       0.8504983388704319
     ]
+  },
+  {
+    "thumb": "images/thumbs/20261005-122952pa050032-01-baby-spiders.jpg",
+    "medium": "images/medium/20261005-122952pa050032-01-baby-spiders.jpg",
+    "full": "images/full/20261005-122952pa050032-01-baby-spiders.jpg",
+    "original_filename": "20261005_122952PA050032_01 - baby spiders.jpg",
+    "caption": "20261005 122952PA050032 01   baby spiders",
+    "title": "Spiderlings",
+    "description": "A web full of newly hatched spiderlings, with a few sharp in the bottom left. A single frame: too much web to stack.",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:05 12:29:52"
+    },
+    "size": [
+      3888,
+      5184
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.037070524412296565,
+      0.026537216828478965,
+      0.9258589511754068,
+      0.883495145631068
+    ]
   }
 ]
