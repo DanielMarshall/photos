@@ -180,7 +180,7 @@
     "full": "images/full/orb-weaver1.jpg",
     "original_filename": "Orb Weaver1.jpg",
     "caption": "Orb Weaver1",
-    "title": "Golden Orb Weaver",
+    "title": "Large Orb Weaver",
     "description": "Too busy making a web to pose for a good photo this time, but I know where you live now.",
     "category": "Gladesville",
     "subcategory": "Garden",
@@ -223,7 +223,7 @@
     "full": "images/full/orb-weaver2.jpg",
     "original_filename": "Orb Weaver2.jpg",
     "caption": "Orb Weaver2",
-    "title": "Golden Orb Weaver II",
+    "title": "Large Orb Weaver II",
     "description": "",
     "category": "Gladesville",
     "subcategory": "Garden",
@@ -266,7 +266,7 @@
     "full": "images/full/orb-weaver3.jpg",
     "original_filename": "Orb Weaver3.jpg",
     "caption": "Orb Weaver3",
-    "title": "Golden Orb Weaver III",
+    "title": "Large Orb Weaver III",
     "description": "",
     "category": "Gladesville",
     "subcategory": "Garden",
@@ -12125,8 +12125,8 @@
     "full": "images/full/26092026-101617p9260670-boronia-park-reserve-seed-pod-31stacked.jpg",
     "original_filename": "26092026_101617P9260670 Boronia Park Reserve seed pod 31stacked --- .jpg",
     "caption": "Boronia Park Reserve seed pod 31stacked ---",
-    "title": "Seed Pod",
-    "description": "Stacked photo",
+    "title": "Spider Egg Sac",
+    "description": "A spider's egg sac, a ball of golden silk hung in a web on a tree trunk. 31-photo stack.",
     "category": "Gladesville",
     "subcategory": "Boronia Park Reserve",
     "location": "Boronia Park Reserve, Hunters Hill",
@@ -12160,7 +12160,7 @@
     "full": "images/full/26092026-101617p9260670-boronia-park-reserve.jpg",
     "original_filename": "26092026_101617P9260670 Boronia Park Reserve.jpg",
     "caption": "Boronia Park Reserve",
-    "title": "Seed Pod: Example Slice",
+    "title": "Spider Egg Sac: Example Slice",
     "description": "Sample stack slice",
     "category": "Gladesville",
     "subcategory": "Boronia Park Reserve",
@@ -17369,8 +17369,8 @@
     "full": "images/full/2026-10-05-17-09-41-a-r6-s2-fat-ant.jpg",
     "original_filename": "2026-10-05 17-09-41 (A,R6,S2) fat ant.tif",
     "caption": "2026 10 05 17 09 41 (A,R6,S2) fat ant.tif",
-    "title": "Fat Ant",
-    "description": "A heavy-bodied black ant with a deeply pitted, armoured look. 39-photo stack, combined in Helicon Focus.",
+    "title": "Female Flower Wasp",
+    "description": "A wingless female flower wasp, easily mistaken for a big ant. A dozen sat alone on leaves around the back yard one afternoon, each giving off a scent to call the winged males, which pick the females up and carry them off to mate. 39-photo stack, combined in Helicon Focus.",
     "category": "Gladesville",
     "subcategory": "Garden",
     "location": "Home",
@@ -17393,6 +17393,12 @@
       0.03370165745856354,
       0.943778801843318,
       0.850828729281768
+    ],
+    "links": [
+      {
+        "label": "Flower wasps (Thynnidae)",
+        "url": "https://en.wikipedia.org/wiki/Thynnidae"
+      }
     ]
   },
   {

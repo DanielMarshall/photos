@@ -570,9 +570,9 @@ TITLES = {
     "15092026_190107P9150185 mirror.jpg": ("Self Portrait: Example Slice", "Sample stack slice"),
     "STACK-2-Spider.jpg": ("Garden Orb Weaver One Stack", "Stacked photo"),
     "STACK-P9040321.jpg": ("Garden Orb Weaver One: Example Slice", "Sample stack slice"),
-    "Orb Weaver1.jpg": ("Golden Orb Weaver", "Too busy making a web to pose for a good photo this time, but I know where you live now."),
-    "Orb Weaver2.jpg": ("Golden Orb Weaver II", ""),
-    "Orb Weaver3.jpg": ("Golden Orb Weaver III", ""),
+    "Orb Weaver1.jpg": ("Large Orb Weaver", "Too busy making a web to pose for a good photo this time, but I know where you live now."),
+    "Orb Weaver2.jpg": ("Large Orb Weaver II", ""),
+    "Orb Weaver3.jpg": ("Large Orb Weaver III", ""),
     "Spider back.jpg": ("Garden Orb Weaver Two", "Had a chance to get a shot of the back of one of these."),
     "Grub and Slug.jpg": ("Grub and Slug", ""),
     "Spider underside.jpg": ("Garden Orb Weaver Two", "Having a snack (despite the filename, this isn't actually an underside shot)."),
@@ -733,8 +733,8 @@ TITLES = {
     "26092026_094554P9260195 Boronia Park Reserve.jpg": ("Crab Spider: Example Slice", "Sample stack slice"),
     "26092026_095531P9260330 Boronia Park Reserve 50stacked --- .jpg": ("Crab Spider II", "Stacked photo"),
     "26092026_095531P9260330 Boronia Park Reserve.jpg": ("Crab Spider II: Example Slice", "Sample stack slice"),
-    "26092026_101617P9260670 Boronia Park Reserve seed pod 31stacked --- .jpg": ("Seed Pod", "Stacked photo"),
-    "26092026_101617P9260670 Boronia Park Reserve.jpg": ("Seed Pod: Example Slice", "Sample stack slice"),
+    "26092026_101617P9260670 Boronia Park Reserve seed pod 31stacked --- .jpg": ("Spider Egg Sac", "A spider's egg sac, a ball of golden silk hung in a web on a tree trunk. 31-photo stack."),
+    "26092026_101617P9260670 Boronia Park Reserve.jpg": ("Spider Egg Sac: Example Slice", "Sample stack slice"),
     "26092026_101723P9260730 Boronia Park Reserve snail shell 22stacked ---.jpg": ("Snail Shell", "Stacked photo"),
     "26092026_101723P9260730 Boronia Park Reserve.jpg": ("Snail Shell: Example Slice", "Sample stack slice"),
     "26092026_101803P9260821 Boronia Park Reserve snail shell 42stacked ---.jpg": ("Snail Shell II", "Stacked photo"),
@@ -823,7 +823,7 @@ TITLES = {
     "2026-10-05 16-47-06 (A,R4,S2) leaf spider.tif": ("Leaf Spider", "A knobbly brown spider tucked against a leaf. 15-photo stack, combined in Helicon Focus."),
     "2026-10-05 16-54-19 (B,R4,S2) spider eggs.tif": ("Spider Eggs", "A handful of eggs caught in strands of web on a leaf, one already empty. 14-photo stack, combined in Helicon Focus."),
     "2026-10-05 17-08-06 (C,S2) garden spider.tif": ("Garden Spider", "A hairy brown orb-weaver hanging in its web. 7-photo stack, combined in Helicon Focus."),
-    "2026-10-05 17-09-41 (A,R6,S2) fat ant.tif": ("Fat Ant", "A heavy-bodied black ant with a deeply pitted, armoured look. 39-photo stack, combined in Helicon Focus."),
+    "2026-10-05 17-09-41 (A,R6,S2) fat ant.tif": ("Female Flower Wasp", "A wingless female flower wasp, easily mistaken for a big ant. A dozen sat alone on leaves around the back yard one afternoon, each giving off a scent to call the winged males, which pick the females up and carry them off to mate. 39-photo stack, combined in Helicon Focus."),
     "2026-10-05 17-16-15 (A,R6,S2) wolf spider.tif": ("Lynx Spider", "A striped lynx spider spread across a leaf, its legs lined with long spines. 49-photo stack, combined in Helicon Focus."),
     "2026-10-05 17-23-35 (A,R6,S2) wolf spider.tif": ("Wolf Spider", "A small hunting spider on a reddening leaf. 15-photo stack, combined in Helicon Focus."),
     "2026-10-05 17-24-24 (A,R6,S2) wolf spider side.tif": ("Jumping Spider", "A jumping spider on a leaf, its big front eyes turned towards the camera. 53-photo stack, combined in Helicon Focus."),
@@ -1161,6 +1161,7 @@ WIKI_PALM = ('Palm family (Arecaceae)', 'https://en.wikipedia.org/wiki/Arecaceae
 WIKI_LANTANA = ('Lantana (Lantana camara)', 'https://en.wikipedia.org/wiki/Lantana_camara')
 WIKI_WESTRINGIA = ('Coastal rosemary (Westringia fruticosa)', 'https://en.wikipedia.org/wiki/Westringia_fruticosa')
 WIKI_CITRUS = ('Citrus', 'https://en.wikipedia.org/wiki/Citrus')
+WIKI_THYNNID = ('Flower wasps (Thynnidae)', 'https://en.wikipedia.org/wiki/Thynnidae')
 WIKI_LINKS = {
     # Orb-weaver spider
     'STACK-2-Spider.jpg': [WIKI_ORB],
@@ -1328,6 +1329,9 @@ WIKI_LINKS = {
     # Lantana (Lantana camara)
     '15092026_170642P9150014_01 mickaels flowers 25stacked.jpg': [WIKI_LANTANA],
     '15092026_170801P9150100 mickaels flowers 25 stacked.jpg': [WIKI_LANTANA],
+    # Flower wasps (Thynnidae): wingless female, identified 2026-10-05 from the
+    # photographer's description (a dozen sitting alone on leaves, waiting)
+    '2026-10-05 17-09-41 (A,R6,S2) fat ant.tif': [WIKI_THYNNID],
     # Grey-headed flying fox: every photo in the Tarban Creek section
     'bats at tarban creek/PA040150.JPG': [WIKI_FLYING_FOX],
     'bats at tarban creek/PA040164.JPG': [WIKI_FLYING_FOX],
