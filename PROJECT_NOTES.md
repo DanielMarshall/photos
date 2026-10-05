@@ -184,6 +184,19 @@ Last updated 2026-09-27 (cloud session, branch `claude/project-thread-0mh669`).
   (*Trichonephila* are slim and long-legged). They look like hairy garden
   orb-weavers, hence the family-level link. Not yet raised with the
   photographer.
+  **Plant pass (2026-10-05, photographer asked for flowers and seeds too)**:
+  Flower I/II go to the mallow family (fused stamen column). Dandelion
+  Stack goes to Pappus (dandelion vs flatweed can't be told from a seed
+  head). White Flowers I/II go to Asteraceae (probably *Ageratina*). Orange
+  Stems and Berries go to Arecaceae (palm fruiting stalks). Michael's
+  Flowers I/II go to *Lantana camara*. Butterfly I-III also get
+  *Westringia fruticosa* (the flowers), and Bee on Orange Blossom also gets
+  Citrus. That makes 161 linked photos. **Multiple links per photo**
+  are supported: the lightbox renders one pill per link inside
+  `#lb-wiki-links` (`display: contents`). A lone link reads "↗ Wikipedia";
+  several use the label's short name (the text before " ("). "Seed Pod"
+  (Boronia) is actually a spider egg sac, not a seed pod; no link, and the
+  title hasn't been changed yet.
   **To add links for new photos:** append filename keys to `WIKI_LINKS` using
   an existing `WIKI_*` constant, or add a new one after checking the page.
 - **"Pro site" ideas on hold (2026-09-27)**: a Best Of front page, an

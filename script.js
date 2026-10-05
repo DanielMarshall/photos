@@ -36,7 +36,7 @@
   const lbLoadingLabel = document.getElementById('lb-loading-label');
   const viewSwitcher = document.getElementById('view-switcher');
   const lbHeart = document.getElementById('lb-heart');
-  const lbWiki = document.getElementById('lb-wiki');
+  const lbWikiLinks = document.getElementById('lb-wiki-links');
   const heartCountEl = document.getElementById('heart-count');
 
   const res = await fetch('images.json?v=' + encodeURIComponent(SITE_VERSION));
@@ -2698,16 +2698,22 @@
   function render() {
     const item = items[current];
     hideDetailHighlight();
-    // Wikipedia link for subjects identified with confidence (build_data.py's
-    // WIKI_LINKS); a slice shows its stack's link.
+    // Wikipedia links (build_data.py's WIKI_LINKS); a slice shows its stack's.
+    // One pill per link: a lone link just says "Wikipedia" (its full label
+    // is the tooltip); several are told apart by their short names.
     const linkSrc = item.links ? item : (isSlice(item) && item.sample_of ? items[indexByOriginal.get(item.sample_of)] : null);
-    const link = linkSrc && linkSrc.links && linkSrc.links[0];
-    lbWiki.hidden = !link;
-    if (link) {
-      lbWiki.href = link.url;
-      lbWiki.textContent = '\u2197 Wikipedia';
-      lbWiki.title = `${link.label} on Wikipedia`;
-    }
+    const links = (linkSrc && linkSrc.links) || [];
+    lbWikiLinks.innerHTML = '';
+    links.forEach((link) => {
+      const a = document.createElement('a');
+      a.className = 'lb-zoom lb-wiki';
+      a.href = link.url;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.title = `${link.label} on Wikipedia`;
+      a.textContent = '\u2197 ' + (links.length > 1 ? link.label.split(' (')[0] : 'Wikipedia');
+      lbWikiLinks.appendChild(a);
+    });
     buildDetailButtons(item);
     fullLoaded = false;
     zoomScale = 'fit';

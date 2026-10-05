@@ -1154,6 +1154,13 @@ WIKI_KOI = ('Koi', 'https://en.wikipedia.org/wiki/Koi')
 WIKI_WATER_DRAGON = ('Australian water dragon', 'https://en.wikipedia.org/wiki/Australian_water_dragon')
 WIKI_COCKATOO = ('Sulphur-crested cockatoo', 'https://en.wikipedia.org/wiki/Sulphur-crested_cockatoo')
 WIKI_FLYING_FOX = ("Grey-headed flying fox", "https://en.wikipedia.org/wiki/Grey-headed_flying_fox")
+WIKI_MALLOW = ('Mallow family (Malvaceae)', 'https://en.wikipedia.org/wiki/Malvaceae')
+WIKI_PAPPUS = ('Pappus (seed parachutes)', 'https://en.wikipedia.org/wiki/Pappus_(botany)')
+WIKI_DAISY = ('Daisy family (Asteraceae)', 'https://en.wikipedia.org/wiki/Asteraceae')
+WIKI_PALM = ('Palm family (Arecaceae)', 'https://en.wikipedia.org/wiki/Arecaceae')
+WIKI_LANTANA = ('Lantana (Lantana camara)', 'https://en.wikipedia.org/wiki/Lantana_camara')
+WIKI_WESTRINGIA = ('Coastal rosemary (Westringia fruticosa)', 'https://en.wikipedia.org/wiki/Westringia_fruticosa')
+WIKI_CITRUS = ('Citrus', 'https://en.wikipedia.org/wiki/Citrus')
 WIKI_LINKS = {
     # Orb-weaver spider
     'STACK-2-Spider.jpg': [WIKI_ORB],
@@ -1230,13 +1237,13 @@ WIKI_LINKS = {
     '20261003_151422PA031400.jpg': [WIKI_WEIMARANER],
     '20261003_151446PA031402.jpg': [WIKI_WEIMARANER],
     # Western honey bee
-    '20261003_125522PA030337.jpg': [WIKI_HONEY_BEE],
+    '20261003_125522PA030337.jpg': [WIKI_HONEY_BEE, WIKI_CITRUS],
     # Salvia
     '20261003_131549PA030682 flower 13stacked.jpg': [WIKI_SALVIA],
     # Gossamer-winged butterflies (Lycaenidae)
-    '20261003_145115PA031180.jpg': [WIKI_LYCAENIDAE],
-    '20261003_145119PA031181.jpg': [WIKI_LYCAENIDAE],
-    '20261003_145124PA031182.jpg': [WIKI_LYCAENIDAE],
+    '20261003_145115PA031180.jpg': [WIKI_LYCAENIDAE, WIKI_WESTRINGIA],
+    '20261003_145119PA031181.jpg': [WIKI_LYCAENIDAE, WIKI_WESTRINGIA],
+    '20261003_145124PA031182.jpg': [WIKI_LYCAENIDAE, WIKI_WESTRINGIA],
     # Shield bugs (Pentatomidae)
     '20261003_145404PA031210 eggs 16stacked.jpg': [WIKI_SHIELD_BUG],
     # Cicada
@@ -1308,6 +1315,19 @@ WIKI_LINKS = {
     '13092026_162523P9130052_02last dinosaurs mc-20.jpg': [WIKI_COCKATOO],
     '13092026_162533P9130054_02last dinosaurs mc-20.jpg': [WIKI_COCKATOO],
     '13092026_162544P9130056_02last dinosaurs mc-20.jpg': [WIKI_COCKATOO],
+    # Mallow family (Malvaceae)
+    '20260926_143832P9260094 flower 33stacked ---.jpg': [WIKI_MALLOW],
+    '20260926_150310P9260463_01 flower 60stacked --- .jpg': [WIKI_MALLOW],
+    # Pappus (seed parachutes)
+    'STACK-DANDELION-ZS-PMax.jpg': [WIKI_PAPPUS],
+    # Daisy family (Asteraceae)
+    '20260929_173229P9290474 flowers 40stacked ---.jpg': [WIKI_DAISY],
+    '20260930_165926P9300168 flowers at work 50stacked.jpg': [WIKI_DAISY],
+    # Palm family (Arecaceae)
+    '20261003_131054PA030526 berries 20stacked ---.jpg': [WIKI_PALM],
+    # Lantana (Lantana camara)
+    '15092026_170642P9150014_01 mickaels flowers 25stacked.jpg': [WIKI_LANTANA],
+    '15092026_170801P9150100 mickaels flowers 25 stacked.jpg': [WIKI_LANTANA],
     # Grey-headed flying fox: every photo in the Tarban Creek section
     'bats at tarban creek/PA040150.JPG': [WIKI_FLYING_FOX],
     'bats at tarban creek/PA040164.JPG': [WIKI_FLYING_FOX],

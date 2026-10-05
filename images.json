@@ -371,6 +371,12 @@
       0.943778801843318,
       0.8504983388704319
     ],
+    "links": [
+      {
+        "label": "Pappus (seed parachutes)",
+        "url": "https://en.wikipedia.org/wiki/Pappus_(botany)"
+      }
+    ],
     "samples": [
       "STACK-DANDELIONP9040361_01.jpg"
     ]
@@ -8441,6 +8447,12 @@
       0.943778801843318,
       0.8349633251833741
     ],
+    "links": [
+      {
+        "label": "Lantana (Lantana camara)",
+        "url": "https://en.wikipedia.org/wiki/Lantana_camara"
+      }
+    ],
     "samples": [
       "15092026_170642P9150014_01 mickaels flowers.jpg"
     ]
@@ -8513,6 +8525,12 @@
       0.03728606356968215,
       0.943778801843318,
       0.8349633251833741
+    ],
+    "links": [
+      {
+        "label": "Lantana (Lantana camara)",
+        "url": "https://en.wikipedia.org/wiki/Lantana_camara"
+      }
     ],
     "samples": [
       "15092026_170801P9150100 mickaels flowers.jpg"
@@ -12422,6 +12440,12 @@
       0.943778801843318,
       0.8504983388704319
     ],
+    "links": [
+      {
+        "label": "Mallow family (Malvaceae)",
+        "url": "https://en.wikipedia.org/wiki/Malvaceae"
+      }
+    ],
     "samples": [
       "20260926_143832P9260094.jpg"
     ]
@@ -12637,6 +12661,12 @@
       0.033776301218161685,
       0.943778801843318,
       0.8504983388704319
+    ],
+    "links": [
+      {
+        "label": "Mallow family (Malvaceae)",
+        "url": "https://en.wikipedia.org/wiki/Malvaceae"
+      }
     ],
     "samples": [
       "20260926_150310P9260463_01.jpg"
@@ -13860,6 +13890,12 @@
       0.943778801843318,
       0.8504983388704319
     ],
+    "links": [
+      {
+        "label": "Daisy family (Asteraceae)",
+        "url": "https://en.wikipedia.org/wiki/Asteraceae"
+      }
+    ],
     "samples": [
       "20260929_173229P9290474.jpg"
     ]
@@ -13927,6 +13963,12 @@
       0.033776301218161685,
       0.943778801843318,
       0.8504983388704319
+    ],
+    "links": [
+      {
+        "label": "Daisy family (Asteraceae)",
+        "url": "https://en.wikipedia.org/wiki/Asteraceae"
+      }
     ],
     "samples": [
       "20260930_165926P9300168.jpg"
@@ -14554,6 +14596,10 @@
       {
         "label": "Western honey bee",
         "url": "https://en.wikipedia.org/wiki/Western_honey_bee"
+      },
+      {
+        "label": "Citrus",
+        "url": "https://en.wikipedia.org/wiki/Citrus"
       }
     ]
   },
@@ -14761,6 +14807,12 @@
       0.033776301218161685,
       0.943778801843318,
       0.8504983388704319
+    ],
+    "links": [
+      {
+        "label": "Palm family (Arecaceae)",
+        "url": "https://en.wikipedia.org/wiki/Arecaceae"
+      }
     ],
     "samples": [
       "20261003_131054PA030526.jpg"
@@ -15472,6 +15524,10 @@
       {
         "label": "Gossamer-winged butterflies (Lycaenidae)",
         "url": "https://en.wikipedia.org/wiki/Lycaenidae"
+      },
+      {
+        "label": "Coastal rosemary (Westringia fruticosa)",
+        "url": "https://en.wikipedia.org/wiki/Westringia_fruticosa"
       }
     ]
   },
@@ -15510,6 +15566,10 @@
       {
         "label": "Gossamer-winged butterflies (Lycaenidae)",
         "url": "https://en.wikipedia.org/wiki/Lycaenidae"
+      },
+      {
+        "label": "Coastal rosemary (Westringia fruticosa)",
+        "url": "https://en.wikipedia.org/wiki/Westringia_fruticosa"
       }
     ]
   },
@@ -15548,6 +15608,10 @@
       {
         "label": "Gossamer-winged butterflies (Lycaenidae)",
         "url": "https://en.wikipedia.org/wiki/Lycaenidae"
+      },
+      {
+        "label": "Coastal rosemary (Westringia fruticosa)",
+        "url": "https://en.wikipedia.org/wiki/Westringia_fruticosa"
       }
     ]
   },

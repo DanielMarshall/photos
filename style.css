@@ -1148,8 +1148,9 @@ main {
   display: inline-block;
 }
 
-.lb-wiki[hidden] {
-  display: none;
+/* Its pills sit in the button row as if they were direct children. */
+.lb-wiki-links {
+  display: contents;
 }
 
 /* "View detail" and sample-slice pills sit in the same row as the other buttons. */
