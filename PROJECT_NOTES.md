@@ -109,6 +109,25 @@ Last updated 2026-09-27 (cloud session, branch `claude/project-thread-0mh669`).
   camera-counter names like `PA040150` on another day). Finding new files
   now needs a recursive listing: `find exports -type f` with paths relative
   to `exports/`, not `ls`.
+- **Helicon Focus stacks (5 Oct 2026, local session, pushed)**: 3
+  transverse ladybird stacks (Transverse Ladybird, II, III) in default
+  Garden, from `exports/ladybug with helicon stacker/` (folder kept in
+  `original_filename`). The photographer has started using **Helicon
+  Focus** alongside Zerene. Facts for next time:
+  - Output is **8-bit sRGB TIFF** (~60 MB), named `YYYY-MM-DD HH-MM-SS
+    (method,R#,S#).tif`, where the bracket holds Helicon's settings
+    (method A/B/C, radius, smoothing).
+  - **EXIF survives**, unlike Zerene: camera, lens, exposure and
+    DateTimeOriginal of the first frame, carried through OM Workspace's
+    TIFF export. `piexif` reads it directly, so no `SOURCE_MAP` entry is
+    needed.
+  - ffmpeg converts the TIFFs to the JPEG tiers fine.
+  - Helicon already trims its alignment edges (one output is 5160x3842),
+    and none of the three showed smear, so no crop.
+  - No example slices were exported. Frame counts come from the raw bursts
+    in `Camera Roll/2026_10_05` (77 / 93 / 39 frames, matched by first-frame
+    time), assuming Helicon used every frame.
+  - Shot at 1/5 s, f/10, ISO 200 with the MC-20, natural light (no flash).
 - **"Pro site" ideas on hold (2026-09-27)**: a Best Of front page, an
   About/Contact page, dropping the "Test Shoot" label, link previews and a
   custom domain wait until the photographer has picked their best photos.

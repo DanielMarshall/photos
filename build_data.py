@@ -810,6 +810,11 @@ TITLES = {
     "20260930_185619P9300473.jpg": ("Experiment #51: Example Slice", "Sample stack slice"),
     "20260930_191030P9300530 cicada through drops 30stacked---.jpg": ("Experiment #52", "A cicada behind the droplets, with a tiny copy of it caught inside each drop. 30-photo stack."),
     "20260930_191030P9300530.jpg": ("Experiment #52: Example Slice", "Sample stack slice"),
+    # Helicon Focus stacks (TIFF, EXIF intact from the first frame), 5 Oct.
+    # Frame counts are the raw bursts in Camera Roll/2026_10_05.
+    "ladybug with helicon stacker/2026-10-05 13-04-49 (A,R4,S2).tif": ("Transverse Ladybird", "A transverse ladybird on a green stem, seen from above. 77-photo stack, combined in Helicon Focus."),
+    "ladybug with helicon stacker/2026-10-05 13-06-57 (B,R4,S2).tif": ("Transverse Ladybird II", "Head-on at leaf level, with fine white strands trailing from underneath. 93-photo stack, combined in Helicon Focus."),
+    "ladybug with helicon stacker/2026-10-05 13-11-13 (C,S2).tif": ("Transverse Ladybird III", "Right in close on the head and its compound eye. 39-photo stack, combined in Helicon Focus."),
     # Tarban Creek flying foxes, 4 Oct
     "bats at tarban creek/PA040150.JPG": ("Wrapped Up", ""),
     "bats at tarban creek/PA040164.JPG": ("Grey-headed Flying Fox", ""),
