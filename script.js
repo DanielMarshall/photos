@@ -53,6 +53,7 @@
     ["Gladesville", "Michael's Cockroach"],
     ['Gladesville', 'Banjo Paterson Park'],
     ['Gladesville', 'Boronia Park Reserve'],
+    ['Gladesville', 'Tarban Creek Flying Foxes'],
     ['Gladesville', 'Planes'],
     ['Gladesville', 'People'],
     ['Gladesville', 'Uncategorized'],
@@ -73,6 +74,7 @@
     'Gladesville|Ants': 'Gladesville: Ants',
     'Gladesville|Banjo Paterson Park': 'Gladesville: Banjo Paterson Park',
     'Gladesville|Boronia Park Reserve': 'Gladesville: Boronia Park Reserve',
+    'Gladesville|Tarban Creek Flying Foxes': 'Gladesville: Tarban Creek Flying Foxes',
     'Gladesville|Experiments in Liquids': 'Gladesville: Experiments in Liquids',
     'Gladesville|Dinosaurs': 'The Last of the Dinosaurs',
     'Gladesville|Frank photos of Frankie': 'Frank photos of Frankie',
@@ -100,6 +102,7 @@
   const SECTION_DESCRIPTIONS = {
     'Gladesville|Ants': "Ants rushing madly around a weed in the back yard. A narrow aperture let the flash freeze them as best it could; a lower flash power and wider aperture might still beat the sunlight for sharper shots, but it's a good idea of what to expect from ants in motion.",
     'Gladesville|Banjo Paterson Park': 'Shoreline macro and telephoto views across the bay to Abbotsford, where the Sydney Rowing Club and Abbotsford Rowing Club sit side by side.',
+    'Gladesville|Tarban Creek Flying Foxes': "Grey-headed flying foxes at the camp in Riverglade Reserve, along Tarban Creek, photographed from late afternoon into dark. By Sydney standards it's a small colony, around 8,000 bats at the April 2023 count. They roost in the canopy by day and fly out at dusk to feed, often travelling up to 30 km for nectar, pollen and fruit, which makes them important pollinators and seed dispersers. The species is listed as vulnerable, after numbers fell by around 30% in the 1990s. Most pups are born in October or November, one per mother each year. A few frames here show a mother dropping her newborn pup. It's hard to watch, but it happens, especially when a pup is stillborn or weak, or the mother is stressed or short of food. Never touch a bat, even a grounded one: call WIRES (1800 303 417) or Sydney Wildlife (02 9413 4300).",
     'Gladesville|Boronia Park Reserve': 'A macro walk at Boronia Park Reserve -- spiders, a snail shell, seed pods and other finds.',
     'Gladesville|Garden': 'Backyard macro photography — spiders, insects, and other garden life, including focus-stacked composites.',
     'Gladesville|Experiments in Liquids': 'Macro tests of oil and glitter in liquid, and water droplets on a polarising filter, exploring focus and lighting technique.',
@@ -711,6 +714,7 @@
     ashfield: { label: 'Ashfield', lat: -33.8886, lng: 151.1256 },
     banjo: { label: 'Banjo Paterson Park, Gladesville', lat: -33.8341, lng: 151.1301 },
     boronia: { label: 'Boronia Park Reserve, Hunters Hill', lat: -33.8250, lng: 151.1417 },
+    tarban: { label: 'Tarban Creek flying-fox camp (Riverglade Reserve)', lat: -33.8372, lng: 151.1394 },
     darling: { label: 'Darling Harbour', lat: -33.8688, lng: 151.2005 },
     chinesegarden: { label: 'Chinese Garden of Friendship', lat: -33.8756, lng: 151.2038 },
     townhall: { label: 'Sydney Town Hall', lat: -33.8734, lng: 151.2064 },
@@ -733,6 +737,7 @@
     const l = (item.location || '').toLowerCase();
     if (l.includes('banjo paterson')) return 'banjo';
     if (l.includes('boronia park')) return 'boronia';
+    if (l.includes('tarban creek')) return 'tarban';
     if (l.includes('darling harbour')) return 'darling';
     if (l.includes('macquarie park')) return 'macquarie';
     if (l.includes('pymble')) return 'pymble';

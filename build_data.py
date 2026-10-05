@@ -241,6 +241,40 @@ HORNSBY_OCT = {
     "20261003_151422PA031400.jpg",
     "20261003_151446PA031402.jpg",
 }
+# Grey-headed flying foxes at the Riverglade Reserve camp on Tarban Creek,
+# 4 Oct 2026 late afternoon into dark. Exported into an exports/ subfolder,
+# so original_filename includes the folder name.
+TARBAN_BATS = {
+    "bats at tarban creek/PA040150.JPG",
+    "bats at tarban creek/PA040164.JPG",
+    "bats at tarban creek/PA040165.JPG",
+    "bats at tarban creek/PA040173.JPG",
+    "bats at tarban creek/PA040174.JPG",
+    "bats at tarban creek/PA040175.JPG",
+    "bats at tarban creek/PA040176.JPG",
+    "bats at tarban creek/PA040179.JPG",
+    "bats at tarban creek/PA040181.JPG",
+    "bats at tarban creek/PA040185.JPG",
+    "bats at tarban creek/PA040187.JPG",
+    "bats at tarban creek/PA040190.JPG",
+    "bats at tarban creek/PA040191.JPG",
+    "bats at tarban creek/PA040193.JPG",
+    "bats at tarban creek/PA040195.JPG",
+    "bats at tarban creek/PA040199.JPG",
+    "bats at tarban creek/PA040206.JPG",
+    "bats at tarban creek/PA040215.JPG",
+    "bats at tarban creek/PA040219.JPG",
+    "bats at tarban creek/PA040230.JPG",
+    "bats at tarban creek/PA040245.JPG",
+    "bats at tarban creek/PA040271.JPG",
+    "bats at tarban creek/PA040274.JPG",
+    "bats at tarban creek/PA040275.JPG",
+    "bats at tarban creek/PA040276.JPG",
+    "bats at tarban creek/PA040277.JPG",
+    "bats at tarban creek/PA040282.JPG",
+    "bats at tarban creek/PA040285.JPG",
+    "bats at tarban creek/PA040287.JPG",
+}
 PLANES = {
     "Plane - Quatari.jpg", "Plane - Virgin.jpg",
     # early-evening plane-spotting session on 2026-09-11, before the
@@ -776,6 +810,36 @@ TITLES = {
     "20260930_185619P9300473.jpg": ("Experiment #51: Example Slice", "Sample stack slice"),
     "20260930_191030P9300530 cicada through drops 30stacked---.jpg": ("Experiment #52", "A cicada behind the droplets, with a tiny copy of it caught inside each drop. 30-photo stack."),
     "20260930_191030P9300530.jpg": ("Experiment #52: Example Slice", "Sample stack slice"),
+    # Tarban Creek flying foxes, 4 Oct
+    "bats at tarban creek/PA040150.JPG": ("Wrapped Up", ""),
+    "bats at tarban creek/PA040164.JPG": ("Grey-headed Flying Fox", ""),
+    "bats at tarban creek/PA040165.JPG": ("The Camp", ""),
+    "bats at tarban creek/PA040173.JPG": ("The Drop", "A mother drops her newborn pup from the roost."),
+    "bats at tarban creek/PA040174.JPG": ("The Drop II", "A mother drops her newborn pup from the roost."),
+    "bats at tarban creek/PA040175.JPG": ("The Drop III", "A mother drops her newborn pup from the roost."),
+    "bats at tarban creek/PA040176.JPG": ("After the Drop", ""),
+    "bats at tarban creek/PA040179.JPG": ("After the Drop II", ""),
+    "bats at tarban creek/PA040181.JPG": ("After the Drop III", ""),
+    "bats at tarban creek/PA040185.JPG": ("Wrapped Up II", ""),
+    "bats at tarban creek/PA040187.JPG": ("The Camp II", ""),
+    "bats at tarban creek/PA040190.JPG": ("Silhouettes", ""),
+    "bats at tarban creek/PA040191.JPG": ("Silhouettes II", ""),
+    "bats at tarban creek/PA040193.JPG": ("Silhouettes III", ""),
+    "bats at tarban creek/PA040195.JPG": ("Against the Sky", ""),
+    "bats at tarban creek/PA040199.JPG": ("Roosting Together", ""),
+    "bats at tarban creek/PA040206.JPG": ("Bat and Plane", ""),
+    "bats at tarban creek/PA040215.JPG": ("The Camp III", ""),
+    "bats at tarban creek/PA040219.JPG": ("Stretching Out", ""),
+    "bats at tarban creek/PA040230.JPG": ("After Dark", ""),
+    "bats at tarban creek/PA040245.JPG": ("After Dark II", ""),
+    "bats at tarban creek/PA040271.JPG": ("After Dark III", ""),
+    "bats at tarban creek/PA040274.JPG": ("Night Roost", ""),
+    "bats at tarban creek/PA040275.JPG": ("Night Roost II", ""),
+    "bats at tarban creek/PA040276.JPG": ("Night Roost III", ""),
+    "bats at tarban creek/PA040277.JPG": ("Night Roost IV", ""),
+    "bats at tarban creek/PA040282.JPG": ("Wings Open", ""),
+    "bats at tarban creek/PA040285.JPG": ("Night Roost V", ""),
+    "bats at tarban creek/PA040287.JPG": ("Night Roost VI", ""),
     # Hornsby Heights, family birthday gathering, 3 Oct
     "20261003_124918PA030245 under-leaf seeds 30stacked ---.jpg": ("Fern Spores", "The underside of a fern frond, lined with rows of spore clusters. 30-photo stack."),
     "20261003_124918PA030245.jpg": ("Fern Spores: Example Slice", "Sample stack slice"),
@@ -1007,6 +1071,8 @@ def classify(original, dt):
         return "Gladesville", "Indoor Macro", "Home"
     if original in BANJO_PATERSON:
         return "Gladesville", "Banjo Paterson Park", "Banjo Paterson Park, Gladesville"
+    if original in TARBAN_BATS:
+        return "Gladesville", "Tarban Creek Flying Foxes", "Tarban Creek (Riverglade Reserve), Gladesville"
     if original in BORONIA_PARK:
         return "Gladesville", "Boronia Park Reserve", "Boronia Park Reserve, Hunters Hill"
     if original in ANTS:

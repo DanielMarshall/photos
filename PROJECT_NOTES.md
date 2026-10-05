@@ -91,6 +91,24 @@ Last updated 2026-09-27 (cloud session, branch `claude/project-thread-0mh669`).
     clusters, titled "Fern Spores". The Weimaraner's name is unknown, so
     those photos are titled "Weimaraner" / "Those Eyes" / "Those Eyes II".
     Zeke (stack, 14:33) is the same Zeke as "Nathan and Zeke".
+- **Tarban Creek Flying Foxes (4 Oct 2026, local session, pushed)**: new
+  Gladesville subsection with 29 single in-camera JPGs (no stacks, so no
+  crops), shot 16:46-18:19, flash after dark. It's the `TARBAN_BATS` set,
+  location "Tarban Creek (Riverglade Reserve), Gladesville", map pin
+  `tarban` at Riverglade Reserve (-33.8372, 151.1394, from OSM; OSM puts
+  the reserve in Huntleys Cove). The section blurb is drawn from Hunters
+  Hill Council's camp page (~8,000 bats April 2023, forage up to 30 km,
+  vulnerable, pups Oct-Nov, WIRES / Sydney Wildlife numbers) and research
+  on why mothers drop pups. PA040173-175 ("The Drop" I-III) show a mother
+  dropping her newborn pup. The photographer chose the less gory frames and
+  wants them kept. Titles are Claude's suggestions.
+  **First batch exported into a subfolder** (`exports/bats at tarban
+  creek/`): `original_filename` keeps the folder prefix (e.g. `bats at
+  tarban creek/PA040150.JPG`), so `os.path.join(EXPORTS, original)` still
+  finds the EXIF, and slugs get the folder name (no clash with
+  camera-counter names like `PA040150` on another day). Finding new files
+  now needs a recursive listing: `find exports -type f` with paths relative
+  to `exports/`, not `ls`.
 - **"Pro site" ideas on hold (2026-09-27)**: a Best Of front page, an
   About/Contact page, dropping the "Test Shoot" label, link previews and a
   custom domain wait until the photographer has picked their best photos.
