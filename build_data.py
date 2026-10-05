@@ -1118,6 +1118,24 @@ def classify(original, dt):
 # express (the stack's source there is a raw file, or a differently-named
 # export). Every other pair is derived automatically: a stack whose SOURCE_MAP
 # source is a published photo titled "... Example Slice".
+# Wikipedia links for subjects identified with confidence AND confirmed to
+# occur around Sydney (checked against the page itself). Family/genus pages
+# where the species can't be told from the photo. Shown in the lightbox as a
+# "Wikipedia" button. Added 2026-10-05 at the photographer's request.
+WIKI_ORB = ("Orb-weaver spider", "https://en.wikipedia.org/wiki/Orb-weaver_spider")
+WIKI_LYNX = ("Lynx spider (Oxyopes)", "https://en.wikipedia.org/wiki/Oxyopes")
+WIKI_JUMPING = ("Jumping spider", "https://en.wikipedia.org/wiki/Jumping_spider")
+WIKI_ARGIOPE = ("St Andrew's Cross spider (Argiope keyserlingi)", "https://en.wikipedia.org/wiki/Argiope_keyserlingi")
+WIKI_LINKS = {
+    "2026-10-05 16-47-06 (A,R4,S2) leaf spider.tif": [WIKI_ORB],
+    "2026-10-05 17-08-06 (C,S2) garden spider.tif": [WIKI_ORB],
+    "2026-10-05 17-16-15 (A,R6,S2) wolf spider.tif": [WIKI_LYNX],
+    "2026-10-05 17-25-02 (A,R6,S2) wolf spider hanging out.tif": [WIKI_LYNX],
+    "2026-10-05 17-24-24 (A,R6,S2) wolf spider side.tif": [WIKI_JUMPING],
+    "2026-10-05 17-30-04 (A,R6,S2)st andrews cross closeup.tif": [WIKI_ARGIOPE],
+    "20260927_115255P9270115 24stacked St Andrew's Cross.jpg": [WIKI_ARGIOPE],
+}
+
 SAMPLE_EXTRA = {
     "STACK-2-Spider.jpg": "STACK-P9040321.jpg",
     "STACK-DANDELION-ZS-PMax.jpg": "STACK-DANDELIONP9040361_01.jpg",
@@ -1237,6 +1255,8 @@ def main():
             "medium_crop": crop_state.get(original, {}).get("medium"),
             "medium_frame": medium_frame(os.path.join(PHOTOS, "images", "medium", f"{slug}.jpg"), settings is not None),
         })
+        if original in WIKI_LINKS:
+            items[-1]["links"] = [{"label": label, "url": url} for label, url in WIKI_LINKS[original]]
 
     # sort by datetime when available (with manual overrides), falling back to filename
     def sort_key(item):

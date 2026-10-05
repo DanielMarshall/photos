@@ -1142,6 +1142,16 @@ main {
   border-color: #fff;
 }
 
+/* Wikipedia link for identified subjects -- styled like the buttons beside it. */
+.lb-wiki {
+  text-decoration: none;
+  display: inline-block;
+}
+
+.lb-wiki[hidden] {
+  display: none;
+}
+
 /* "View detail" and sample-slice pills sit in the same row as the other buttons. */
 .lb-detail-btns,
 .lb-sample-btns {

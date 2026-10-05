@@ -151,6 +151,21 @@ Last updated 2026-09-27 (cloud session, branch `claude/project-thread-0mh669`).
   (17-16-15) and "wolf spider hanging out" are titled **Lynx Spider** / **Lynx
   Spider II** (striped, spiny legs), and "wolf spider side" is **Jumping
   Spider**. Not yet confirmed by the photographer.
+- **Wikipedia links (2026-10-05)**: the photographer asked for Wikipedia
+  links on subjects that can be **accurately identified and confirmed to
+  occur around Sydney**. Links are listed in `WIKI_LINKS` in
+  `build_data.py` (original filename to `[(label, url)]`, with shared
+  constants like `WIKI_ORB`), which become an optional `links` field in
+  `images.json`. The lightbox shows an "↗ Wikipedia" pill (`#lb-wiki`, in
+  the always-visible button row, so it appears in both medium and
+  full-res; the label is its tooltip). A slice shows its stack's link.
+  Current links: St Andrew's Cross I and II go to *Argiope keyserlingi*
+  (species page; it names Sydney). Lynx Spider I and II go to *Oxyopes* (the
+  genus page lists *O. gracilipes* in NSW). Jumping Spider goes to the
+  Jumping spider family page. Leaf Spider and Garden Spider go to the
+  Orb-weaver family page. The 17:23 "Wolf Spider" has no link because the
+  family can't be confirmed from the photo. Older spider photos haven't been
+  reviewed for links yet.
 - **"Pro site" ideas on hold (2026-09-27)**: a Best Of front page, an
   About/Contact page, dropping the "Test Shoot" label, link previews and a
   custom domain wait until the photographer has picked their best photos.

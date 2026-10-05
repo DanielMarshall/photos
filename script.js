@@ -36,6 +36,7 @@
   const lbLoadingLabel = document.getElementById('lb-loading-label');
   const viewSwitcher = document.getElementById('view-switcher');
   const lbHeart = document.getElementById('lb-heart');
+  const lbWiki = document.getElementById('lb-wiki');
   const heartCountEl = document.getElementById('heart-count');
 
   const res = await fetch('images.json?v=' + encodeURIComponent(SITE_VERSION));
@@ -2697,6 +2698,16 @@
   function render() {
     const item = items[current];
     hideDetailHighlight();
+    // Wikipedia link for subjects identified with confidence (build_data.py's
+    // WIKI_LINKS); a slice shows its stack's link.
+    const linkSrc = item.links ? item : (isSlice(item) && item.sample_of ? items[indexByOriginal.get(item.sample_of)] : null);
+    const link = linkSrc && linkSrc.links && linkSrc.links[0];
+    lbWiki.hidden = !link;
+    if (link) {
+      lbWiki.href = link.url;
+      lbWiki.textContent = '\u2197 Wikipedia';
+      lbWiki.title = `${link.label} on Wikipedia`;
+    }
     buildDetailButtons(item);
     fullLoaded = false;
     zoomScale = 'fit';

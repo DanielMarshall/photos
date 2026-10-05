@@ -12500,6 +12500,12 @@
       0.943778801843318,
       0.8504983388704319
     ],
+    "links": [
+      {
+        "label": "St Andrew's Cross spider (Argiope keyserlingi)",
+        "url": "https://en.wikipedia.org/wiki/Argiope_keyserlingi"
+      }
+    ],
     "samples": [
       "20260927_115255P9270115.jpg"
     ]
@@ -16339,6 +16345,12 @@
       0.0332244008714597,
       0.943778801843318,
       0.8529411764705882
+    ],
+    "links": [
+      {
+        "label": "Orb-weaver spider",
+        "url": "https://en.wikipedia.org/wiki/Orb-weaver_spider"
+      }
     ]
   },
   {
@@ -16403,6 +16415,12 @@
       0.0357981220657277,
       0.943778801843318,
       0.8415492957746479
+    ],
+    "links": [
+      {
+        "label": "Orb-weaver spider",
+        "url": "https://en.wikipedia.org/wiki/Orb-weaver_spider"
+      }
     ]
   },
   {
@@ -16467,6 +16485,12 @@
       0.03355335533553355,
       0.943778801843318,
       0.8514851485148515
+    ],
+    "links": [
+      {
+        "label": "Lynx spider (Oxyopes)",
+        "url": "https://en.wikipedia.org/wiki/Oxyopes"
+      }
     ]
   },
   {
@@ -16531,6 +16555,12 @@
       0.036180308422301306,
       0.943778801843318,
       0.8398576512455516
+    ],
+    "links": [
+      {
+        "label": "Jumping spider",
+        "url": "https://en.wikipedia.org/wiki/Jumping_spider"
+      }
     ]
   },
   {
@@ -16563,6 +16593,12 @@
       0.03396436525612472,
       0.943778801843318,
       0.8496659242761693
+    ],
+    "links": [
+      {
+        "label": "Lynx spider (Oxyopes)",
+        "url": "https://en.wikipedia.org/wiki/Oxyopes"
+      }
     ]
   },
   {
@@ -16595,6 +16631,12 @@
       0.03550640279394645,
       0.943778801843318,
       0.8428405122235157
+    ],
+    "links": [
+      {
+        "label": "St Andrew's Cross spider (Argiope keyserlingi)",
+        "url": "https://en.wikipedia.org/wiki/Argiope_keyserlingi"
+      }
     ]
   }
 ]
