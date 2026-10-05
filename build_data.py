@@ -818,6 +818,17 @@ TITLES = {
     "ladybug with helicon stacker/2026-10-05 13-11-13 (C,S2).tif": ("Transverse Ladybird III", "Right in close on the head and its compound eye. 39-photo stack, combined in Helicon Focus."),
     "2026-10-05 14-02-40 (B,R4,S2) 10stacked.tif": ("Spiderlings", "A web full of newly hatched spiderlings, with a cluster sharp in the bottom left. The web made this a hard one to stack. 10-photo stack, combined in Helicon Focus."),
     "20261005_122952PA050032_01 - baby spiders.jpg": ("Spiderlings: Example Slice", "Sample stack slice"),
+    # Helicon Focus stacks, 5 Oct afternoon (frame counts from Helicon's log).
+    # St Andrew's Cross II was shot at 1/125 with flash; top 11% cropped for the sync band.
+    "2026-10-05 16-47-06 (A,R4,S2) leaf spider.tif": ("Leaf Spider", "A knobbly brown spider tucked against a leaf. 15-photo stack, combined in Helicon Focus."),
+    "2026-10-05 16-54-19 (B,R4,S2) spider eggs.tif": ("Spider Eggs", "A handful of eggs caught in strands of web on a leaf, one already empty. 14-photo stack, combined in Helicon Focus."),
+    "2026-10-05 17-08-06 (C,S2) garden spider.tif": ("Garden Spider", "A hairy brown orb-weaver hanging in its web. 7-photo stack, combined in Helicon Focus."),
+    "2026-10-05 17-09-41 (A,R6,S2) fat ant.tif": ("Fat Ant", "A heavy-bodied black ant with a deeply pitted, armoured look. 39-photo stack, combined in Helicon Focus."),
+    "2026-10-05 17-16-15 (A,R6,S2) wolf spider.tif": ("Lynx Spider", "A striped lynx spider spread across a leaf, its legs lined with long spines. 49-photo stack, combined in Helicon Focus."),
+    "2026-10-05 17-23-35 (A,R6,S2) wolf spider.tif": ("Wolf Spider", "A small hunting spider on a reddening leaf. 15-photo stack, combined in Helicon Focus."),
+    "2026-10-05 17-24-24 (A,R6,S2) wolf spider side.tif": ("Jumping Spider", "A jumping spider on a leaf, its big front eyes turned towards the camera. 53-photo stack, combined in Helicon Focus."),
+    "2026-10-05 17-25-02 (A,R6,S2) wolf spider hanging out.tif": ("Lynx Spider II", "The striped lynx spider again, hanging under the edge of a leaf. 51-photo stack, combined in Helicon Focus."),
+    "2026-10-05 17-30-04 (A,R6,S2)st andrews cross closeup.tif": ("St Andrew's Cross Spider II", "Close in on a St Andrew's Cross spider's furry white body and eyes. 11-photo stack, combined in Helicon Focus."),
     # Tarban Creek flying foxes, 4 Oct
     "bats at tarban creek/PA040150.JPG": ("Wrapped Up", ""),
     "bats at tarban creek/PA040164.JPG": ("Grey-headed Flying Fox", ""),

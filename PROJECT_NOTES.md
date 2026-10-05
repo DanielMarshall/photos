@@ -140,6 +140,17 @@ Last updated 2026-09-27 (cloud session, branch `claude/project-thread-0mh669`).
     TIFFs before they were copied to `exports/`. That's why the TIFFs report
     "OM Workspace" as their software.
   - Shot at 1/5 s, f/10, ISO 200 with the MC-20, natural light (no flash).
+- **5 Oct afternoon Helicon stacks (local session, pushed)**: 9 TIFFs in
+  Garden. Frame counts come from Helicon's log; each save was matched to
+  the latest render with its method letter and confirmed against the save
+  line's "metadata source" (the saved output's first frame). Crops:
+  **only St Andrew's Cross Spider II** (shot at 1/125 with flash), top 11%
+  removed for the flash-sync band (3556 to 3164 px tall). The other eight
+  were 1/100 with clean Helicon-trimmed edges, so no crop. Titles are
+  Claude's suggestions, and three differ from the file names: "wolf spider"
+  (17-16-15) and "wolf spider hanging out" are titled **Lynx Spider** / **Lynx
+  Spider II** (striped, spiny legs), and "wolf spider side" is **Jumping
+  Spider**. Not yet confirmed by the photographer.
 - **"Pro site" ideas on hold (2026-09-27)**: a Best Of front page, an
   About/Contact page, dropping the "Test Shoot" label, link previews and a
   custom domain wait until the photographer has picked their best photos.
