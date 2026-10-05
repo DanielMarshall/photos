@@ -180,10 +180,16 @@ Last updated 2026-09-27 (cloud session, branch `claude/project-thread-0mh669`).
   Michael's flowers, the blossoms, Good Boy (looks like a Samoyed), Timmy,
   Frankie, Seed Pod (possibly a spider egg sac). "Water Dragon on the
   Pavement II/III" are dragon artwork, so no link.
-  **"Golden Orb Weaver" I-III probably aren't golden orb-weavers**
-  (*Trichonephila* are slim and long-legged). They look like hairy garden
-  orb-weavers, hence the family-level link. Not yet raised with the
-  photographer.
+  **Later the same day the photographer confirmed three renames:**
+  "Golden Orb Weaver" I-III became **Large Orb Weaver** I-III ("not a golden
+  one, simply a larger one"). "Seed Pod" became **Spider Egg Sac**. "Fat Ant"
+  became **Female Flower Wasp**: a wingless female thynnid, identified from
+  the photographer's description of a dozen sitting alone on leaves in the
+  afternoon (females "call" males with pheromones from perches). Linked to
+  Thynnidae. The orb weavers have crops, so they were re-baked by setting
+  their `crop_state.json` medium entry to null and re-running
+  `apply_crops.py`, which regenerates the crop and border from full. **Use
+  this method to re-bake any cropped photo after a rename.**
   **Plant pass (2026-10-05, photographer asked for flowers and seeds too)**:
   Flower I/II go to the mallow family (fused stamen column). Dandelion
   Stack goes to Pappus (dandelion vs flatweed can't be told from a seed
@@ -194,9 +200,7 @@ Last updated 2026-09-27 (cloud session, branch `claude/project-thread-0mh669`).
   Citrus. That makes 161 linked photos. **Multiple links per photo**
   are supported: the lightbox renders one pill per link inside
   `#lb-wiki-links` (`display: contents`). A lone link reads "↗ Wikipedia";
-  several use the label's short name (the text before " ("). "Seed Pod"
-  (Boronia) is actually a spider egg sac, not a seed pod; no link, and the
-  title hasn't been changed yet.
+  several use the label's short name (the text before " (").
   **To add links for new photos:** append filename keys to `WIKI_LINKS` using
   an existing `WIKI_*` constant, or add a new one after checking the page.
 - **"Pro site" ideas on hold (2026-09-27)**: a Best Of front page, an
