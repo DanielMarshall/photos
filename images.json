@@ -16242,13 +16242,48 @@
     ]
   },
   {
+    "thumb": "images/thumbs/2026-10-05-14-02-40-b-r4-s2-10stacked.jpg",
+    "medium": "images/medium/2026-10-05-14-02-40-b-r4-s2-10stacked.jpg",
+    "full": "images/full/2026-10-05-14-02-40-b-r4-s2-10stacked.jpg",
+    "original_filename": "2026-10-05 14-02-40 (B,R4,S2) 10stacked.tif",
+    "caption": "2026 10 05 14 02 40 (B,R4,S2) 10stacked.tif",
+    "title": "Spiderlings",
+    "description": "A web full of newly hatched spiderlings, with a cluster sharp in the bottom left. The web made this a hard one to stack. 10-photo stack, combined in Helicon Focus.",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:05 12:29:51"
+    },
+    "size": [
+      3834,
+      5172
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.037488708220415536,
+      0.02654301247201791,
+      0.9250225835591689,
+      0.8832747041893189
+    ],
+    "samples": [
+      "20261005_122952PA050032_01 - baby spiders.jpg"
+    ]
+  },
+  {
     "thumb": "images/thumbs/20261005-122952pa050032-01-baby-spiders.jpg",
     "medium": "images/medium/20261005-122952pa050032-01-baby-spiders.jpg",
     "full": "images/full/20261005-122952pa050032-01-baby-spiders.jpg",
     "original_filename": "20261005_122952PA050032_01 - baby spiders.jpg",
     "caption": "20261005 122952PA050032 01   baby spiders",
-    "title": "Spiderlings",
-    "description": "A web full of newly hatched spiderlings, with a few sharp in the bottom left. A single frame: too much web to stack.",
+    "title": "Spiderlings: Example Slice",
+    "description": "Sample stack slice",
     "category": "Gladesville",
     "subcategory": "Garden",
     "location": "Home",
@@ -16271,6 +16306,7 @@
       0.026537216828478965,
       0.9258589511754068,
       0.883495145631068
-    ]
+    ],
+    "sample_of": "2026-10-05 14-02-40 (B,R4,S2) 10stacked.tif"
   }
 ]

@@ -816,7 +816,8 @@ TITLES = {
     "ladybug with helicon stacker/2026-10-05 13-04-49 (A,R4,S2).tif": ("Transverse Ladybird", "A transverse ladybird on a green stem, seen from above. 54-photo stack, combined in Helicon Focus."),
     "ladybug with helicon stacker/2026-10-05 13-06-57 (B,R4,S2).tif": ("Transverse Ladybird II", "Head-on at leaf level, with fine white strands trailing from underneath. 93-photo stack, combined in Helicon Focus."),
     "ladybug with helicon stacker/2026-10-05 13-11-13 (C,S2).tif": ("Transverse Ladybird III", "Right in close on the head and its compound eye. 39-photo stack, combined in Helicon Focus."),
-    "20261005_122952PA050032_01 - baby spiders.jpg": ("Spiderlings", "A web full of newly hatched spiderlings, with a few sharp in the bottom left. A single frame: too much web to stack."),
+    "2026-10-05 14-02-40 (B,R4,S2) 10stacked.tif": ("Spiderlings", "A web full of newly hatched spiderlings, with a cluster sharp in the bottom left. The web made this a hard one to stack. 10-photo stack, combined in Helicon Focus."),
+    "20261005_122952PA050032_01 - baby spiders.jpg": ("Spiderlings: Example Slice", "Sample stack slice"),
     # Tarban Creek flying foxes, 4 Oct
     "bats at tarban creek/PA040150.JPG": ("Wrapped Up", ""),
     "bats at tarban creek/PA040164.JPG": ("Grey-headed Flying Fox", ""),
@@ -1110,6 +1111,8 @@ SAMPLE_EXTRA = {
     "STACK-2-Spider.jpg": "STACK-P9040321.jpg",
     "STACK-DANDELION-ZS-PMax.jpg": "STACK-DANDELIONP9040361_01.jpg",
     "Grub Stack PMax.jpg": "Grub Single Sample.jpg",
+    # Helicon TIFF keeps its own EXIF, so no SOURCE_MAP entry to pair through
+    "2026-10-05 14-02-40 (B,R4,S2) 10stacked.tif": "20261005_122952PA050032_01 - baby spiders.jpg",
 }
 # A stack can have more than one example slice; these are the extras, shown
 # after the primary one above.
