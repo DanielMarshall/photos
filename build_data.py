@@ -103,6 +103,9 @@ SOURCE_MAP = {
     "20261003_145832PA031304 cicada shell 36stacked.jpg": os.path.join(EXPORTS, "20261003_145832PA031304.jpg"),
     "20261003_152343PA031418 moth 13stacked.jpg": os.path.join(EXPORTS, "20261003_152343PA031418.jpg"),
 }
+SOURCE_MAP['10102026_123313PA100668 4 butterfly 60stacked.tif'] = os.path.join(EXPORTS, '10102026_123313PA100668 4.tif')
+SOURCE_MAP['10102026_123424PA100721 wingtip 60stacked.tif'] = os.path.join(EXPORTS, '10102026_123424PA100722 wing 1.tif')
+SOURCE_MAP['20261010_123624PA100900 butterfly hairy eye 76stacked.tif'] = os.path.join(EXPORTS, '20261010_123624PA100900.tif')
 UNRESOLVED = set()
 
 # Camera settings for photos whose source frame can no longer be found (the
@@ -829,6 +832,14 @@ TITLES = {
     "2026-10-05 17-24-24 (A,R6,S2) wolf spider side.tif": ("Jumping Spider", "A jumping spider on a leaf, its big front eyes turned towards the camera. 53-photo stack, combined in Helicon Focus."),
     "2026-10-05 17-25-02 (A,R6,S2) wolf spider hanging out.tif": ("Lynx Spider II", "The striped lynx spider again, hanging under the edge of a leaf. 51-photo stack, combined in Helicon Focus."),
     "2026-10-05 17-30-04 (A,R6,S2)st andrews cross closeup.tif": ("St Andrew's Cross Spider II", "Close in on a St Andrew's Cross spider's furry white body and eyes. 11-photo stack, combined in Helicon Focus."),
+    # 10 Oct: yellow admiral (Zerene stacks; settings from the paired single frames)
+    '10102026_123313PA100668 4 butterfly 60stacked.tif': ('Yellow Admiral', "A yellow admiral (Vanessa itea, once Bassaris itea), caught in a little net cage in the back yard. It wouldn't settle on the flower, so it's shot against the netting. 60-photo stack, combined in Zerene Stacker."),
+    '10102026_123313PA100668 4.tif': ('Yellow Admiral: Example Slice', 'Sample stack slice'),
+    '10102026_123424PA100721 wingtip 60stacked.tif': ('Yellow Admiral Wingtip', "Close in on the edge of the yellow admiral's wing, every overlapping scale in focus. 60-photo stack, combined in Zerene Stacker."),
+    '10102026_123424PA100722 wing 1.tif': ('Yellow Admiral Wingtip: Example Slice', 'Sample stack slice'),
+    '20261010_123624PA100900 butterfly hairy eye 76stacked.tif': ('Yellow Admiral Hairy Eye', "The yellow admiral's compound eye is covered in fine hairs, a trait of the Vanessa butterflies. 76-photo stack, combined in Zerene Stacker."),
+    '20261010_123624PA100900.tif': ('Yellow Admiral Hairy Eye: Example Slice', 'Sample stack slice'),
+    '2026-10-05 19-00-38 (C,S2) female wasp.tif': ('Female Flower Wasp II', 'Another of the wingless female flower wasps, waiting alone on a leaf. 65-photo stack, combined in Helicon Focus.'),
     # Tarban Creek flying foxes, 4 Oct
     "bats at tarban creek/PA040150.JPG": ("Wrapped Up", ""),
     "bats at tarban creek/PA040164.JPG": ("Grey-headed Flying Fox", ""),
@@ -1162,6 +1173,7 @@ WIKI_LANTANA = ('Lantana (Lantana camara)', 'https://en.wikipedia.org/wiki/Lanta
 WIKI_WESTRINGIA = ('Coastal rosemary (Westringia fruticosa)', 'https://en.wikipedia.org/wiki/Westringia_fruticosa')
 WIKI_CITRUS = ('Citrus', 'https://en.wikipedia.org/wiki/Citrus')
 WIKI_THYNNID = ('Flower wasps (Thynnidae)', 'https://en.wikipedia.org/wiki/Thynnidae')
+WIKI_YELLOW_ADMIRAL = ('Yellow admiral (Vanessa itea)', 'https://en.wikipedia.org/wiki/Yellow_admiral')
 WIKI_LINKS = {
     # Orb-weaver spider
     'STACK-2-Spider.jpg': [WIKI_ORB],
@@ -1332,6 +1344,10 @@ WIKI_LINKS = {
     # Flower wasps (Thynnidae): wingless female, identified 2026-10-05 from the
     # photographer's description (a dozen sitting alone on leaves, waiting)
     '2026-10-05 17-09-41 (A,R6,S2) fat ant.tif': [WIKI_THYNNID],
+    '10102026_123313PA100668 4 butterfly 60stacked.tif': [WIKI_YELLOW_ADMIRAL],
+    '10102026_123424PA100721 wingtip 60stacked.tif': [WIKI_YELLOW_ADMIRAL],
+    '20261010_123624PA100900 butterfly hairy eye 76stacked.tif': [WIKI_YELLOW_ADMIRAL],
+    '2026-10-05 19-00-38 (C,S2) female wasp.tif': [WIKI_THYNNID],
     # Grey-headed flying fox: every photo in the Tarban Creek section
     'bats at tarban creek/PA040150.JPG': [WIKI_FLYING_FOX],
     'bats at tarban creek/PA040164.JPG': [WIKI_FLYING_FOX],

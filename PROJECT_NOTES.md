@@ -203,6 +203,21 @@ Last updated 2026-09-27 (cloud session, branch `claude/project-thread-0mh669`).
   several use the label's short name (the text before " (").
   **To add links for new photos:** append filename keys to `WIKI_LINKS` using
   an existing `WIKI_*` constant, or add a new one after checking the page.
+- **10 Oct yellow admiral + Female Flower Wasp II (local session, pushed)**:
+  The photographer **bought Zerene Stacker** (the regular edition, not the
+  one with slabbing) after the trial, since it aligns better than Helicon.
+  **Zerene TIFFs**: full frame (5184x3888), **no EXIF at all**, and the
+  frame count is in the filename the photographer gives them ("60stacked").
+  Each comes with a paired single-frame TIFF from OM Workspace that has
+  full EXIF; `SOURCE_MAP` maps stack to that frame, which also pairs it as
+  the example slice. These three were shot on a tripod, and their edges
+  were clean (checked 8% edge strips), so no crop. Yellow Admiral, Wingtip
+  and Hairy Eye (*Vanessa itea*, ID by the photographer) are in Garden,
+  linked to Wikipedia's "Yellow admiral". Hairy eyes are a *Vanessa* trait.
+  The butterfly was shot against the netting of a small net cage (it
+  wouldn't sit on the flower); the photographer may edit the netting out
+  later. Female Flower Wasp II is a Helicon stack from 5 Oct (65 frames per
+  the log), in Garden, linked to Thynnidae.
 - **"Pro site" ideas on hold (2026-09-27)**: a Best Of front page, an
   About/Contact page, dropping the "Test Shoot" label, link previews and a
   custom domain wait until the photographer has picked their best photos.

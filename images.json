@@ -17584,5 +17584,265 @@
         "url": "https://en.wikipedia.org/wiki/Argiope_keyserlingi"
       }
     ]
+  },
+  {
+    "thumb": "images/thumbs/2026-10-05-19-00-38-c-s2-female-wasp.jpg",
+    "medium": "images/medium/2026-10-05-19-00-38-c-s2-female-wasp.jpg",
+    "full": "images/full/2026-10-05-19-00-38-c-s2-female-wasp.jpg",
+    "original_filename": "2026-10-05 19-00-38 (C,S2) female wasp.tif",
+    "caption": "2026 10 05 19 00 38 (C,S2) female wasp.tif",
+    "title": "Female Flower Wasp II",
+    "description": "Another of the wingless female flower wasps, waiting alone on a leaf. 65-photo stack, combined in Helicon Focus.",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:05 17:04:09"
+    },
+    "size": [
+      3482,
+      4324
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.034545454545454546,
+      0.026398054880166725,
+      0.9309090909090909,
+      0.8836401528308441
+    ],
+    "links": [
+      {
+        "label": "Flower wasps (Thynnidae)",
+        "url": "https://en.wikipedia.org/wiki/Thynnidae"
+      }
+    ]
+  },
+  {
+    "thumb": "images/thumbs/10102026-123313pa100668-4-butterfly-60stacked.jpg",
+    "medium": "images/medium/10102026-123313pa100668-4-butterfly-60stacked.jpg",
+    "full": "images/full/10102026-123313pa100668-4-butterfly-60stacked.jpg",
+    "original_filename": "10102026_123313PA100668 4 butterfly 60stacked.tif",
+    "caption": "10102026 123313PA100668 4 butterfly 60stacked.tif",
+    "title": "Yellow Admiral",
+    "description": "A yellow admiral (Vanessa itea, once Bassaris itea), caught in a little net cage in the back yard. It wouldn't settle on the flower, so it's shot against the netting. 60-photo stack, combined in Zerene Stacker.",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/20s",
+      "iso": 800,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:10 12:33:13"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "links": [
+      {
+        "label": "Yellow admiral (Vanessa itea)",
+        "url": "https://en.wikipedia.org/wiki/Yellow_admiral"
+      }
+    ],
+    "samples": [
+      "10102026_123313PA100668 4.tif"
+    ]
+  },
+  {
+    "thumb": "images/thumbs/10102026-123313pa100668-4.jpg",
+    "medium": "images/medium/10102026-123313pa100668-4.jpg",
+    "full": "images/full/10102026-123313pa100668-4.jpg",
+    "original_filename": "10102026_123313PA100668 4.tif",
+    "caption": "10102026 123313PA100668 4.tif",
+    "title": "Yellow Admiral: Example Slice",
+    "description": "Sample stack slice",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/20s",
+      "iso": 800,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:10 12:33:13"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "sample_of": "10102026_123313PA100668 4 butterfly 60stacked.tif"
+  },
+  {
+    "thumb": "images/thumbs/10102026-123424pa100721-wingtip-60stacked.jpg",
+    "medium": "images/medium/10102026-123424pa100721-wingtip-60stacked.jpg",
+    "full": "images/full/10102026-123424pa100721-wingtip-60stacked.jpg",
+    "original_filename": "10102026_123424PA100721 wingtip 60stacked.tif",
+    "caption": "10102026 123424PA100721 wingtip 60stacked.tif",
+    "title": "Yellow Admiral Wingtip",
+    "description": "Close in on the edge of the yellow admiral's wing, every overlapping scale in focus. 60-photo stack, combined in Zerene Stacker.",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/20s",
+      "iso": 800,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:10 12:34:24"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "links": [
+      {
+        "label": "Yellow admiral (Vanessa itea)",
+        "url": "https://en.wikipedia.org/wiki/Yellow_admiral"
+      }
+    ],
+    "samples": [
+      "10102026_123424PA100722 wing 1.tif"
+    ]
+  },
+  {
+    "thumb": "images/thumbs/10102026-123424pa100722-wing-1.jpg",
+    "medium": "images/medium/10102026-123424pa100722-wing-1.jpg",
+    "full": "images/full/10102026-123424pa100722-wing-1.jpg",
+    "original_filename": "10102026_123424PA100722 wing 1.tif",
+    "caption": "10102026 123424PA100722 wing 1.tif",
+    "title": "Yellow Admiral Wingtip: Example Slice",
+    "description": "Sample stack slice",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/20s",
+      "iso": 800,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:10 12:34:24"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "sample_of": "10102026_123424PA100721 wingtip 60stacked.tif"
+  },
+  {
+    "thumb": "images/thumbs/20261010-123624pa100900-butterfly-hairy-eye-76stacked.jpg",
+    "medium": "images/medium/20261010-123624pa100900-butterfly-hairy-eye-76stacked.jpg",
+    "full": "images/full/20261010-123624pa100900-butterfly-hairy-eye-76stacked.jpg",
+    "original_filename": "20261010_123624PA100900 butterfly hairy eye 76stacked.tif",
+    "caption": "20261010 123624PA100900 butterfly hairy eye 76stacked.tif",
+    "title": "Yellow Admiral Hairy Eye",
+    "description": "The yellow admiral's compound eye is covered in fine hairs, a trait of the Vanessa butterflies. 76-photo stack, combined in Zerene Stacker.",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:10 12:36:24"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "links": [
+      {
+        "label": "Yellow admiral (Vanessa itea)",
+        "url": "https://en.wikipedia.org/wiki/Yellow_admiral"
+      }
+    ],
+    "samples": [
+      "20261010_123624PA100900.tif"
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20261010-123624pa100900.jpg",
+    "medium": "images/medium/20261010-123624pa100900.jpg",
+    "full": "images/full/20261010-123624pa100900.jpg",
+    "original_filename": "20261010_123624PA100900.tif",
+    "caption": "20261010 123624PA100900.tif",
+    "title": "Yellow Admiral Hairy Eye: Example Slice",
+    "description": "Sample stack slice",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:10 12:36:24"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "sample_of": "20261010_123624PA100900 butterfly hairy eye 76stacked.tif"
   }
 ]
