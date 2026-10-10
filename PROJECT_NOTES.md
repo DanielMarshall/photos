@@ -905,6 +905,16 @@ lightbox:
   detail buttons in the crop bar; the medium view gets a "View detail" button
   whose hover dims everything except where the detail sits.
 
+**Merging an export:** the photographer sends a `crop-edits.json` (the
+editor's Export button). Run `python merge_crops.py "<path>"`. It applies the
+same rules as the editor (`getEffectiveConfig`): an edit's `final` replaces
+the base final, an edit's `details` replaces the whole details list, and
+anything not exported is kept. It rewrites the `CROPS` block in its existing
+style, but first checks that regenerating the untouched block reproduces the
+file exactly, and refuses otherwise (`--check` runs only that test).
+Added 2026-10-10 with the 5th export: 25 photos, 14 bat Final Frames and 11
+Details, bringing `CROPS` to 112 entries.
+
 **After baking new crops into `CROPS`, run `python apply_crops.py`.** It is
 incremental (`images/crop_state.json` records which crop each medium/thumb
 currently shows) and it re-borders what it regenerates and rebuilds

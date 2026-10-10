@@ -2078,6 +2078,103 @@
         { label: "Detail #1", ratio: [1, 1], center: [0.5034973951692229, 0.5450780851528914], size: 0.20757535277973438 },
       ],
     },
+    '20261010_123624PA100900 butterfly hairy eye 76stacked.tif': {
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.7024309216415684, 0.488117026073579], size: 0.15506219994164605 },
+      ],
+    },
+    '10102026_123424PA100721 wingtip 60stacked.tif': {
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.1995364936640872, 0.2521551152489324], size: 0.2768361581920904 },
+      ],
+    },
+    'ladybug with helicon stacker/2026-10-05 13-06-57 (B,R4,S2).tif': {
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.47105666758425413, 0.8008424221617767], size: 0.21233527873874347 },
+      ],
+    },
+    '20260926_150556P9260541_01 barbs 31stacked ---.jpg': {
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.3046367851622875, 0.3417310664605873], size: 0.1732354456465739 },
+      ],
+    },
+    '2026-10-05 14-02-40 (B,R4,S2) 10stacked.tif': {
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.19522619930520319, 0.6537059274584412], size: 0.1524496923199747 },
+      ],
+    },
+    '2026-10-05 17-23-35 (A,R6,S2) wolf spider.tif': {
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.37220116483313304, 0.6161131135247587], size: 0.20781828297733373 },
+      ],
+    },
+    '2026-10-05 17-09-41 (A,R6,S2) fat ant.tif': {
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.6938401719021795, 0.33803640915399064], size: 0.20218237230945058 },
+      ],
+    },
+    '2026-10-05 16-54-19 (B,R4,S2) spider eggs.tif': {
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.4295443519796992, 0.3042813455657492], size: 0.2163670719276 },
+      ],
+    },
+    'bats at tarban creek/PA040150.JPG': {
+      final: { ratio: [4, 5], center: [0.4118177000529942, 0.5618037072803072], size: 0.7307275596485856 },
+    },
+    'bats at tarban creek/PA040164.JPG': {
+      final: { ratio: [4, 5], center: [0.4118177000529942, 0.5165814824410581], size: 0.7631368207833809 },
+    },
+    'bats at tarban creek/PA040165.JPG': {
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.516756433273489, 0.582984240973469], size: 0.25 },
+      ],
+    },
+    'bats at tarban creek/PA040185.JPG': {
+      final: { ratio: [4, 5], center: [0.5045221692280516, 0.4804037025696587], size: 0.8547118260828603 },
+    },
+    'bats at tarban creek/PA040191.JPG': {
+      final: { ratio: [1, 1], center: [0.5214803038332451, 0.5226111124196245], size: 0.5539840309018536 },
+    },
+    'bats at tarban creek/PA040195.JPG': {
+      final: { ratio: [4, 5], center: [0.44573396926338105, 0.5180888899356997], size: 0.6041053300986882 },
+    },
+    'bats at tarban creek/PA040206.JPG': {
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.1684619988031119, 0.5031917015759027], size: 0.25 },
+      ],
+    },
+    'bats at tarban creek/PA040215.JPG': {
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.7381807301017355, 0.36275683223618593], size: 0.21366945940554563 },
+      ],
+    },
+    'bats at tarban creek/PA040219.JPG': {
+      final: { ratio: [3, 2], center: [0.4536477654124713, 0.43367407023576793], size: 0.5901618107732529 },
+    },
+    'bats at tarban creek/PA040230.JPG': {
+      final: { ratio: [4, 5], center: [0.46495318848260025, 0.46231481263395907], size: 0.7081164472289612 },
+    },
+    'bats at tarban creek/PA040271.JPG': {
+      final: { ratio: [4, 5], center: [0.5169581346051935, 0.44573333019290107], size: 0.4186942082577668 },
+    },
+    'bats at tarban creek/PA040274.JPG': {
+      final: { ratio: [4, 5], center: [0.5271330153683095, 0.46231481263395907], size: 0.3568669477353557 },
+    },
+    'bats at tarban creek/PA040275.JPG': {
+      final: { ratio: [3, 2], center: [0.5906041701015144, 0.33074443947209337], size: 0.610326951495187 },
+    },
+    'bats at tarban creek/PA040276.JPG': {
+      final: { ratio: [3, 2], center: [0.6301603548232058, 0.31319140688651004], size: 0.6263828137730201 },
+    },
+    'bats at tarban creek/PA040277.JPG': {
+      final: { ratio: [3, 2], center: [0.5655714538067479, 0.35361856309521], size: 0.70723712619042 },
+    },
+    'bats at tarban creek/PA040285.JPG': {
+      final: { ratio: [3, 2], center: [0.5960960960960962, 0.3279808590652503], size: 0.6559617181305006 },
+    },
+    'bats at tarban creek/PA040287.JPG': {
+      final: { ratio: [3, 2], center: [0.6123541171067197, 0.39884078793445915], size: 0.6891482362547204 },
+    },
   };
   // Photos with no curated crop show the whole image as their Final Frame.
   const DEFAULT_FINAL_CROP = { x: 0, y: 0, w: 1, h: 1 };
