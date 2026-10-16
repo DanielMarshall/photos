@@ -15,7 +15,18 @@ that read from the photographer's local Camera Roll.
 
 ## Current status (keep this updated -- read first in a new session)
 
-Last updated 2026-09-27 (cloud session, branch `claude/project-thread-0mh669`).
+Last updated 2026-10-16 (cloud session, branch `claude/project-thread-ndnuba`).
+
+- **Contact email in footer (2026-10-16, PR from
+  `claude/project-thread-ndnuba`)**: the footer (shown under every view) now
+  has "Enquiries: daniel.marshall.photo@gmail.com" as a mailto link. The
+  address is the photographer's public contact/enquiry address. It is
+  assembled by a small inline script after the footer in `index.html`, so the
+  raw HTML only has "daniel.marshall.photo [at] gmail.com" (light spam-bot
+  protection). Footer links inherit the footer colour (`.site-footer a`).
+  Open question to ask after this merges: should the My Hearts "Email it"
+  button pre-fill this address? (It currently opens an email with no
+  address, chosen 2026-09-26 when there was no public address.)
 
 - **Cache versions, full-res cache offer, swipe (2026-09-27, PR from
   `claude/project-thread-0mh669`)**: `style.css`, `script.js` and
