@@ -526,6 +526,74 @@ INDOOR_MACRO = {
     "20260927_172605P9270620.jpg",
 }
 
+# The curated portfolio (photos/portfolio/), picked in the Oct 2026 audit.
+# Keyed by original filename -> (group, portfolio title or None to reuse the
+# gallery title). Groups: "macro", "detail" (product/detail work),
+# "texture" (fine-art textures), "wildlife". The main gallery ignores this.
+PORTFOLIO = {
+    "STACK-DANDELION-ZS-PMax.jpg": ("macro", "Dandelion Seed Head"),
+    "11092026_201904P9111337 stack.jpg": ("macro", "Garden Orb Weaver"),
+    "12092026_185356P9120006UV Spider 2stack.jpg": ("macro", "Garden Orb Weaver Under UV"),
+    "P9150707 20 stacked.jpg": ("macro", "Paper Wasp and Nest"),
+    "20260926_145730P9260352 seeds 18stacked.jpg": ("macro", None),
+    "20260927_115255P9270115 24stacked St Andrew's Cross.jpg": ("macro", None),
+    "2026-10-05 17-30-04 (A,R6,S2)st andrews cross closeup.tif": ("macro", None),
+    "ladybug with helicon stacker/2026-10-05 13-06-57 (B,R4,S2).tif": ("macro", "Transverse Ladybird"),
+    "2026-10-05 17-09-41 (A,R6,S2) fat ant.tif": ("macro", None),
+    "2026-10-05 17-24-24 (A,R6,S2) wolf spider side.tif": ("macro", None),
+    "2026-10-05 16-47-06 (A,R4,S2) leaf spider.tif": ("macro", None),
+    "20261010_123624PA100900 butterfly hairy eye 76stacked.tif": ("macro", None),
+    "10102026_123424PA100721 wingtip 60stacked.tif": ("macro", None),
+    "20261003_131304PA030626 moth 26stacked.jpg": ("macro", "Moth on a Leaf"),
+    "20261003_152343PA031418 moth 13stacked.jpg": ("macro", "Moth"),
+    "20261003_145404PA031210 eggs 16stacked.jpg": ("macro", None),
+    "20261003_145832PA031304 cicada shell 36stacked.jpg": ("macro", None),
+    "26092026_101617P9260670 Boronia Park Reserve seed pod 31stacked --- .jpg": ("macro", None),
+    "26092026_101723P9260730 Boronia Park Reserve snail shell 22stacked ---.jpg": ("macro", None),
+    "26092026_102753P9261010 Boronia Park Reserve 10stacked ---.jpg": ("macro", None),
+    "20260927_193430P9270395_01 cockroack face 40stacked.jpg": ("macro", None),
+    "20260927_193541P9270495 cockroach profile 60stacked ---.jpg": ("macro", None),
+    "16092026_184141P9160208 indoor macro 24stacked.jpg": ("detail", None),
+    "15092026_174550P9150027_01 michael fender.jpg": ("detail", None),
+    "13092026_183206P9130141_01Frank.jpg": ("detail", "Human Eye"),
+    "13092026_104026P9130383glitter oil.jpg": ("texture", "Glitter in Oil"),
+    "13092026_131750P9130002glitter oil mc-20.jpg": ("texture", "Oil and Ink"),
+    "15092026_140211P9150010 fluids redux 12stacked.jpg": ("texture", "Green Drop"),
+    "20260930_191030P9300530 cicada through drops 30stacked---.jpg": ("texture", "Through the Drops"),
+    "13092026_161823P9130015last dinosaurs mc-20.jpg": ("wildlife", "Sulphur-crested Cockatoo"),
+    "13092026_161532P9130004last dinosaurs mc-20.jpg": ("wildlife", "Sulphur-crested Cockatoo II"),
+    "13092026_162454P9130047_02last dinosaurs mc-20.jpg": ("wildlife", "Sulphur-crested Cockatoo III"),
+    "13092026_162433P9130044_02last dinosaurs mc-20.jpg": ("wildlife", "Sulphur-crested Cockatoo IV"),
+    "12092026_133649P9120784Sydney CBD - Copy.jpg": ("wildlife", "Water Dragon"),
+    "bats at tarban creek/PA040274.JPG": ("wildlife", "Flying Fox at Night"),
+    "bats at tarban creek/PA040150.JPG": ("wildlife", "Flying Fox, Wrapped Up"),
+    "bats at tarban creek/PA040195.JPG": ("wildlife", "Flying Fox Against the Sky"),
+    "bats at tarban creek/PA040282.JPG": ("wildlife", "Flying Fox, Wings Open"),
+    "bats at tarban creek/PA040190.JPG": ("wildlife", "Flying Fox Colony"),
+}
+
+# Portfolio hero slideshow, in order (original filenames, all in PORTFOLIO).
+PORTFOLIO_HERO = [
+    "P9150707 20 stacked.jpg",
+    "20261010_123624PA100900 butterfly hairy eye 76stacked.tif",
+    "STACK-DANDELION-ZS-PMax.jpg",
+    "13092026_161823P9130015last dinosaurs mc-20.jpg",
+    "ladybug with helicon stacker/2026-10-05 13-06-57 (B,R4,S2).tif",
+    "bats at tarban creek/PA040274.JPG",
+]
+
+def portfolio_fields(original):
+    """The images.json fields for a portfolio photo (empty for the rest)."""
+    if original not in PORTFOLIO:
+        return {}
+    group, title = PORTFOLIO[original]
+    fields = {"portfolio": group, "portfolio_order": list(PORTFOLIO).index(original) + 1}
+    if title:
+        fields["portfolio_title"] = title
+    if original in PORTFOLIO_HERO:
+        fields["portfolio_hero"] = PORTFOLIO_HERO.index(original) + 1
+    return fields
+
 # (title, description) supplied by the photographer, keyed by original filename.
 TITLES = {
     # Experiments in Liquids -- sequential by shoot order, filenames hidden
@@ -1501,6 +1569,7 @@ def main():
         })
         if original in WIKI_LINKS:
             items[-1]["links"] = [{"label": label, "url": url} for label, url in WIKI_LINKS[original]]
+        items[-1].update(portfolio_fields(original))
 
     # sort by datetime when available (with manual overrides), falling back to filename
     def sort_key(item):

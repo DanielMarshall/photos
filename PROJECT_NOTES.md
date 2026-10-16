@@ -15,7 +15,27 @@ that read from the photographer's local Camera Roll.
 
 ## Current status (keep this updated -- read first in a new session)
 
-Last updated 2026-09-27 (cloud session, branch `claude/project-thread-0mh669`).
+Last updated 2026-10-16 (cloud session, branch `claude/project-thread-6dkkwy`).
+
+- **Pro portfolio page at `/photos/portfolio/` (2026-10-16, PR from
+  `claude/project-thread-6dkkwy`)**: a separate client-facing page (Hero
+  slideshow, Selected work with Macro / Detail and Wildlife & Nature tabs,
+  Services, About, Contact by mailto to daniel.marshall.photo@gmail.com). It
+  reads `../images.json` and shows only photos with a `portfolio` field.
+  Those come from the `PORTFOLIO` dict (filename -> group, optional
+  portfolio title) and `PORTFOLIO_HERO` list in `build_data.py`, so they
+  survive rebuilds. Groups: `macro`, `detail`, `texture`, `wildlife`. The
+  39 photos were picked in a read-only audit
+  (`/mnt/project-files/portfolio-audit/portfolio-audit.md` in the project
+  shared files; 17 more are "maybe"). The main gallery ignores these
+  fields and is unchanged; nothing links to the portfolio from it yet. The
+  page shows the bordered mediums cropped to the photo area using
+  `medium_frame`. To add or remove a portfolio photo, edit `PORTFOLIO` and
+  rebuild. Its own cache stamps are the `?v=` on `portfolio.css` /
+  `portfolio.js` in `portfolio/index.html` (bump by hand); images.json is
+  fetched with `no-cache`. The site copy (headline, services, About) is a
+  draft for the photographer to edit. Later idea: move it to its own repo
+  for `danielmarshall.github.io/portfolio`.
 
 - **Cache versions, full-res cache offer, swipe (2026-09-27, PR from
   `claude/project-thread-0mh669`)**: `style.css`, `script.js` and
@@ -418,6 +438,8 @@ plain-JPG sibling with EXIF.
   resolution, titles, sort order).
 - `apply_borders.py` — border-baking batch script (wraps `exifborder.py`).
 - `strip_exif.py` — one-off EXIF-stripping utility.
+- `portfolio/` — the client-facing portfolio page (`index.html`,
+  `portfolio.css`, `portfolio.js`); see Current status.
 - `check_settings.py` — quick CLI to dump EXIF settings for one or more
   files in a folder; useful when investigating a new batch.
 
