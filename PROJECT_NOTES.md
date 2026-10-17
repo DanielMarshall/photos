@@ -15,27 +15,18 @@ that read from the photographer's local Camera Roll.
 
 ## Current status (keep this updated -- read first in a new session)
 
-Last updated 2026-10-16 (cloud session, branch `claude/project-thread-6dkkwy`).
+Last updated 2026-10-16 (cloud session, branch `claude/project-thread-ndnuba`).
 
-- **Pro portfolio page at `/photos/portfolio/` (2026-10-16, PR from
-  `claude/project-thread-6dkkwy`)**: a separate client-facing page (Hero
-  slideshow, Selected work with Macro / Detail and Wildlife & Nature tabs,
-  Services, About, Contact by mailto to daniel.marshall.photo@gmail.com). It
-  reads `../images.json` and shows only photos with a `portfolio` field.
-  Those come from the `PORTFOLIO` dict (filename -> group, optional
-  portfolio title) and `PORTFOLIO_HERO` list in `build_data.py`, so they
-  survive rebuilds. Groups: `macro`, `detail`, `texture`, `wildlife`. The
-  39 photos were picked in a read-only audit
-  (`/mnt/project-files/portfolio-audit/portfolio-audit.md` in the project
-  shared files; 17 more are "maybe"). The main gallery ignores these
-  fields and is unchanged; nothing links to the portfolio from it yet. The
-  page shows the bordered mediums cropped to the photo area using
-  `medium_frame`. To add or remove a portfolio photo, edit `PORTFOLIO` and
-  rebuild. Its own cache stamps are the `?v=` on `portfolio.css` /
-  `portfolio.js` in `portfolio/index.html` (bump by hand); images.json is
-  fetched with `no-cache`. The site copy (headline, services, About) is a
-  draft for the photographer to edit. Later idea: move it to its own repo
-  for `danielmarshall.github.io/portfolio`.
+- **Contact email in footer (2026-10-16, PR from
+  `claude/project-thread-ndnuba`)**: the footer (shown under every view) now
+  has "Enquiries: daniel.marshall.photo@gmail.com" as a mailto link. The
+  address is the photographer's public contact/enquiry address. It is
+  assembled by a small inline script after the footer in `index.html`, so the
+  raw HTML only has "daniel.marshall.photo [at] gmail.com" (light spam-bot
+  protection). Footer links inherit the footer colour (`.site-footer a`).
+  Open question to ask after this merges: should the My Hearts "Email it"
+  button pre-fill this address? (It currently opens an email with no
+  address, chosen 2026-09-26 when there was no public address.)
 
 - **Cache versions, full-res cache offer, swipe (2026-09-27, PR from
   `claude/project-thread-0mh669`)**: `style.css`, `script.js` and
