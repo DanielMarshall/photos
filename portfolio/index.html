@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daniel Marshall Photography | Macro, Detail &amp; Nature, Sydney</title>
+<meta name="description" content="Focus-stacked macro, product detail and wildlife photography by Daniel Marshall, Sydney, Australia.">
+<link rel="stylesheet" href="portfolio.css?v=1">
+</head>
+<body>
+<nav class="topnav" id="topnav">
+  <a class="brand" href="#top">Daniel Marshall <span>Photography</span></a>
+  <div class="navlinks">
+    <a href="#work">Work</a>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#contact" class="nav-cta">Enquire</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-slides" id="hero-slides" aria-hidden="true"></div>
+  <div class="hero-shade"></div>
+  <div class="hero-text">
+    <p class="kicker">Macro &middot; Detail &middot; Nature &middot; Sydney</p>
+    <h1>The detail you<br>don't see.</h1>
+    <p class="lede">Focus-stacked macro, small product and nature photography, sharp from front to back.</p>
+    <div class="hero-buttons">
+      <a class="btn" href="#work">See the work</a>
+      <a class="btn btn-ghost" href="#contact">Make an enquiry</a>
+    </div>
+  </div>
+  <p class="hero-caption" id="hero-caption"></p>
+</header>
+
+<main>
+  <section class="work" id="work">
+    <div class="section-head">
+      <h2>Selected work</h2>
+      <div class="tabs" role="tablist">
+        <button class="tab" role="tab" data-tab="macro" aria-selected="true">Macro / Detail</button>
+        <button class="tab" role="tab" data-tab="wildlife" aria-selected="false">Wildlife &amp; Nature</button>
+      </div>
+    </div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section class="services" id="services">
+    <h2>Services</h2>
+    <p class="section-intro">Every macro image is built from many exposures, focus-stacked so the whole subject is sharp. That works just as well for a ring or a circuit board as for a spider.</p>
+    <div class="cards">
+      <article class="card">
+        <h3>Small product &amp; detail</h3>
+        <p>Jewellery, crafts, watches, parts and other small items for e-commerce, catalogues and social media. Clean, sharp, true to colour.</p>
+      </article>
+      <article class="card">
+        <h3>Fine art &amp; high-res textures</h3>
+        <p>Specimen archiving and high-resolution texture work, from collections and natural objects to abstract studies for print and design.</p>
+      </article>
+      <article class="card">
+        <h3>Nature &amp; scientific licensing</h3>
+        <p>Insects, spiders, plants and Australian wildlife, available to license for print, editorial, education and media.</p>
+      </article>
+      <article class="card card-soon">
+        <h3>Corporate headshots</h3>
+        <p>Clean, natural headshots for teams and profiles.</p>
+        <p class="soon">Coming soon</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <h2>About</h2>
+    <div class="about-body">
+      <p>I'm Daniel Marshall, a Sydney photographer specialising in macro and nature work. I photograph small things up close, then stack dozens of frames into one image so every hair, scale and edge is in focus.</p>
+      <ul class="gear">
+        <li>OM System OM-1 Mark II</li>
+        <li>90mm macro lens</li>
+        <li>Zerene Stacker focus stacking</li>
+        <li>Godox flash and scene lighting</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Let's work together</h2>
+    <p class="section-intro">Tell me what you'd like photographed, how many items, and where the images will be used. I'll reply with ideas and a quote.</p>
+    <a class="btn btn-big" id="contact-link" href="mailto:daniel.marshall.photo@gmail.com?subject=Photography%20enquiry">daniel.marshall.photo@gmail.com</a>
+  </section>
+</main>
+
+<footer class="footer">
+  <p>&copy; <span id="year">2026</span> Daniel Marshall. All photos are copyright Daniel Marshall and may not be used without permission.</p>
+  <p><a href="../">Browse the full photo archive</a></p>
+</footer>
+
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lb-close" id="lb-close" aria-label="Close">&times;</button>
+  <button class="lb-nav lb-prev" id="lb-prev" aria-label="Previous">&#10094;</button>
+  <button class="lb-nav lb-next" id="lb-next" aria-label="Next">&#10095;</button>
+  <figure class="lb-figure">
+    <div class="lb-photo" id="lb-photo"></div>
+    <figcaption id="lb-caption"></figcaption>
+  </figure>
+</div>
+
+<script src="portfolio.js?v=1"></script>
+</body>
+</html>

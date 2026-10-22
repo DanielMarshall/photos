@@ -379,7 +379,11 @@
     ],
     "samples": [
       "STACK-DANDELIONP9040361_01.jpg"
-    ]
+    ],
+    "portfolio": "macro",
+    "portfolio_order": 1,
+    "portfolio_title": "Dandelion Seed Head",
+    "portfolio_hero": 3
   },
   {
     "thumb": "images/thumbs/stack-dandelionp9040361-01.jpg",
@@ -2084,7 +2088,10 @@
     ],
     "samples": [
       "11092026_201904P9111337.jpg"
-    ]
+    ],
+    "portfolio": "macro",
+    "portfolio_order": 2,
+    "portfolio_title": "Garden Orb Weaver"
   },
   {
     "thumb": "images/thumbs/11092026-201904p9111337.jpg",
@@ -2160,7 +2167,10 @@
         "label": "Orb-weaver spider",
         "url": "https://en.wikipedia.org/wiki/Orb-weaver_spider"
       }
-    ]
+    ],
+    "portfolio": "macro",
+    "portfolio_order": 3,
+    "portfolio_title": "Garden Orb Weaver Under UV"
   },
   {
     "thumb": "images/thumbs/12092026-081712p9120050wasp.jpg",
@@ -4073,7 +4083,10 @@
         "label": "Australian water dragon",
         "url": "https://en.wikipedia.org/wiki/Australian_water_dragon"
       }
-    ]
+    ],
+    "portfolio": "wildlife",
+    "portfolio_order": 34,
+    "portfolio_title": "Water Dragon"
   },
   {
     "thumb": "images/thumbs/12092026-133656p9120786sydney-cbd-copy.jpg",
@@ -5880,7 +5893,10 @@
       0.03728606356968215,
       0.943778801843318,
       0.8349633251833741
-    ]
+    ],
+    "portfolio": "texture",
+    "portfolio_order": 26,
+    "portfolio_title": "Glitter in Oil"
   },
   {
     "thumb": "images/thumbs/13092026-104210p9130388glitter-oil.jpg",
@@ -6139,7 +6155,10 @@
       0.03728606356968215,
       0.943778801843318,
       0.8349633251833741
-    ]
+    ],
+    "portfolio": "texture",
+    "portfolio_order": 27,
+    "portfolio_title": "Oil and Ink"
   },
   {
     "thumb": "images/thumbs/13092026-131948p9130028-01glitter-oil-mc-20-32stacked.jpg",
@@ -6614,7 +6633,10 @@
         "label": "Sulphur-crested cockatoo",
         "url": "https://en.wikipedia.org/wiki/Sulphur-crested_cockatoo"
       }
-    ]
+    ],
+    "portfolio": "wildlife",
+    "portfolio_order": 31,
+    "portfolio_title": "Sulphur-crested Cockatoo II"
   },
   {
     "thumb": "images/thumbs/13092026-161823p9130015last-dinosaurs-mc-20.jpg",
@@ -6652,7 +6674,11 @@
         "label": "Sulphur-crested cockatoo",
         "url": "https://en.wikipedia.org/wiki/Sulphur-crested_cockatoo"
       }
-    ]
+    ],
+    "portfolio": "wildlife",
+    "portfolio_order": 30,
+    "portfolio_title": "Sulphur-crested Cockatoo",
+    "portfolio_hero": 4
   },
   {
     "thumb": "images/thumbs/13092026-161904p9130019last-dinosaurs-mc-20.jpg",
@@ -7108,7 +7134,10 @@
         "label": "Sulphur-crested cockatoo",
         "url": "https://en.wikipedia.org/wiki/Sulphur-crested_cockatoo"
       }
-    ]
+    ],
+    "portfolio": "wildlife",
+    "portfolio_order": 33,
+    "portfolio_title": "Sulphur-crested Cockatoo IV"
   },
   {
     "thumb": "images/thumbs/13092026-162437p9130045-02last-dinosaurs-mc-20.jpg",
@@ -7184,7 +7213,10 @@
         "label": "Sulphur-crested cockatoo",
         "url": "https://en.wikipedia.org/wiki/Sulphur-crested_cockatoo"
       }
-    ]
+    ],
+    "portfolio": "wildlife",
+    "portfolio_order": 32,
+    "portfolio_title": "Sulphur-crested Cockatoo III"
   },
   {
     "thumb": "images/thumbs/13092026-162459p9130048-02last-dinosaurs-mc-20.jpg",
@@ -7485,7 +7517,10 @@
       0.03728606356968215,
       0.943778801843318,
       0.8349633251833741
-    ]
+    ],
+    "portfolio": "detail",
+    "portfolio_order": 25,
+    "portfolio_title": "Human Eye"
   },
   {
     "thumb": "images/thumbs/14092026-170006p9140017-alex-chin.jpg",
@@ -8079,7 +8114,11 @@
         "label": "Paper wasp",
         "url": "https://en.wikipedia.org/wiki/Paper_wasp"
       }
-    ]
+    ],
+    "portfolio": "macro",
+    "portfolio_order": 4,
+    "portfolio_title": "Paper Wasp and Nest",
+    "portfolio_hero": 1
   },
   {
     "thumb": "images/thumbs/15092026-140105p9150003-fluids-redux.jpg",
@@ -8153,7 +8192,10 @@
       0.02631578947368421,
       0.943778801843318,
       0.8835202761000863
-    ]
+    ],
+    "portfolio": "texture",
+    "portfolio_order": 28,
+    "portfolio_title": "Green Drop"
   },
   {
     "thumb": "images/thumbs/15092026-140325p9150080-fluids-redux-12-stack.jpg",
@@ -8599,7 +8641,9 @@
       0.033776301218161685,
       0.943778801843318,
       0.8504983388704319
-    ]
+    ],
+    "portfolio": "detail",
+    "portfolio_order": 24
   },
   {
     "thumb": "images/thumbs/15092026-174604p9150028-01-michael-fender.jpg",
@@ -8835,7 +8879,9 @@
     ],
     "samples": [
       "16092026_184141P9160208 indoor macro.jpg"
-    ]
+    ],
+    "portfolio": "detail",
+    "portfolio_order": 23
   },
   {
     "thumb": "images/thumbs/16092026-184141p9160208-indoor-macro.jpg",
@@ -12152,7 +12198,9 @@
     ],
     "samples": [
       "26092026_101617P9260670 Boronia Park Reserve.jpg"
-    ]
+    ],
+    "portfolio": "macro",
+    "portfolio_order": 18
   },
   {
     "thumb": "images/thumbs/26092026-101617p9260670-boronia-park-reserve.jpg",
@@ -12226,7 +12274,9 @@
     ],
     "samples": [
       "26092026_101723P9260730 Boronia Park Reserve.jpg"
-    ]
+    ],
+    "portfolio": "macro",
+    "portfolio_order": 19
   },
   {
     "thumb": "images/thumbs/26092026-101723p9260730-boronia-park-reserve.jpg",
@@ -12374,7 +12424,9 @@
     ],
     "samples": [
       "26092026_102753P9261010 Boronia Park Reserve.jpg"
-    ]
+    ],
+    "portfolio": "macro",
+    "portfolio_order": 20
   },
   {
     "thumb": "images/thumbs/26092026-102753p9261010-boronia-park-reserve.jpg",
@@ -12596,7 +12648,9 @@
     ],
     "samples": [
       "20260926_145730P9260352.jpg"
-    ]
+    ],
+    "portfolio": "macro",
+    "portfolio_order": 5
   },
   {
     "thumb": "images/thumbs/20260926-145730p9260352.jpg",
@@ -13114,7 +13168,9 @@
     ],
     "samples": [
       "20260927_115255P9270115.jpg"
-    ]
+    ],
+    "portfolio": "macro",
+    "portfolio_order": 6
   },
   {
     "thumb": "images/thumbs/20260927-115255p9270115.jpg",
@@ -13614,7 +13670,9 @@
     ],
     "samples": [
       "20260927_193430P9270395_01.jpg"
-    ]
+    ],
+    "portfolio": "macro",
+    "portfolio_order": 21
   },
   {
     "thumb": "images/thumbs/20260927-193430p9270395-01.jpg",
@@ -13688,7 +13746,9 @@
     ],
     "samples": [
       "20260927_193541P9270495.jpg"
-    ]
+    ],
+    "portfolio": "macro",
+    "portfolio_order": 22
   },
   {
     "thumb": "images/thumbs/20260927-193541p9270495.jpg",
@@ -14244,7 +14304,10 @@
     ],
     "samples": [
       "20260930_191030P9300530.jpg"
-    ]
+    ],
+    "portfolio": "texture",
+    "portfolio_order": 29,
+    "portfolio_title": "Through the Drops"
   },
   {
     "thumb": "images/thumbs/20260930-191030p9300530.jpg",
@@ -14952,7 +15015,10 @@
     ],
     "samples": [
       "20261003_131304PA030626.jpg"
-    ]
+    ],
+    "portfolio": "macro",
+    "portfolio_order": 14,
+    "portfolio_title": "Moth on a Leaf"
   },
   {
     "thumb": "images/thumbs/20261003-131304pa030626.jpg",
@@ -15686,7 +15752,9 @@
     ],
     "samples": [
       "20261003_145404PA031210.jpg"
-    ]
+    ],
+    "portfolio": "macro",
+    "portfolio_order": 16
   },
   {
     "thumb": "images/thumbs/20261003-145404pa031210.jpg",
@@ -15760,7 +15828,9 @@
     ],
     "samples": [
       "20261003_145832PA031304.jpg"
-    ]
+    ],
+    "portfolio": "macro",
+    "portfolio_order": 17
   },
   {
     "thumb": "images/thumbs/20261003-145832pa031304.jpg",
@@ -15904,7 +15974,10 @@
     ],
     "samples": [
       "20261003_152343PA031418.jpg"
-    ]
+    ],
+    "portfolio": "macro",
+    "portfolio_order": 15,
+    "portfolio_title": "Moth"
   },
   {
     "thumb": "images/thumbs/20261003-152343pa031418.jpg",
@@ -16012,7 +16085,10 @@
         "label": "Grey-headed flying fox",
         "url": "https://en.wikipedia.org/wiki/Grey-headed_flying_fox"
       }
-    ]
+    ],
+    "portfolio": "wildlife",
+    "portfolio_order": 36,
+    "portfolio_title": "Flying Fox, Wrapped Up"
   },
   {
     "thumb": "images/thumbs/bats-at-tarban-creek-pa040164.jpg",
@@ -16440,7 +16516,10 @@
         "label": "Grey-headed flying fox",
         "url": "https://en.wikipedia.org/wiki/Grey-headed_flying_fox"
       }
-    ]
+    ],
+    "portfolio": "wildlife",
+    "portfolio_order": 39,
+    "portfolio_title": "Flying Fox Colony"
   },
   {
     "thumb": "images/thumbs/bats-at-tarban-creek-pa040191.jpg",
@@ -16564,7 +16643,10 @@
         "label": "Grey-headed flying fox",
         "url": "https://en.wikipedia.org/wiki/Grey-headed_flying_fox"
       }
-    ]
+    ],
+    "portfolio": "wildlife",
+    "portfolio_order": 37,
+    "portfolio_title": "Flying Fox Against the Sky"
   },
   {
     "thumb": "images/thumbs/bats-at-tarban-creek-pa040199.jpg",
@@ -16888,7 +16970,11 @@
         "label": "Grey-headed flying fox",
         "url": "https://en.wikipedia.org/wiki/Grey-headed_flying_fox"
       }
-    ]
+    ],
+    "portfolio": "wildlife",
+    "portfolio_order": 35,
+    "portfolio_title": "Flying Fox at Night",
+    "portfolio_hero": 6
   },
   {
     "thumb": "images/thumbs/bats-at-tarban-creek-pa040275.jpg",
@@ -17055,7 +17141,10 @@
         "label": "Grey-headed flying fox",
         "url": "https://en.wikipedia.org/wiki/Grey-headed_flying_fox"
       }
-    ]
+    ],
+    "portfolio": "wildlife",
+    "portfolio_order": 38,
+    "portfolio_title": "Flying Fox, Wings Open"
   },
   {
     "thumb": "images/thumbs/bats-at-tarban-creek-pa040285.jpg",
@@ -17217,7 +17306,11 @@
         "label": "Transverse ladybird (Coccinella transversalis)",
         "url": "https://en.wikipedia.org/wiki/Coccinella_transversalis"
       }
-    ]
+    ],
+    "portfolio": "macro",
+    "portfolio_order": 8,
+    "portfolio_title": "Transverse Ladybird",
+    "portfolio_hero": 5
   },
   {
     "thumb": "images/thumbs/ladybug-with-helicon-stacker-2026-10-05-13-11-13-c-s2.jpg",
@@ -17361,7 +17454,9 @@
         "label": "Orb-weaver spider",
         "url": "https://en.wikipedia.org/wiki/Orb-weaver_spider"
       }
-    ]
+    ],
+    "portfolio": "macro",
+    "portfolio_order": 11
   },
   {
     "thumb": "images/thumbs/2026-10-05-16-54-19-b-r4-s2-spider-eggs.jpg",
@@ -17469,7 +17564,9 @@
         "label": "Flower wasps (Thynnidae)",
         "url": "https://en.wikipedia.org/wiki/Thynnidae"
       }
-    ]
+    ],
+    "portfolio": "macro",
+    "portfolio_order": 9
   },
   {
     "thumb": "images/thumbs/2026-10-05-17-16-15-a-r6-s2-wolf-spider.jpg",
@@ -17577,7 +17674,9 @@
         "label": "Jumping spider",
         "url": "https://en.wikipedia.org/wiki/Jumping_spider"
       }
-    ]
+    ],
+    "portfolio": "macro",
+    "portfolio_order": 10
   },
   {
     "thumb": "images/thumbs/2026-10-05-17-25-02-a-r6-s2-wolf-spider-hanging-out.jpg",
@@ -17653,7 +17752,9 @@
         "label": "St Andrew's Cross spider (Argiope keyserlingi)",
         "url": "https://en.wikipedia.org/wiki/Argiope_keyserlingi"
       }
-    ]
+    ],
+    "portfolio": "macro",
+    "portfolio_order": 7
   },
   {
     "thumb": "images/thumbs/2026-10-05-19-00-38-c-s2-female-wasp.jpg",
@@ -17806,7 +17907,9 @@
     ],
     "samples": [
       "10102026_123424PA100722 wing 1.tif"
-    ]
+    ],
+    "portfolio": "macro",
+    "portfolio_order": 13
   },
   {
     "thumb": "images/thumbs/10102026-123424pa100722-wing-1.jpg",
@@ -17880,7 +17983,10 @@
     ],
     "samples": [
       "20261010_123624PA100900.tif"
-    ]
+    ],
+    "portfolio": "macro",
+    "portfolio_order": 12,
+    "portfolio_hero": 2
   },
   {
     "thumb": "images/thumbs/20261010-123624pa100900.jpg",

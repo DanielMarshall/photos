@@ -429,6 +429,8 @@ plain-JPG sibling with EXIF.
   resolution, titles, sort order).
 - `apply_borders.py` — border-baking batch script (wraps `exifborder.py`).
 - `strip_exif.py` — one-off EXIF-stripping utility.
+- `portfolio/` — the client-facing portfolio page (`index.html`,
+  `portfolio.css`, `portfolio.js`); see Current status.
 - `check_settings.py` — quick CLI to dump EXIF settings for one or more
   files in a folder; useful when investigating a new batch.
 
