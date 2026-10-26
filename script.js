@@ -12,6 +12,7 @@
   const lbMeta = document.getElementById('lb-meta');
   const lbZoom = document.getElementById('lb-zoom');
   const lbFullscreenBtn = document.getElementById('lb-fullscreen-btn');
+  const lbDownload = document.getElementById('lb-download');
   const lbSampleBtns = document.getElementById('lb-sample-btns');
   const lbDetailBtns = document.getElementById('lb-detail-btns');
   const lbDetailHi = document.getElementById('lb-detail-hi');
@@ -1621,6 +1622,7 @@
   // URL for as long as we're on the same photo, so toggling back and forth
   // doesn't re-download it. Released whenever we move to a different photo.
   let fullObjectURL = null;
+  let fullBytes = 0; // its size, for the Download button's label
   let loadToken = 0;
 
   // Set by a "View detail" button so that, once the full-resolution image
@@ -2792,6 +2794,43 @@
     });
   }
 
+  // Download whatever is on screen: the bordered medium image (for a photo
+  // with a cropped Final Frame, that already IS the crop), or -- in the
+  // full-res view -- the whole full-resolution file. The full-res copy is
+  // already in memory as fullObjectURL, so saving it costs no second download.
+  // The medium file's size isn't known until asked for, so a HEAD request
+  // fills it in; downloadToken drops a reply that arrives after moving on.
+  let downloadToken = 0;
+
+  function formatMB(bytes) {
+    return bytes ? ` (${(bytes / 1048576).toFixed(1)} MB)` : '';
+  }
+
+  function downloadName(item, full) {
+    const base = item.title || item.caption || item.medium.split('/').pop().replace(/\.jpe?g$/i, '');
+    // Windows can't use \ / : * ? " < > | in file names; titles often have a colon.
+    const safe = base.replace(/\s*:\s*/g, ' - ').replace(/[\\/*?"<>|]/g, '').replace(/\s+/g, ' ').trim();
+    return `${safe} - Daniel Marshall${full ? ' (full res)' : ''}.jpg`;
+  }
+
+  function updateDownloadLink(item) {
+    const token = ++downloadToken;
+    const full = zoomed && !!fullObjectURL;
+    const label = full ? '\u21E9 Download full res' : '\u21E9 Download';
+    lbDownload.href = full ? fullObjectURL : item.medium;
+    lbDownload.download = downloadName(item, full);
+    lbDownload.title = full ? 'Save the full-resolution image' : 'Save this image, with its border';
+    if (full) {
+      lbDownload.textContent = label + formatMB(fullBytes);
+      return;
+    }
+    lbDownload.textContent = label;
+    fetch(item.medium, { method: 'HEAD' }).then((r) => {
+      const n = Number(r.headers.get('Content-Length')) || 0;
+      if (token === downloadToken && n) lbDownload.textContent = label + formatMB(n);
+    }).catch(() => {});
+  }
+
   function render() {
     const item = items[current];
     hideDetailHighlight();
@@ -2841,6 +2880,7 @@
     lbImg.src = zoomed ? fullObjectURL : item.medium;
     lbImg.alt = item.title || item.caption || 'Photo';
     lbZoom.textContent = zoomed ? 'Back to normal size' : 'View full resolution';
+    updateDownloadLink(item);
     syncLbHeart();
 
     // Stack <-> example slice links: a thumbnail pill per partner photo.
@@ -3373,6 +3413,7 @@
       if (myToken !== loadToken) return; // moved on while awaiting the blob
 
       fullObjectURL = URL.createObjectURL(blob);
+      fullBytes = blob.size;
       zoomed = true;
       render();
     } catch (err) {
