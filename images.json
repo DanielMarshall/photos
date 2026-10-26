@@ -377,13 +377,13 @@
         "url": "https://en.wikipedia.org/wiki/Pappus_(botany)"
       }
     ],
-    "samples": [
-      "STACK-DANDELIONP9040361_01.jpg"
-    ],
     "portfolio": "macro",
     "portfolio_order": 1,
     "portfolio_title": "Dandelion Seed Head",
-    "portfolio_hero": 3
+    "portfolio_hero": 3,
+    "samples": [
+      "STACK-DANDELIONP9040361_01.jpg"
+    ]
   },
   {
     "thumb": "images/thumbs/stack-dandelionp9040361-01.jpg",
@@ -2086,12 +2086,12 @@
         "url": "https://en.wikipedia.org/wiki/Orb-weaver_spider"
       }
     ],
-    "samples": [
-      "11092026_201904P9111337.jpg"
-    ],
     "portfolio": "macro",
     "portfolio_order": 2,
-    "portfolio_title": "Garden Orb Weaver"
+    "portfolio_title": "Garden Orb Weaver",
+    "samples": [
+      "11092026_201904P9111337.jpg"
+    ]
   },
   {
     "thumb": "images/thumbs/11092026-201904p9111337.jpg",
@@ -8877,11 +8877,11 @@
       0.943778801843318,
       0.8349633251833741
     ],
+    "portfolio": "detail",
+    "portfolio_order": 23,
     "samples": [
       "16092026_184141P9160208 indoor macro.jpg"
-    ],
-    "portfolio": "detail",
-    "portfolio_order": 23
+    ]
   },
   {
     "thumb": "images/thumbs/16092026-184141p9160208-indoor-macro.jpg",
@@ -12196,11 +12196,11 @@
       0.943778801843318,
       0.8504983388704319
     ],
+    "portfolio": "macro",
+    "portfolio_order": 18,
     "samples": [
       "26092026_101617P9260670 Boronia Park Reserve.jpg"
-    ],
-    "portfolio": "macro",
-    "portfolio_order": 18
+    ]
   },
   {
     "thumb": "images/thumbs/26092026-101617p9260670-boronia-park-reserve.jpg",
@@ -12272,11 +12272,11 @@
         "url": "https://en.wikipedia.org/wiki/Cornu_aspersum"
       }
     ],
+    "portfolio": "macro",
+    "portfolio_order": 19,
     "samples": [
       "26092026_101723P9260730 Boronia Park Reserve.jpg"
-    ],
-    "portfolio": "macro",
-    "portfolio_order": 19
+    ]
   },
   {
     "thumb": "images/thumbs/26092026-101723p9260730-boronia-park-reserve.jpg",
@@ -12422,11 +12422,11 @@
         "url": "https://en.wikipedia.org/wiki/Thomisidae"
       }
     ],
+    "portfolio": "macro",
+    "portfolio_order": 20,
     "samples": [
       "26092026_102753P9261010 Boronia Park Reserve.jpg"
-    ],
-    "portfolio": "macro",
-    "portfolio_order": 20
+    ]
   },
   {
     "thumb": "images/thumbs/26092026-102753p9261010-boronia-park-reserve.jpg",
@@ -12646,11 +12646,11 @@
         "url": "https://en.wikipedia.org/wiki/Bidens_pilosa"
       }
     ],
+    "portfolio": "macro",
+    "portfolio_order": 5,
     "samples": [
       "20260926_145730P9260352.jpg"
-    ],
-    "portfolio": "macro",
-    "portfolio_order": 5
+    ]
   },
   {
     "thumb": "images/thumbs/20260926-145730p9260352.jpg",
@@ -13166,11 +13166,11 @@
         "url": "https://en.wikipedia.org/wiki/Argiope_keyserlingi"
       }
     ],
+    "portfolio": "macro",
+    "portfolio_order": 6,
     "samples": [
       "20260927_115255P9270115.jpg"
-    ],
-    "portfolio": "macro",
-    "portfolio_order": 6
+    ]
   },
   {
     "thumb": "images/thumbs/20260927-115255p9270115.jpg",
@@ -13668,11 +13668,11 @@
         "url": "https://en.wikipedia.org/wiki/Cockroach"
       }
     ],
+    "portfolio": "macro",
+    "portfolio_order": 21,
     "samples": [
       "20260927_193430P9270395_01.jpg"
-    ],
-    "portfolio": "macro",
-    "portfolio_order": 21
+    ]
   },
   {
     "thumb": "images/thumbs/20260927-193430p9270395-01.jpg",
@@ -13744,11 +13744,11 @@
         "url": "https://en.wikipedia.org/wiki/Cockroach"
       }
     ],
+    "portfolio": "macro",
+    "portfolio_order": 22,
     "samples": [
       "20260927_193541P9270495.jpg"
-    ],
-    "portfolio": "macro",
-    "portfolio_order": 22
+    ]
   },
   {
     "thumb": "images/thumbs/20260927-193541p9270495.jpg",
@@ -14302,12 +14302,12 @@
       0.943778801843318,
       0.8504983388704319
     ],
-    "samples": [
-      "20260930_191030P9300530.jpg"
-    ],
     "portfolio": "texture",
     "portfolio_order": 29,
-    "portfolio_title": "Through the Drops"
+    "portfolio_title": "Through the Drops",
+    "samples": [
+      "20260930_191030P9300530.jpg"
+    ]
   },
   {
     "thumb": "images/thumbs/20260930-191030p9300530.jpg",
@@ -15013,12 +15013,12 @@
       0.943778801843318,
       0.8504983388704319
     ],
-    "samples": [
-      "20261003_131304PA030626.jpg"
-    ],
     "portfolio": "macro",
     "portfolio_order": 14,
-    "portfolio_title": "Moth on a Leaf"
+    "portfolio_title": "Moth on a Leaf",
+    "samples": [
+      "20261003_131304PA030626.jpg"
+    ]
   },
   {
     "thumb": "images/thumbs/20261003-131304pa030626.jpg",
@@ -15750,11 +15750,11 @@
         "url": "https://en.wikipedia.org/wiki/Pentatomidae"
       }
     ],
+    "portfolio": "macro",
+    "portfolio_order": 16,
     "samples": [
       "20261003_145404PA031210.jpg"
-    ],
-    "portfolio": "macro",
-    "portfolio_order": 16
+    ]
   },
   {
     "thumb": "images/thumbs/20261003-145404pa031210.jpg",
@@ -15826,11 +15826,11 @@
         "url": "https://en.wikipedia.org/wiki/Cicada"
       }
     ],
+    "portfolio": "macro",
+    "portfolio_order": 17,
     "samples": [
       "20261003_145832PA031304.jpg"
-    ],
-    "portfolio": "macro",
-    "portfolio_order": 17
+    ]
   },
   {
     "thumb": "images/thumbs/20261003-145832pa031304.jpg",
@@ -15972,12 +15972,12 @@
       0.943778801843318,
       0.8504983388704319
     ],
-    "samples": [
-      "20261003_152343PA031418.jpg"
-    ],
     "portfolio": "macro",
     "portfolio_order": 15,
-    "portfolio_title": "Moth"
+    "portfolio_title": "Moth",
+    "samples": [
+      "20261003_152343PA031418.jpg"
+    ]
   },
   {
     "thumb": "images/thumbs/20261003-152343pa031418.jpg",
@@ -17905,11 +17905,11 @@
         "url": "https://en.wikipedia.org/wiki/Yellow_admiral"
       }
     ],
+    "portfolio": "macro",
+    "portfolio_order": 13,
     "samples": [
       "10102026_123424PA100722 wing 1.tif"
-    ],
-    "portfolio": "macro",
-    "portfolio_order": 13
+    ]
   },
   {
     "thumb": "images/thumbs/10102026-123424pa100722-wing-1.jpg",
@@ -17981,12 +17981,12 @@
         "url": "https://en.wikipedia.org/wiki/Yellow_admiral"
       }
     ],
-    "samples": [
-      "20261010_123624PA100900.tif"
-    ],
     "portfolio": "macro",
     "portfolio_order": 12,
-    "portfolio_hero": 2
+    "portfolio_hero": 2,
+    "samples": [
+      "20261010_123624PA100900.tif"
+    ]
   },
   {
     "thumb": "images/thumbs/20261010-123624pa100900.jpg",
@@ -18020,5 +18020,875 @@
       0.8504983388704319
     ],
     "sample_of": "20261010_123624PA100900 butterfly hairy eye 76stacked.tif"
+  },
+  {
+    "thumb": "images/thumbs/20261019-192339pa190149-wasp-nest-50stacked.jpg",
+    "medium": "images/medium/20261019-192339pa190149-wasp-nest-50stacked.jpg",
+    "full": "images/full/20261019-192339pa190149-wasp-nest-50stacked.jpg",
+    "original_filename": "20261019_192339PA190149 wasp nest 50stacked.jpg",
+    "caption": "20261019 192339PA190149 wasp nest 50stacked",
+    "title": "Wasp Nest III",
+    "description": "A paper wasp nest, its open cells showing the young developing inside. 50-photo stack, combined in Zerene Stacker.",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:19 19:23:39"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "links": [
+      {
+        "label": "Paper wasp",
+        "url": "https://en.wikipedia.org/wiki/Paper_wasp"
+      }
+    ],
+    "samples": [
+      "20261019_192339PA190149.tif"
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20261019-192339pa190149.jpg",
+    "medium": "images/medium/20261019-192339pa190149.jpg",
+    "full": "images/full/20261019-192339pa190149.jpg",
+    "original_filename": "20261019_192339PA190149.tif",
+    "caption": "20261019 192339PA190149.tif",
+    "title": "Wasp Nest III: Example Slice",
+    "description": "Sample stack slice",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:19 19:23:39"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "sample_of": "20261019_192339PA190149 wasp nest 50stacked.jpg"
+  },
+  {
+    "thumb": "images/thumbs/20261021-162656pa210023.jpg",
+    "medium": "images/medium/20261021-162656pa210023.jpg",
+    "full": "images/full/20261021-162656pa210023.jpg",
+    "original_filename": "20261021_162656PA210023.jpg",
+    "caption": "20261021 162656PA210023",
+    "title": "Dinosaur on the Railing",
+    "description": "One of the regular cockatoos on the back railing, shot with the new 12mm wide-angle lens.",
+    "category": "Gladesville",
+    "subcategory": "Dinosaurs",
+    "location": "Gladesville",
+    "settings": {
+      "aperture": "f/5.6",
+      "shutter": "1/200s",
+      "iso": 200,
+      "focal": "12mm",
+      "lens": "OLYMPUS M.12mm F2.0",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:21 16:26:56"
+    },
+    "size": [
+      3200,
+      2400
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "links": [
+      {
+        "label": "Sulphur-crested cockatoo",
+        "url": "https://en.wikipedia.org/wiki/Sulphur-crested_cockatoo"
+      }
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20261021-162740pa210025.jpg",
+    "medium": "images/medium/20261021-162740pa210025.jpg",
+    "full": "images/full/20261021-162740pa210025.jpg",
+    "original_filename": "20261021_162740PA210025.jpg",
+    "caption": "20261021 162740PA210025",
+    "title": "Dinosaurs on the Railing",
+    "description": "Three of them lined up on the railing, waiting for almonds.",
+    "category": "Gladesville",
+    "subcategory": "Dinosaurs",
+    "location": "Gladesville",
+    "settings": {
+      "aperture": "f/5.6",
+      "shutter": "1/125s",
+      "iso": 200,
+      "focal": "12mm",
+      "lens": "OLYMPUS M.12mm F2.0",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:21 16:27:40"
+    },
+    "size": [
+      3200,
+      2400
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "links": [
+      {
+        "label": "Sulphur-crested cockatoo",
+        "url": "https://en.wikipedia.org/wiki/Sulphur-crested_cockatoo"
+      }
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20261024-111020pa240027.jpg",
+    "medium": "images/medium/20261024-111020pa240027.jpg",
+    "full": "images/full/20261024-111020pa240027.jpg",
+    "original_filename": "20261024_111020PA240027.jpg",
+    "caption": "20261024 111020PA240027",
+    "title": "Orb Weaver in the Garden",
+    "description": "An orb-weaver at the hub of its web, with the back yard where the macro subjects live behind it. 12mm wide-angle.",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/2.5",
+      "shutter": "1/100s",
+      "iso": 80,
+      "focal": "12mm",
+      "lens": "OLYMPUS M.12mm F2.0",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:24 11:10:20"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "links": [
+      {
+        "label": "Orb-weaver spider",
+        "url": "https://en.wikipedia.org/wiki/Orb-weaver_spider"
+      }
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20261024-111025pa240034.jpg",
+    "medium": "images/medium/20261024-111025pa240034.jpg",
+    "full": "images/full/20261024-111025pa240034.jpg",
+    "original_filename": "20261024_111025PA240034.jpg",
+    "caption": "20261024 111025PA240034",
+    "title": "Orb Weaver in the Garden II",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/2.5",
+      "shutter": "1/100s",
+      "iso": 80,
+      "focal": "12mm",
+      "lens": "OLYMPUS M.12mm F2.0",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:24 11:10:25"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "links": [
+      {
+        "label": "Orb-weaver spider",
+        "url": "https://en.wikipedia.org/wiki/Orb-weaver_spider"
+      }
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20261024-171214pa240041.jpg",
+    "medium": "images/medium/20261024-171214pa240041.jpg",
+    "full": "images/full/20261024-171214pa240041.jpg",
+    "original_filename": "20261024_171214PA240041.jpg",
+    "caption": "20261024 171214PA240041",
+    "title": "The Back Yard",
+    "description": "Monstera and long grass: prime spider territory. 12mm wide-angle.",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/2.5",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "12mm",
+      "lens": "OLYMPUS M.12mm F2.0",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:24 17:12:14"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20261024-171229pa240046.jpg",
+    "medium": "images/medium/20261024-171229pa240046.jpg",
+    "full": "images/full/20261024-171229pa240046.jpg",
+    "original_filename": "20261024_171229PA240046.jpg",
+    "caption": "20261024 171229PA240046",
+    "title": "The Back Yard II",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/2.5",
+      "shutter": "1/100s",
+      "iso": 80,
+      "focal": "12mm",
+      "lens": "OLYMPUS M.12mm F2.0",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:24 17:12:29"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20261024-171257pa240048.jpg",
+    "medium": "images/medium/20261024-171257pa240048.jpg",
+    "full": "images/full/20261024-171257pa240048.jpg",
+    "original_filename": "20261024_171257PA240048.jpg",
+    "caption": "20261024 171257PA240048",
+    "title": "Web in the Branches",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/2.5",
+      "shutter": "1/100s",
+      "iso": 250,
+      "focal": "12mm",
+      "lens": "OLYMPUS M.12mm F2.0",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:24 17:12:57"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20261024-171419pa240054.jpg",
+    "medium": "images/medium/20261024-171419pa240054.jpg",
+    "full": "images/full/20261024-171419pa240054.jpg",
+    "original_filename": "20261024_171419PA240054.jpg",
+    "caption": "20261024 171419PA240054",
+    "title": "Web by the House",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/2.5",
+      "shutter": "1/100s",
+      "iso": 320,
+      "focal": "12mm",
+      "lens": "OLYMPUS M.12mm F2.0",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:24 17:14:19"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20261024-171624pa240061.jpg",
+    "medium": "images/medium/20261024-171624pa240061.jpg",
+    "full": "images/full/20261024-171624pa240061.jpg",
+    "original_filename": "20261024_171624PA240061.jpg",
+    "caption": "20261024 171624PA240061",
+    "title": "Farmer's Friend Patch",
+    "description": "The farmer's friend growing wild in the back yard, its spiky seed heads ready to hitch a ride.",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/2.5",
+      "shutter": "1/100s",
+      "iso": 160,
+      "focal": "12mm",
+      "lens": "OLYMPUS M.12mm F2.0",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:24 17:16:24"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "links": [
+      {
+        "label": "Farmer's friend (Bidens pilosa)",
+        "url": "https://en.wikipedia.org/wiki/Bidens_pilosa"
+      }
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20261024-172816pa240075.jpg",
+    "medium": "images/medium/20261024-172816pa240075.jpg",
+    "full": "images/full/20261024-172816pa240075.jpg",
+    "original_filename": "20261024_172816PA240075.jpg",
+    "caption": "20261024 172816PA240075",
+    "title": "Dinosaur on the Awning",
+    "description": "Peering down from the edge of the awning.",
+    "category": "Gladesville",
+    "subcategory": "Dinosaurs",
+    "location": "Gladesville",
+    "settings": {
+      "aperture": "f/2.5",
+      "shutter": "1/100s",
+      "iso": 80,
+      "focal": "12mm",
+      "lens": "OLYMPUS M.12mm F2.0",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:24 17:28:16"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "links": [
+      {
+        "label": "Sulphur-crested cockatoo",
+        "url": "https://en.wikipedia.org/wiki/Sulphur-crested_cockatoo"
+      }
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20261025-073327pa250095.jpg",
+    "medium": "images/medium/20261025-073327pa250095.jpg",
+    "full": "images/full/20261025-073327pa250095.jpg",
+    "original_filename": "20261025_073327PA250095.jpg",
+    "caption": "20261025 073327PA250095",
+    "title": "Orb Weaver by the House",
+    "description": "An orb-weaver in its web at dawn, the house behind.",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/2",
+      "shutter": "1/8000s",
+      "iso": 250,
+      "focal": "12mm",
+      "lens": "OLYMPUS M.12mm F2.0",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:25 07:33:27"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "links": [
+      {
+        "label": "Orb-weaver spider",
+        "url": "https://en.wikipedia.org/wiki/Orb-weaver_spider"
+      }
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20261025-073503pa250108.jpg",
+    "medium": "images/medium/20261025-073503pa250108.jpg",
+    "full": "images/full/20261025-073503pa250108.jpg",
+    "original_filename": "20261025_073503PA250108.jpg",
+    "caption": "20261025 073503PA250108",
+    "title": "Spider in the Leaves",
+    "description": "",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/2",
+      "shutter": "1/8000s",
+      "iso": 4000,
+      "focal": "12mm",
+      "lens": "OLYMPUS M.12mm F2.0",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:25 07:35:03"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ]
+  },
+  {
+    "thumb": "images/thumbs/26102026-174929pa260016-huntsman-55stacked.jpg",
+    "medium": "images/medium/26102026-174929pa260016-huntsman-55stacked.jpg",
+    "full": "images/full/26102026-174929pa260016-huntsman-55stacked.jpg",
+    "original_filename": "26102026_174929PA260016 huntsman 55stacked.jpg",
+    "caption": "26102026 174929PA260016 huntsman 55stacked",
+    "title": "Huntsman",
+    "description": "A huntsman spider head-on, its long legs spread across a weathered plank. 55-photo stack, combined in Zerene Stacker.",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:26 17:49:29"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "links": [
+      {
+        "label": "Huntsman spider (Sparassidae)",
+        "url": "https://en.wikipedia.org/wiki/Huntsman_spider"
+      }
+    ],
+    "samples": [
+      "26102026_174929PA260016 huntsman.tif"
+    ]
+  },
+  {
+    "thumb": "images/thumbs/26102026-174929pa260016-huntsman.jpg",
+    "medium": "images/medium/26102026-174929pa260016-huntsman.jpg",
+    "full": "images/full/26102026-174929pa260016-huntsman.jpg",
+    "original_filename": "26102026_174929PA260016 huntsman.tif",
+    "caption": "26102026 174929PA260016 huntsman.tif",
+    "title": "Huntsman: Example Slice",
+    "description": "Sample stack slice",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:26 17:49:29"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "sample_of": "26102026_174929PA260016 huntsman 55stacked.jpg"
+  },
+  {
+    "thumb": "images/thumbs/26102026-175136pa260115-huntsman-70stacked.jpg",
+    "medium": "images/medium/26102026-175136pa260115-huntsman-70stacked.jpg",
+    "full": "images/full/26102026-175136pa260115-huntsman-70stacked.jpg",
+    "original_filename": "26102026_175136PA260115 huntsman 70stacked.jpg",
+    "caption": "26102026 175136PA260115 huntsman 70stacked",
+    "title": "Huntsman II",
+    "description": "Closer in, the hairy fangs front and centre. 70-photo stack, combined in Zerene Stacker.",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:26 17:51:36"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "links": [
+      {
+        "label": "Huntsman spider (Sparassidae)",
+        "url": "https://en.wikipedia.org/wiki/Huntsman_spider"
+      }
+    ],
+    "samples": [
+      "26102026_175136PA260115 huntsman.tif"
+    ]
+  },
+  {
+    "thumb": "images/thumbs/26102026-175136pa260115-huntsman.jpg",
+    "medium": "images/medium/26102026-175136pa260115-huntsman.jpg",
+    "full": "images/full/26102026-175136pa260115-huntsman.jpg",
+    "original_filename": "26102026_175136PA260115 huntsman.tif",
+    "caption": "26102026 175136PA260115 huntsman.tif",
+    "title": "Huntsman II: Example Slice",
+    "description": "Sample stack slice",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:26 17:51:36"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "sample_of": "26102026_175136PA260115 huntsman 70stacked.jpg"
+  },
+  {
+    "thumb": "images/thumbs/26102026-175345pa260223-huntsman-92stacked.jpg",
+    "medium": "images/medium/26102026-175345pa260223-huntsman-92stacked.jpg",
+    "full": "images/full/26102026-175345pa260223-huntsman-92stacked.jpg",
+    "original_filename": "26102026_175345PA260223 huntsman 92stacked.jpg",
+    "caption": "26102026 175345PA260223 huntsman 92stacked",
+    "title": "Huntsman Face",
+    "description": "The huntsman's eight eyes in two rows above its fangs. 92-photo stack, combined in Zerene Stacker.",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:26 17:53:45"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "links": [
+      {
+        "label": "Huntsman spider (Sparassidae)",
+        "url": "https://en.wikipedia.org/wiki/Huntsman_spider"
+      }
+    ],
+    "samples": [
+      "26102026_175345PA260223 huntsman.tif"
+    ]
+  },
+  {
+    "thumb": "images/thumbs/26102026-175345pa260223-huntsman.jpg",
+    "medium": "images/medium/26102026-175345pa260223-huntsman.jpg",
+    "full": "images/full/26102026-175345pa260223-huntsman.jpg",
+    "original_filename": "26102026_175345PA260223 huntsman.tif",
+    "caption": "26102026 175345PA260223 huntsman.tif",
+    "title": "Huntsman Face: Example Slice",
+    "description": "Sample stack slice",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:26 17:53:45"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "sample_of": "26102026_175345PA260223 huntsman 92stacked.jpg"
+  },
+  {
+    "thumb": "images/thumbs/26102026-175834pa260330-huntsman-72stacked.jpg",
+    "medium": "images/medium/26102026-175834pa260330-huntsman-72stacked.jpg",
+    "full": "images/full/26102026-175834pa260330-huntsman-72stacked.jpg",
+    "original_filename": "26102026_175834PA260330 huntsman 72stacked.jpg",
+    "caption": "26102026 175834PA260330 huntsman 72stacked",
+    "title": "Huntsman Face II",
+    "description": "Closer still on the eyes and fangs. 72-photo stack, combined in Zerene Stacker.",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:26 17:58:34"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "links": [
+      {
+        "label": "Huntsman spider (Sparassidae)",
+        "url": "https://en.wikipedia.org/wiki/Huntsman_spider"
+      }
+    ],
+    "samples": [
+      "26102026_175834PA260330 huntsman.tif"
+    ]
+  },
+  {
+    "thumb": "images/thumbs/26102026-175834pa260330-huntsman.jpg",
+    "medium": "images/medium/26102026-175834pa260330-huntsman.jpg",
+    "full": "images/full/26102026-175834pa260330-huntsman.jpg",
+    "original_filename": "26102026_175834PA260330 huntsman.tif",
+    "caption": "26102026 175834PA260330 huntsman.tif",
+    "title": "Huntsman Face II: Example Slice",
+    "description": "Sample stack slice",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:26 17:58:34"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "sample_of": "26102026_175834PA260330 huntsman 72stacked.jpg"
+  },
+  {
+    "thumb": "images/thumbs/26102026-180834pa260530-huntsman-95stack.jpg",
+    "medium": "images/medium/26102026-180834pa260530-huntsman-95stack.jpg",
+    "full": "images/full/26102026-180834pa260530-huntsman-95stack.jpg",
+    "original_filename": "26102026_180834PA260530 huntsman 95stack.jpg",
+    "caption": "26102026 180834PA260530 huntsman 95stack",
+    "title": "Huntsman Eyes",
+    "description": "Right in on the eyes, with the MC-20 2x teleconverter. 95-photo stack, combined in Zerene Stacker.",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:26 18:08:34"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "links": [
+      {
+        "label": "Huntsman spider (Sparassidae)",
+        "url": "https://en.wikipedia.org/wiki/Huntsman_spider"
+      }
+    ],
+    "samples": [
+      "26102026_180834PA260530 huntsman.tif"
+    ]
+  },
+  {
+    "thumb": "images/thumbs/26102026-180834pa260530-huntsman.jpg",
+    "medium": "images/medium/26102026-180834pa260530-huntsman.jpg",
+    "full": "images/full/26102026-180834pa260530-huntsman.jpg",
+    "original_filename": "26102026_180834PA260530 huntsman.tif",
+    "caption": "26102026 180834PA260530 huntsman.tif",
+    "title": "Huntsman Eyes: Example Slice",
+    "description": "Sample stack slice",
+    "category": "Gladesville",
+    "subcategory": "Garden",
+    "location": "Home",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:26 18:08:34"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "sample_of": "26102026_180834PA260530 huntsman 95stack.jpg"
   }
 ]

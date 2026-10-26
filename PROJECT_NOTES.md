@@ -15,6 +15,28 @@ that read from the photographer's local Camera Roll.
 
 ## Current status (keep this updated -- read first in a new session)
 
+- **19-26 Oct batch + new 12mm lens (2026-10-26, local session, pushed)**:
+  The photographer now also has an **OLYMPUS M.12mm F2.0** wide-angle (EXIF
+  lens string `OLYMPUS M.12mm F2.0`). It's in `apply_borders.py`
+  `LENS_NAMES` as "M.Zuiko 12mm f/2.0". The home page gear note no longer
+  says "the same camera and lens"; it now says nearly all photos use the
+  90mm, and wide-angle shots from late October 2026 on use a 12mm F2.0.
+  24 files added:
+  - **Zerene JPG stacks** (Zerene can output JPG as well as TIFF; still no
+    EXIF) paired with single-frame TIFFs via `SOURCE_MAP`: Wasp Nest III
+    (paper wasp), plus Huntsman, II, Face, Face II and Eyes (the last with
+    MC-20), linked to Wikipedia's Huntsman spider page. Shot on a tripod,
+    edges clean, so no crop.
+  - **12mm wides in Garden**: Orb Weaver in the Garden I/II and Orb Weaver
+    by the House (orb-weaver link), The Back Yard I/II, Web in the
+    Branches, Web by the House, Spider in the Leaves, Farmer's Friend Patch
+    (*Bidens pilosa* link). They show the yard the macro subjects come from.
+  - **12mm cockatoos** go to the Dinosaurs section via the new
+    `DINOSAURS_12MM` set (that section otherwise matches "last dinosaurs"
+    in the filename): Dinosaur on the Railing, Dinosaurs on the Railing,
+    Dinosaur on the Awning.
+  Titles are Claude's suggestions.
+
 Last updated 2026-10-16 (cloud session, branch `claude/project-thread-ndnuba`).
 
 - **Contact email in footer (2026-10-16, PR from
