@@ -1578,6 +1578,104 @@ def link_samples(items):
     return [i["original_filename"] for i in items
             if i["title"].endswith("Example Slice") and "sample_of" not in i]
 
+# ---------------------------------------------------------------------------
+# Browse tags (2026-10-26): the site's home page is People / Places / Nature /
+# Other. Each photo gets zero or more tags here (Places is not a tag -- the
+# site derives it from the map location, so every photo appears there).
+# Tags: "people", "nature/bugs/<spiders|wasps|ants|beetles|butterflies|other>",
+# "nature/animals/<birds|bats|reptiles|fish|dogs>", "nature/flowers",
+# "nature/plants", "nature/landscapes", "other/<liquids|objects|planes|night>".
+# Rules go by collection (category|subcategory) first, then by title keywords,
+# so new photos with descriptive titles tag themselves; BROWSE_OVERRIDE wins
+# over everything for one-off exceptions.
+# ---------------------------------------------------------------------------
+PEOPLE_COLLECTIONS = {"Gladesville|Michael's Studio", "Gladesville|Michael's Fender",
+                      "Gladesville|Frank photos of Frankie", "Darling Harbour Piano|None"}
+COLLECTION_TAGS = {
+    "Gladesville|Ants": ["nature/bugs/ants"],
+    "Gladesville|Experiments in Liquids": ["other/liquids"],
+    "Gladesville|Dinosaurs": ["nature/animals/birds"],
+    "Gladesville|Michael's Flowers": ["nature/flowers"],
+    "Gladesville|Michael's Cockroach": ["nature/bugs/other"],
+    "Gladesville|Tarban Creek Flying Foxes": ["nature/animals/bats"],
+    "Gladesville|Planes": ["other/planes"],
+    "Gladesville|People": ["nature/animals/dogs"],
+    "Gladesville|Uncategorized": ["other/night"],
+    "Gladesville|Moss": ["nature/plants"],
+}
+# (keyword in title, tags) -- first match wins, so order matters
+# (e.g. "Flower Wasp" before "Flower", "Spider" before "Web").
+TITLE_RULES = [
+    ("Bee on Orange Blossom", ["nature/bugs/wasps", "nature/flowers"]),
+    ("Wasp", ["nature/bugs/wasps"]),
+    ("Ladybird", ["nature/bugs/beetles"]), ("Beetle", ["nature/bugs/beetles"]),
+    ("Butterfly", ["nature/bugs/butterflies"]), ("Yellow Admiral", ["nature/bugs/butterflies"]),
+    ("Moth", ["nature/bugs/butterflies"]), ("Caterpillar", ["nature/bugs/butterflies"]),
+    ("Spider", ["nature/bugs/spiders"]), ("Orb Weaver", ["nature/bugs/spiders"]),
+    ("Huntsman", ["nature/bugs/spiders"]), ("Egg Sac", ["nature/bugs/spiders"]),
+    ("Web in the", ["nature/bugs/spiders", "nature/landscapes"]),
+    ("Web by the", ["nature/bugs/spiders", "nature/landscapes"]),
+    ("Cockroach", ["nature/bugs/other"]), ("Millipede", ["nature/bugs/other"]),
+    ("Grub", ["nature/bugs/other"]), ("Snail", ["nature/bugs/other"]),
+    ("Fly on", ["nature/bugs/other"]), ("Cicada", ["nature/bugs/other"]),
+    ("Insect Eggs", ["nature/bugs/other"]), ("In the Leaves", ["nature/bugs/other"]),
+    ("Whelk", ["nature/bugs/other"]), ("Barnacles", ["nature/bugs/other"]),
+    ("Bin Chicken", ["nature/animals/birds"]), ("Dinosaur", ["nature/animals/birds"]),
+    ("Koi", ["nature/animals/fish"]),
+    ("Water Dragon", ["nature/animals/reptiles"]), ("Sunbathing", ["nature/animals/reptiles"]),
+    ("Weimaraner", ["nature/animals/dogs"]), ("Those Eyes", ["nature/animals/dogs"]),
+    ("Good Boy", ["nature/animals/dogs"]),
+    ("Farmer's Friend", ["nature/plants"]), ("Dandelion", ["nature/plants"]),
+    ("Fern", ["nature/plants"]), ("Pond Surface", ["nature/plants"]),
+    ("Fungus", ["nature/plants"]), ("Wood Ear", ["nature/plants"]),
+    ("Berries", ["nature/plants"]), ("Moss", ["nature/plants"]), ("Brussels Sprout", ["nature/plants"]),
+    ("Flower", ["nature/flowers"]), ("Salvia", ["nature/flowers"]), ("Blossom", ["nature/landscapes"]),
+    ("Back Yard", ["nature/landscapes"]), ("Waterfall", ["nature/landscapes"]),
+    ("Yacht", ["nature/landscapes"]), ("Rowing Club", ["nature/landscapes"]),
+    ("Masts and Rooftops", ["nature/landscapes"]), ("Palms and Chimneys", ["nature/landscapes"]),
+    ("Red Sail", ["nature/landscapes"]),
+    ("Qantas Overhead", ["other/planes"]),
+    ("Hard Drive", ["other/objects"]), ("Mandarin Peel", ["other/objects"]),
+    ("Wine Cork", ["other/objects"]), ("Holographic", ["other/objects"]),
+]
+PEOPLE_TITLES = {
+    "Kiani", "Slava", "Billy", "Alex: Chin", "Alex: Eye", "Alex: Eye II", "Alex: Eye III",
+    "Caught Mid-Laugh", "Caught Mid-Laugh II", "Nathan", "Diana", "Nathan and Zeke", "Zeke",
+    "Watching the Harbour", "Watching the Harbour II", "Coordinated", "Coordinated II",
+    "Are You Feeling Tipsy?", "Hanfu and a Coles Bag", "Checking In", "Streets of the CBD II",
+    "Poison Ivy Cosplay", "Garden Visitor", "Garden Visitor II", "Garden Visitor III",
+    "QVB Pianist", "QVB Pianist II", "QVB Pianist III", "QVB Pianist IV",
+    "Playing by Ear", "Playing by Ear II", "Playing by Ear III", "Playing by Ear IV",
+}
+# Exceptions by original filename (title-based rules would get these wrong).
+BROWSE_OVERRIDE = {
+    # Waterfall IV-IX are portraits of a visitor sitting by the falls
+    **{f: ["people"] for f in []},
+}
+BROWSE_TITLE_OVERRIDE = {
+    "Waterfall IV": ["people"], "Waterfall V": ["people"], "Waterfall VI": ["people"],
+    "Waterfall VII": ["people"], "Waterfall VIII": ["people"], "Waterfall IX": ["people"],
+    "Pond Through the Blossoms III": [],   # actually a crane against the sky
+    "Water Dragon on the Pavement II": [], "Water Dragon on the Pavement III": [],  # dragon artwork
+}
+
+def browse_tags(original, title, category, subcategory):
+    if original in BROWSE_OVERRIDE:
+        return BROWSE_OVERRIDE[original]
+    base = title.split(": Example Slice")[0]
+    if base in BROWSE_TITLE_OVERRIDE:
+        return BROWSE_TITLE_OVERRIDE[base]
+    key = f"{category}|{subcategory}"
+    if key in PEOPLE_COLLECTIONS or base in PEOPLE_TITLES:
+        return ["people"]
+    if key in COLLECTION_TAGS:
+        return COLLECTION_TAGS[key]
+    for word, tags in TITLE_RULES:
+        if word in base:
+            return tags
+    return []
+
+
 def main():
     with open(os.path.join(PHOTOS, "manifest.tsv"), encoding="utf-8") as f:
         lines = [l.rstrip("\n") for l in f if l.strip()]
@@ -1621,6 +1719,7 @@ def main():
             "medium_crop": crop_state.get(original, {}).get("medium"),
             "medium_frame": medium_frame(os.path.join(PHOTOS, "images", "medium", f"{slug}.jpg"), settings is not None),
         })
+        items[-1]["tags"] = browse_tags(original, title, category, subcategory)
         if original in WIKI_LINKS:
             items[-1]["links"] = [{"label": label, "url": url} for label, url in WIKI_LINKS[original]]
         items[-1].update(portfolio_fields(original))

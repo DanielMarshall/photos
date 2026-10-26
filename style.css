@@ -263,6 +263,58 @@ main {
   margin-bottom: 2.5rem;
 }
 
+/* Browse pages (People / Places / Nature / Other): tab rows under the title,
+   then one block per original collection. */
+.browse-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.2rem 0 0.6rem;
+}
+
+.browse-tab {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.82rem;
+  color: var(--fg);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.browse-tab:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.browse-tab.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.browse-tab-count {
+  opacity: 0.65;
+  font-size: 0.75em;
+  margin-left: 0.15rem;
+}
+
+.browse-subtabs .browse-tab {
+  font-size: 0.76rem;
+  padding: 0.28rem 0.7rem;
+}
+
+.browse-head {
+  margin-bottom: 1.2rem;
+}
+
+.collection-heading {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  color: var(--accent);
+}
+
 .back-link {
   display: inline-flex;
   align-items: center;

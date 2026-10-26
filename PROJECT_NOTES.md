@@ -15,6 +15,39 @@ that read from the photographer's local Camera Roll.
 
 ## Current status (keep this updated -- read first in a new session)
 
+- **Home page restructured to People / Places / Nature / Other
+  (2026-10-26, local session, pushed)**, at the photographer's request. Their
+  choices: a 4th "Other" tile; "Bugs" rather than "Insects" (spiders
+  aren't insects); non-insect animals under Nature > Animals with sub-tabs;
+  keep the old section write-ups wherever their photos land.
+  - **Tags**: `build_data.py` `browse_tags()` gives each photo a `tags` list
+    in `images.json`: `people`, `nature/bugs/{spiders,wasps,ants,beetles,butterflies,other}`,
+    `nature/animals/{birds,bats,reptiles,fish,dogs}`, `nature/{flowers,plants,landscapes}`,
+    `other/{liquids,objects,planes,night}`. Rules: `PEOPLE_COLLECTIONS` /
+    `PEOPLE_TITLES`, then `COLLECTION_TAGS` (by category|subcategory), then
+    `TITLE_RULES` (title keywords, first match wins, so order matters), with
+    `BROWSE_TITLE_OVERRIDE` / `BROWSE_OVERRIDE` for exceptions (Waterfall
+    IV-IX are people; the dragon artwork and the crane shot are untagged).
+    **New photos with descriptive titles tag themselves; check the build's
+    tag counts and add a rule if a new subject lands untagged.** Overlap is
+    small (bee on orange blossom, the two 12mm web shots).
+  - **Places is not a tag**: every photo appears there, under the Map's
+    `placeKey()` (14 place tabs, `PLACE_TAB_ORDER`).
+  - **UI** (`script.js` `BROWSE`, `renderBrowse`): routes `#/b/<top>[/<tab>[/<sub>]]`.
+    Home shows 4 tiles; each cover is the newest photo by capture time. A
+    browse page shows the top's blurb, a tab row ("All" + tabs, with counts),
+    a second row for Bugs and Animals, then the photos **grouped by their
+    original collection** (old category) with its heading and write-up, in
+    `SECTION_ORDER`. The liquids video shows on Other > Liquids and the
+    spider video on Nature > Bugs > Spiders. Old `#/c/<cat|sub>` links still
+    render the old single-collection page. Shared `#/p/<slug>` links now
+    land on the photo's first tag (else its place). The slideshow follows
+    the browse view. Map, Timeline, Hearts and portfolio are unchanged (they
+    don't use the home tiles).
+  - Old sections (`SECTION_ORDER`/`LABELS`/`DESCRIPTIONS`) still matter:
+    they're the collections and write-ups shown inside browse pages, and
+    the global order.
+
 - **19-26 Oct batch + new 12mm lens (2026-10-26, local session, pushed)**:
   The photographer now also has an **OLYMPUS M.12mm F2.0** wide-angle (EXIF
   lens string `OLYMPUS M.12mm F2.0`). It's in `apply_borders.py`
