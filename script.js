@@ -251,7 +251,6 @@
   function updateSlideshowBtn() {
     const btn = document.getElementById('slideshow-start');
     const inHearts = location.hash === '#/hearts';
-    btn.innerHTML = inHearts ? '&#9654; Hearted slideshow' : '&#9654; Slideshow';
     btn.disabled = inHearts && !hearts.length;
   }
 
@@ -1646,8 +1645,17 @@
   // place, so only one place is ever "open" at a time and its pin can stay a
   // small, unobscured, highlighted marker rather than growing into a big grid
   // that might overlap its neighbors.
-  function openMapPanel(group) {
+  // While a place is open, the lightbox's prev/next stays within it, and the
+  // address is #/map/<place> so the view can be shared and restored. The URL
+  // changes via pushState (no hashchange), so opening a place never rebuilds
+  // the map; route() handles back/forward through syncMapPanel().
+  function openMapPanel(group, opts = {}) {
     mapSelectedKey = group.key;
+    currentOrder = group.indices;
+    if (!opts.fromRoute) {
+      const hash = `#/map/${encodeURIComponent(group.key)}`;
+      if (location.hash !== hash) history.pushState(null, '', hash);
+    }
     mapPanelHeaderEl.textContent = `${group.place.label} · ${group.indices.length} photo${group.indices.length === 1 ? '' : 's'}`;
     mapPanelGridEl.innerHTML = '';
     group.indices.forEach((idx) => {
@@ -1662,18 +1670,39 @@
       cap.textContent = item.title || item.caption || '';
       fig.append(img, cap, makeHeartBtn(item));
       fig.addEventListener('click', () => {
-        currentOrder = chronoOrder;
+        currentOrder = group.indices;
         open(idx);
       });
       mapPanelGridEl.appendChild(fig);
     });
     mapPanelEl.hidden = false;
+    mapPanelEl.querySelector('.map-panel-scroll').scrollTop = 0;
+    layoutMapMarkers();
+    if (!opts.deferFocus) mapFocusPlace(group, true);
   }
 
-  function closeMapPanel() {
+  // The panel covers the map's left half, so centre the pin in the right half.
+  function mapFocusPlace(group, animate) {
+    const size = mapInstance.getSize();
+    const at = mapInstance.latLngToContainerPoint([group.place.lat, group.place.lng]);
+    mapInstance.panBy([at.x - size.x * 0.75, at.y - size.y / 2], { animate });
+  }
+
+  function closeMapPanel(opts = {}) {
     mapPanelEl.hidden = true;
     mapSelectedKey = null;
+    currentOrder = chronoOrder;
+    if (!opts.fromRoute && location.hash !== '#/map') history.pushState(null, '', '#/map');
     layoutMapMarkers();
+  }
+
+  // Back/forward or an edited address while the map is already showing.
+  function syncMapPanel(group) {
+    if (group) {
+      if (group.key !== mapSelectedKey) openMapPanel(group, { fromRoute: true });
+    } else if (mapSelectedKey) {
+      closeMapPanel({ fromRoute: true });
+    }
   }
 
   function layoutMapMarkers() {
@@ -1696,7 +1725,6 @@
           // than ever growing a grid in place.
           if (e.originalEvent.target.closest('.map-stack')) {
             openMapPanel(group);
-            layoutMapMarkers();
             return;
           }
           mapZoomToPlace(group);
@@ -1705,7 +1733,7 @@
     });
   }
 
-  function renderMap() {
+  function renderMap(initialGroup) {
     document.body.classList.remove('home-view');
     // Re-entering the Map view (e.g. Categories -> Map -> Categories -> Map)
     // would otherwise leak the previous Leaflet instance and its listeners,
@@ -1733,7 +1761,7 @@
     mapPanelEl = view.querySelector('#map-side-panel');
     mapPanelHeaderEl = view.querySelector('#map-panel-header');
     mapPanelGridEl = view.querySelector('#map-panel-grid');
-    mapPanelEl.querySelector('#map-panel-close').addEventListener('click', closeMapPanel);
+    mapPanelEl.querySelector('#map-panel-close').addEventListener('click', () => closeMapPanel());
 
     mapMarkers.clear();
     mapSelectedKey = null;
@@ -1758,11 +1786,19 @@
     });
     layoutMapMarkers();
     currentOrder = chronoOrder;
+    // A shared location link: zoom in on the place with its panel open.
+    if (initialGroup) {
+      mapInstance.setView([initialGroup.place.lat, initialGroup.place.lng], MAP_CLUSTER_ZOOM + 1.5, { animate: false });
+      openMapPanel(initialGroup, { fromRoute: true, deferFocus: true });
+    }
 
     // The view container isn't sized until it's in the layout -- Leaflet
     // measures its container on init, so a late invalidateSize catches the
     // case where fonts/layout shift the height slightly after that.
-    requestAnimationFrame(() => mapInstance.invalidateSize());
+    requestAnimationFrame(() => {
+      mapInstance.invalidateSize();
+      if (initialGroup) mapFocusPlace(initialGroup, false);
+    });
   }
 
   function setActiveView(name) {
@@ -1790,9 +1826,14 @@
       setActiveView('timeline');
       return renderTimeline();
     }
-    if (location.hash === '#/map') {
+    const mp = location.hash.match(/^#\/map(?:\/([^/]+))?$/);
+    if (mp) {
       setActiveView('map');
-      return renderMap();
+      const key = mp[1] ? decodeURIComponent(mp[1]) : null;
+      const group = (key && getPlaceGroups().find((g) => g.key === key)) || null;
+      if (key && !group) history.replaceState(null, '', '#/map');
+      if (mapInstance && mapPanelEl && mapPanelEl.isConnected) return syncMapPanel(group);
+      return renderMap(group);
     }
     if (location.hash === '#/hearts') {
       setActiveView('hearts');
@@ -4049,7 +4090,7 @@
     const hash = location.hash;
     if (hash === '#/hearts') return hearts.map((slug) => indexBySlug.get(slug));
     if (hash === '#/timeline') return timelineVisibleOrder();
-    if (hash === '#/map') return mapVisibleOrder();
+    if (hash === '#/map' || hash.startsWith('#/map/')) return mapVisibleOrder();
     const b = hash.match(/^#\/b\/(.+)$/);
     if (b) return browseOrder(b[1].split('/').map(decodeURIComponent));
     const m = hash.match(/^#\/c\/(.+)$/);
@@ -4058,7 +4099,64 @@
     return globalOrder;
   }
 
+  // What the button would play right now, as filters rather than a list.
+  function describeSlideshow() {
+    const order = slideshowOrder();
+    const hash = location.hash;
+    const n = `${order.length} photo${order.length === 1 ? '' : 's'}`;
+    if (hash === '#/hearts') {
+      return order.length ? `Your hearted photos: ${n}.` : 'Your hearted photos: none yet. Heart a photo to add it.';
+    }
+    if (hash === '#/timeline') {
+      if (!order.length) return 'The part of the timeline on screen: no photos.';
+      const fmt = (i) => {
+        const d = parseDt(items[i].settings && items[i].settings.datetime);
+        return d ? d.toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' }) : '?';
+      };
+      const a = fmt(order[0]);
+      const b = fmt(order[order.length - 1]);
+      return `The part of the timeline on screen, ${a === b ? a : `${a} to ${b}`}: ${n}.`;
+    }
+    if (hash === '#/map' || hash.startsWith('#/map/')) {
+      const placeGroups = getPlaceGroups();
+      const open = mapSelectedKey && placeGroups.find((g) => g.key === mapSelectedKey);
+      if (open) return `Photos at ${open.place.label}: ${n}.`;
+      if (!mapInstance) return `The places on the map: ${n}.`;
+      const bounds = mapInstance.getBounds();
+      const places = placeGroups.filter((g) => bounds.contains([g.place.lat, g.place.lng])).length;
+      return `The ${places} place${places === 1 ? '' : 's'} in view on the map: ${n}.`;
+    }
+    const b = hash.match(/^#\/b\/(.+)$/);
+    if (b) {
+      const path = b[1].split('/').map(decodeURIComponent);
+      const labels = [];
+      let level = BROWSE;
+      path.forEach((id, depth) => {
+        const entry = (level || []).find((t) => t.id === id);
+        if (!entry) return;
+        labels.push(entry.label);
+        level = depth === 0 ? browseTabsFor(entry) : entry.tabs;
+      });
+      return `${labels.join(' \u203a ')}: ${n}.`;
+    }
+    const m = hash.match(/^#\/c\/(.+)$/);
+    if (m && groups.has(decodeURIComponent(m[1]))) {
+      return `${SECTION_LABELS[decodeURIComponent(m[1])] || 'This section'}: ${n}.`;
+    }
+    return `Every photo on the site: ${n}.`;
+  }
+
+  const ssWrap = document.getElementById('slideshow-wrap');
+  const ssTip = document.getElementById('slideshow-tip');
+  const showSsTip = () => { ssTip.textContent = describeSlideshow(); ssTip.hidden = false; };
+  const hideSsTip = () => { ssTip.hidden = true; };
+  ssWrap.addEventListener('mouseenter', showSsTip);
+  ssWrap.addEventListener('mouseleave', hideSsTip);
+  ssWrap.addEventListener('focusin', showSsTip);
+  ssWrap.addEventListener('focusout', hideSsTip);
+
   function ssOpen() {
+    hideSsTip();
     ssOrder = slideshowOrder();
     if (!ssOrder.length) return;
     ssPaused = false;

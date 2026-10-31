@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Macro & Travel — Test Shoot Gallery</title>
-<link rel="stylesheet" href="style.css?v=20261031-165857">
+<link rel="stylesheet" href="style.css?v=20261031-170745">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 </head>
@@ -24,7 +24,10 @@
     <h2 class="newest-title">Newest</h2>
     <div class="newest-row" id="newest-row"></div>
   </section>
-  <button class="slideshow-btn" id="slideshow-start">&#9654; Slideshow</button>
+  <span class="slideshow-wrap" id="slideshow-wrap">
+    <button class="slideshow-btn" id="slideshow-start" aria-describedby="slideshow-tip">&#9654; Dynamic slideshow</button>
+    <span class="slideshow-tip" id="slideshow-tip" role="tooltip" hidden></span>
+  </span>
 </header>
 
 <main>
@@ -130,6 +133,6 @@
   </div>
 </div>
 
-<script src="script.js?v=20261031-165857"></script>
+<script src="script.js?v=20261031-170745"></script>
 </body>
 </html>

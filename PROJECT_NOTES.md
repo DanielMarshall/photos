@@ -15,6 +15,25 @@ that read from the photographer's local Camera Roll.
 
 ## Current status (keep this updated -- read first in a new session)
 
+- **Map location view + Dynamic slideshow (31 Oct 2026, local, pushed)**:
+  - An open place has its own URL, `#/map/<placeKey>`. `openMapPanel` /
+    `closeMapPanel` use `history.pushState` (no hashchange, so no map rebuild);
+    `route()` handles back/forward/edits through `syncMapPanel()` when the map
+    is already showing, and `renderMap(initialGroup)` handles a fresh link. An
+    unknown key falls back to `#/map`.
+  - While a place is open, `currentOrder` is that place's photos, so lightbox
+    arrows stay inside it. Closing restores `chronoOrder`.
+  - Panel is 50% of the map (min 210px); `mapFocusPlace` centres the pin in the
+    uncovered right half. Active label: yellow, 1.08rem (50% larger).
+  - The button is now always "Dynamic slideshow". `describeSlideshow()` fills
+    a hover/focus tooltip at hover time from `slideshowOrder()`, so it matches
+    what would play. Hearted view keeps its filter; the button no longer
+    changes its text there.
+  - **Known issue, not fixed:** the Timeline overview no longer fits all days.
+    `computeClusterLayout`'s minimum dot spacing pushes days after 3 Oct off the
+    right edge at ~980px wide (labels overlap too), so the overview slideshow
+    tooltip correctly says it stops at 3 Oct.
+
 - **Biota Studio batch (31 Oct 2026, local session, pushed)**: 21 files, 15
   photos, in a new `Biota Studio` collection (`BIOTA_STUDIO` set), with place
   key `biota` (450 Elizabeth St, Surry Hills, from OSM). Tags via new
