@@ -812,6 +812,21 @@ main {
   padding: 0.7rem 1.4rem 0.6rem 0.7rem;
 }
 
+/* Keeps a long write-up from crowding out the photos: it scrolls on its own. */
+.map-panel-desc {
+  flex-shrink: 0;
+  max-height: 30%;
+  overflow-y: auto;
+  padding: 0 1rem 0.7rem 0.7rem;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+.map-panel-desc[hidden] {
+  display: none;
+}
+
 .map-panel-scroll {
   flex: 1;
   overflow-y: auto;

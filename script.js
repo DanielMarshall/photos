@@ -107,7 +107,7 @@
     'Gladesville|Ants': "Ants rushing madly around a weed in the back yard. A narrow aperture let the flash freeze them as best it could; a lower flash power and wider aperture might still beat the sunlight for sharper shots, but it's a good idea of what to expect from ants in motion.",
     'Gladesville|Banjo Paterson Park': 'Shoreline macro and telephoto views across the bay to Abbotsford, where the Sydney Rowing Club and Abbotsford Rowing Club sit side by side.',
     'Gladesville|Tarban Creek Flying Foxes': "Grey-headed flying foxes at the camp in Riverglade Reserve, along Tarban Creek, photographed from late afternoon into dark. By Sydney standards it's a small colony, around 8,000 bats at the April 2023 count. They roost in the canopy by day and fly out at dusk to feed, often travelling up to 30 km for nectar, pollen and fruit, which makes them important pollinators and seed dispersers. The species is listed as vulnerable, after numbers fell by around 30% in the 1990s. Most pups are born in October or November, one per mother each year. A few frames here show a mother dropping her newborn pup. It's hard to watch, but it happens, especially when a pup is stillborn or weak, or the mother is stressed or short of food. Never touch a bat, even a grounded one: call WIRES (1800 303 417) or Sydney Wildlife (02 9413 4300).",
-    'Gladesville|Boronia Park Reserve': 'A macro walk at Boronia Park Reserve -- spiders, a snail shell, seed pods and other finds.',
+    'Gladesville|Boronia Park Reserve': 'A macro walk at Boronia Park Reserve -- spiders, a snail shell, a spider egg sac and other finds.',
     'Gladesville|Garden': 'Backyard macro photography — spiders, insects, and other garden life, including focus-stacked composites.',
     'Gladesville|Experiments in Liquids': 'Macro tests of oil and glitter in liquid, and water droplets on a polarising filter, exploring focus and lighting technique.',
     'Gladesville|Dinosaurs': "They like roasted almonds enough that they will fight each other off to see who gets to almost take off one of my fingers, and hang around for some photos afterwards, until Timmy came to investigate, and their extinction paranoia kicked in and they went to their next stop.",
@@ -129,7 +129,7 @@
     'Sydney Town Hall|null': 'A Ukraine solidarity protest at Sydney Town Hall.',
     'Queen Victoria Building|null': 'The public piano, clock, and mall interior at the QVB.',
     'Darling Harbour Piano|null': 'A student playing the public piano at Darling Harbour.',
-    'Biota Studio|null': "Live invertebrates photographed at Biota Studio in Surry Hills: a rainforest scorpion, a lichen huntsman, isopods, a tiny red springtail and jumping spiders. Names follow the studio's listings where they match.",
+    'Biota Studio|null': "Live invertebrates photographed at Biota Studio in Surry Hills: a rainforest scorpion, a lichen huntsman, isopods, a tiny red springtail and jumping spiders. Names follow the studio's listings where they match. Thanks to Adrian at Biota Studio for allowing me to practice in his shop, under supervision of course! I plan to revisit in the future.",
   };
 
   function groupKey(item) {
@@ -841,7 +841,7 @@
   // seconds apart could never be pulled apart horizontally no matter how far
   // in you zoomed, since thumbnail size alone runs out of room fast relative
   // to how many pixels a burst actually needs to lay out one-after-another.
-  const TL_MIN_ZOOM = 8;
+  const TL_MIN_ZOOM = 1;
   const TL_MAX_ZOOM = 800000;
   const TL_MAX_THUMB = 220;
   const TL_CLUSTER_BELOW = 22; // thumb px below this: show day clusters, not items
@@ -984,7 +984,7 @@
   const TL_FAST_RATE = 13;
   const TL_KNEE_PX = TL_MAX_THUMB * TL_SLOW_RATE;
   function tlPxPerDay(zoom) {
-    if (zoom <= TL_MAX_THUMB) return Math.max(zoom * TL_SLOW_RATE, 26);
+    if (zoom <= TL_MAX_THUMB) return zoom * TL_SLOW_RATE;
     return TL_KNEE_PX + (zoom - TL_MAX_THUMB) * TL_FAST_RATE;
   }
   function tlZoomForPxPerDay(px) {
@@ -1001,6 +1001,7 @@
   const TL_LANE_GAP = 10; // distance from the axis to the nearest lane's near edge
 
   let tlZoom = 60;
+  let tlFitZoom = 8; // zooming out stops once the whole range fits (set by renderTimeline)
   let tlPanPx = 0;
   let tlViewportEl = null;
   let tlTrackEl = null;
@@ -1024,7 +1025,7 @@
   }
 
   function tlZoomTo(newZoom, cursorX) {
-    newZoom = Math.min(TL_MAX_ZOOM, Math.max(TL_MIN_ZOOM, newZoom));
+    newZoom = Math.min(TL_MAX_ZOOM, Math.max(tlFitZoom, newZoom));
     if (newZoom === tlZoom) return;
     const oldPxPerDay = tlPxPerDay(tlZoom);
     const newPxPerDay = tlPxPerDay(newZoom);
@@ -1034,17 +1035,33 @@
     scheduleTlLayout();
   }
 
+  // Day dots at their true time position, keeping them from overlapping while
+  // the whole range still fits its span: gaps tighten first, then dots shrink,
+  // and a backward pass stops crowded recent days running off the right edge.
   function computeClusterLayout(groupsList, pxPerDay) {
+    const n = groupsList.length;
+    const last = groupsList[n - 1];
+    const avail = (last.dayOffset + 1) * pxPerDay;
+    const sizes = groupsList.map((g) => Math.max(14, Math.min(34, 10 + Math.sqrt(g.indices.length) * 6)));
+    const total = sizes.reduce((sum, d) => sum + d, 0);
+    const MIN_GAP = 2;
+    const gap = n > 1 ? Math.max(MIN_GAP, Math.min(TL_GAP * 4, (avail - total) / (n - 1))) : 0;
+    const scale = Math.min(1, (avail - gap * (n - 1)) / total);
+    const dots = sizes.map((d) => Math.max(6, d * scale));
+
     let runningRight = -Infinity;
-    const blocks = [];
-    groupsList.forEach((g) => {
-      const idealX = g.dayOffset * pxPerDay;
-      const dot = Math.max(14, Math.min(34, 10 + Math.sqrt(g.indices.length) * 6));
-      const x = Math.max(idealX, runningRight + TL_GAP * 4);
-      blocks.push({ group: g, x, width: dot, height: dot });
-      runningRight = x + dot;
+    const xs = groupsList.map((g, i) => {
+      const x = Math.max(g.dayOffset * pxPerDay, runningRight + gap);
+      runningRight = x + dots[i];
+      return x;
     });
-    return { blocks, totalWidth: runningRight + 400 };
+    let limit = avail;
+    for (let i = n - 1; i >= 0; i--) {
+      xs[i] = Math.min(xs[i], limit - dots[i]);
+      limit = xs[i] - gap;
+    }
+    const blocks = groupsList.map((group, i) => ({ group, x: xs[i], width: dots[i], height: dots[i] }));
+    return { blocks, totalWidth: avail + 400 };
   }
 
   function ensureClusterNode(key) {
@@ -1112,14 +1129,32 @@
 
   function layoutClusters(blocks) {
     const seen = new Set();
+    // Date labels only where they fit, from the newest back, so the most
+    // recent day always keeps its date. A hidden label still has a tooltip.
+    const LABEL_W = 62;
+    const showLabel = new Set();
+    let labelLimit = Infinity;
+    for (let i = blocks.length - 1; i >= 0; i--) {
+      const centre = blocks[i].x + blocks[i].width / 2;
+      if (centre + LABEL_W / 2 <= labelLimit) {
+        showLabel.add(blocks[i].group.key);
+        labelLimit = centre - LABEL_W / 2;
+      }
+    }
     blocks.forEach(({ group, x, width, height }) => {
       seen.add(group.key);
       const el = ensureClusterNode(group.key);
-      el.style.left = `${x + tlPanPx}px`;
+      // Centred on the dot: the element is as wide as its label, and a left
+      // edge at x would put the dot wherever the label's width happened to.
+      el.style.left = `${x + width / 2 + tlPanPx}px`;
+      el.style.transform = 'translateX(-50%)';
+      el.title = `${fmtShortDate(group.date)}: ${group.indices.length} photo${group.indices.length === 1 ? '' : 's'}`;
+      el.querySelector('.tl-cluster-label').style.visibility = showLabel.has(group.key) ? '' : 'hidden';
       el.style.top = `${(tlViewportEl.clientHeight - height) / 2}px`;
       const dot = el.querySelector('.tl-cluster-dot');
       dot.style.width = `${width}px`;
       dot.style.height = `${height}px`;
+      dot.style.fontSize = `${Math.min(11.2, width * 0.55)}px`;
       dot.textContent = group.indices.length;
       el.querySelector('.tl-cluster-label').textContent = fmtShortDate(group.date);
       el.__tlTap = () => {
@@ -1452,6 +1487,7 @@
         // own photos need one more day of room, plus the 40px pan inset on
         // both sides -- plain width / span put that whole day off the right.
         tlZoom = Math.min(TL_MAX_ZOOM, Math.max(TL_MIN_ZOOM, tlZoomForPxPerDay((width - 80) / (span + 1))));
+        tlFitZoom = Math.min(tlZoom, 8);
         tlPanPx = 40;
         layoutTimeline();
       });
@@ -1552,6 +1588,26 @@
   let mapPanelEl = null;
   let mapPanelHeaderEl = null;
   let mapPanelGridEl = null;
+  let mapPanelDescEl = null;
+
+  // A place's write-up in the side panel is its collection's description, so
+  // there's one copy of each. Places with no entry (home spans many
+  // collections) just show no description.
+  const PLACE_DESCRIPTION_SECTIONS = {
+    boronia: 'Gladesville|Boronia Park Reserve',
+    tarban: 'Gladesville|Tarban Creek Flying Foxes',
+    banjo: 'Gladesville|Banjo Paterson Park',
+    hornsby: 'Hornsby Heights|null',
+    artarmon: 'Artarmon|null',
+    macquarie: 'On the Road|null',
+    pymble: 'On the Road|null',
+    darling: 'Sydney CBD|null',
+    chinesegarden: 'Chinese Garden of Friendship|null',
+    townhall: 'Sydney Town Hall|null',
+    qvb: 'Queen Victoria Building|null',
+    dhpiano: 'Darling Harbour Piano|null',
+    biota: 'Biota Studio|null',
+  };
 
   function mapZoomToPlace(group) {
     mapInstance.setView([group.place.lat, group.place.lng], MAP_CLUSTER_ZOOM + 1.5, { animate: true });
@@ -1657,6 +1713,10 @@
       if (location.hash !== hash) history.pushState(null, '', hash);
     }
     mapPanelHeaderEl.textContent = `${group.place.label} · ${group.indices.length} photo${group.indices.length === 1 ? '' : 's'}`;
+    const placeDesc = SECTION_DESCRIPTIONS[PLACE_DESCRIPTION_SECTIONS[group.key]] || '';
+    mapPanelDescEl.textContent = placeDesc;
+    mapPanelDescEl.hidden = !placeDesc;
+    mapPanelDescEl.scrollTop = 0;
     mapPanelGridEl.innerHTML = '';
     group.indices.forEach((idx) => {
       const item = items[idx];
@@ -1750,6 +1810,7 @@
         <div class="map-side-panel" id="map-side-panel" hidden>
           <button class="map-panel-close" id="map-panel-close" aria-label="Close">&times;</button>
           <div class="map-panel-header" id="map-panel-header"></div>
+          <div class="map-panel-desc" id="map-panel-desc" hidden></div>
           <div class="map-panel-scroll">
             <div class="map-panel-grid" id="map-panel-grid"></div>
           </div>
@@ -1761,6 +1822,7 @@
     mapPanelEl = view.querySelector('#map-side-panel');
     mapPanelHeaderEl = view.querySelector('#map-panel-header');
     mapPanelGridEl = view.querySelector('#map-panel-grid');
+    mapPanelDescEl = view.querySelector('#map-panel-desc');
     mapPanelEl.querySelector('#map-panel-close').addEventListener('click', () => closeMapPanel());
 
     mapMarkers.clear();

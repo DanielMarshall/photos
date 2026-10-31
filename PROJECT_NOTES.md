@@ -25,14 +25,19 @@ that read from the photographer's local Camera Roll.
     arrows stay inside it. Closing restores `chronoOrder`.
   - Panel is 50% of the map (min 210px); `mapFocusPlace` centres the pin in the
     uncovered right half. Active label: yellow, 1.08rem (50% larger).
+  - The panel shows a place's write-up under its name (`PLACE_DESCRIPTION_SECTIONS`
+    maps place key to collection, reusing `SECTION_DESCRIPTIONS`; scrolls past
+    30% of the panel). Home has none, since it spans many collections.
   - The button is now always "Dynamic slideshow". `describeSlideshow()` fills
     a hover/focus tooltip at hover time from `slideshowOrder()`, so it matches
     what would play. Hearted view keeps its filter; the button no longer
     changes its text there.
-  - **Known issue, not fixed:** the Timeline overview no longer fits all days.
-    `computeClusterLayout`'s minimum dot spacing pushes days after 3 Oct off the
-    right edge at ~980px wide (labels overlap too), so the overview slideshow
-    tooltip correctly says it stops at 3 Oct.
+  - **Timeline overview always fits** (same day): removed the 26px/day floor in
+    `tlPxPerDay`, `TL_MIN_ZOOM` is 1, and zooming out stops at `tlFitZoom`.
+    `computeClusterLayout` tightens gaps, then shrinks dots, then runs a
+    backward pass so the newest day stays on screen. `layoutClusters` shows
+    date labels only where they fit, newest first; dots are centred with a
+    transform and have a tooltip with date and count.
 
 - **Biota Studio batch (31 Oct 2026, local session, pushed)**: 21 files, 15
   photos, in a new `Biota Studio` collection (`BIOTA_STUDIO` set), with place
