@@ -69,6 +69,7 @@
     ['Sydney Town Hall', null],
     ['Queen Victoria Building', null],
     ['Darling Harbour Piano', null],
+    ['Biota Studio', null],
   ];
 
   const SECTION_LABELS = {
@@ -97,6 +98,7 @@
     'Queen Victoria Building|null': 'Queen Victoria Building: Public Piano',
     'Chinese Garden of Friendship|null': 'Chinese Garden of Friendship',
     'Darling Harbour Piano|null': 'Darling Harbour: Street Piano',
+    'Biota Studio|null': 'Biota Studio, Surry Hills',
   };
 
   // Shown on each category's card on the home view, and again as an intro
@@ -127,6 +129,7 @@
     'Sydney Town Hall|null': 'A Ukraine solidarity protest at Sydney Town Hall.',
     'Queen Victoria Building|null': 'The public piano, clock, and mall interior at the QVB.',
     'Darling Harbour Piano|null': 'A student playing the public piano at Darling Harbour.',
+    'Biota Studio|null': "Live invertebrates photographed at Biota Studio in Surry Hills: a rainforest scorpion, a lichen huntsman, isopods, a tiny red springtail and jumping spiders. Names follow the studio's listings where they match.",
   };
 
   function groupKey(item) {
@@ -502,7 +505,7 @@
 
   // Places tabs come from the Map's places, in a fixed order.
   const PLACE_TAB_ORDER = ['gladesville', 'boronia', 'tarban', 'banjo', 'artarmon', 'hornsby',
-    'macquarie', 'pymble', 'darling', 'chinesegarden', 'townhall', 'qvb', 'dhpiano', 'ashfield'];
+    'macquarie', 'pymble', 'darling', 'chinesegarden', 'townhall', 'qvb', 'dhpiano', 'biota', 'ashfield'];
   function placeTabs() {
     const present = new Set(globalOrder.map((i) => placeKey(items[i])));
     const keys = PLACE_TAB_ORDER.filter((k) => present.has(k));
@@ -922,6 +925,7 @@
     townhall: { label: 'Sydney Town Hall', lat: -33.8734, lng: 151.2064 },
     qvb: { label: 'Queen Victoria Building', lat: -33.8715, lng: 151.2067 },
     dhpiano: { label: 'Darling Harbour Piano', lat: -33.8709, lng: 151.2013 },
+    biota: { label: 'Biota Studio, Surry Hills', lat: -33.8874, lng: 151.2083 },
     macquarie: { label: 'Macquarie Park (Lane Cove Road)', lat: -33.7832, lng: 151.1314 },
     pymble: { label: 'Pymble (Pacific Highway)', lat: -33.7438, lng: 151.1406 },
   };
@@ -941,6 +945,7 @@
     if (l.includes('boronia park')) return 'boronia';
     if (l.includes('tarban creek')) return 'tarban';
     if (l.includes('darling harbour')) return 'darling';
+    if (l.includes('biota studio')) return 'biota';
     if (l.includes('macquarie park')) return 'macquarie';
     if (l.includes('pymble')) return 'pymble';
     if (l.includes('hornsby heights')) return 'hornsby';

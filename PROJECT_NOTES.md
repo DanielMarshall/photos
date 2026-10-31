@@ -15,6 +15,18 @@ that read from the photographer's local Camera Roll.
 
 ## Current status (keep this updated -- read first in a new session)
 
+- **Biota Studio batch (31 Oct 2026, local session, pushed)**: 21 files, 15
+  photos, in a new `Biota Studio` collection (`BIOTA_STUDIO` set), with place
+  key `biota` (450 Elizabeth St, Surry Hills, from OSM). Tags via new
+  `TITLE_RULES` for Scorpion, Isopod and Springtail (Bugs > Other). IDs:
+  rainforest scorpion (*Hormurus* sp.), lichen huntsman (*Pandercetes* sp.) and
+  dusty pill isopod (*Spherillo* sp., no Wikipedia page, links to Woodlouse)
+  come from the photographer plus the studio's store listing. Unconfirmed:
+  "redtail" files titled Red Springtail (looks like the store's Neanuridae);
+  jumping spiders have family-level links only; "Isopods on Tissue" (file
+  named "huntsman", PA310484) and "Isopod Huddle" are unidentified varieties.
+  Crop: Lichen Huntsman stack, bottom 6% (smear). Other stacks' edges clean.
+
 Last updated 2026-10-31 (cloud session, branch `claude/great-brahmagupta-iznd4n`).
 
 - **Download button in the photo viewer (2026-10-26, PR from

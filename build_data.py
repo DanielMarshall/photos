@@ -112,6 +112,12 @@ SOURCE_MAP['26102026_175136PA260115 huntsman 70stacked.jpg'] = os.path.join(EXPO
 SOURCE_MAP['26102026_175345PA260223 huntsman 92stacked.jpg'] = os.path.join(EXPORTS, '26102026_175345PA260223 huntsman.tif')
 SOURCE_MAP['26102026_175834PA260330 huntsman 72stacked.jpg'] = os.path.join(EXPORTS, '26102026_175834PA260330 huntsman.tif')
 SOURCE_MAP['26102026_180834PA260530 huntsman 95stack.jpg'] = os.path.join(EXPORTS, '26102026_180834PA260530 huntsman.tif')
+SOURCE_MAP['20261031_104244PA310211 scorpion 32stacked.jpg'] = os.path.join(EXPORTS, '20261031_104244PA310211.tif')
+SOURCE_MAP['20261031_104321PA310283 scorpion 18stacked.jpg'] = os.path.join(EXPORTS, '20261031_104321PA310283 scorpion.tif')
+SOURCE_MAP['20261031_104420PA310358 scorpian 48stacked.jpg'] = os.path.join(EXPORTS, '20261031_104420PA310358 scorpian.tif')
+SOURCE_MAP['20261031_104720PA310440 huntsman 13stacked.jpg'] = os.path.join(EXPORTS, '20261031_104720PA310440 huntsman.tif')
+SOURCE_MAP['20261031_111820PA310785 jumping spider 2stacked.jpg'] = os.path.join(EXPORTS, '20261031_111820PA310785 jumping spider.tif')
+SOURCE_MAP['20261031_114252PA310990 isopod 50stacked.jpg'] = os.path.join(EXPORTS, '20261031_114252PA310990 isopod.tif')
 UNRESOLVED = set()
 
 # Camera settings for photos whose source frame can no longer be found (the
@@ -289,6 +295,30 @@ DINOSAURS_12MM = {
     '20261021_162656PA210023.jpg',
     '20261021_162740PA210025.jpg',
     '20261024_172816PA240075.jpg',
+}
+# Live invertebrates photographed at Biota Studio, Surry Hills (31 Oct 2026)
+BIOTA_STUDIO = {
+    '20261031_104244PA310211 scorpion 32stacked.jpg',
+    '20261031_104244PA310211.tif',
+    '20261031_104321PA310283 scorpion 18stacked.jpg',
+    '20261031_104321PA310283 scorpion.tif',
+    '20261031_104420PA310358 scorpian 48stacked.jpg',
+    '20261031_104420PA310358 scorpian.tif',
+    '20261031_104720PA310440 huntsman 13stacked.jpg',
+    '20261031_104720PA310440 huntsman.tif',
+    '20261031_111820PA310785 jumping spider 2stacked.jpg',
+    '20261031_111820PA310785 jumping spider.tif',
+    '20261031_114252PA310990 isopod 50stacked.jpg',
+    '20261031_114252PA310990 isopod.tif',
+    '20261031_104920PA310484 huntsman.tif',
+    '20261031_105429PA310716 redtail.tif',
+    '20261031_105504PA310717 redtail.tif',
+    '20261031_105523PA310720 redtail.tif',
+    '20261031_110730PA310753 isopods.tif',
+    '20261031_114014PA310971 isopod.tif',
+    '20261031_114023PA310972 isopod.tif',
+    '20261031_114442PA311051 jumping spider.tif',
+    '20261031_114445PA311053 jumping spider.tif',
 }
 PLANES = {
     "Plane - Quatari.jpg", "Plane - Virgin.jpg",
@@ -945,6 +975,28 @@ TITLES = {
     '20261024_171624PA240061.jpg': ("Farmer's Friend Patch", "The farmer's friend growing wild in the back yard, its spiky seed heads ready to hitch a ride."),
     '20261025_073327PA250095.jpg': ('Orb Weaver by the House', 'An orb-weaver in its web at dawn, the house behind.'),
     '20261025_073503PA250108.jpg': ('Spider in the Leaves', ''),
+    # Biota Studio, 31 Oct
+    '20261031_104244PA310211 scorpion 32stacked.jpg': ('Rainforest Scorpion', 'An Australian rainforest scorpion (Hormurus sp.), a flat-bodied species that wedges itself into bark and rock crevices. 32-photo stack, combined in Zerene Stacker.'),
+    '20261031_104244PA310211.tif': ('Rainforest Scorpion: Example Slice', 'Sample stack slice'),
+    '20261031_104321PA310283 scorpion 18stacked.jpg': ('Rainforest Scorpion II', 'Side-on, with the slender tail curled over and the big pincers forward. 18-photo stack, combined in Zerene Stacker.'),
+    '20261031_104321PA310283 scorpion.tif': ('Rainforest Scorpion II: Example Slice', 'Sample stack slice'),
+    '20261031_104420PA310358 scorpian 48stacked.jpg': ('Rainforest Scorpion Close-Up', 'Close in on the pincers, the mouthparts and the pair of eyes on top of the head. 48-photo stack, combined in Zerene Stacker.'),
+    '20261031_104420PA310358 scorpian.tif': ('Rainforest Scorpion Close-Up: Example Slice', 'Sample stack slice'),
+    '20261031_104720PA310440 huntsman 13stacked.jpg': ('Lichen Huntsman', 'A lichen huntsman (Pandercetes sp.), a master of camouflage that all but disappears against lichen-covered bark. 13-photo stack, combined in Zerene Stacker.'),
+    '20261031_104720PA310440 huntsman.tif': ('Lichen Huntsman: Example Slice', 'Sample stack slice'),
+    '20261031_111820PA310785 jumping spider 2stacked.jpg': ('Hairy Jumping Spider', 'A hairy orange-brown jumping spider against a dark background. 2-photo stack, combined in Zerene Stacker.'),
+    '20261031_111820PA310785 jumping spider.tif': ('Hairy Jumping Spider: Example Slice', 'Sample stack slice'),
+    '20261031_114252PA310990 isopod 50stacked.jpg': ('Dusty Pill Isopod', 'A dusty pill isopod (Spherillo sp.), a large native Australian rolling isopod, flecked with yellow-orange spots. 50-photo stack, combined in Zerene Stacker.'),
+    '20261031_114252PA310990 isopod.tif': ('Dusty Pill Isopod: Example Slice', 'Sample stack slice'),
+    '20261031_104920PA310484 huntsman.tif': ('Isopods on Tissue', ''),
+    '20261031_105429PA310716 redtail.tif': ('Red Springtail', 'A tiny red springtail (family Neanuridae) picking its way through pale debris.'),
+    '20261031_105504PA310717 redtail.tif': ('Red Springtail II', ''),
+    '20261031_105523PA310720 redtail.tif': ('Red Springtail III', ''),
+    '20261031_110730PA310753 isopods.tif': ('Isopod Huddle', ''),
+    '20261031_114014PA310971 isopod.tif': ('Dusty Pill Isopod II', ''),
+    '20261031_114023PA310972 isopod.tif': ('Dusty Pill Isopod III', ''),
+    '20261031_114442PA311051 jumping spider.tif': ('Jumping Spider on a Fingertip', 'A tiny patterned jumping spider, small enough to sit on a fingertip.'),
+    '20261031_114445PA311053 jumping spider.tif': ('Jumping Spider on a Fingertip II', ''),
     # Tarban Creek flying foxes, 4 Oct
     "bats at tarban creek/PA040150.JPG": ("Wrapped Up", ""),
     "bats at tarban creek/PA040164.JPG": ("Grey-headed Flying Fox", ""),
@@ -1172,6 +1224,8 @@ DH_PIANO_START = "152343"
 DH_PIANO_END = "152405"
 
 def classify(original, dt):
+    if original in BIOTA_STUDIO:
+        return "Biota Studio", None, "Biota Studio, Surry Hills"
     if "Sydney CBD" in original:
         m = re.match(r"^(\d{8})_(\d{6})", original)
         time_code = m.group(2) if m else None
@@ -1282,6 +1336,10 @@ WIKI_CITRUS = ('Citrus', 'https://en.wikipedia.org/wiki/Citrus')
 WIKI_THYNNID = ('Flower wasps (Thynnidae)', 'https://en.wikipedia.org/wiki/Thynnidae')
 WIKI_YELLOW_ADMIRAL = ('Yellow admiral (Vanessa itea)', 'https://en.wikipedia.org/wiki/Yellow_admiral')
 WIKI_HUNTSMAN = ('Huntsman spider (Sparassidae)', 'https://en.wikipedia.org/wiki/Huntsman_spider')
+WIKI_HORMURUS = ('Rainforest scorpions (Hormurus)', 'https://en.wikipedia.org/wiki/Hormurus')
+WIKI_PANDERCETES = ('Lichen huntsman (Pandercetes)', 'https://en.wikipedia.org/wiki/Pandercetes')
+WIKI_WOODLOUSE = ('Isopods (woodlice)', 'https://en.wikipedia.org/wiki/Woodlouse')
+WIKI_NEANURIDAE = ('Red springtails (Neanuridae)', 'https://en.wikipedia.org/wiki/Neanuridae')
 WIKI_LINKS = {
     # Orb-weaver spider
     'STACK-2-Spider.jpg': [WIKI_ORB],
@@ -1470,6 +1528,22 @@ WIKI_LINKS = {
     '20261024_111025PA240034.jpg': [WIKI_ORB],
     '20261024_171624PA240061.jpg': [WIKI_BIDENS],
     '20261025_073327PA250095.jpg': [WIKI_ORB],
+    # Biota Studio
+    '20261031_104244PA310211 scorpion 32stacked.jpg': [WIKI_HORMURUS],
+    '20261031_104321PA310283 scorpion 18stacked.jpg': [WIKI_HORMURUS],
+    '20261031_104420PA310358 scorpian 48stacked.jpg': [WIKI_HORMURUS],
+    '20261031_104720PA310440 huntsman 13stacked.jpg': [WIKI_PANDERCETES],
+    '20261031_111820PA310785 jumping spider 2stacked.jpg': [WIKI_JUMPING],
+    '20261031_114252PA310990 isopod 50stacked.jpg': [WIKI_WOODLOUSE],
+    '20261031_104920PA310484 huntsman.tif': [WIKI_WOODLOUSE],
+    '20261031_105429PA310716 redtail.tif': [WIKI_NEANURIDAE],
+    '20261031_105504PA310717 redtail.tif': [WIKI_NEANURIDAE],
+    '20261031_105523PA310720 redtail.tif': [WIKI_NEANURIDAE],
+    '20261031_110730PA310753 isopods.tif': [WIKI_WOODLOUSE],
+    '20261031_114014PA310971 isopod.tif': [WIKI_WOODLOUSE],
+    '20261031_114023PA310972 isopod.tif': [WIKI_WOODLOUSE],
+    '20261031_114442PA311051 jumping spider.tif': [WIKI_JUMPING],
+    '20261031_114445PA311053 jumping spider.tif': [WIKI_JUMPING],
     # Grey-headed flying fox: every photo in the Tarban Creek section
     'bats at tarban creek/PA040150.JPG': [WIKI_FLYING_FOX],
     'bats at tarban creek/PA040164.JPG': [WIKI_FLYING_FOX],
@@ -1615,6 +1689,8 @@ TITLE_RULES = [
     ("Huntsman", ["nature/bugs/spiders"]), ("Egg Sac", ["nature/bugs/spiders"]),
     ("Web in the", ["nature/bugs/spiders", "nature/landscapes"]),
     ("Web by the", ["nature/bugs/spiders", "nature/landscapes"]),
+    ("Scorpion", ["nature/bugs/other"]), ("Isopod", ["nature/bugs/other"]),
+    ("Springtail", ["nature/bugs/other"]),
     ("Cockroach", ["nature/bugs/other"]), ("Millipede", ["nature/bugs/other"]),
     ("Grub", ["nature/bugs/other"]), ("Snail", ["nature/bugs/other"]),
     ("Fly on", ["nature/bugs/other"]), ("Cicada", ["nature/bugs/other"]),

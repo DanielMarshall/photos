@@ -20371,5 +20371,854 @@
       "nature/bugs/spiders"
     ],
     "sample_of": "26102026_180834PA260530 huntsman 95stack.jpg"
+  },
+  {
+    "thumb": "images/thumbs/20261031-104244pa310211-scorpion-32stacked.jpg",
+    "medium": "images/medium/20261031-104244pa310211-scorpion-32stacked.jpg",
+    "full": "images/full/20261031-104244pa310211-scorpion-32stacked.jpg",
+    "original_filename": "20261031_104244PA310211 scorpion 32stacked.jpg",
+    "caption": "20261031 104244PA310211 scorpion 32stacked",
+    "title": "Rainforest Scorpion",
+    "description": "An Australian rainforest scorpion (Hormurus sp.), a flat-bodied species that wedges itself into bark and rock crevices. 32-photo stack, combined in Zerene Stacker.",
+    "category": "Biota Studio",
+    "subcategory": null,
+    "location": "Biota Studio, Surry Hills",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:31 10:42:44"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "tags": [
+      "nature/bugs/other"
+    ],
+    "links": [
+      {
+        "label": "Rainforest scorpions (Hormurus)",
+        "url": "https://en.wikipedia.org/wiki/Hormurus"
+      }
+    ],
+    "samples": [
+      "20261031_104244PA310211.tif"
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20261031-104244pa310211.jpg",
+    "medium": "images/medium/20261031-104244pa310211.jpg",
+    "full": "images/full/20261031-104244pa310211.jpg",
+    "original_filename": "20261031_104244PA310211.tif",
+    "caption": "20261031 104244PA310211.tif",
+    "title": "Rainforest Scorpion: Example Slice",
+    "description": "Sample stack slice",
+    "category": "Biota Studio",
+    "subcategory": null,
+    "location": "Biota Studio, Surry Hills",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:31 10:42:44"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "tags": [
+      "nature/bugs/other"
+    ],
+    "sample_of": "20261031_104244PA310211 scorpion 32stacked.jpg"
+  },
+  {
+    "thumb": "images/thumbs/20261031-104321pa310283-scorpion-18stacked.jpg",
+    "medium": "images/medium/20261031-104321pa310283-scorpion-18stacked.jpg",
+    "full": "images/full/20261031-104321pa310283-scorpion-18stacked.jpg",
+    "original_filename": "20261031_104321PA310283 scorpion 18stacked.jpg",
+    "caption": "20261031 104321PA310283 scorpion 18stacked",
+    "title": "Rainforest Scorpion II",
+    "description": "Side-on, with the slender tail curled over and the big pincers forward. 18-photo stack, combined in Zerene Stacker.",
+    "category": "Biota Studio",
+    "subcategory": null,
+    "location": "Biota Studio, Surry Hills",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:31 10:43:21"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "tags": [
+      "nature/bugs/other"
+    ],
+    "links": [
+      {
+        "label": "Rainforest scorpions (Hormurus)",
+        "url": "https://en.wikipedia.org/wiki/Hormurus"
+      }
+    ],
+    "samples": [
+      "20261031_104321PA310283 scorpion.tif"
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20261031-104321pa310283-scorpion.jpg",
+    "medium": "images/medium/20261031-104321pa310283-scorpion.jpg",
+    "full": "images/full/20261031-104321pa310283-scorpion.jpg",
+    "original_filename": "20261031_104321PA310283 scorpion.tif",
+    "caption": "20261031 104321PA310283 scorpion.tif",
+    "title": "Rainforest Scorpion II: Example Slice",
+    "description": "Sample stack slice",
+    "category": "Biota Studio",
+    "subcategory": null,
+    "location": "Biota Studio, Surry Hills",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:31 10:43:21"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "tags": [
+      "nature/bugs/other"
+    ],
+    "sample_of": "20261031_104321PA310283 scorpion 18stacked.jpg"
+  },
+  {
+    "thumb": "images/thumbs/20261031-104420pa310358-scorpian-48stacked.jpg",
+    "medium": "images/medium/20261031-104420pa310358-scorpian-48stacked.jpg",
+    "full": "images/full/20261031-104420pa310358-scorpian-48stacked.jpg",
+    "original_filename": "20261031_104420PA310358 scorpian 48stacked.jpg",
+    "caption": "20261031 104420PA310358 scorpian 48stacked",
+    "title": "Rainforest Scorpion Close-Up",
+    "description": "Close in on the pincers, the mouthparts and the pair of eyes on top of the head. 48-photo stack, combined in Zerene Stacker.",
+    "category": "Biota Studio",
+    "subcategory": null,
+    "location": "Biota Studio, Surry Hills",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:31 10:44:20"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "tags": [
+      "nature/bugs/other"
+    ],
+    "links": [
+      {
+        "label": "Rainforest scorpions (Hormurus)",
+        "url": "https://en.wikipedia.org/wiki/Hormurus"
+      }
+    ],
+    "samples": [
+      "20261031_104420PA310358 scorpian.tif"
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20261031-104420pa310358-scorpian.jpg",
+    "medium": "images/medium/20261031-104420pa310358-scorpian.jpg",
+    "full": "images/full/20261031-104420pa310358-scorpian.jpg",
+    "original_filename": "20261031_104420PA310358 scorpian.tif",
+    "caption": "20261031 104420PA310358 scorpian.tif",
+    "title": "Rainforest Scorpion Close-Up: Example Slice",
+    "description": "Sample stack slice",
+    "category": "Biota Studio",
+    "subcategory": null,
+    "location": "Biota Studio, Surry Hills",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:31 10:44:20"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "tags": [
+      "nature/bugs/other"
+    ],
+    "sample_of": "20261031_104420PA310358 scorpian 48stacked.jpg"
+  },
+  {
+    "thumb": "images/thumbs/20261031-104720pa310440-huntsman-13stacked.jpg",
+    "medium": "images/medium/20261031-104720pa310440-huntsman-13stacked.jpg",
+    "full": "images/full/20261031-104720pa310440-huntsman-13stacked.jpg",
+    "original_filename": "20261031_104720PA310440 huntsman 13stacked.jpg",
+    "caption": "20261031 104720PA310440 huntsman 13stacked",
+    "title": "Lichen Huntsman",
+    "description": "A lichen huntsman (Pandercetes sp.), a master of camouflage that all but disappears against lichen-covered bark. 13-photo stack, combined in Zerene Stacker.",
+    "category": "Biota Studio",
+    "subcategory": null,
+    "location": "Biota Studio, Surry Hills",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:31 10:47:20"
+    },
+    "size": [
+      5184,
+      3654
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.03558926487747958,
+      0.943778801843318,
+      0.8424737456242707
+    ],
+    "tags": [
+      "nature/bugs/spiders"
+    ],
+    "links": [
+      {
+        "label": "Lichen huntsman (Pandercetes)",
+        "url": "https://en.wikipedia.org/wiki/Pandercetes"
+      }
+    ],
+    "samples": [
+      "20261031_104720PA310440 huntsman.tif"
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20261031-104720pa310440-huntsman.jpg",
+    "medium": "images/medium/20261031-104720pa310440-huntsman.jpg",
+    "full": "images/full/20261031-104720pa310440-huntsman.jpg",
+    "original_filename": "20261031_104720PA310440 huntsman.tif",
+    "caption": "20261031 104720PA310440 huntsman.tif",
+    "title": "Lichen Huntsman: Example Slice",
+    "description": "Sample stack slice",
+    "category": "Biota Studio",
+    "subcategory": null,
+    "location": "Biota Studio, Surry Hills",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:31 10:47:20"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "tags": [
+      "nature/bugs/spiders"
+    ],
+    "sample_of": "20261031_104720PA310440 huntsman 13stacked.jpg"
+  },
+  {
+    "thumb": "images/thumbs/20261031-104920pa310484-huntsman.jpg",
+    "medium": "images/medium/20261031-104920pa310484-huntsman.jpg",
+    "full": "images/full/20261031-104920pa310484-huntsman.jpg",
+    "original_filename": "20261031_104920PA310484 huntsman.tif",
+    "caption": "20261031 104920PA310484 huntsman.tif",
+    "title": "Isopods on Tissue",
+    "description": "",
+    "category": "Biota Studio",
+    "subcategory": null,
+    "location": "Biota Studio, Surry Hills",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:31 10:49:20"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "tags": [
+      "nature/bugs/other"
+    ],
+    "links": [
+      {
+        "label": "Isopods (woodlice)",
+        "url": "https://en.wikipedia.org/wiki/Woodlouse"
+      }
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20261031-105429pa310716-redtail.jpg",
+    "medium": "images/medium/20261031-105429pa310716-redtail.jpg",
+    "full": "images/full/20261031-105429pa310716-redtail.jpg",
+    "original_filename": "20261031_105429PA310716 redtail.tif",
+    "caption": "20261031 105429PA310716 redtail.tif",
+    "title": "Red Springtail",
+    "description": "A tiny red springtail (family Neanuridae) picking its way through pale debris.",
+    "category": "Biota Studio",
+    "subcategory": null,
+    "location": "Biota Studio, Surry Hills",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:31 10:54:29"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "tags": [
+      "nature/bugs/other"
+    ],
+    "links": [
+      {
+        "label": "Red springtails (Neanuridae)",
+        "url": "https://en.wikipedia.org/wiki/Neanuridae"
+      }
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20261031-105504pa310717-redtail.jpg",
+    "medium": "images/medium/20261031-105504pa310717-redtail.jpg",
+    "full": "images/full/20261031-105504pa310717-redtail.jpg",
+    "original_filename": "20261031_105504PA310717 redtail.tif",
+    "caption": "20261031 105504PA310717 redtail.tif",
+    "title": "Red Springtail II",
+    "description": "",
+    "category": "Biota Studio",
+    "subcategory": null,
+    "location": "Biota Studio, Surry Hills",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:31 10:55:04"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "tags": [
+      "nature/bugs/other"
+    ],
+    "links": [
+      {
+        "label": "Red springtails (Neanuridae)",
+        "url": "https://en.wikipedia.org/wiki/Neanuridae"
+      }
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20261031-105523pa310720-redtail.jpg",
+    "medium": "images/medium/20261031-105523pa310720-redtail.jpg",
+    "full": "images/full/20261031-105523pa310720-redtail.jpg",
+    "original_filename": "20261031_105523PA310720 redtail.tif",
+    "caption": "20261031 105523PA310720 redtail.tif",
+    "title": "Red Springtail III",
+    "description": "",
+    "category": "Biota Studio",
+    "subcategory": null,
+    "location": "Biota Studio, Surry Hills",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:31 10:55:23"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "tags": [
+      "nature/bugs/other"
+    ],
+    "links": [
+      {
+        "label": "Red springtails (Neanuridae)",
+        "url": "https://en.wikipedia.org/wiki/Neanuridae"
+      }
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20261031-110730pa310753-isopods.jpg",
+    "medium": "images/medium/20261031-110730pa310753-isopods.jpg",
+    "full": "images/full/20261031-110730pa310753-isopods.jpg",
+    "original_filename": "20261031_110730PA310753 isopods.tif",
+    "caption": "20261031 110730PA310753 isopods.tif",
+    "title": "Isopod Huddle",
+    "description": "",
+    "category": "Biota Studio",
+    "subcategory": null,
+    "location": "Biota Studio, Surry Hills",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 640,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:31 11:07:30"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "tags": [
+      "nature/bugs/other"
+    ],
+    "links": [
+      {
+        "label": "Isopods (woodlice)",
+        "url": "https://en.wikipedia.org/wiki/Woodlouse"
+      }
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20261031-111820pa310785-jumping-spider-2stacked.jpg",
+    "medium": "images/medium/20261031-111820pa310785-jumping-spider-2stacked.jpg",
+    "full": "images/full/20261031-111820pa310785-jumping-spider-2stacked.jpg",
+    "original_filename": "20261031_111820PA310785 jumping spider 2stacked.jpg",
+    "caption": "20261031 111820PA310785 jumping spider 2stacked",
+    "title": "Hairy Jumping Spider",
+    "description": "A hairy orange-brown jumping spider against a dark background. 2-photo stack, combined in Zerene Stacker.",
+    "category": "Biota Studio",
+    "subcategory": null,
+    "location": "Biota Studio, Surry Hills",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:31 11:18:20"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "tags": [
+      "nature/bugs/spiders"
+    ],
+    "links": [
+      {
+        "label": "Jumping spider",
+        "url": "https://en.wikipedia.org/wiki/Jumping_spider"
+      }
+    ],
+    "samples": [
+      "20261031_111820PA310785 jumping spider.tif"
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20261031-111820pa310785-jumping-spider.jpg",
+    "medium": "images/medium/20261031-111820pa310785-jumping-spider.jpg",
+    "full": "images/full/20261031-111820pa310785-jumping-spider.jpg",
+    "original_filename": "20261031_111820PA310785 jumping spider.tif",
+    "caption": "20261031 111820PA310785 jumping spider.tif",
+    "title": "Hairy Jumping Spider: Example Slice",
+    "description": "Sample stack slice",
+    "category": "Biota Studio",
+    "subcategory": null,
+    "location": "Biota Studio, Surry Hills",
+    "settings": {
+      "aperture": "f/10",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "180mm",
+      "lens": "OM 90mm F3.5 + MC-20",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:31 11:18:20"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "tags": [
+      "nature/bugs/spiders"
+    ],
+    "sample_of": "20261031_111820PA310785 jumping spider 2stacked.jpg"
+  },
+  {
+    "thumb": "images/thumbs/20261031-114014pa310971-isopod.jpg",
+    "medium": "images/medium/20261031-114014pa310971-isopod.jpg",
+    "full": "images/full/20261031-114014pa310971-isopod.jpg",
+    "original_filename": "20261031_114014PA310971 isopod.tif",
+    "caption": "20261031 114014PA310971 isopod.tif",
+    "title": "Dusty Pill Isopod II",
+    "description": "",
+    "category": "Biota Studio",
+    "subcategory": null,
+    "location": "Biota Studio, Surry Hills",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:31 11:40:14"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "tags": [
+      "nature/bugs/other"
+    ],
+    "links": [
+      {
+        "label": "Isopods (woodlice)",
+        "url": "https://en.wikipedia.org/wiki/Woodlouse"
+      }
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20261031-114023pa310972-isopod.jpg",
+    "medium": "images/medium/20261031-114023pa310972-isopod.jpg",
+    "full": "images/full/20261031-114023pa310972-isopod.jpg",
+    "original_filename": "20261031_114023PA310972 isopod.tif",
+    "caption": "20261031 114023PA310972 isopod.tif",
+    "title": "Dusty Pill Isopod III",
+    "description": "",
+    "category": "Biota Studio",
+    "subcategory": null,
+    "location": "Biota Studio, Surry Hills",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:31 11:40:23"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "tags": [
+      "nature/bugs/other"
+    ],
+    "links": [
+      {
+        "label": "Isopods (woodlice)",
+        "url": "https://en.wikipedia.org/wiki/Woodlouse"
+      }
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20261031-114252pa310990-isopod-50stacked.jpg",
+    "medium": "images/medium/20261031-114252pa310990-isopod-50stacked.jpg",
+    "full": "images/full/20261031-114252pa310990-isopod-50stacked.jpg",
+    "original_filename": "20261031_114252PA310990 isopod 50stacked.jpg",
+    "caption": "20261031 114252PA310990 isopod 50stacked",
+    "title": "Dusty Pill Isopod",
+    "description": "A dusty pill isopod (Spherillo sp.), a large native Australian rolling isopod, flecked with yellow-orange spots. 50-photo stack, combined in Zerene Stacker.",
+    "category": "Biota Studio",
+    "subcategory": null,
+    "location": "Biota Studio, Surry Hills",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:31 11:42:52"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "tags": [
+      "nature/bugs/other"
+    ],
+    "links": [
+      {
+        "label": "Isopods (woodlice)",
+        "url": "https://en.wikipedia.org/wiki/Woodlouse"
+      }
+    ],
+    "samples": [
+      "20261031_114252PA310990 isopod.tif"
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20261031-114252pa310990-isopod.jpg",
+    "medium": "images/medium/20261031-114252pa310990-isopod.jpg",
+    "full": "images/full/20261031-114252pa310990-isopod.jpg",
+    "original_filename": "20261031_114252PA310990 isopod.tif",
+    "caption": "20261031 114252PA310990 isopod.tif",
+    "title": "Dusty Pill Isopod: Example Slice",
+    "description": "Sample stack slice",
+    "category": "Biota Studio",
+    "subcategory": null,
+    "location": "Biota Studio, Surry Hills",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:31 11:42:52"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "tags": [
+      "nature/bugs/other"
+    ],
+    "sample_of": "20261031_114252PA310990 isopod 50stacked.jpg"
+  },
+  {
+    "thumb": "images/thumbs/20261031-114442pa311051-jumping-spider.jpg",
+    "medium": "images/medium/20261031-114442pa311051-jumping-spider.jpg",
+    "full": "images/full/20261031-114442pa311051-jumping-spider.jpg",
+    "original_filename": "20261031_114442PA311051 jumping spider.tif",
+    "caption": "20261031 114442PA311051 jumping spider.tif",
+    "title": "Jumping Spider on a Fingertip",
+    "description": "A tiny patterned jumping spider, small enough to sit on a fingertip.",
+    "category": "Biota Studio",
+    "subcategory": null,
+    "location": "Biota Studio, Surry Hills",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:31 11:44:42"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "tags": [
+      "nature/bugs/spiders"
+    ],
+    "links": [
+      {
+        "label": "Jumping spider",
+        "url": "https://en.wikipedia.org/wiki/Jumping_spider"
+      }
+    ]
+  },
+  {
+    "thumb": "images/thumbs/20261031-114445pa311053-jumping-spider.jpg",
+    "medium": "images/medium/20261031-114445pa311053-jumping-spider.jpg",
+    "full": "images/full/20261031-114445pa311053-jumping-spider.jpg",
+    "original_filename": "20261031_114445PA311053 jumping spider.tif",
+    "caption": "20261031 114445PA311053 jumping spider.tif",
+    "title": "Jumping Spider on a Fingertip II",
+    "description": "",
+    "category": "Biota Studio",
+    "subcategory": null,
+    "location": "Biota Studio, Surry Hills",
+    "settings": {
+      "aperture": "f/8",
+      "shutter": "1/100s",
+      "iso": 200,
+      "focal": "90mm",
+      "lens": "OM 90mm F3.5",
+      "camera": "OM-1MarkII",
+      "datetime": "2026:10:31 11:44:45"
+    },
+    "size": [
+      5184,
+      3888
+    ],
+    "medium_crop": null,
+    "medium_frame": [
+      0.028110599078341014,
+      0.033776301218161685,
+      0.943778801843318,
+      0.8504983388704319
+    ],
+    "tags": [
+      "nature/bugs/spiders"
+    ],
+    "links": [
+      {
+        "label": "Jumping spider",
+        "url": "https://en.wikipedia.org/wiki/Jumping_spider"
+      }
+    ]
   }
 ]
