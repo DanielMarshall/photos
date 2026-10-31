@@ -2566,6 +2566,11 @@
         { label: "Detail #1", ratio: [3, 2], center: [0.4974363082839289, 0.29832291833573676], size: 0.18285887233171325 },
       ],
     },
+    '20261031_104920PA310484 huntsman.tif': {
+      details: [
+        { label: "Detail #1", ratio: [3, 2], center: [0.7035761340109166, 0.2108941702010189], size: 0.3922712709446967 },
+      ],
+    },
   };
   // Photos with no curated crop show the whole image as their Final Frame.
   const DEFAULT_FINAL_CROP = { x: 0, y: 0, w: 1, h: 1 };
