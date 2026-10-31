@@ -55,6 +55,12 @@ that read from the photographer's local Camera Roll.
 
 Last updated 2026-10-31 (cloud session, branch `claude/great-brahmagupta-iznd4n`).
 
+- **Timeline: squashed stacks (2026-10-31, PR from
+  `claude/great-brahmagupta-iznd4n`)**: busy stacks fit inside the box like a
+  fanned deck, and spread on hover or tap. See "Squashed stacks" in the
+  Timeline notes. Possible follow-up, not asked for: at a 900px-tall window
+  the box's bottom is below the fold (the header above it is ~330px tall).
+
 - **Download button in the photo viewer (2026-10-26, PR from
   `claude/great-brahmagupta-iznd4n`)**: `#lb-download`, a link in the
   lightbox button row after Fullscreen. Normal view downloads the bordered
@@ -777,10 +783,25 @@ open/close never touching `location.hash` or `#sections`.
   recomputation is throttled to one pass per animation frame
   (`scheduleTlLayout`). Item/cluster/stem/day-label DOM nodes are created once
   and reused across zoom levels, not rebuilt every frame, to avoid thumbnail
-  flicker. `.tl-viewport` uses `overflow-x: hidden; overflow-y: visible` --
-  panning still clips horizontally, but a dense burst needing more lanes than
-  the box is tall spills visibly outside it rather than clipping real photos
-  out of view.
+  flicker. `.tl-viewport` uses `overflow-x: hidden; overflow-y: visible`.
+  **Squashed stacks (2026-10-31, photographer's request)**: a dense burst used
+  to need more lanes than the box is tall and spilled out of it, making the
+  page scroll, which clashed with the wheel being zoom. Now
+  `layoutIndividualItems` groups photos into stacks (runs whose thumbnails
+  overlap in time, keyed by the first photo's index). A stack whose lanes
+  don't fit is squashed: the lane nearest the axis is drawn normally and the
+  cards behind it lose their label lines and overlap, their far edges spaced
+  evenly to the box edge (`cardPlace`, min 2px apart). Nearest the axis is on
+  top (`z-index` 500 - rank, in `.tl-items`' own stacking context, so it
+  can't rise above the lightbox or nav). Stacks that fit are unchanged.
+  Hovering a squashed stack spreads it (`tlSpreadKey`), drawn above everything
+  (+1000): full lane spacing if that fits between the view-switcher pill and
+  the window bottom, else as much as fits. It stays open while the mouse is
+  inside its spread-out area plus 10px (`tlSpreadRect`), so crossing gaps
+  doesn't fold it. Touch: the first tap on a squashed stack spreads it, a tap
+  on a photo then opens it, and a tap on empty space folds it. All the choices
+  were Claude's suggestions, accepted. Tested in headless Chromium: at the
+  zoom where 89 photos used to sit outside the box at 1400x900, none do.
   **Tap vs. drag**: the viewport holds pointer capture for the whole gesture
   (needed for pinch), which can leave the browser's own synthesized `click`
   un-fired on a nested `.tl-item`/`.tl-cluster`. Taps are therefore resolved
