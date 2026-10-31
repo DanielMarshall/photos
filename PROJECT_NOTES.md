@@ -28,6 +28,8 @@ that read from the photographer's local Camera Roll.
   - The panel shows a place's write-up under its name (`PLACE_DESCRIPTION_SECTIONS`
     maps place key to collection, reusing `SECTION_DESCRIPTIONS`; scrolls past
     30% of the panel). Home has none, since it spans many collections.
+  - `SECTION_LINKS` adds a new-tab link after a section's write-up, via
+    `setSectionDescription()` (Biota Studio's site, so far).
   - The button is now always "Dynamic slideshow". `describeSlideshow()` fills
     a hover/focus tooltip at hover time from `slideshowOrder()`, so it matches
     what would play. Hearted view keeps its filter; the button no longer
