@@ -2417,6 +2417,52 @@
         { label: "Detail #1", ratio: [3, 2], center: [0.49132455460883034, 0.48347534211205784], size: 0.25 },
       ],
     },
+    '20261031_114445PA311053 jumping spider.tif': {
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.4530208921513269, 0.5867317489396944], size: 0.35479458930408825 },
+      ],
+    },
+    '20261031_114442PA311051 jumping spider.tif': {
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.48884585592563906, 0.6536793183578621], size: 0.3695326620191066 },
+      ],
+    },
+    '20261031_105523PA310720 redtail.tif': {
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.6457556935817805, 0.5256982959821317], size: 0.41904032925941714 },
+      ],
+    },
+    '20261031_105504PA310717 redtail.tif': {
+      details: [
+        { label: "Detail #1", ratio: [3, 2], center: [0.7095990965556184, 0.795530403794514], size: 0.2648505533666272 },
+      ],
+    },
+    '20261031_105429PA310716 redtail.tif': {
+      details: [
+        { label: "Detail #1", ratio: [3, 2], center: [0.8222308288148721, 0.8073586367157243], size: 0.25 },
+      ],
+    },
+    '20261031_104244PA310211 scorpion 32stacked.jpg': {
+      details: [
+        { label: "Detail #1", ratio: [3, 2], center: [0.5102547668642846, 0.6897131869892645], size: 0.25 },
+      ],
+    },
+    '20261031_104720PA310440 huntsman 13stacked.jpg': {
+      final: { ratio: [3, 2], center: [0.6127708890082117, 0.6337537472392938], size: 0.7324925055214123 },
+      details: [
+        { label: "Detail #1", ratio: [3, 2], center: [0.5963764705882353, 0.6828815596207771], size: 0.1925713268349134 },
+      ],
+    },
+    '20261031_104321PA310283 scorpion 18stacked.jpg': {
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.8980331677615766, 0.1359557763178978], size: 0.2719115526357956 },
+      ],
+    },
+    '20261031_104420PA310358 scorpian 48stacked.jpg': {
+      details: [
+        { label: "Detail #1", ratio: [3, 2], center: [0.4974363082839289, 0.29832291833573676], size: 0.18285887233171325 },
+      ],
+    },
   };
   // Photos with no curated crop show the whole image as their Final Frame.
   const DEFAULT_FINAL_CROP = { x: 0, y: 0, w: 1, h: 1 };
