@@ -21,8 +21,8 @@ that read from the photographer's local Camera Roll.
   `TITLE_RULES` for Scorpion, Isopod and Springtail (Bugs > Other). IDs:
   rainforest scorpion (*Hormurus* sp.), lichen huntsman (*Pandercetes* sp.) and
   dusty pill isopod (*Spherillo* sp., no Wikipedia page, links to Woodlouse)
-  come from the photographer plus the studio's store listing. Unconfirmed:
-  "redtail" files titled Red Springtail (looks like the store's Neanuridae);
+  come from the photographer plus the studio's store listing. Other IDs:
+  "redtail" files are Red Springtails (confirmed by the photographer; the store's Neanuridae);
   the jumping spiders are the store's Giant Bark Jumping Spider (Servaea incana) per the photographer, who first said cyclops and then corrected it (all three photos assumed the same kind); "Isopods on Tissue" (file
   named "huntsman", PA310484) and "Isopod Huddle" are unidentified varieties.
   Crop: Lichen Huntsman stack, bottom 6% (smear). Other stacks' edges clean.
