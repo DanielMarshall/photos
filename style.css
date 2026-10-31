@@ -606,9 +606,9 @@ main {
   width: 100%;
   height: 68vh;
   min-height: 420px;
-  /* Horizontal panning needs clipping; a dense burst of photos can need more
-     lanes above/below the axis than the box is tall, so vertical overflow is
-     left visible rather than clipping real photos out of view. */
+  /* Horizontal panning needs clipping. Vertically, a busy stack is squashed
+     to fit inside the box, but a stack spread out by hover can reach past
+     it (up to the window edges), so vertical overflow stays visible. */
   overflow-x: hidden;
   overflow-y: visible;
   border: 1px solid var(--border);
@@ -632,6 +632,13 @@ main {
 .tl-clusters, .tl-items, .tl-stems, .tl-day-labels {
   position: absolute;
   inset: 0;
+}
+
+/* Its own stacking context: photos in a squashed stack are layered with
+   z-index (nearest the axis on top, a spread stack above all), and this
+   keeps those numbers from competing with the lightbox or the nav pill. */
+.tl-items {
+  z-index: 1;
 }
 
 .tl-axis {

@@ -1017,6 +1017,11 @@
   let tlLastSqueeze = false; // whether the last item layout was single-row
   let tlContentRight = 0; // rightmost drawn photo edge (track px), from the last item layout
   let tlAnim = null; // running "Current" animation's rAF id
+  // Squashed stacks (see layoutIndividualItems): the one currently fanned
+  // out, keyed by its first photo's index, and where it's drawn while
+  // spread (viewport px) so the mouse can move around inside it freely.
+  let tlSpreadKey = null;
+  let tlSpreadRect = null;
 
   function scheduleTlLayout() {
     if (tlLayoutScheduled) return;
@@ -1097,7 +1102,15 @@
     // browser's own synthesized "click" un-fired on this nested element --
     // so taps are detected directly from the pointerup coordinates instead
     // (see endPointer below), via this expando rather than a click listener.
-    wrap.__tlTap = () => {
+    wrap.__tlTap = (e) => {
+      // No hover on a touch screen: the first tap on a squashed stack fans
+      // it out, and a tap on a photo in the fanned-out stack opens it.
+      const key = wrap.__tlStackKey;
+      if (e && e.pointerType !== 'mouse' && wrap.__tlSquashed && key !== tlSpreadKey) {
+        tlSpreadKey = key;
+        scheduleTlLayout();
+        return;
+      }
       currentOrder = chronoOrder;
       open(idx);
     };
@@ -1273,6 +1286,52 @@
       });
     }
 
+    // Stacks: runs of photos whose thumbnails overlap in time, so they had
+    // to fan out into lanes. A stack with more lanes than fit in the box
+    // gets squashed: its lanes overlap like a fanned deck of cards, the
+    // photo nearest the axis fully visible and each one behind it showing
+    // a strip, so nothing ever spills out of the box (spilling made the
+    // page scroll, and the wheel is for zooming). Stacks that fit are drawn
+    // exactly as before. Hovering a squashed stack (tapping, on a touch
+    // screen) spreads it out again -- to full size if that fits in the
+    // window, else as far as the window allows -- drawn above everything.
+    const stackOf = new Map(); // idx -> stack
+    if (!squeeze) {
+      let stack = null;
+      positioned.forEach((p) => {
+        if (!stack || p.x - stack.maxX >= 2 * halfW) {
+          stack = { key: p.idx, maxX: p.x, minX: p.x, up: 0, down: 0 };
+        }
+        stack.maxX = Math.max(stack.maxX, p.x);
+        if (p.lane > 0) stack.up = Math.max(stack.up, p.lane);
+        else stack.down = Math.max(stack.down, -p.lane);
+        stackOf.set(p.idx, stack);
+      });
+    }
+    const boxRoom = centerY - 6; // axis to box edge, less a small margin
+    // Window room for a spread stack: up to just under the view switcher
+    // pill, down to the bottom of the window.
+    const vpTop = tlViewportEl.getBoundingClientRect().top;
+    const navBottom = viewSwitcher ? viewSwitcher.getBoundingClientRect().bottom : 0;
+    const spreadRoomUp = Math.max(boxRoom, vpTop + centerY - navBottom - 8);
+    const spreadRoomDown = Math.max(boxRoom, window.innerHeight - (vpTop + centerY) - 8);
+    // Where a card sits: its near edge's distance from the axis, its height,
+    // and whether its label lines show. Lanes are laneH apart when they fit
+    // in `room`; otherwise the cards behind the first drop their labels and
+    // overlap, their far edges spaced evenly out to the edge of `room`.
+    function cardPlace(rank, maxRank, room) {
+      const fullFar = TL_LANE_GAP + (maxRank - 1) * laneH + contentH;
+      if (maxRank <= 1 || fullFar <= room) {
+        return { near: TL_LANE_GAP + (rank - 1) * laneH, h: contentH, labels: true, squashed: false };
+      }
+      if (rank === 1) return { near: TL_LANE_GAP, h: contentH, labels: true, squashed: true };
+      const step = Math.max(2, (room - TL_LANE_GAP - contentH) / (maxRank - 1));
+      const far = TL_LANE_GAP + contentH + (rank - 1) * step;
+      return { near: far - thumbPx, h: thumbPx, labels: false, squashed: true };
+    }
+    let spreadFound = false;
+    let spreadBox = null;
+
     const seenItems = new Set();
     const dayRanges = new Map(); // day key -> {minX, maxX, minDt, maxDt, date}
     let maxRight = 0;
@@ -1281,8 +1340,13 @@
       const side = squeeze ? 1 : lane > 0 ? 1 : -1;
       const rank = squeeze ? 1 : Math.abs(lane);
       const renderX = squeeze ? drawX : x;
-      const anchorDist = TL_LANE_GAP + (rank - 1) * laneH;
-      const wrapTop = side > 0 ? centerY - anchorDist - contentH : centerY + anchorDist;
+      const stack = stackOf.get(idx);
+      const maxRank = stack ? (side > 0 ? stack.up : stack.down) : 1;
+      const boxPlace = cardPlace(rank, maxRank, boxRoom);
+      const stackSquashed = !!stack && (cardPlace(1, stack.up, boxRoom).squashed || cardPlace(1, stack.down, boxRoom).squashed);
+      const spread = stackSquashed && stack.key === tlSpreadKey;
+      const place = spread ? cardPlace(rank, maxRank, side > 0 ? spreadRoomUp : spreadRoomDown) : boxPlace;
+      const wrapTop = side > 0 ? centerY - place.near - place.h : centerY + place.near;
 
       seenItems.add(idx);
       maxRight = Math.max(maxRight, renderX + halfW, x + halfW);
@@ -1291,19 +1355,31 @@
       node.wrap.style.left = `${renderX - thumbPx / 2 + tlPanPx}px`;
       node.wrap.style.top = `${wrapTop}px`;
       node.wrap.style.width = `${thumbPx}px`;
+      // Nearest the axis on top; a spread stack above every other photo.
+      node.wrap.style.zIndex = String((spread ? 1000 : 0) + 500 - rank);
+      node.wrap.__tlStackKey = stack ? stack.key : null;
+      node.wrap.__tlSquashed = stackSquashed;
       node.img.style.width = `${thumbPx}px`;
       node.img.style.height = `${thumbPx}px`;
       const text = [fmtDateTime(dt), item.title || item.caption || '', settingsLine(item.settings)];
       node.lines.forEach((el, li) => {
-        el.hidden = li >= labelLines;
+        el.hidden = li >= labelLines || !place.labels;
         el.textContent = text[li] || '';
       });
+      if (spread) {
+        spreadFound = true;
+        const l = renderX - thumbPx / 2 + tlPanPx;
+        const r = { left: l, right: l + thumbPx, top: wrapTop, bottom: wrapTop + place.h };
+        spreadBox = spreadBox
+          ? { left: Math.min(spreadBox.left, r.left), right: Math.max(spreadBox.right, r.right), top: Math.min(spreadBox.top, r.top), bottom: Math.max(spreadBox.bottom, r.bottom) }
+          : r;
+      }
 
       // Straight when this photo sits at its real time position (the usual
       // case); angled whenever a nudge moved it, pointing from the drawn
       // thumbnail back to its true spot on the axis.
       const stem = ensureStemNode(idx);
-      const nearY = side > 0 ? wrapTop + contentH : wrapTop;
+      const nearY = side > 0 ? wrapTop + place.h : wrapTop;
       positionStemLine(stem, x + tlPanPx, centerY, renderX + tlPanPx, nearY);
       // Nothing far outside the box is drawn at all: it can't be seen, and
       // skipping it keeps off-screen thumbnails from loading.
@@ -1325,6 +1401,9 @@
     });
 
     tlItemNodes.forEach((node, idx) => { if (!seenItems.has(idx)) node.wrap.style.display = 'none'; });
+    // The spread stack zoomed/panned into one that fits (or away): drop it.
+    if (!spreadFound) tlSpreadKey = null;
+    tlSpreadRect = spreadFound ? spreadBox : null;
     tlStemNodes.forEach((el, idx) => { if (!seenItems.has(idx)) el.style.display = 'none'; });
 
     // Shared per-day date/time label, standing in for individual labels
@@ -1429,11 +1508,42 @@
       if (wasTap) {
         const el = document.elementFromPoint(e.clientX, e.clientY);
         const target = el && el.closest('.tl-item, .tl-cluster');
-        if (target && target.__tlTap) target.__tlTap();
+        if (target && target.__tlTap) target.__tlTap(e);
+        else if (tlSpreadKey !== null) {
+          // A tap on empty space folds a spread stack back up.
+          tlSpreadKey = null;
+          scheduleTlLayout();
+        }
       }
     };
     viewport.addEventListener('pointerup', endPointer);
     viewport.addEventListener('pointercancel', endPointer);
+    // Mouse hover: spread a squashed stack while the pointer is over it.
+    // Once spread, it stays open while the pointer is anywhere inside its
+    // spread-out area (plus a small margin), so moving across the gaps
+    // between photos doesn't fold it back up.
+    viewport.addEventListener('pointermove', (e) => {
+      if (e.pointerType !== 'mouse' || e.buttons) return;
+      const rect = viewport.getBoundingClientRect();
+      const vx = e.clientX - rect.left;
+      const vy = e.clientY - rect.top;
+      const pad = 10;
+      if (tlSpreadRect && vx >= tlSpreadRect.left - pad && vx <= tlSpreadRect.right + pad
+          && vy >= tlSpreadRect.top - pad && vy <= tlSpreadRect.bottom + pad) return;
+      const el = document.elementFromPoint(e.clientX, e.clientY);
+      const item = el && el.closest('.tl-item');
+      const key = item && item.__tlSquashed ? item.__tlStackKey : null;
+      if (key !== tlSpreadKey) {
+        tlSpreadKey = key;
+        scheduleTlLayout();
+      }
+    });
+    viewport.addEventListener('pointerleave', (e) => {
+      if (e.pointerType === 'mouse' && tlSpreadKey !== null) {
+        tlSpreadKey = null;
+        scheduleTlLayout();
+      }
+    });
     viewport.addEventListener('wheel', (e) => {
       e.preventDefault();
       tlStopAnim();
@@ -1471,6 +1581,8 @@
     tlClusterLayer = view.querySelector('#tl-clusters');
     tlItemLayer = view.querySelector('#tl-items');
     tlStemLayer = view.querySelector('#tl-stems');
+    tlSpreadKey = null;
+    tlSpreadRect = null;
     tlDayLabelLayer = view.querySelector('#tl-day-labels');
     tlItemNodes = new Map();
     tlClusterNodes = new Map();
