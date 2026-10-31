@@ -132,6 +132,25 @@
     'Biota Studio|null': "Live invertebrates photographed at Biota Studio in Surry Hills: a rainforest scorpion, a lichen huntsman, isopods, a tiny red springtail and jumping spiders. Names follow the studio's listings where they match. Thanks to Adrian at Biota Studio for allowing me to practice in his shop, under supervision of course! I plan to revisit in the future.",
   };
 
+  // Optional link appended after a section's write-up, opening in a new tab.
+  const SECTION_LINKS = {
+    'Biota Studio|null': { label: 'biotastudio.com.au', url: 'https://www.biotastudio.com.au/' },
+  };
+
+  // Puts a section's write-up into `el`, with its link if it has one.
+  function setSectionDescription(el, key) {
+    el.textContent = SECTION_DESCRIPTIONS[key] || '';
+    const link = SECTION_LINKS[key];
+    if (!link) return;
+    const a = document.createElement('a');
+    a.className = 'section-link';
+    a.href = link.url;
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.textContent = link.label;
+    el.append(' ', a);
+  }
+
   function groupKey(item) {
     return `${item.category}|${item.subcategory}`;
   }
@@ -712,7 +731,7 @@
         if (desc) {
           const p = document.createElement('p');
           p.className = 'section-intro';
-          p.textContent = desc;
+          setSectionDescription(p, key);
           section.appendChild(p);
         }
         grid = document.createElement('div');
@@ -782,7 +801,7 @@
     if (desc) {
       const intro = document.createElement('p');
       intro.className = 'section-intro';
-      intro.textContent = desc;
+      setSectionDescription(intro, key);
       section.appendChild(intro);
     }
 
@@ -1713,9 +1732,9 @@
       if (location.hash !== hash) history.pushState(null, '', hash);
     }
     mapPanelHeaderEl.textContent = `${group.place.label} · ${group.indices.length} photo${group.indices.length === 1 ? '' : 's'}`;
-    const placeDesc = SECTION_DESCRIPTIONS[PLACE_DESCRIPTION_SECTIONS[group.key]] || '';
-    mapPanelDescEl.textContent = placeDesc;
-    mapPanelDescEl.hidden = !placeDesc;
+    const placeSection = PLACE_DESCRIPTION_SECTIONS[group.key];
+    setSectionDescription(mapPanelDescEl, placeSection);
+    mapPanelDescEl.hidden = !SECTION_DESCRIPTIONS[placeSection];
     mapPanelDescEl.scrollTop = 0;
     mapPanelGridEl.innerHTML = '';
     group.indices.forEach((idx) => {

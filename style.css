@@ -823,6 +823,11 @@ main {
   color: var(--muted);
 }
 
+.section-link {
+  color: var(--accent);
+  white-space: nowrap;
+}
+
 .map-panel-desc[hidden] {
   display: none;
 }
