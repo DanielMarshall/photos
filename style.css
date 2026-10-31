@@ -1199,8 +1199,10 @@ main {
   border-color: #fff;
 }
 
-/* Wikipedia link for identified subjects -- styled like the buttons beside it. */
-.lb-wiki {
+/* Wikipedia link for identified subjects, and the Download link -- styled
+   like the buttons beside them. */
+.lb-wiki,
+.lb-download {
   text-decoration: none;
   display: inline-block;
 }

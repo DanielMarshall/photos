@@ -15,6 +15,24 @@ that read from the photographer's local Camera Roll.
 
 ## Current status (keep this updated -- read first in a new session)
 
+Last updated 2026-10-31 (cloud session, branch `claude/great-brahmagupta-iznd4n`).
+
+- **Download button in the photo viewer (2026-10-26, PR from
+  `claude/great-brahmagupta-iznd4n`)**: `#lb-download`, a link in the
+  lightbox button row after Fullscreen. Normal view downloads the bordered
+  medium image (for a cropped Final Frame, that already is the crop); the
+  full-res view downloads the whole, uncropped full-res file, straight from
+  the in-memory `fullObjectURL`, so there's no second download. The label
+  shows the size: a HEAD request gets it for medium, and `fullBytes` (set
+  when full-res loads) for full res. File name: `<title> - Daniel
+  Marshall.jpg`, plus ` (full res)` for the full file. Colons become ` - `
+  and other characters Windows won't allow are removed. Untitled photos use
+  the image's file name. The photographer chose (all were Claude's
+  suggestions): whole original for full res (not the crop), slices behave
+  like any photo, nothing added to the slideshow. Tested in headless
+  Chromium at 1400px and 390px: the saved files are byte-identical to
+  `images/medium` and `images/full`, and the label follows view changes and
+  photo steps.
 - **Home page restructured to People / Places / Nature / Other
   (2026-10-26, local session, pushed)**, at the photographer's request. Their
   choices: a 4th "Other" tile; "Bugs" rather than "Insects" (spiders
@@ -69,8 +87,6 @@ that read from the photographer's local Camera Roll.
     in the filename): Dinosaur on the Railing, Dinosaurs on the Railing,
     Dinosaur on the Awning.
   Titles are Claude's suggestions.
-
-Last updated 2026-10-16 (cloud session, branch `claude/project-thread-ndnuba`).
 
 - **Contact email in footer (2026-10-16, PR from
   `claude/project-thread-ndnuba`)**: the footer (shown under every view) now
