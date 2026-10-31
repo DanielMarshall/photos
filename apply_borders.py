@@ -23,6 +23,7 @@ CAMERA_NAMES = {
 LENS_NAMES = {
     "OM 90mm F3.5": "M.Zuiko 90mm f/3.5 Macro",
     "OM 90mm F3.5 + MC-20": "M.Zuiko 90mm f/3.5 Macro + MC-20 2x Teleconverter",
+    "OLYMPUS M.12mm F2.0": "M.Zuiko 12mm f/2.0",
 }
 
 def frame_count(description):

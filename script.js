@@ -453,108 +453,303 @@
     });
   }
 
+  // ---------------- Browse: People / Places / Nature / Other ----------------
+  // The home page's four tiles (2026-10-26). Each photo carries `tags` from
+  // build_data.py's browse_tags() ("people", "nature/bugs/spiders",
+  // "other/liquids", ...). Places isn't a tag: every photo appears there,
+  // under the same place key the Map uses. Inside a tile, tabs (and a second
+  // row for Bugs and Animals) pick a subset; the photos are then shown grouped
+  // by their original collection (the old categories), each with its heading
+  // and write-up, in SECTION_ORDER order.
+  const BROWSE = [
+    { id: 'people', label: 'People',
+      desc: 'Portraits of friends, family, colleagues and people met out and about.' },
+    { id: 'places', label: 'Places',
+      desc: 'Every photo, by where it was taken: the map as a list.' },
+    { id: 'nature', label: 'Nature',
+      desc: 'Bugs, animals, flowers, plants and landscapes, mostly macro and mostly from the back yard.',
+      tabs: [
+        { id: 'bugs', label: 'Bugs', tabs: [
+          { id: 'spiders', label: 'Spiders' },
+          { id: 'wasps', label: 'Wasps & Bees' },
+          { id: 'ants', label: 'Ants' },
+          { id: 'beetles', label: 'Beetles' },
+          { id: 'butterflies', label: 'Butterflies & Moths' },
+          { id: 'other', label: 'Other' },
+        ] },
+        { id: 'animals', label: 'Animals', tabs: [
+          { id: 'birds', label: 'Birds' },
+          { id: 'bats', label: 'Bats' },
+          { id: 'reptiles', label: 'Reptiles' },
+          { id: 'fish', label: 'Fish' },
+          { id: 'dogs', label: 'Dogs' },
+        ] },
+        { id: 'flowers', label: 'Flowers' },
+        { id: 'plants', label: 'Plants & Fungi' },
+        { id: 'landscapes', label: 'Landscapes' },
+      ] },
+    { id: 'other', label: 'Other',
+      desc: 'Liquid experiments, curious objects, planes and night shots.',
+      tabs: [
+        { id: 'liquids', label: 'Liquids' },
+        { id: 'objects', label: 'Objects & Textures' },
+        { id: 'planes', label: 'Planes' },
+        { id: 'night', label: 'Night & Odd Shots' },
+      ] },
+  ];
+
+  // Places tabs come from the Map's places, in a fixed order.
+  const PLACE_TAB_ORDER = ['gladesville', 'boronia', 'tarban', 'banjo', 'artarmon', 'hornsby',
+    'macquarie', 'pymble', 'darling', 'chinesegarden', 'townhall', 'qvb', 'dhpiano', 'ashfield'];
+  function placeTabs() {
+    const present = new Set(globalOrder.map((i) => placeKey(items[i])));
+    const keys = PLACE_TAB_ORDER.filter((k) => present.has(k));
+    present.forEach((k) => { if (!keys.includes(k)) keys.push(k); });
+    return keys.map((k) => ({ id: k, label: PLACES[k] ? PLACES[k].label : k }));
+  }
+
+  function browseTabsFor(top) {
+    return top.id === 'places' ? placeTabs() : (top.tabs || []);
+  }
+
+  // Does `item` belong at this browse path (['nature', 'bugs', 'spiders'] etc.)?
+  function inBrowsePath(item, path) {
+    const [top, tab, sub] = path;
+    if (top === 'places') return !tab || placeKey(item) === tab;
+    const prefix = [top, tab, sub].filter(Boolean).join('/');
+    return (item.tags || []).some((t) => t === prefix || t.startsWith(prefix + '/'));
+  }
+
+  // Site order (collection by collection), filtered to a browse path.
+  function browseOrder(path) {
+    return globalOrder.filter((i) => inBrowsePath(items[i], path));
+  }
+
+  function browseHref(path) {
+    return '#/b/' + path.map(encodeURIComponent).join('/');
+  }
+
+  // Where a shared photo link (#/p/<slug>) should land: its first tag, else
+  // its place.
+  function primaryBrowsePath(item) {
+    const tag = (item.tags || [])[0];
+    return tag ? tag.split('/') : ['places', placeKey(item)];
+  }
+
+  // A home-page tile: cover thumbnail that cycles through `cardItems` on hover
+  // behind a quick camera-shutter close/open, plus title, blurb and count.
+  function makeCategoryCard(href, title, desc, cardItems) {
+    const card = document.createElement('a');
+    card.className = 'category-card';
+    card.href = href;
+
+    const thumbWrap = document.createElement('div');
+    thumbWrap.className = 'card-thumb-wrap';
+    const thumb = document.createElement('img');
+    thumb.className = 'category-card-thumb';
+    thumb.src = cardItems[0].thumb;
+    thumb.alt = title;
+    thumbWrap.appendChild(thumb);
+    const shutterTop = document.createElement('div');
+    shutterTop.className = 'shutter shutter-top';
+    const shutterBottom = document.createElement('div');
+    shutterBottom.className = 'shutter shutter-bottom';
+    thumbWrap.appendChild(shutterTop);
+    thumbWrap.appendChild(shutterBottom);
+    card.appendChild(thumbWrap);
+
+    const SHUTTER_MS = 50;
+    let hoverTimer = null;
+    let shutterTimeout = null;
+    let hoverPos = 0;
+    function openShutters() {
+      shutterTop.classList.remove('closed');
+      shutterBottom.classList.remove('closed');
+    }
+    function goToThumb(index, animate) {
+      if (!animate) {
+        thumb.src = cardItems[index].thumb;
+        openShutters();
+        return;
+      }
+      shutterTop.classList.add('closed');
+      shutterBottom.classList.add('closed');
+      shutterTimeout = setTimeout(() => {
+        thumb.src = cardItems[index].thumb;
+        openShutters();
+      }, SHUTTER_MS);
+    }
+    card.addEventListener('mouseenter', () => {
+      if (cardItems.length < 2) return;
+      hoverTimer = setInterval(() => {
+        hoverPos = (hoverPos + 1) % cardItems.length;
+        goToThumb(hoverPos, true);
+      }, 700);
+    });
+    card.addEventListener('mouseleave', () => {
+      clearInterval(hoverTimer);
+      clearTimeout(shutterTimeout);
+      hoverTimer = null;
+      hoverPos = 0;
+      goToThumb(0, false);
+    });
+
+    const body = document.createElement('div');
+    body.className = 'category-card-body';
+    const heading = document.createElement('h2');
+    heading.textContent = title;
+    body.appendChild(heading);
+    if (desc) {
+      const p = document.createElement('p');
+      p.textContent = desc;
+      body.appendChild(p);
+    }
+    const count = document.createElement('div');
+    count.className = 'category-count';
+    count.textContent = `${cardItems.length} photo${cardItems.length === 1 ? '' : 's'}`;
+    body.appendChild(count);
+    card.appendChild(body);
+    return card;
+  }
+
   function renderHome() {
     document.body.classList.add('home-view');
     main.innerHTML = '';
     renderNewestStrip();
     const grid = document.createElement('div');
-    grid.className = 'category-grid';
-
-    SECTION_ORDER.forEach(([cat, sub]) => {
-      const key = `${cat}|${sub}`;
-      const groupItems = groups.get(key);
-      if (!groupItems || !groupItems.length) return;
-
-      const card = document.createElement('a');
-      card.className = 'category-card';
-      card.href = `#/c/${encodeURIComponent(key)}`;
-
-      const thumbWrap = document.createElement('div');
-      thumbWrap.className = 'card-thumb-wrap';
-
-      const thumb = document.createElement('img');
-      thumb.className = 'category-card-thumb';
-      thumb.src = groupItems[0].thumb;
-      thumb.alt = SECTION_LABELS[key] || cat;
-      thumbWrap.appendChild(thumb);
-
-      const shutterTop = document.createElement('div');
-      shutterTop.className = 'shutter shutter-top';
-      const shutterBottom = document.createElement('div');
-      shutterBottom.className = 'shutter shutter-bottom';
-      thumbWrap.appendChild(shutterTop);
-      thumbWrap.appendChild(shutterBottom);
-
-      card.appendChild(thumbWrap);
-
-      // Hover: cycle through this category's thumbnails, swapping behind a
-      // quick camera-shutter close/open rather than a straight cut.
-      const SHUTTER_MS = 50;
-      let hoverTimer = null;
-      let shutterTimeout = null;
-      let hoverPos = 0;
-
-      function openShutters() {
-        shutterTop.classList.remove('closed');
-        shutterBottom.classList.remove('closed');
-      }
-
-      function goToThumb(index, animate) {
-        if (!animate) {
-          thumb.src = groupItems[index].thumb;
-          openShutters();
-          return;
-        }
-        shutterTop.classList.add('closed');
-        shutterBottom.classList.add('closed');
-        shutterTimeout = setTimeout(() => {
-          thumb.src = groupItems[index].thumb;
-          openShutters();
-        }, SHUTTER_MS);
-      }
-
-      card.addEventListener('mouseenter', () => {
-        if (groupItems.length < 2) return;
-        hoverTimer = setInterval(() => {
-          hoverPos = (hoverPos + 1) % groupItems.length;
-          goToThumb(hoverPos, true);
-        }, 700);
-      });
-      card.addEventListener('mouseleave', () => {
-        clearInterval(hoverTimer);
-        clearTimeout(shutterTimeout);
-        hoverTimer = null;
-        hoverPos = 0;
-        goToThumb(0, false);
-      });
-
-      const body = document.createElement('div');
-      body.className = 'category-card-body';
-
-      const heading = document.createElement('h2');
-      heading.textContent = SECTION_LABELS[key] || cat;
-      body.appendChild(heading);
-
-      const desc = SECTION_DESCRIPTIONS[key];
-      if (desc) {
-        const p = document.createElement('p');
-        p.textContent = desc;
-        body.appendChild(p);
-      }
-
-      const count = document.createElement('div');
-      count.className = 'category-count';
-      count.textContent = `${groupItems.length} photo${groupItems.length === 1 ? '' : 's'}`;
-      body.appendChild(count);
-
-      card.appendChild(body);
-      grid.appendChild(card);
+    grid.className = 'category-grid browse-grid';
+    BROWSE.forEach((top) => {
+      const order = browseOrder([top.id]);
+      if (!order.length) return;
+      // Newest first (by capture time) on the tile, so each cover changes as
+      // photos are added; undated photos go last.
+      const when = (it) => { const d = parseDt(it.settings && it.settings.datetime); return d ? d.getTime() : -Infinity; };
+      const cardItems = order.map((i) => items[i]).sort((x, y) => when(y) - when(x));
+      grid.appendChild(makeCategoryCard(browseHref([top.id]), top.label, top.desc, cardItems));
     });
-
     main.appendChild(grid);
     window.scrollTo(0, 0);
   }
 
+  // One row of tab pills: "All" plus each tab that has photos, with counts.
+  function makeTabRow(basePath, tabs, activeId, allLabel, extraClass) {
+    const row = document.createElement('nav');
+    row.className = 'browse-tabs' + (extraClass ? ' ' + extraClass : '');
+    const add = (path, label, active) => {
+      const n = browseOrder(path).length;
+      if (!n) return;
+      const a = document.createElement('a');
+      a.className = 'browse-tab' + (active ? ' active' : '');
+      a.href = browseHref(path);
+      a.innerHTML = `${escapeHtml(label)} <span class="browse-tab-count">${n}</span>`;
+      row.appendChild(a);
+    };
+    add(basePath, allLabel, !activeId);
+    tabs.forEach((t) => add(basePath.concat(t.id), t.label, t.id === activeId));
+    return row;
+  }
+
+  function renderBrowse(path) {
+    const top = BROWSE.find((t) => t.id === path[0]);
+    if (!top) return renderHome();
+    const tabs = browseTabsFor(top);
+    const tab = tabs.find((t) => t.id === path[1]) || null;
+    const sub = tab && tab.tabs ? (tab.tabs.find((t) => t.id === path[2]) || null) : null;
+    const cleanPath = [top.id].concat(tab ? [tab.id] : [], sub ? [sub.id] : []);
+
+    document.body.classList.remove('home-view');
+    main.innerHTML = '';
+
+    const back = document.createElement('a');
+    back.className = 'back-link';
+    back.href = '#';
+    back.textContent = '← Home';
+    main.appendChild(back);
+
+    const head = document.createElement('section');
+    head.className = 'photo-section browse-head';
+    const h2 = document.createElement('h2');
+    h2.textContent = top.label;
+    head.appendChild(h2);
+    if (top.desc) {
+      const intro = document.createElement('p');
+      intro.className = 'section-intro';
+      intro.textContent = top.desc;
+      head.appendChild(intro);
+    }
+    if (tabs.length) head.appendChild(makeTabRow([top.id], tabs, tab && tab.id, 'All'));
+    if (tab && tab.tabs) {
+      head.appendChild(makeTabRow([top.id, tab.id], tab.tabs, sub && sub.id, `All ${tab.label.toLowerCase()}`, 'browse-subtabs'));
+    }
+    main.appendChild(head);
+
+    const order = browseOrder(cleanPath);
+    currentOrder = order;
+
+    // Group into runs by original collection, each with its heading/write-up.
+    let section = null;
+    let grid = null;
+    let lastKey = null;
+    order.forEach((idx) => {
+      const item = items[idx];
+      const key = groupKey(item);
+      if (key !== lastKey) {
+        lastKey = key;
+        section = document.createElement('section');
+        section.className = 'photo-section collection';
+        const h3 = document.createElement('h3');
+        h3.className = 'collection-heading';
+        h3.textContent = SECTION_LABELS[key] || item.category;
+        section.appendChild(h3);
+        const desc = SECTION_DESCRIPTIONS[key];
+        if (desc) {
+          const p = document.createElement('p');
+          p.className = 'section-intro';
+          p.textContent = desc;
+          section.appendChild(p);
+        }
+        grid = document.createElement('div');
+        grid.className = 'grid';
+        section.appendChild(grid);
+        main.appendChild(section);
+      }
+      grid.appendChild(makeGridFigure(item));
+    });
+
+    // The two section videos, where their subject is the whole view.
+    const pathStr = cleanPath.join('/');
+    if (pathStr === 'other/liquids') main.appendChild(sectionVideo('liquids'));
+    if (pathStr === 'nature/bugs/spiders') main.appendChild(sectionVideo('spider'));
+
+    window.scrollTo(0, 0);
+  }
+
+  function sectionVideo(which) {
+    const videoBlock = document.createElement('div');
+    videoBlock.className = 'section-video';
+    if (which === 'liquids') {
+      videoBlock.innerHTML = `
+        <h3>Focus? What's That Again?</h3>
+        <video controls playsinline preload="metadata" poster="video/glitter-oil-poster.jpg">
+          <source src="video/glitter-oil-focus-attempts.mp4" type="video/mp4">
+          Your browser doesn't support embedded video.
+        </video>
+        <p class="video-caption">Getting the focus right and an interesting enough shot seems to be the main challenges, but i might be more stable if I used less pizza boxes as structural supports. The MC-20 x2 magnification extender does make for more interesting shots I think, but requires a lot of stability and light. Works for flash, but not so good for backlight.</p>
+      `;
+    } else {
+      videoBlock.innerHTML = `
+        <h3>Why not every macro shot is a stack</h3>
+        <video controls loop playsinline preload="metadata" poster="video/spider-poster.jpg">
+          <source src="video/spider-focus-stack-audio.mp4" type="video/mp4">
+          Your browser doesn't support embedded video.
+        </video>
+        <p class="video-caption">A focus-stack attempt derailed by the spider's own movement, played back at half speed. Most bursts above are single frames or small stacks rather than the full sequence for exactly this reason. Music generated with Gemini.</p>
+      `;
+    }
+    return videoBlock;
+  }
+
+  // The old one-collection page, kept so existing #/c/... links still work.
   function renderCategory(key) {
     const groupItems = groups.get(key);
     if (!groupItems || !groupItems.length) return renderHome();
@@ -1568,6 +1763,11 @@
 
   function route() {
     updateSlideshowBtn();
+    const b = location.hash.match(/^#\/b\/(.+)$/);
+    if (b) {
+      setActiveView('home');
+      return renderBrowse(b[1].split('/').map(decodeURIComponent));
+    }
     const m = location.hash.match(/^#\/c\/(.+)$/);
     if (m) {
       const key = decodeURIComponent(m[1]);
@@ -1594,10 +1794,10 @@
     const p = location.hash.match(/^#\/p\/(.+)$/);
     if (p && indexBySlug.has(decodeURIComponent(p[1]))) {
       const item = items[indexBySlug.get(decodeURIComponent(p[1]))];
-      const key = groupKey(isSlice(item) ? items[indexByOriginal.get(item.sample_of)] : item);
-      history.replaceState(null, '', `#/c/${encodeURIComponent(key)}`);
+      const path = primaryBrowsePath(isSlice(item) ? items[indexByOriginal.get(item.sample_of)] : item);
+      history.replaceState(null, '', browseHref(path));
       setActiveView('home');
-      renderCategory(key);
+      renderBrowse(path);
       // Deferred: on first load route() runs before the lightbox code below
       // has been set up.
       setTimeout(() => open(item._index));
@@ -3764,6 +3964,8 @@
     if (hash === '#/hearts') return hearts.map((slug) => indexBySlug.get(slug));
     if (hash === '#/timeline') return timelineVisibleOrder();
     if (hash === '#/map') return mapVisibleOrder();
+    const b = hash.match(/^#\/b\/(.+)$/);
+    if (b) return browseOrder(b[1].split('/').map(decodeURIComponent));
     const m = hash.match(/^#\/c\/(.+)$/);
     const groupItems = m && groups.get(decodeURIComponent(m[1]));
     if (groupItems) return groupItems.map((item) => item._index);

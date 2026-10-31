@@ -106,6 +106,12 @@ SOURCE_MAP = {
 SOURCE_MAP['10102026_123313PA100668 4 butterfly 60stacked.tif'] = os.path.join(EXPORTS, '10102026_123313PA100668 4.tif')
 SOURCE_MAP['10102026_123424PA100721 wingtip 60stacked.tif'] = os.path.join(EXPORTS, '10102026_123424PA100722 wing 1.tif')
 SOURCE_MAP['20261010_123624PA100900 butterfly hairy eye 76stacked.tif'] = os.path.join(EXPORTS, '20261010_123624PA100900.tif')
+SOURCE_MAP['20261019_192339PA190149 wasp nest 50stacked.jpg'] = os.path.join(EXPORTS, '20261019_192339PA190149.tif')
+SOURCE_MAP['26102026_174929PA260016 huntsman 55stacked.jpg'] = os.path.join(EXPORTS, '26102026_174929PA260016 huntsman.tif')
+SOURCE_MAP['26102026_175136PA260115 huntsman 70stacked.jpg'] = os.path.join(EXPORTS, '26102026_175136PA260115 huntsman.tif')
+SOURCE_MAP['26102026_175345PA260223 huntsman 92stacked.jpg'] = os.path.join(EXPORTS, '26102026_175345PA260223 huntsman.tif')
+SOURCE_MAP['26102026_175834PA260330 huntsman 72stacked.jpg'] = os.path.join(EXPORTS, '26102026_175834PA260330 huntsman.tif')
+SOURCE_MAP['26102026_180834PA260530 huntsman 95stack.jpg'] = os.path.join(EXPORTS, '26102026_180834PA260530 huntsman.tif')
 UNRESOLVED = set()
 
 # Camera settings for photos whose source frame can no longer be found (the
@@ -277,6 +283,12 @@ TARBAN_BATS = {
     "bats at tarban creek/PA040282.JPG",
     "bats at tarban creek/PA040285.JPG",
     "bats at tarban creek/PA040287.JPG",
+}
+# Cockatoos shot with the 12mm wide-angle (Oct 2026); join "The Last of the Dinosaurs"
+DINOSAURS_12MM = {
+    '20261021_162656PA210023.jpg',
+    '20261021_162740PA210025.jpg',
+    '20261024_172816PA240075.jpg',
 }
 PLANES = {
     "Plane - Quatari.jpg", "Plane - Virgin.jpg",
@@ -908,6 +920,31 @@ TITLES = {
     '20261010_123624PA100900 butterfly hairy eye 76stacked.tif': ('Yellow Admiral Hairy Eye', "The yellow admiral's compound eye is covered in fine hairs, a trait of the Vanessa butterflies. 76-photo stack, combined in Zerene Stacker."),
     '20261010_123624PA100900.tif': ('Yellow Admiral Hairy Eye: Example Slice', 'Sample stack slice'),
     '2026-10-05 19-00-38 (C,S2) female wasp.tif': ('Female Flower Wasp II', 'Another of the wingless female flower wasps, waiting alone on a leaf. 65-photo stack, combined in Helicon Focus.'),
+    # 19-26 Oct: wasp nest and huntsman (Zerene), 12mm wide-angle garden and cockatoos
+    '20261019_192339PA190149 wasp nest 50stacked.jpg': ('Wasp Nest III', 'A paper wasp nest, its open cells showing the young developing inside. 50-photo stack, combined in Zerene Stacker.'),
+    '20261019_192339PA190149.tif': ('Wasp Nest III: Example Slice', 'Sample stack slice'),
+    '26102026_174929PA260016 huntsman 55stacked.jpg': ('Huntsman', 'A huntsman spider head-on, its long legs spread across a weathered plank. 55-photo stack, combined in Zerene Stacker.'),
+    '26102026_174929PA260016 huntsman.tif': ('Huntsman: Example Slice', 'Sample stack slice'),
+    '26102026_175136PA260115 huntsman 70stacked.jpg': ('Huntsman II', 'Closer in, the hairy fangs front and centre. 70-photo stack, combined in Zerene Stacker.'),
+    '26102026_175136PA260115 huntsman.tif': ('Huntsman II: Example Slice', 'Sample stack slice'),
+    '26102026_175345PA260223 huntsman 92stacked.jpg': ('Huntsman Face', "The huntsman's eight eyes in two rows above its fangs. 92-photo stack, combined in Zerene Stacker."),
+    '26102026_175345PA260223 huntsman.tif': ('Huntsman Face: Example Slice', 'Sample stack slice'),
+    '26102026_175834PA260330 huntsman 72stacked.jpg': ('Huntsman Face II', 'Closer still on the eyes and fangs. 72-photo stack, combined in Zerene Stacker.'),
+    '26102026_175834PA260330 huntsman.tif': ('Huntsman Face II: Example Slice', 'Sample stack slice'),
+    '26102026_180834PA260530 huntsman 95stack.jpg': ('Huntsman Eyes', 'Right in on the eyes, with the MC-20 2x teleconverter. 95-photo stack, combined in Zerene Stacker.'),
+    '26102026_180834PA260530 huntsman.tif': ('Huntsman Eyes: Example Slice', 'Sample stack slice'),
+    '20261021_162656PA210023.jpg': ('Dinosaur on the Railing', 'One of the regular cockatoos on the back railing, shot with the new 12mm wide-angle lens.'),
+    '20261021_162740PA210025.jpg': ('Dinosaurs on the Railing', 'Three of them lined up on the railing, waiting for almonds.'),
+    '20261024_172816PA240075.jpg': ('Dinosaur on the Awning', 'Peering down from the edge of the awning.'),
+    '20261024_111020PA240027.jpg': ('Orb Weaver in the Garden', 'An orb-weaver at the hub of its web, with the back yard where the macro subjects live behind it. 12mm wide-angle.'),
+    '20261024_111025PA240034.jpg': ('Orb Weaver in the Garden II', ''),
+    '20261024_171214PA240041.jpg': ('The Back Yard', 'Monstera and long grass: prime spider territory. 12mm wide-angle.'),
+    '20261024_171229PA240046.jpg': ('The Back Yard II', ''),
+    '20261024_171257PA240048.jpg': ('Web in the Branches', ''),
+    '20261024_171419PA240054.jpg': ('Web by the House', ''),
+    '20261024_171624PA240061.jpg': ("Farmer's Friend Patch", "The farmer's friend growing wild in the back yard, its spiky seed heads ready to hitch a ride."),
+    '20261025_073327PA250095.jpg': ('Orb Weaver by the House', 'An orb-weaver in its web at dawn, the house behind.'),
+    '20261025_073503PA250108.jpg': ('Spider in the Leaves', ''),
     # Tarban Creek flying foxes, 4 Oct
     "bats at tarban creek/PA040150.JPG": ("Wrapped Up", ""),
     "bats at tarban creek/PA040164.JPG": ("Grey-headed Flying Fox", ""),
@@ -1187,6 +1224,8 @@ def classify(original, dt):
         return "Gladesville", "Uncategorized", LOCATION_OVERRIDE.get(original, "Home")
     if "glitter oi" in original.lower():
         return "Gladesville", "Experiments in Liquids", "Home"
+    if original in DINOSAURS_12MM:
+        return "Gladesville", "Dinosaurs", "Gladesville"
     if "last dinosaurs" in original.lower():
         return "Gladesville", "Dinosaurs", "Gladesville"
     if original.lower().endswith("frank.jpg"):
@@ -1242,6 +1281,7 @@ WIKI_WESTRINGIA = ('Coastal rosemary (Westringia fruticosa)', 'https://en.wikipe
 WIKI_CITRUS = ('Citrus', 'https://en.wikipedia.org/wiki/Citrus')
 WIKI_THYNNID = ('Flower wasps (Thynnidae)', 'https://en.wikipedia.org/wiki/Thynnidae')
 WIKI_YELLOW_ADMIRAL = ('Yellow admiral (Vanessa itea)', 'https://en.wikipedia.org/wiki/Yellow_admiral')
+WIKI_HUNTSMAN = ('Huntsman spider (Sparassidae)', 'https://en.wikipedia.org/wiki/Huntsman_spider')
 WIKI_LINKS = {
     # Orb-weaver spider
     'STACK-2-Spider.jpg': [WIKI_ORB],
@@ -1416,6 +1456,20 @@ WIKI_LINKS = {
     '10102026_123424PA100721 wingtip 60stacked.tif': [WIKI_YELLOW_ADMIRAL],
     '20261010_123624PA100900 butterfly hairy eye 76stacked.tif': [WIKI_YELLOW_ADMIRAL],
     '2026-10-05 19-00-38 (C,S2) female wasp.tif': [WIKI_THYNNID],
+    # 19-26 Oct batch
+    '20261019_192339PA190149 wasp nest 50stacked.jpg': [WIKI_PAPER_WASP],
+    '26102026_174929PA260016 huntsman 55stacked.jpg': [WIKI_HUNTSMAN],
+    '26102026_175136PA260115 huntsman 70stacked.jpg': [WIKI_HUNTSMAN],
+    '26102026_175345PA260223 huntsman 92stacked.jpg': [WIKI_HUNTSMAN],
+    '26102026_175834PA260330 huntsman 72stacked.jpg': [WIKI_HUNTSMAN],
+    '26102026_180834PA260530 huntsman 95stack.jpg': [WIKI_HUNTSMAN],
+    '20261021_162656PA210023.jpg': [WIKI_COCKATOO],
+    '20261021_162740PA210025.jpg': [WIKI_COCKATOO],
+    '20261024_172816PA240075.jpg': [WIKI_COCKATOO],
+    '20261024_111020PA240027.jpg': [WIKI_ORB],
+    '20261024_111025PA240034.jpg': [WIKI_ORB],
+    '20261024_171624PA240061.jpg': [WIKI_BIDENS],
+    '20261025_073327PA250095.jpg': [WIKI_ORB],
     # Grey-headed flying fox: every photo in the Tarban Creek section
     'bats at tarban creek/PA040150.JPG': [WIKI_FLYING_FOX],
     'bats at tarban creek/PA040164.JPG': [WIKI_FLYING_FOX],
@@ -1524,6 +1578,104 @@ def link_samples(items):
     return [i["original_filename"] for i in items
             if i["title"].endswith("Example Slice") and "sample_of" not in i]
 
+# ---------------------------------------------------------------------------
+# Browse tags (2026-10-26): the site's home page is People / Places / Nature /
+# Other. Each photo gets zero or more tags here (Places is not a tag -- the
+# site derives it from the map location, so every photo appears there).
+# Tags: "people", "nature/bugs/<spiders|wasps|ants|beetles|butterflies|other>",
+# "nature/animals/<birds|bats|reptiles|fish|dogs>", "nature/flowers",
+# "nature/plants", "nature/landscapes", "other/<liquids|objects|planes|night>".
+# Rules go by collection (category|subcategory) first, then by title keywords,
+# so new photos with descriptive titles tag themselves; BROWSE_OVERRIDE wins
+# over everything for one-off exceptions.
+# ---------------------------------------------------------------------------
+PEOPLE_COLLECTIONS = {"Gladesville|Michael's Studio", "Gladesville|Michael's Fender",
+                      "Gladesville|Frank photos of Frankie", "Darling Harbour Piano|None"}
+COLLECTION_TAGS = {
+    "Gladesville|Ants": ["nature/bugs/ants"],
+    "Gladesville|Experiments in Liquids": ["other/liquids"],
+    "Gladesville|Dinosaurs": ["nature/animals/birds"],
+    "Gladesville|Michael's Flowers": ["nature/flowers"],
+    "Gladesville|Michael's Cockroach": ["nature/bugs/other"],
+    "Gladesville|Tarban Creek Flying Foxes": ["nature/animals/bats"],
+    "Gladesville|Planes": ["other/planes"],
+    "Gladesville|People": ["nature/animals/dogs"],
+    "Gladesville|Uncategorized": ["other/night"],
+    "Gladesville|Moss": ["nature/plants"],
+}
+# (keyword in title, tags) -- first match wins, so order matters
+# (e.g. "Flower Wasp" before "Flower", "Spider" before "Web").
+TITLE_RULES = [
+    ("Bee on Orange Blossom", ["nature/bugs/wasps", "nature/flowers"]),
+    ("Wasp", ["nature/bugs/wasps"]),
+    ("Ladybird", ["nature/bugs/beetles"]), ("Beetle", ["nature/bugs/beetles"]),
+    ("Butterfly", ["nature/bugs/butterflies"]), ("Yellow Admiral", ["nature/bugs/butterflies"]),
+    ("Moth", ["nature/bugs/butterflies"]), ("Caterpillar", ["nature/bugs/butterflies"]),
+    ("Spider", ["nature/bugs/spiders"]), ("Orb Weaver", ["nature/bugs/spiders"]),
+    ("Huntsman", ["nature/bugs/spiders"]), ("Egg Sac", ["nature/bugs/spiders"]),
+    ("Web in the", ["nature/bugs/spiders", "nature/landscapes"]),
+    ("Web by the", ["nature/bugs/spiders", "nature/landscapes"]),
+    ("Cockroach", ["nature/bugs/other"]), ("Millipede", ["nature/bugs/other"]),
+    ("Grub", ["nature/bugs/other"]), ("Snail", ["nature/bugs/other"]),
+    ("Fly on", ["nature/bugs/other"]), ("Cicada", ["nature/bugs/other"]),
+    ("Insect Eggs", ["nature/bugs/other"]), ("In the Leaves", ["nature/bugs/other"]),
+    ("Whelk", ["nature/bugs/other"]), ("Barnacles", ["nature/bugs/other"]),
+    ("Bin Chicken", ["nature/animals/birds"]), ("Dinosaur", ["nature/animals/birds"]),
+    ("Koi", ["nature/animals/fish"]),
+    ("Water Dragon", ["nature/animals/reptiles"]), ("Sunbathing", ["nature/animals/reptiles"]),
+    ("Weimaraner", ["nature/animals/dogs"]), ("Those Eyes", ["nature/animals/dogs"]),
+    ("Good Boy", ["nature/animals/dogs"]),
+    ("Farmer's Friend", ["nature/plants"]), ("Dandelion", ["nature/plants"]),
+    ("Fern", ["nature/plants"]), ("Pond Surface", ["nature/plants"]),
+    ("Fungus", ["nature/plants"]), ("Wood Ear", ["nature/plants"]),
+    ("Berries", ["nature/plants"]), ("Moss", ["nature/plants"]), ("Brussels Sprout", ["nature/plants"]),
+    ("Flower", ["nature/flowers"]), ("Salvia", ["nature/flowers"]), ("Blossom", ["nature/landscapes"]),
+    ("Back Yard", ["nature/landscapes"]), ("Waterfall", ["nature/landscapes"]),
+    ("Yacht", ["nature/landscapes"]), ("Rowing Club", ["nature/landscapes"]),
+    ("Masts and Rooftops", ["nature/landscapes"]), ("Palms and Chimneys", ["nature/landscapes"]),
+    ("Red Sail", ["nature/landscapes"]),
+    ("Qantas Overhead", ["other/planes"]),
+    ("Hard Drive", ["other/objects"]), ("Mandarin Peel", ["other/objects"]),
+    ("Wine Cork", ["other/objects"]), ("Holographic", ["other/objects"]),
+]
+PEOPLE_TITLES = {
+    "Kiani", "Slava", "Billy", "Alex: Chin", "Alex: Eye", "Alex: Eye II", "Alex: Eye III",
+    "Caught Mid-Laugh", "Caught Mid-Laugh II", "Nathan", "Diana", "Nathan and Zeke", "Zeke",
+    "Watching the Harbour", "Watching the Harbour II", "Coordinated", "Coordinated II",
+    "Are You Feeling Tipsy?", "Hanfu and a Coles Bag", "Checking In", "Streets of the CBD II",
+    "Poison Ivy Cosplay", "Garden Visitor", "Garden Visitor II", "Garden Visitor III",
+    "QVB Pianist", "QVB Pianist II", "QVB Pianist III", "QVB Pianist IV",
+    "Playing by Ear", "Playing by Ear II", "Playing by Ear III", "Playing by Ear IV",
+}
+# Exceptions by original filename (title-based rules would get these wrong).
+BROWSE_OVERRIDE = {
+    # Waterfall IV-IX are portraits of a visitor sitting by the falls
+    **{f: ["people"] for f in []},
+}
+BROWSE_TITLE_OVERRIDE = {
+    "Waterfall IV": ["people"], "Waterfall V": ["people"], "Waterfall VI": ["people"],
+    "Waterfall VII": ["people"], "Waterfall VIII": ["people"], "Waterfall IX": ["people"],
+    "Pond Through the Blossoms III": [],   # actually a crane against the sky
+    "Water Dragon on the Pavement II": [], "Water Dragon on the Pavement III": [],  # dragon artwork
+}
+
+def browse_tags(original, title, category, subcategory):
+    if original in BROWSE_OVERRIDE:
+        return BROWSE_OVERRIDE[original]
+    base = title.split(": Example Slice")[0]
+    if base in BROWSE_TITLE_OVERRIDE:
+        return BROWSE_TITLE_OVERRIDE[base]
+    key = f"{category}|{subcategory}"
+    if key in PEOPLE_COLLECTIONS or base in PEOPLE_TITLES:
+        return ["people"]
+    if key in COLLECTION_TAGS:
+        return COLLECTION_TAGS[key]
+    for word, tags in TITLE_RULES:
+        if word in base:
+            return tags
+    return []
+
+
 def main():
     with open(os.path.join(PHOTOS, "manifest.tsv"), encoding="utf-8") as f:
         lines = [l.rstrip("\n") for l in f if l.strip()]
@@ -1567,6 +1719,7 @@ def main():
             "medium_crop": crop_state.get(original, {}).get("medium"),
             "medium_frame": medium_frame(os.path.join(PHOTOS, "images", "medium", f"{slug}.jpg"), settings is not None),
         })
+        items[-1]["tags"] = browse_tags(original, title, category, subcategory)
         if original in WIKI_LINKS:
             items[-1]["links"] = [{"label": label, "url": url} for label, url in WIKI_LINKS[original]]
         items[-1].update(portfolio_fields(original))

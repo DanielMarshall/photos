@@ -15,7 +15,7 @@ that read from the photographer's local Camera Roll.
 
 ## Current status (keep this updated -- read first in a new session)
 
-Last updated 2026-10-26 (cloud session, branch `claude/great-brahmagupta-iznd4n`).
+Last updated 2026-10-31 (cloud session, branch `claude/great-brahmagupta-iznd4n`).
 
 - **Download button in the photo viewer (2026-10-26, PR from
   `claude/great-brahmagupta-iznd4n`)**: `#lb-download`, a link in the
@@ -33,11 +33,60 @@ Last updated 2026-10-26 (cloud session, branch `claude/great-brahmagupta-iznd4n`
   Chromium at 1400px and 390px: the saved files are byte-identical to
   `images/medium` and `images/full`, and the label follows view changes and
   photo steps.
-- **New photos waiting in `exports` (as of 2026-10-26)**: more macro and
-  stacked shots, plus the first **12mm lens** shots (the garden, and spiders
-  shot earlier on the macro lens). They need a local session, as the files
-  are only on the PC. `apply_borders.py`'s `LENS_NAMES` probably needs an
-  entry for the 12mm lens. Ask the photographer how to group the 12mm shots.
+- **Home page restructured to People / Places / Nature / Other
+  (2026-10-26, local session, pushed)**, at the photographer's request. Their
+  choices: a 4th "Other" tile; "Bugs" rather than "Insects" (spiders
+  aren't insects); non-insect animals under Nature > Animals with sub-tabs;
+  keep the old section write-ups wherever their photos land.
+  - **Tags**: `build_data.py` `browse_tags()` gives each photo a `tags` list
+    in `images.json`: `people`, `nature/bugs/{spiders,wasps,ants,beetles,butterflies,other}`,
+    `nature/animals/{birds,bats,reptiles,fish,dogs}`, `nature/{flowers,plants,landscapes}`,
+    `other/{liquids,objects,planes,night}`. Rules: `PEOPLE_COLLECTIONS` /
+    `PEOPLE_TITLES`, then `COLLECTION_TAGS` (by category|subcategory), then
+    `TITLE_RULES` (title keywords, first match wins, so order matters), with
+    `BROWSE_TITLE_OVERRIDE` / `BROWSE_OVERRIDE` for exceptions (Waterfall
+    IV-IX are people; the dragon artwork and the crane shot are untagged).
+    **New photos with descriptive titles tag themselves; check the build's
+    tag counts and add a rule if a new subject lands untagged.** Overlap is
+    small (bee on orange blossom, the two 12mm web shots).
+  - **Places is not a tag**: every photo appears there, under the Map's
+    `placeKey()` (14 place tabs, `PLACE_TAB_ORDER`).
+  - **UI** (`script.js` `BROWSE`, `renderBrowse`): routes `#/b/<top>[/<tab>[/<sub>]]`.
+    Home shows 4 tiles; each cover is the newest photo by capture time. A
+    browse page shows the top's blurb, a tab row ("All" + tabs, with counts),
+    a second row for Bugs and Animals, then the photos **grouped by their
+    original collection** (old category) with its heading and write-up, in
+    `SECTION_ORDER`. The liquids video shows on Other > Liquids and the
+    spider video on Nature > Bugs > Spiders. Old `#/c/<cat|sub>` links still
+    render the old single-collection page. Shared `#/p/<slug>` links now
+    land on the photo's first tag (else its place). The slideshow follows
+    the browse view. Map, Timeline, Hearts and portfolio are unchanged (they
+    don't use the home tiles).
+  - Old sections (`SECTION_ORDER`/`LABELS`/`DESCRIPTIONS`) still matter:
+    they're the collections and write-ups shown inside browse pages, and
+    the global order.
+
+- **19-26 Oct batch + new 12mm lens (2026-10-26, local session, pushed)**:
+  The photographer now also has an **OLYMPUS M.12mm F2.0** wide-angle (EXIF
+  lens string `OLYMPUS M.12mm F2.0`). It's in `apply_borders.py`
+  `LENS_NAMES` as "M.Zuiko 12mm f/2.0". The home page gear note no longer
+  says "the same camera and lens"; it now says nearly all photos use the
+  90mm, and wide-angle shots from late October 2026 on use a 12mm F2.0.
+  24 files added:
+  - **Zerene JPG stacks** (Zerene can output JPG as well as TIFF; still no
+    EXIF) paired with single-frame TIFFs via `SOURCE_MAP`: Wasp Nest III
+    (paper wasp), plus Huntsman, II, Face, Face II and Eyes (the last with
+    MC-20), linked to Wikipedia's Huntsman spider page. Shot on a tripod,
+    edges clean, so no crop.
+  - **12mm wides in Garden**: Orb Weaver in the Garden I/II and Orb Weaver
+    by the House (orb-weaver link), The Back Yard I/II, Web in the
+    Branches, Web by the House, Spider in the Leaves, Farmer's Friend Patch
+    (*Bidens pilosa* link). They show the yard the macro subjects come from.
+  - **12mm cockatoos** go to the Dinosaurs section via the new
+    `DINOSAURS_12MM` set (that section otherwise matches "last dinosaurs"
+    in the filename): Dinosaur on the Railing, Dinosaurs on the Railing,
+    Dinosaur on the Awning.
+  Titles are Claude's suggestions.
 
 - **Contact email in footer (2026-10-16, PR from
   `claude/project-thread-ndnuba`)**: the footer (shown under every view) now
