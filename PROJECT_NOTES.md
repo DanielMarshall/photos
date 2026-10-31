@@ -23,7 +23,7 @@ that read from the photographer's local Camera Roll.
   dusty pill isopod (*Spherillo* sp., no Wikipedia page, links to Woodlouse)
   come from the photographer plus the studio's store listing. Unconfirmed:
   "redtail" files titled Red Springtail (looks like the store's Neanuridae);
-  jumping spiders have family-level links only; "Isopods on Tissue" (file
+  the jumping spiders are cyclops per the photographer (Opisthoncus; all three photos assumed the same kind, linked to Wikipedia's O. polyphemus "cyclops jumping spider"); "Isopods on Tissue" (file
   named "huntsman", PA310484) and "Isopod Huddle" are unidentified varieties.
   Crop: Lichen Huntsman stack, bottom 6% (smear). Other stacks' edges clean.
 

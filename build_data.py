@@ -984,8 +984,8 @@ TITLES = {
     '20261031_104420PA310358 scorpian.tif': ('Rainforest Scorpion Close-Up: Example Slice', 'Sample stack slice'),
     '20261031_104720PA310440 huntsman 13stacked.jpg': ('Lichen Huntsman', 'A lichen huntsman (Pandercetes sp.), a master of camouflage that all but disappears against lichen-covered bark, caught here with an insect in its fangs. 13-photo stack, combined in Zerene Stacker.'),
     '20261031_104720PA310440 huntsman.tif': ('Lichen Huntsman: Example Slice', 'Sample stack slice'),
-    '20261031_111820PA310785 jumping spider 2stacked.jpg': ('Hairy Jumping Spider', 'A hairy orange-brown jumping spider against a dark background. 2-photo stack, combined in Zerene Stacker.'),
-    '20261031_111820PA310785 jumping spider.tif': ('Hairy Jumping Spider: Example Slice', 'Sample stack slice'),
+    '20261031_111820PA310785 jumping spider 2stacked.jpg': ('Cyclops Jumping Spider', 'A cyclops jumping spider (Opisthoncus), hairy and orange-brown against a dark background. 2-photo stack, combined in Zerene Stacker.'),
+    '20261031_111820PA310785 jumping spider.tif': ('Cyclops Jumping Spider: Example Slice', 'Sample stack slice'),
     '20261031_114252PA310990 isopod 50stacked.jpg': ('Dusty Pill Isopod', 'A dusty pill isopod (Spherillo sp.), a large native Australian rolling isopod, flecked with yellow-orange spots. 50-photo stack, combined in Zerene Stacker.'),
     '20261031_114252PA310990 isopod.tif': ('Dusty Pill Isopod: Example Slice', 'Sample stack slice'),
     '20261031_104920PA310484 huntsman.tif': ('Isopods on Tissue', ''),
@@ -995,8 +995,8 @@ TITLES = {
     '20261031_110730PA310753 isopods.tif': ('Isopod Huddle', ''),
     '20261031_114014PA310971 isopod.tif': ('Dusty Pill Isopod II', ''),
     '20261031_114023PA310972 isopod.tif': ('Dusty Pill Isopod III', ''),
-    '20261031_114442PA311051 jumping spider.tif': ('Jumping Spider on a Fingertip', 'A tiny patterned jumping spider, small enough to sit on a fingertip.'),
-    '20261031_114445PA311053 jumping spider.tif': ('Jumping Spider on a Fingertip II', ''),
+    '20261031_114442PA311051 jumping spider.tif': ('Cyclops Jumping Spider on a Fingertip', 'A tiny patterned cyclops jumping spider (Opisthoncus), small enough to sit on a fingertip.'),
+    '20261031_114445PA311053 jumping spider.tif': ('Cyclops Jumping Spider on a Fingertip II', ''),
     # Tarban Creek flying foxes, 4 Oct
     "bats at tarban creek/PA040150.JPG": ("Wrapped Up", ""),
     "bats at tarban creek/PA040164.JPG": ("Grey-headed Flying Fox", ""),
@@ -1340,6 +1340,7 @@ WIKI_HORMURUS = ('Rainforest scorpions (Hormurus)', 'https://en.wikipedia.org/wi
 WIKI_PANDERCETES = ('Lichen huntsman (Pandercetes)', 'https://en.wikipedia.org/wiki/Pandercetes')
 WIKI_WOODLOUSE = ('Isopods (woodlice)', 'https://en.wikipedia.org/wiki/Woodlouse')
 WIKI_NEANURIDAE = ('Red springtails (Neanuridae)', 'https://en.wikipedia.org/wiki/Neanuridae')
+WIKI_CYCLOPS = ('Cyclops jumping spider (Opisthoncus polyphemus)', 'https://en.wikipedia.org/wiki/Opisthoncus_polyphemus')
 WIKI_LINKS = {
     # Orb-weaver spider
     'STACK-2-Spider.jpg': [WIKI_ORB],
@@ -1533,7 +1534,7 @@ WIKI_LINKS = {
     '20261031_104321PA310283 scorpion 18stacked.jpg': [WIKI_HORMURUS],
     '20261031_104420PA310358 scorpian 48stacked.jpg': [WIKI_HORMURUS],
     '20261031_104720PA310440 huntsman 13stacked.jpg': [WIKI_PANDERCETES],
-    '20261031_111820PA310785 jumping spider 2stacked.jpg': [WIKI_JUMPING],
+    '20261031_111820PA310785 jumping spider 2stacked.jpg': [WIKI_CYCLOPS],
     '20261031_114252PA310990 isopod 50stacked.jpg': [WIKI_WOODLOUSE],
     '20261031_104920PA310484 huntsman.tif': [WIKI_WOODLOUSE],
     '20261031_105429PA310716 redtail.tif': [WIKI_NEANURIDAE],
@@ -1542,8 +1543,8 @@ WIKI_LINKS = {
     '20261031_110730PA310753 isopods.tif': [WIKI_WOODLOUSE],
     '20261031_114014PA310971 isopod.tif': [WIKI_WOODLOUSE],
     '20261031_114023PA310972 isopod.tif': [WIKI_WOODLOUSE],
-    '20261031_114442PA311051 jumping spider.tif': [WIKI_JUMPING],
-    '20261031_114445PA311053 jumping spider.tif': [WIKI_JUMPING],
+    '20261031_114442PA311051 jumping spider.tif': [WIKI_CYCLOPS],
+    '20261031_114445PA311053 jumping spider.tif': [WIKI_CYCLOPS],
     # Grey-headed flying fox: every photo in the Tarban Creek section
     'bats at tarban creek/PA040150.JPG': [WIKI_FLYING_FOX],
     'bats at tarban creek/PA040164.JPG': [WIKI_FLYING_FOX],
