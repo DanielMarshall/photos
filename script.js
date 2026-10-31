@@ -2382,6 +2382,36 @@
     'bats at tarban creek/PA040287.JPG': {
       final: { ratio: [3, 2], center: [0.6123541171067197, 0.39884078793445915], size: 0.6891482362547204 },
     },
+    '20261019_192339PA190149 wasp nest 50stacked.jpg': {
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.6051113603589169, 0.3615606473321583], size: 0.35149281632217055 },
+      ],
+    },
+    '20261025_073503PA250108.jpg': {
+      details: [
+        { label: "Detail #1", ratio: [3, 2], center: [0.4940059191548346, 0.5287719473513325], size: 0.5712805015110267 },
+      ],
+    },
+    '20261024_111025PA240034.jpg': {
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.4277244494635799, 0.54979044846538], size: 0.25 },
+      ],
+    },
+    '20261024_171624PA240061.jpg': {
+      details: [
+        { label: "Detail #1", ratio: [1, 1], center: [0.5099147947327654, 0.6388071262587142], size: 0.2257681383940098 },
+      ],
+    },
+    '20261024_171419PA240054.jpg': {
+      details: [
+        { label: "Detail #1", ratio: [3, 2], center: [0.3921065447870228, 0.5847174005344788], size: 0.3826644022078475 },
+      ],
+    },
+    '20261021_162656PA210023.jpg': {
+      details: [
+        { label: "Detail #1", ratio: [3, 2], center: [0.49132455460883034, 0.48347534211205784], size: 0.25 },
+      ],
+    },
   };
   // Photos with no curated crop show the whole image as their Final Frame.
   const DEFAULT_FINAL_CROP = { x: 0, y: 0, w: 1, h: 1 };
