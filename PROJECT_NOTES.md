@@ -52,7 +52,9 @@ Last updated 2026-10-31 (cloud session, branch `claude/great-brahmagupta-iznd4n`
   - **Places is not a tag**: every photo appears there, under the Map's
     `placeKey()` (14 place tabs, `PLACE_TAB_ORDER`).
   - **UI** (`script.js` `BROWSE`, `renderBrowse`): routes `#/b/<top>[/<tab>[/<sub>]]`.
-    Home shows 4 tiles; each cover is the newest photo by capture time. A
+    Home shows 4 tiles; each cover is the newest photo by capture time,
+    unless its `BROWSE` entry pins one with `cover` (an original filename;
+    Places is pinned to The Camp III, showing its bat Detail thumbnail). A
     browse page shows the top's blurb, a tab row ("All" + tabs, with counts),
     a second row for Bugs and Animals, then the photos **grouped by their
     original collection** (old category) with its heading and write-up, in

@@ -465,7 +465,9 @@
     { id: 'people', label: 'People',
       desc: 'Portraits of friends, family, colleagues and people met out and about.' },
     { id: 'places', label: 'Places',
-      desc: 'Every photo, by where it was taken: the map as a list.' },
+      desc: 'Every photo, by where it was taken: the map as a list.',
+      // The Camp III, whose thumbnail is its Detail crop of the bats.
+      cover: 'bats at tarban creek/PA040215.JPG' },
     { id: 'nature', label: 'Nature',
       desc: 'Bugs, animals, flowers, plants and landscapes, mostly macro and mostly from the back yard.',
       tabs: [
@@ -625,6 +627,9 @@
       // photos are added; undated photos go last.
       const when = (it) => { const d = parseDt(it.settings && it.settings.datetime); return d ? d.getTime() : -Infinity; };
       const cardItems = order.map((i) => items[i]).sort((x, y) => when(y) - when(x));
+      // A tile can pin a chosen photo as its cover (still newest-first after it).
+      const coverAt = cardItems.findIndex((it) => it.original_filename === top.cover);
+      if (coverAt > 0) cardItems.unshift(cardItems.splice(coverAt, 1)[0]);
       grid.appendChild(makeCategoryCard(browseHref([top.id]), top.label, top.desc, cardItems));
     });
     main.appendChild(grid);
