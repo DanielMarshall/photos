@@ -982,7 +982,7 @@ TITLES = {
     '20261031_104321PA310283 scorpion.tif': ('Rainforest Scorpion II: Example Slice', 'Sample stack slice'),
     '20261031_104420PA310358 scorpian 48stacked.jpg': ('Rainforest Scorpion Close-Up', 'Close in on the pincers, the mouthparts and the pair of eyes on top of the head. 48-photo stack, combined in Zerene Stacker.'),
     '20261031_104420PA310358 scorpian.tif': ('Rainforest Scorpion Close-Up: Example Slice', 'Sample stack slice'),
-    '20261031_104720PA310440 huntsman 13stacked.jpg': ('Lichen Huntsman', 'A lichen huntsman (Pandercetes sp.), a master of camouflage that all but disappears against lichen-covered bark. 13-photo stack, combined in Zerene Stacker.'),
+    '20261031_104720PA310440 huntsman 13stacked.jpg': ('Lichen Huntsman', 'A lichen huntsman (Pandercetes sp.), a master of camouflage that all but disappears against lichen-covered bark, caught here with an insect in its fangs. 13-photo stack, combined in Zerene Stacker.'),
     '20261031_104720PA310440 huntsman.tif': ('Lichen Huntsman: Example Slice', 'Sample stack slice'),
     '20261031_111820PA310785 jumping spider 2stacked.jpg': ('Hairy Jumping Spider', 'A hairy orange-brown jumping spider against a dark background. 2-photo stack, combined in Zerene Stacker.'),
     '20261031_111820PA310785 jumping spider.tif': ('Hairy Jumping Spider: Example Slice', 'Sample stack slice'),
